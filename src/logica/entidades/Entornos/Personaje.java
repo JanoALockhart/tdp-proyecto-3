@@ -1,4 +1,4 @@
-package logica.entidades.Personaje;
+package logica.entidades.Entornos;
 
 import logica.entidades.Entidad;
 

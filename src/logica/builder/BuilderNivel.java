@@ -1,5 +1,7 @@
 package logica.builder;
 
+import logica.mapa.Mapa;
+
 public interface BuilderNivel {
 
 	public void reset();

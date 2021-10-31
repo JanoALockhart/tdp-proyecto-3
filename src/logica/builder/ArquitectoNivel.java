@@ -1,12 +1,16 @@
 package logica.builder;
 
+import logica.fabricas.FabricaElementos;
+import logica.mapa.Mapa;
+
 public class ArquitectoNivel implements BuilderNivel{
-	
+	private FabricaElementos miFabrica;
 	private Mapa nivel;
 	
 	
-	public ArquitectoNivel() {
+	public ArquitectoNivel(FabricaElementos fabrica) {
 		nivel = new Mapa();
+		miFabrica = fabrica;
 	}
 
 
@@ -14,7 +18,7 @@ public class ArquitectoNivel implements BuilderNivel{
 	 * Metodo que posiciona celdas y entidades para el nivel1
 	 */
 	public void armarNivel1() {
-		
+		//TODO
 		
 	}
 
@@ -23,14 +27,14 @@ public class ArquitectoNivel implements BuilderNivel{
 	 * Metodo que posiciona celdas y entidades para el nivel2
 	 */
 	public void armarNivel2() {
-		
+		//TODO
 		
 	}
 
 
 	
 	public void armarNivel3() {
-		
+		//TODO
 		
 	}
 

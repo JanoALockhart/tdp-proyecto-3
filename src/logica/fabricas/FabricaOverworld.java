@@ -3,6 +3,13 @@
  */
 package logica.fabricas;
 
+import logica.entidades.Collectibles.Power_ups.*;
+import logica.entidades.Collectibles.Puntos.*;
+import logica.entidades.Entornos.*;
+import logica.entidades.Personaje.Jugadores.Jugador;
+import logica.entidades.Personaje.Perseguidores.*;
+import logica.mapa.Celda;
+
 /**
  *
  */
@@ -14,62 +21,119 @@ public class FabricaOverworld implements FabricaElementos{
 	
 	/**
 	 * Metodo que crea la instancia de jugador, le asigna
-	 * su elemento grafico
+	 * su entidadGrafica y lo devuleve
 	 */
 	public Jugador construirJugador() {
-		
+		//TODO
+		return null;
 	}
 
+
+	/**
+	 * Metodo que crea la instancia de jugador, le asigna
+	 * su entidadGrafica y lo devuleve
+	 */
 	public Blinky construirBlinky() {
-		
+		//TODO
 		return null;
 	}
 
+
+	/**
+	 * Metodo que crea la instancia de jugador, le asigna
+	 * su entidadGrafica y lo devuleve
+	 */
 	public Pinky construirPinky() {
-		
+		//TODO
 		return null;
 	}
 
+
+	/**
+	 * Metodo que crea la instancia de jugador, le asigna
+	 * su entidadGrafica y lo devuleve
+	 */
 	public Inky construirInky() {
-		
+		//TODO
 		return null;
 	}
 
+
+	/**
+	 * Metodo que crea la instancia de jugador, le asigna
+	 * su entidadGrafica y lo devuleve
+	 */
 	public Clyde construirClyde() {
-		
+		//TODO
 		return null;
 	}
 
+
+	/**
+	 * Metodo que crea la instancia de jugador, le asigna
+	 * su entidadGrafica y lo devuleve
+	 */
 	public PacDot construirPacDot() {
-		
+		//TODO
 		return null;
 	}
 
+
+	/**
+	 * Metodo que crea la instancia de jugador, le asigna
+	 * su entidadGrafica y lo devuleve
+	 */
 	public Fruta construirFruta() {
-		
+		//TODO
 		return null;
 	}
 
+
+	/**
+	 * Metodo que crea la instancia de jugador, le asigna
+	 * su entidadGrafica y lo devuleve
+	 */
 	public PowerPellet construirPowerPellet() {
-		
+		//TODO
 		return null;
 	}
 
+
+	/**
+	 * Metodo que crea la instancia de jugador, le asigna
+	 * su entidadGrafica y lo devuleve
+	 */
 	public SpeedPotion construirSpeedPotion() {
-	
+		//TODO
 		return null;
 	}
 
-	public Bomba construirBomba() {
 
+	/**
+	 * Metodo que crea la instancia de jugador, le asigna
+	 * su entidadGrafica y lo devuleve
+	 */
+	public Bomb construirBomba() {
+		//TODO
 		return null;
 	}
 
+
+	/**
+	 * Metodo que crea la instancia de jugador, le asigna
+	 * su entidadGrafica y lo devuleve
+	 */
 	public Celda construirCelda() {
-		Celda cel = new Celda();
+		//TODO
+		//Celda cel = new Celda();
 		return null;
 	}
 
+
+	/**
+	 * Metodo que crea la instancia de jugador, le asigna
+	 * su entidadGrafica y lo devuleve
+	 */
 	public Portal construirPortal() {
 		// TODO Auto-generated method stub
 		return null;

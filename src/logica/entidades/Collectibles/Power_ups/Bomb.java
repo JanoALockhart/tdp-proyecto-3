@@ -1,8 +1,7 @@
 package logica.entidades.Collectibles.Power_ups;
 
-import logica.entidades.Celda;
-import logica.entidades.Entidad;
-import logica.entidades.Visitor;
+
+import logica.entidades.visitadores.*;
 
 public class Bomb extends Power_up {
 	

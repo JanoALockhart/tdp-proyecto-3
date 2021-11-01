@@ -3,7 +3,7 @@ package logica.entidades;
 import logica.entidades.visitadores.*;
 import logica.mapa.*;
 
-public abstract class Entidad implements Element {
+abstract class Entidad implements Element {
 	
 	protected ObjetoGrafico miObjetoGrafico;
 	protected Celda miPosicion;

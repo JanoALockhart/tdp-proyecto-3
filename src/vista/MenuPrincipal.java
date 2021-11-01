@@ -118,7 +118,7 @@ public class MenuPrincipal extends JPanel implements State {
 		switch(optionSelected) {
 			case 0:{
 				estadoNuevo=new PantallaNivel(miUI);
-				miUI.setSize(1000, 800);
+				miUI.setSize(528, 672);
 				miUI.cambiarEstado(estadoNuevo, estadoNuevo.getName());
 				break;
 			}

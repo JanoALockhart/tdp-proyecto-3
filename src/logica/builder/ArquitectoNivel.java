@@ -18,7 +18,7 @@ public class ArquitectoNivel implements BuilderNivel{
 	 * Metodo que posiciona celdas y entidades para el nivel1
 	 */
 	public void armarNivel1() {
-		//TODO
+		
 		
 	}
 

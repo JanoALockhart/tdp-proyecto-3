@@ -105,7 +105,7 @@ public class UserInterface extends JFrame {
 	}
 	
 	public void setSize(int x, int y) {
-		setBounds(100, 100, x, y);
+		setBounds(100,100, x, y);
 	}
 
 }

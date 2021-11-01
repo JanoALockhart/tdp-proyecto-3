@@ -8,8 +8,8 @@ public class Mapa {
 	private Celda misCeldas[][];
 	//private Asustador asusPerseguidores;
 	
-	private static final int ALTO = 20;
-	private static final int ANCHO = 20;
+	private static final int ALTO = 32;
+	private static final int ANCHO = 28;
 	
 	/**
 	 * Constructor de la clase Mapa
@@ -17,7 +17,7 @@ public class Mapa {
 	public Mapa() {
 		//TODO inicializar el asustador
 		//TODO ver dimensiones
-		misCeldas = new Celda[20][20];
+		misCeldas = new Celda[ANCHO][ALTO];
 	
 	}
 	
@@ -179,5 +179,4 @@ public class Mapa {
 	public void asustarPerseguidores() {
 		//TODO activar el observer Asustador
 	}
-	
 }

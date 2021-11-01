@@ -6,7 +6,7 @@ import logica.entidades.Entidad;
 
 public class Mapa {
 	private Celda misCeldas[][];
-	private Asustador asusPerseguidores;
+	//private Asustador asusPerseguidores;
 	
 	private static final int ALTO = 20;
 	private static final int ANCHO = 20;
@@ -126,7 +126,7 @@ public class Mapa {
 	 */
 	public Iterable<Celda> getCeldasAdyacentes(Celda centro){
 		Celda celAdy;
-		LinkedList<Celda> celdasAdy;
+		LinkedList<Celda> celdasAdy = new LinkedList<Celda>();
 		
 		celAdy = this.getCeldaArriba(centro);
 		if(celAdy!=null) {

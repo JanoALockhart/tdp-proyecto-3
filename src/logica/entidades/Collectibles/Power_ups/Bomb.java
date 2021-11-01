@@ -9,7 +9,7 @@ public class Bomb extends Power_up {
 		
 	}
 
-	@Override
+
 	public void accept(Visitor v) {
 		// TODO Auto-generated method stub
 		

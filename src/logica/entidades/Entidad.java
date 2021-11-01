@@ -6,11 +6,23 @@ public abstract class Entidad implements Element {
 	protected Celda miPosicion;
 	//TODO Linkear visitor
 	
-	public abstract Celda getCelda();
+	public void accept(Visitor v) {
+		
+	}
 	
-	public abstract void setCelda(Celda c);
+	public Celda getCelda() {
+		return miPosicion;
+	}
 	
-	public abstract boolean colisionaCon(Entidad e);
+	public void setCelda(Celda c) {
+		miPosicion = c;
+	}
 	
-	public abstract void eliminar();
+	public boolean colisionaCon(Entidad e) {
+		
+	}
+	
+	public  void eliminar() {
+		//TODO
+	}
 }

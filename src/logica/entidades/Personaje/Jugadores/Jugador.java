@@ -1,7 +1,42 @@
 package logica.entidades.Personaje.Jugadores;
 
-import logica.entidades.Entornos.Personaje;
+import logica.entidades.Personaje.Personaje;
+import logica.entidades.visitadores.*;
 
 public class Jugador extends Personaje {
 
+	protected int cantBombas;
+	protected int vidas;
+	
+	public Jugador() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public int getVidas() {
+		return vidas;
+	}
+	
+	public void perderVida() {
+
+	}
+	
+	public void avanzar() {
+		
+	} 
+	
+	public void accept(Visitor v) {
+		
+	}
+	
+	public void ponerBomaba() {
+		
+	}
+	
+	public void AumentarVelocidad(int duracion) {
+		
+	}
+	
+	public Jugador getInstance() {
+		return null;
+	}
 }

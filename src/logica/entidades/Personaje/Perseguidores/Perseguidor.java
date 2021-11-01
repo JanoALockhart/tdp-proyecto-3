@@ -1,13 +1,15 @@
 package logica.entidades.Personaje.Perseguidores;
 
 import logica.mapa.Celda;
+import logica.entidades.Personaje.Personaje;
 import logica.entidades.Personaje.Perseguidores.Estados_De_Perseguidores.StatePerseguidor;
 import logica.entidades.visitadores.*;
 
-public abstract class Perseguidor implements Asustable{
+public abstract class Perseguidor extends Personaje implements Asustable{
 
 	protected Celda celdaObjetivo;
 	protected StatePerseguidor state;
+	
 	
 	public abstract void chequearDireccion();
 	

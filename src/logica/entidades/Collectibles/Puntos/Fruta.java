@@ -1,8 +1,6 @@
 package logica.entidades.Collectibles.Puntos;
 
-//import logica.entidades.Celda;
-import logica.entidades.Entidad;
-//import logica.entidades.Visitor;
+import logica.mapa.*;
 
 public class Fruta extends Punto {
 	

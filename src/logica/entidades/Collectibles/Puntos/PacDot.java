@@ -1,11 +1,11 @@
 package logica.entidades.Collectibles.Puntos;
 
-//import logica.entidades.Celda;
-import logica.entidades.Entidad;
+import logica.entidades.visitadores.*;
+import logica.mapa.*;
 
 public class PacDot extends Punto {
 	
-	public PacDot(int val, String cimg, Celca c) {
+	public PacDot(int val, String cimg, Celda c) {
 			valor = val;
 			
 	}

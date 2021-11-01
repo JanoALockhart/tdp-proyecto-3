@@ -1,14 +1,14 @@
 package logica.entidades.Entornos;
 
-import logica.entidades.Celda;
+import logica.mapa.*;
 import logica.entidades.Entidad;
-import logica.entidades.Visitor;
+import logica.entidades.visitadores.*;
 
 public class Portal extends Entorno {
 
 	private Celda celdaDestino;
 	
-	Public Portal(Celda miCelda, Celda dest, String img) {
+	public Portal(Celda miCelda, Celda dest, String img) {
 		
 	}
 	

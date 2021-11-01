@@ -1,5 +1,7 @@
 package logica.entidades.Entornos;
 
+import logica.entidades.visitadores.*;
+
 public class Explosivo extends Entorno {
 
 	private int radio;

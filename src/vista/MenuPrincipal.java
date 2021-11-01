@@ -127,7 +127,8 @@ public class MenuPrincipal extends JPanel implements State {
 				break;
 			}
 			case 2:{
-				
+				estadoNuevo=new PantallaPuntajes(miUI);
+				miUI.cambiarEstado(estadoNuevo, estadoNuevo.getName());				
 				break;
 			}
 			

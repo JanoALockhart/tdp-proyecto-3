@@ -55,9 +55,12 @@ public class UserInterface extends JFrame {
 		
 		State seleccionarSkin=new SeleccionarSkin(this);
 		
+		State pantallaPuntajes=new PantallaPuntajes(this);
+		
 		contentPane.add(miEstado.getPanel(), miEstado.getName());
 		contentPane.add(pantallaNivel.getPanel(), pantallaNivel.getName());
 		contentPane.add(seleccionarSkin.getPanel(), seleccionarSkin.getName());
+		contentPane.add(pantallaPuntajes.getPanel(), pantallaPuntajes.getName());
 		
 		
 		addKeyListener(new KeyAdapter() {

@@ -1,5 +1,7 @@
 package logica.entidades;
 
+import logica.mapa.Celda;
+
 public abstract class Entidad implements Element {
 	
 	protected ObjetoGrafico miObjetoGrafico;

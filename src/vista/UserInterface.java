@@ -20,7 +20,7 @@ public class UserInterface extends JFrame {
 	private JPanel contentPane;
 	
 	private CardLayout c1;
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -102,6 +102,10 @@ public class UserInterface extends JFrame {
 		c1.show(contentPane, name);
 		miEstado=estado;
 		System.out.println(name);
+	}
+	
+	public void setSize(int x, int y) {
+		setBounds(100, 100, x, y);
 	}
 
 }

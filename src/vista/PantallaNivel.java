@@ -5,7 +5,7 @@ import java.awt.Color;
 
 public class PantallaNivel extends JPanel implements State {
 
-	private static final String name="Pantalla de nivel"; 
+	private static final String stateName="Pantalla de nivel"; 
 	
 	public UserInterface miUI;
 	
@@ -66,7 +66,7 @@ public class PantallaNivel extends JPanel implements State {
 	}
 	
 	public String getName() {
-		return name;
+		return stateName;
 	}
 
 }

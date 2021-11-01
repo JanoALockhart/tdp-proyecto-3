@@ -29,14 +29,14 @@ public class MenuPrincipal extends JPanel implements State {
 	private UserInterface miUI;
 	
 	
-	public MenuPrincipal(UserInterface UI) {
+	public MenuPrincipal(UserInterface UI, int option) {
 		miUI=UI;
 		
 		panel=new JPanel();
 		panel.setBackground(Color.BLACK);
 		panel.setLayout(null);
 		
-		optionSelected=0;
+		optionSelected=option;
 		
 		optionList=new JLabel[3];
 		
@@ -49,8 +49,8 @@ public class MenuPrincipal extends JPanel implements State {
 		
 		lblNuevoJuego = new JLabel("Nuevo juego");
 		lblNuevoJuego.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNuevoJuego.setForeground(Color.YELLOW);
-		lblNuevoJuego.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblNuevoJuego.setForeground(Color.WHITE);
+		lblNuevoJuego.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblNuevoJuego.setBounds(10, 273, 580, 43);
 		panel.add(lblNuevoJuego);
 		
@@ -71,6 +71,9 @@ public class MenuPrincipal extends JPanel implements State {
 		optionList[0]=lblNuevoJuego;
 		optionList[1]=lblSkin;
 		optionList[2]=lblScoreBoard;
+		
+		optionList[optionSelected].setForeground(Color.YELLOW);
+		optionList[optionSelected].setFont(new Font("Tahoma", Font.BOLD, 24));
 	}
 
 	@Override
@@ -119,7 +122,8 @@ public class MenuPrincipal extends JPanel implements State {
 				break;
 			}
 			case 1:{
-				
+				estadoNuevo=new SeleccionarSkin(miUI);
+				miUI.cambiarEstado(estadoNuevo, estadoNuevo.getName());
 				break;
 			}
 			case 2:{

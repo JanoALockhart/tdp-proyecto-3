@@ -49,12 +49,15 @@ public class UserInterface extends JFrame {
 		c1=new CardLayout(0,0);		
 		contentPane.setLayout(c1);
 		
-		miEstado=new MenuPrincipal(this);
+		miEstado=new MenuPrincipal(this, 0);
 		
 		State pantallaNivel=new PantallaNivel(this);
 		
+		State seleccionarSkin=new SeleccionarSkin(this);
+		
 		contentPane.add(miEstado.getPanel(), miEstado.getName());
 		contentPane.add(pantallaNivel.getPanel(), pantallaNivel.getName());
+		contentPane.add(seleccionarSkin.getPanel(), seleccionarSkin.getName());
 		
 		
 		addKeyListener(new KeyAdapter() {
@@ -69,8 +72,20 @@ public class UserInterface extends JFrame {
 						miEstado.seApretoAbajo();
 						break;
 					} 
+					case KeyEvent.VK_A:{ 
+						miEstado.seApretoIzquierda();
+						break;
+					}
+					case KeyEvent.VK_D:{
+						miEstado.seApretoDerecha();
+						break;
+					} 
 					case KeyEvent.VK_ENTER:{
 						miEstado.seApretoEnter();
+						break;
+					} 
+					case KeyEvent.VK_SPACE:{
+						miEstado.seApretoEspacio();
 						break;
 					} 
 				}
@@ -80,7 +95,9 @@ public class UserInterface extends JFrame {
 	}
 	
 	public void cambiarEstado(State estado, String name) {
+		contentPane.add(estado.getPanel(), estado.getName());
 		c1.show(contentPane, name);
+		miEstado=estado;
 		System.out.println(name);
 	}
 

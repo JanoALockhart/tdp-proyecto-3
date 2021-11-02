@@ -3,6 +3,7 @@ package logica.mapa;
 import java.util.LinkedList;
 
 import logica.entidades.Entidad;
+import logica.entidades.EntidadGrafica;
 
 public class Mapa {
 	private Celda misCeldas[][];
@@ -192,6 +193,23 @@ public class Mapa {
 	//TODO ver si es necesario
 	public void agregarEntidad(Entidad e) {
 		
+	}
+	
+	/**
+	 * Metodo que devuelve todas las entidades en el mapa.
+	 * Solo es usado para mostrar todas las entidades cuando se crea un nuevo nivel.
+	 * @return Una coleccion de entidades.
+	 */
+	public Iterable<Entidad> getTodasLasEntidades(){
+		LinkedList<Entidad> entidades = new LinkedList<Entidad>();
+		for(int posX=0; posX<ANCHO; posX++) {
+			for(int posY=0; posY<ALTO; posY++) {
+				for(Entidad ent : misCeldas[posX][posY].getEntidades()) {
+					entidades.add(ent);
+				}
+			}
+		}
+		return entidades;
 	}
 	
 }

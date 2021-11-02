@@ -6,22 +6,23 @@ package logica.partida;
 import logica.builder.*;
 import logica.fabricas.*;
 import logica.mapa.Mapa;
-import vista.UserInterface;
-
+import vista.*;
 /** 
  *
  */
 public class Partida {
-	private UserInterface pantalla;
+	private State pantalla;
 	private BuilderNivel builder;
 	private Mapa miMapa;
 	private int puntaje;
 	
 	
-	public Partida(UserInterface ui,FabricaElementos fab) {
+	public Partida(State ui,FabricaElementos fab) {
 		pantalla = ui;
 		puntaje = 0;	
 		builder = new ArquitectoNivel(fab);
+		builder.armarNivel1();
+		miMapa = builder.getNivelArmado();
 	}
 	
 	public void siguienteNivel() {

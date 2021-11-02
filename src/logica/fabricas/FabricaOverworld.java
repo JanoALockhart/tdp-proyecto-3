@@ -74,8 +74,10 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public PacDot construirPacDot() {
-		//TODO
-		return null;
+		PacDot dot = null;
+		int puntaje = 100;
+		//dot = new PacDot(puntaje,"/recursos/imagenes/xpVerde.png");
+		return dot;
 	}
 
 
@@ -123,10 +125,8 @@ public class FabricaOverworld implements FabricaElementos{
 	 * Metodo que crea la instancia de jugador, le asigna
 	 * su entidadGrafica y lo devuleve
 	 */
-	public Celda construirCelda() {
-		//TODO
-		//Celda cel = new Celda();
-		return null;
+	public Celda construirCelda(int x, int y) {
+		return new Celda(x,y);
 	}
 
 

@@ -6,6 +6,7 @@ import logica.entidades.Entidad;
 
 public class Mapa {
 	private Celda misCeldas[][];
+	private int cantPacDots;
 	//private Asustador asusPerseguidores;
 	
 	private static final int ALTO = 32;
@@ -18,7 +19,7 @@ public class Mapa {
 		//TODO inicializar el asustador
 		//TODO ver dimensiones
 		misCeldas = new Celda[ANCHO][ALTO];
-	
+		cantPacDots = 0;
 	}
 	
 	/**
@@ -179,4 +180,18 @@ public class Mapa {
 	public void asustarPerseguidores() {
 		//TODO activar el observer Asustador
 	}
+	
+	public void agregarCelda(Celda c) throws Exception{
+		try {
+			misCeldas[c.getX()][c.getY()]=c;
+		}catch(ArrayIndexOutOfBoundsException e) {
+			throw new Exception("Celda ("+c.getX()+","+c.getY()+") no se puede ubicar");
+		}
+	}
+	
+	//TODO ver si es necesario
+	public void agregarEntidad(Entidad e) {
+		
+	}
+	
 }

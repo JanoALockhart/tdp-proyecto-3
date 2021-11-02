@@ -21,7 +21,7 @@ public interface FabricaElementos {
 	public PowerPellet construirPowerPellet();
 	public SpeedPotion construirSpeedPotion();
 	public Bomb construirBomba();
-	public Celda construirCelda();
+	public Celda construirCelda(int x, int y);
 	public Portal construirPortal();
 	
 }

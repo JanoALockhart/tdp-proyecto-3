@@ -124,8 +124,7 @@ public class PantallaNivel extends JPanel implements State {
 		lblFruta_4.setBounds(521, 693, 17, 21);
 		panel.add(lblFruta_4);
 	}
-
-	@Override
+	
 	public void seApretoDerecha() {
 		setPuntacion((int) Math.round(Math.random()*100));
 	}

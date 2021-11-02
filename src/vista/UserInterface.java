@@ -15,7 +15,7 @@ public class UserInterface extends JFrame {
 	
 	private static final InputStream INPUT_STREAM_FUENTE = UserInterface.class.getResourceAsStream("fonts/Early GameBoy.ttf");
 	
-	State miEstado;
+	private State miEstado;
 	
 	private JPanel contentPane;
 	
@@ -111,6 +111,11 @@ public class UserInterface extends JFrame {
 		
 	}
 	
+	/**
+	 * Cambia los Estados de la UI
+	 * @param estado Estado a cambiarse
+	 * @param name Nombre del CardLayout a cambiarse
+	 */
 	public void cambiarEstado(State estado, String name) {
 		contentPane.add(estado.getPanel(), estado.getName());
 		c1.show(contentPane, name);
@@ -118,14 +123,27 @@ public class UserInterface extends JFrame {
 		System.out.println(name);
 	}
 	
+	/**
+	 * Configura el tamaño de la pantalla
+	 * @param x Ancho de la pantalla
+	 * @param y Alto de la pantalla
+	 */
 	public void setSize(int x, int y) {
 		setBounds(100,100, x, y);
 	}
 	
+	/**
+	 * Devuelve la fabrica que creara la skin seleccionada por el jugador o que es creada predeterminadamente
+	 * @return fabrica La fabrica que se usara para crear el nivel
+	 */
 	public FabricaElementos getFabrica() {
 		return fabrica;
 	}
 	
+	/**
+	 * Configura la fabrica que se usara para crear el nivel
+	 * @param fabricaNueva Fabrica nueva seleccionada
+	 */
 	public void setFabrica(FabricaElementos fabricaNueva) {
 		fabrica=fabricaNueva;
 	}

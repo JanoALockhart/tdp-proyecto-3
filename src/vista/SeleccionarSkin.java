@@ -152,6 +152,9 @@ public class SeleccionarSkin extends JPanel implements State{
 		return stateName;
 	}
 	
+	/**
+	 * Procedimiento que pone en la UI el menu principal con la opción de "Seleccionar skin" marcada
+	 */
 	private void salirAMenuPrincipal() {
 		State estadoNuevo=new MenuPrincipal(miUI ,1, mainFont);
 		miUI.cambiarEstado(estadoNuevo, estadoNuevo.getName());

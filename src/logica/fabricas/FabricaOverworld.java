@@ -139,7 +139,7 @@ public class FabricaOverworld implements FabricaElementos{
 		return null;
 	}
 	
-	public String getLevelLayout() {
+	public String getLevel1Layout() {
 		return "/recursos/imagenes/Map.png";
 	}
 	

@@ -16,7 +16,7 @@ public class MenuPrincipal extends JPanel implements State {
  
 	private static final String stateName="Menu principal";
 	
-	private int optionSelected=0;
+	private int optionSelected;
 	
 	private JLabel lblNewLabel;
 	
@@ -126,7 +126,7 @@ public class MenuPrincipal extends JPanel implements State {
 		State estadoNuevo;
 		switch(optionSelected) {
 			case 0:{
-				estadoNuevo=new PantallaNivel(miUI, mainFont);
+				estadoNuevo=new PantallaNivel(miUI, mainFont, miUI.getFabrica());
 				miUI.setSize(600, 800);
 				miUI.cambiarEstado(estadoNuevo, estadoNuevo.getName());
 				break;

@@ -6,12 +6,20 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+
+import logica.fabricas.FabricaElementos;
+import logica.fabricas.FabricaOverworld;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class SeleccionarSkin extends JPanel implements State{
 	
 	private final static String stateName="Seleccionador de Skin";
+	
+	private int optionSelected;
+	
+	private String[] optionList;
 	
 	private UserInterface miUI;
 	
@@ -72,57 +80,80 @@ public class SeleccionarSkin extends JPanel implements State{
 		lblImagen.setFont(mainFont);
 		lblImagen.setBounds(10, 11, 580, 553);
 		panel.add(lblImagen);
+		
+		optionList=new String[2];
+		optionList[0]="1";
+		optionList[1]="2";
 	}
 	
 	@Override
 	public void seApretoDerecha() {
 		lblFlechaDerecha.setForeground(Color.YELLOW);
 		lblFlechaIzquierda.setForeground(Color.WHITE);
+		optionSelected++;
+		optionSelected=optionSelected%optionList.length;
+		lblOpcion.setText(optionList[Math.abs(optionSelected)]);
 	}
 
 	@Override
 	public void seApretoIzquierda() {
 		lblFlechaIzquierda.setForeground(Color.YELLOW);
 		lblFlechaDerecha.setForeground(Color.WHITE);
+		optionSelected--;
+		optionSelected=optionSelected%optionList.length;
+		lblOpcion.setText(optionList[Math.abs(optionSelected)]);
 	}
 
 	@Override
 	public void seApretoAbajo() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void seApretoArriba() {
-		// TODO Auto-generated method stub
+	public void seApretoArriba() { 
 		
 	}
 
 	@Override
 	public void seApretoEnter() {
-		// TODO Auto-generated method stub
-		System.out.println("amogus");
+		FabricaElementos fabrica;
+		switch(optionSelected) {
+			case 0:{
+				fabrica=new FabricaOverworld();
+				miUI.setFabrica(fabrica);
+				break;
+			}
+			case 1:{
+				fabrica=new FabricaOverworld();
+				miUI.setFabrica(fabrica);
+				break;
+			}
+			
+		}
+		salirAMenuPrincipal();		
 	}
 
 	@Override
 	public void seApretoEspacio() {
-		State estadoNuevo=new MenuPrincipal(miUI ,1, mainFont);
-		miUI.cambiarEstado(estadoNuevo, estadoNuevo.getName());
+		salirAMenuPrincipal();
 	}
 
 	@Override
 	public void refrescarLabels() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public JPanel getPanel() {
-		// TODO Auto-generated method stub
 		return panel;
 	}
 	
 	public String getName() {
 		return stateName;
+	}
+	
+	private void salirAMenuPrincipal() {
+		State estadoNuevo=new MenuPrincipal(miUI ,1, mainFont);
+		miUI.cambiarEstado(estadoNuevo, estadoNuevo.getName());
 	}
 }

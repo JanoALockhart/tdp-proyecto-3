@@ -2,15 +2,23 @@ package vista;
 
 import javax.swing.JPanel;
 import java.awt.Color;
+
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.Rectangle;
+import javax.swing.border.LineBorder;
+
+import logica.fabricas.FabricaElementos;
+import logica.partida.Partida;
 
 public class PantallaNivel extends JPanel implements State {
 
 	private static final String stateName="Pantalla de nivel"; 
 	private JPanel panelMapa;
 	private JLabel puntaje;
-	public UserInterface miUI;
+	private UserInterface miUI;
 	
 	private JPanel panel;
 	private JLabel lblVida;
@@ -25,14 +33,26 @@ public class PantallaNivel extends JPanel implements State {
 	
 	private Font mainFont;
 	
-
+	private Partida miPartida;
 	
-	public PantallaNivel(UserInterface UI, Font h1) {
+	public PantallaNivel(UserInterface UI, Font h1, FabricaElementos fabrica) {
 		panel=new JPanel();
 		panel.setBackground(Color.BLACK);
 		panelMapa = new JPanel();
+		panelMapa.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelMapa.setBounds(10, 10, 528, 672);
 		panel.add(panelMapa);
+		panelMapa.setLayout(null);
+		
+		miPartida=new Partida(this, fabrica);
+		
+		JLabel lblCuadrado = new JLabel("");
+		lblCuadrado.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblCuadrado.setBounds(0, 0, 528, 672);
+		panelMapa.add(lblCuadrado);
+		
+		ImageIcon foto = new ImageIcon(PantallaNivel.class.getResource("map.png"));
+		lblCuadrado.setIcon(foto);
 		
 		mainFont=h1;
 		
@@ -107,38 +127,32 @@ public class PantallaNivel extends JPanel implements State {
 
 	@Override
 	public void seApretoDerecha() {
-		// TODO Auto-generated method stub
-		
+		setPuntacion((int) Math.round(Math.random()*100));
 	}
 
 	@Override
 	public void seApretoIzquierda() {
-		// TODO Auto-generated method stub
-		
+		setPuntacion((int) Math.round(Math.random()*100));
 	}
 
 	@Override
 	public void seApretoAbajo() {
-		// TODO Auto-generated method stub
-		
+		setPuntacion((int) Math.round(Math.random()*100));
 	}
 
 	@Override
 	public void seApretoArriba() {
-		// TODO Auto-generated method stub
-		
+		setPuntacion((int) Math.round(Math.random()*100));
 	}
 
 	@Override
 	public void seApretoEnter() {
-		// TODO Auto-generated method stub
-		
+		setPuntacion((int) Math.round(Math.random()*100));
 	}
 
 	@Override
 	public void seApretoEspacio() {
-		// TODO Auto-generated method stub
-		
+		setPuntacion((int) Math.round(Math.random()*100));
 	}
 
 	@Override
@@ -153,5 +167,9 @@ public class PantallaNivel extends JPanel implements State {
 	
 	public String getName() {
 		return stateName;
+	}
+	
+	private void setPuntacion(int puntuacion) {
+		puntaje.setText(Integer.toString(puntuacion));
 	}
 }

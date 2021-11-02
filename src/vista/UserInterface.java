@@ -2,11 +2,12 @@ package vista;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
+import logica.fabricas.*;
+
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -21,6 +22,8 @@ public class UserInterface extends JFrame {
 	private CardLayout c1;
 	
 	private Font mainFont;
+	
+	private FabricaElementos fabrica;
 	
 	/**
 	 * Launch the application.
@@ -58,9 +61,11 @@ public class UserInterface extends JFrame {
 			e.printStackTrace();
 		}	
 		
+		fabrica=new FabricaOverworld();
+		
 		miEstado=new MenuPrincipal(this, 0, mainFont);
 		
-		State pantallaNivel=new PantallaNivel(this, mainFont);
+		State pantallaNivel=new PantallaNivel(this, mainFont, fabrica);
 		
 		State seleccionarSkin=new SeleccionarSkin(this, mainFont);
 		
@@ -115,6 +120,14 @@ public class UserInterface extends JFrame {
 	
 	public void setSize(int x, int y) {
 		setBounds(100,100, x, y);
+	}
+	
+	public FabricaElementos getFabrica() {
+		return fabrica;
+	}
+	
+	public void setFabrica(FabricaElementos fabricaNueva) {
+		fabrica=fabricaNueva;
 	}
 
 }

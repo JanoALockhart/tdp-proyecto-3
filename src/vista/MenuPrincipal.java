@@ -4,9 +4,13 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.FontFormatException;
+
 import javax.swing.SwingConstants;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class MenuPrincipal extends JPanel implements State {
  
@@ -27,10 +31,14 @@ public class MenuPrincipal extends JPanel implements State {
 	private JPanel panel;
 	
 	private UserInterface miUI;
-	
-	
-	public MenuPrincipal(UserInterface UI, int option) {
+
+	private Font mainFont;
+		
+	public MenuPrincipal(UserInterface UI, int option, Font h1) {
+		
 		miUI=UI;
+		
+		mainFont=h1;
 		
 		panel=new JPanel();
 		panel.setBackground(Color.BLACK);
@@ -40,31 +48,35 @@ public class MenuPrincipal extends JPanel implements State {
 		
 		optionList=new JLabel[3];
 		
+		mainFont=mainFont.deriveFont(32f);
+		
 		lblNewLabel = new JLabel("PAC-MAN");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 32));
+		lblNewLabel.setFont(mainFont);
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setBounds(10, 11, 580, 143);
 		panel.add(lblNewLabel);
 		
+		mainFont=mainFont.deriveFont(24f);
+		
 		lblNuevoJuego = new JLabel("Nuevo juego");
 		lblNuevoJuego.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNuevoJuego.setForeground(Color.WHITE);
-		lblNuevoJuego.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblNuevoJuego.setFont(mainFont);
 		lblNuevoJuego.setBounds(10, 273, 580, 43);
 		panel.add(lblNuevoJuego);
 		
 		lblSkin = new JLabel("Seleccionar skin");
 		lblSkin.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSkin.setForeground(Color.WHITE);
-		lblSkin.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblSkin.setFont(mainFont);
 		lblSkin.setBounds(10, 327, 580, 43);
 		panel.add(lblSkin);
 		
 		lblScoreBoard = new JLabel("Top puntajes");
 		lblScoreBoard.setHorizontalAlignment(SwingConstants.CENTER);
 		lblScoreBoard.setForeground(Color.WHITE);
-		lblScoreBoard.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblScoreBoard.setFont(mainFont);
 		lblScoreBoard.setBounds(10, 379, 580, 43);
 		panel.add(lblScoreBoard);
 		
@@ -73,7 +85,6 @@ public class MenuPrincipal extends JPanel implements State {
 		optionList[2]=lblScoreBoard;
 		
 		optionList[optionSelected].setForeground(Color.YELLOW);
-		optionList[optionSelected].setFont(new Font("Tahoma", Font.BOLD, 24));
 	}
 
 	@Override
@@ -89,26 +100,24 @@ public class MenuPrincipal extends JPanel implements State {
 	@Override
 	public void seApretoArriba() {
 		optionList[Math.abs(optionSelected)].setForeground(Color.WHITE);
-		optionList[Math.abs(optionSelected)].setFont(new Font("Tahoma", Font.PLAIN, 24));
+		optionList[Math.abs(optionSelected)].setFont(mainFont);
 		panel.add(optionList[Math.abs(optionSelected)]);
 		optionSelected--;
 		optionSelected=optionSelected==-1?optionList.length-1:optionSelected%optionList.length;
 		JLabel seleccionada=optionList[Math.abs(optionSelected)];
 		seleccionada.setForeground(Color.YELLOW);	
-		seleccionada.setFont(new Font("Tahoma", Font.BOLD, 24));
 		panel.add(seleccionada);	
 	}
 
 	@Override
 	public void seApretoAbajo() {
 		optionList[Math.abs(optionSelected)].setForeground(Color.WHITE);
-		optionList[Math.abs(optionSelected)].setFont(new Font("Tahoma", Font.PLAIN, 24));
+		optionList[Math.abs(optionSelected)].setFont(mainFont);
 		panel.add(optionList[Math.abs(optionSelected)]);
 		optionSelected++;
 		optionSelected=optionSelected%optionList.length;
 		JLabel seleccionada=optionList[Math.abs(optionSelected)];
 		seleccionada.setForeground(Color.YELLOW);
-		seleccionada.setFont(new Font("Tahoma", Font.BOLD, 24));
 		panel.add(seleccionada);
 	}
 
@@ -117,18 +126,18 @@ public class MenuPrincipal extends JPanel implements State {
 		State estadoNuevo;
 		switch(optionSelected) {
 			case 0:{
-				estadoNuevo=new PantallaNivel(miUI);
-				miUI.setSize(528, 672);
+				estadoNuevo=new PantallaNivel(miUI, mainFont);
+				miUI.setSize(600, 800);
 				miUI.cambiarEstado(estadoNuevo, estadoNuevo.getName());
 				break;
 			}
 			case 1:{
-				estadoNuevo=new SeleccionarSkin(miUI);
+				estadoNuevo=new SeleccionarSkin(miUI, mainFont);
 				miUI.cambiarEstado(estadoNuevo, estadoNuevo.getName());
 				break;
 			}
 			case 2:{
-				estadoNuevo=new PantallaPuntajes(miUI);
+				estadoNuevo=new PantallaPuntajes(miUI, mainFont);
 				miUI.cambiarEstado(estadoNuevo, estadoNuevo.getName());				
 				break;
 			}

@@ -1,25 +1,26 @@
 package vista;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.CardLayout;
-import java.awt.Color;
+import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class UserInterface extends JFrame {
-
+	
+	private static final InputStream INPUT_STREAM_FUENTE = UserInterface.class.getResourceAsStream("fonts/Early GameBoy.ttf");
+	
 	State miEstado;
 	
 	private JPanel contentPane;
 	
 	private CardLayout c1;
+	
+	private Font mainFont;
 	
 	/**
 	 * Launch the application.
@@ -49,13 +50,21 @@ public class UserInterface extends JFrame {
 		c1=new CardLayout(0,0);		
 		contentPane.setLayout(c1);
 		
-		miEstado=new MenuPrincipal(this, 0);
+		try {
+			mainFont = Font.createFont(Font.TRUETYPE_FONT, INPUT_STREAM_FUENTE);
+		} catch (FontFormatException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}	
 		
-		State pantallaNivel=new PantallaNivel(this);
+		miEstado=new MenuPrincipal(this, 0, mainFont);
 		
-		State seleccionarSkin=new SeleccionarSkin(this);
+		State pantallaNivel=new PantallaNivel(this, mainFont);
 		
-		State pantallaPuntajes=new PantallaPuntajes(this);
+		State seleccionarSkin=new SeleccionarSkin(this, mainFont);
+		
+		State pantallaPuntajes=new PantallaPuntajes(this, mainFont);
 		
 		contentPane.add(miEstado.getPanel(), miEstado.getName());
 		contentPane.add(pantallaNivel.getPanel(), pantallaNivel.getName());

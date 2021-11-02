@@ -63,6 +63,7 @@ public class ArquitectoNivel implements BuilderNivel{
 			agregarCeldasCon(miFabrica.construirPacDot(),14,11,19,11);
 			
 			agregarCeldasCon(null,8,10,12,12);
+			//Agregar enemigos
 			/*
 			agregarCeldaCon(miFabrica.construirBlinky(),8,10);
 			agregarCeldaCon(miFabrica.construirPinky(),12,10);
@@ -165,9 +166,9 @@ public class ArquitectoNivel implements BuilderNivel{
 	/**
 	 * Metodo que se encarga de colocar una region de celdas utilizando las coordenadas
 	 * pasadas por parámetro. Es decir, se crearán celdas desde la posicion (x1,y1)
-	 * hasta la posicion (x2,y2). Estas celdas pueden ser creadas con una entidad pasada
-	 * por parámetro. Si la entidad
-	 * @param entity
+	 * hasta la posicion (x2,y2). Estas celdas pueden ser creadas con clones de una entidad pasada
+	 * por parámetro. Si la entidad, es null, las celdas creadas estaran vacias.
+	 * @param entity Es la entidad
 	 * @param x1
 	 * @param y1
 	 * @param x2

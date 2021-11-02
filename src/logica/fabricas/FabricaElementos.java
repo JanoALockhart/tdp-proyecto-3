@@ -23,5 +23,6 @@ public interface FabricaElementos {
 	public Bomb construirBomba();
 	public Celda construirCelda(int x, int y);
 	public Portal construirPortal();
+	public String getLevelLayout();
 	
 }

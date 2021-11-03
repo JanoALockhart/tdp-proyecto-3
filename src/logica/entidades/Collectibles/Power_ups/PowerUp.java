@@ -11,5 +11,4 @@ public abstract class PowerUp extends Collectible {
 
 	public void activarEfecto(){		
 	}
-	
 }

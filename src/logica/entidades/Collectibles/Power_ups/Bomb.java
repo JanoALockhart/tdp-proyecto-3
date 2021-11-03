@@ -2,23 +2,20 @@ package logica.entidades.Collectibles.Power_ups;
 
 
 import logica.entidades.visitadores.*;
+import logica.mapa.Celda;
 
-public class Bomb extends Power_up {
+public class Bomb extends PowerUp {
 	
-	public Bomb() {
-		
+	public Bomb(String img, int width,int height,Celda c) {
+		super(img,width,height,c);
 	}
 
 
 	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void activarEfecto() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

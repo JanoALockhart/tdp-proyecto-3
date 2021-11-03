@@ -1,24 +1,21 @@
 package logica.entidades.Collectibles.Power_ups;
 
 import logica.entidades.visitadores.*;
+import logica.mapa.Celda;
 
-public class SpeedPotion extends Power_up {
+public class SpeedPotion extends PowerUp {
 	protected int duracion;
 	
-	public SpeedPotion(int duracion, String img) {
-		
+	public SpeedPotion(String img, int width,int height,Celda c) {
+		super(img,width,height,c);
 	}
 
 	@Override
 	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void activarEfecto() {
-		// TODO Auto-generated method stub
-		
 	}
 
 

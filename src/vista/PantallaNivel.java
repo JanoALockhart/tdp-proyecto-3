@@ -5,7 +5,7 @@ import java.awt.Color;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.GridLayout;
 import java.awt.Rectangle;
 import javax.swing.border.LineBorder;
@@ -46,7 +46,6 @@ public class PantallaNivel extends JPanel implements State {
 		
 		miPartida=new Partida(this, fabrica);
 		panelMapa.setLayout(null);
-		
 		
 		mainFont=h1;
 		
@@ -154,18 +153,17 @@ public class PantallaNivel extends JPanel implements State {
 		
 	}
 	
-	public void imprimirMapa(Iterable<EntidadGrafica> it) {
+	public void imprimirMapa(Iterable<EntidadGrafica> it, String mapa) {
 		
-		JLabel lblCuadrado = new JLabel("");
-		lblCuadrado.setBounds(0, 0, 528, 672);
-		lblCuadrado.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		panelMapa.add(lblCuadrado);
+		JLabel lblMapa = new JLabel("");
+		lblMapa.setBounds(0, 0, 528, 672);
+		lblMapa.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblMapa.setIcon(reEscalar(mapa));
+		panelMapa.add(lblMapa);
 		
 		for(EntidadGrafica e:it) { 
-			//e.getLbl().setIcon(new ImageIcon(PantallaNivel.class.getResource(e.getImg())));
 			panelMapa.add(e.getLbl());
 		}
-		System.out.println("lorem ipsum");
 		
 	}
 	
@@ -184,4 +182,10 @@ public class PantallaNivel extends JPanel implements State {
 	private void setPuntacion(int puntuacion) {
 		puntaje.setText(Integer.toString(puntuacion));
 	}
+	
+	private ImageIcon reEscalar(String dirImg) {
+        ImageIcon img = new ImageIcon(EntidadGrafica.class.getResource(dirImg));
+        Image imgResized = img.getImage().getScaledInstance(528, 672, Image.SCALE_SMOOTH);
+        return new ImageIcon(imgResized);
+    }
 }

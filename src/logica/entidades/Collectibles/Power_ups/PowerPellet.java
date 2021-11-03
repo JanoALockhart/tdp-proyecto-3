@@ -5,8 +5,8 @@ import logica.entidades.Entidad;
 import logica.entidades.visitadores.*;
 
 public class PowerPellet extends Power_up {
-	public PowerPellet(String img, Celda c) {
-		
+	public PowerPellet(String img, int width,int height,Celda c) {
+		super(img ,c.getAncho()/3 ,c.getAlto()/3,c);
 	}
 
 	@Override

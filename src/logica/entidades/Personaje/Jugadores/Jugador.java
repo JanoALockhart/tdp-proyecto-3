@@ -11,7 +11,7 @@ public class Jugador extends Personaje {
 	protected Jugador intance;
 	
 	public Jugador() {
-		vidasss = 
+		 
 	}
 	
 	public int getVidas() {

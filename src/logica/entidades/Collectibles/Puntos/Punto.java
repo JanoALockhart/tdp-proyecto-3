@@ -9,4 +9,8 @@ public abstract class Punto extends Collectible {
 	public Punto(String img, int width, int height, Celda c) {
 		super(img,width,height,c);
 	}
+	
+	public void activarEfecto(){		
+	}
+	
 }

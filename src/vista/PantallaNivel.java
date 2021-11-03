@@ -120,11 +120,13 @@ public class PantallaNivel extends JPanel implements State {
 	
 	public void seApretoDerecha() {
 		setPuntacion((int) Math.round(Math.random()*100));
+		//TODO miPartida.getJugador().cambiarDireccion(4);
 	}
 
 	@Override
 	public void seApretoIzquierda() {
 		setPuntacion((int) Math.round(Math.random()*100));
+		
 	}
 
 	@Override

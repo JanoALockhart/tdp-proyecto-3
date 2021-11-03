@@ -23,9 +23,8 @@ public class FabricaOverworld implements FabricaElementos{
 	 * Metodo que crea la instancia de jugador, le asigna
 	 * su entidadGrafica y lo devuleve
 	 */
-	public Jugador construirJugador() {
-		//TODO
-		return null;
+	public Jugador construirJugador(Celda pos) {
+		return new Jugador("/recursos/imagenes/Steve.png", pos);
 	}
 
 
@@ -34,8 +33,7 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public Blinky construirBlinky() {
-		//TODO
-		return null;
+		return new Blinky("/recursos/imagenes/Zombie.png", pos);
 	}
 
 
@@ -44,8 +42,7 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public Pinky construirPinky() {
-		//TODO
-		return null;
+		return new Pinky("/recursos/imagenes/Spider.png");
 	}
 
 
@@ -54,8 +51,7 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public Inky construirInky() {
-		//TODO
-		return null;
+		return new Inky("/recursos/imagenes/Creeper.png");
 	}
 
 
@@ -64,8 +60,7 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public Clyde construirClyde() {
-		//TODO
-		return null;
+		return new Clyde("/recursos/imagenes/Skeleton.png");
 	}
 
 
@@ -74,9 +69,9 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public PacDot construirPacDot() {
-		PacDot dot = null;
+		PacDot dot;
 		int puntaje = 100;
-		//dot = new PacDot(puntaje,"/recursos/imagenes/xpVerde.png");
+		dot = new PacDot(puntaje,"/recursos/imagenes/xpVerde.png");
 		return dot;
 	}
 

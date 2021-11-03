@@ -1,17 +1,23 @@
 package logica.mapa;
 
+import java.awt.Point;
+import java.awt.Rectangle;
 import java.util.LinkedList;
 
 import logica.entidades.Entidad;
 import logica.entidades.EntidadGrafica;
+import logica.entidades.Personaje.Personaje;
 
 public class Mapa {
 	private Celda misCeldas[][];
 	private int cantCollectibles;
 	//private Asustador asusPerseguidores;
 	
-	private static final int ALTO = 32;
-	private static final int ANCHO = 28;
+	private static final int ALTO = 24;
+	private static final int ANCHO = 21;
+	
+	private static final int ALTO_CELDA = 24;
+	private static final int ANCHO_CELDA = 24;
 	
 	/**
 	 * Constructor de la clase Mapa
@@ -214,8 +220,86 @@ public class Mapa {
 		return entidades;
 	}
 	
+	/**
+	 * Metodo que aumenta en 1 la cantidad de collectibles 
+	 * que se cuentan en el mapa
+	 */
 	public void addContador() {
 		cantCollectibles++;
 	}
+	
+	/**
+	 * Metodo que disminuye en 1 la cantidad de collectibles
+	 * que se encuentran en el mapa
+	 */
+	public void subContador() {
+		cantCollectibles--;
+	}
+	
+	
+	/**
+	 * Verifica si el personaje indicado por parámetro puede moverse en la 
+	 * dirección en la que mira.
+	 * @param character Es el personaje que se corroborará si puede avanzar.
+	 * @return True si el personaje puede moverse, false en caso contrario.
+	 */
+	public boolean verificarMovimiento(int direccion, Rectangle hitBox) {
+		boolean puedeAvanzar=true;
+		
+		Point esqSupDer = hitBox.getLocation();
+		Point esqSupIzq = new Point((int) (esqSupDer.getX()+hitBox.getWidth()), (int) esqSupDer.getY());
+		Point esqInfDer = new Point((int) esqSupDer.getX(), (int) (esqSupDer.getY()+hitBox.getHeight()));
+		Point esqInfIzq = new Point((int) (esqSupDer.getX()+hitBox.getWidth()), (int) (esqSupDer.getY()+hitBox.getHeight()));
+		
+		switch(direccion) {
+			case Personaje.NORTE:{
+				//Si la celda en la que está, el pixel al que se quiere avazar, no es caminable
+				if(misCeldas[((int)esqSupDer.getX())/ANCHO_CELDA][((int)esqSupDer.getY()-1)/ALTO_CELDA]==null) {
+					puedeAvanzar = false;
+				}
+				//Idem con la esquina superior izquierda
+				if(misCeldas[((int)esqSupIzq.getX())/ANCHO_CELDA][((int)esqSupIzq.getY()-1)/ALTO_CELDA]==null) {
+					puedeAvanzar = false;
+				}
+			}
+			
+			case Personaje.ESTE:{
+				//Si la celda en la que está, el pixel al que se quiere avazar, no es caminable
+				if(misCeldas[((int)esqSupDer.getX()+1)/ANCHO_CELDA][((int)esqSupDer.getY())/ALTO_CELDA]==null) {
+					puedeAvanzar = false;
+				}
+				//Idem con la esquina superior izquierda
+				if(misCeldas[((int)esqInfDer.getX()+1)/ANCHO_CELDA][((int)esqInfDer.getY())/ALTO_CELDA]==null) {
+					puedeAvanzar = false;
+				}
+			}
+			
+			case Personaje.SUR:{
+				//Si la celda en la que está, el pixel al que se quiere avazar, no es caminable
+				if(misCeldas[((int)esqInfIzq.getX())/ANCHO_CELDA][((int)esqInfIzq.getY()+1)/ALTO_CELDA]==null) {
+					puedeAvanzar = false;
+				}
+				//Idem con la esquina superior izquierda
+				if(misCeldas[((int)esqInfDer.getX())/ANCHO_CELDA][((int)esqInfDer.getY()+1)/ALTO_CELDA]==null) {
+					puedeAvanzar = false;
+				}
+			}
+			
+			case Personaje.OESTE:{
+				//Si la celda en la que está, el pixel al que se quiere avazar, no es caminable
+				if(misCeldas[((int)esqInfIzq.getX()-1)/ANCHO_CELDA][((int)esqInfIzq.getY())/ALTO_CELDA]==null) {
+					puedeAvanzar = false;
+				}
+				//Idem con la esquina superior izquierda
+				if(misCeldas[((int)esqSupIzq.getX()-1)/ANCHO_CELDA][((int)esqSupIzq.getY())/ALTO_CELDA]==null) {
+					puedeAvanzar = false;
+				}
+			}
+		}
+		
+		return puedeAvanzar;
+	}
+	
+	
 	
 }

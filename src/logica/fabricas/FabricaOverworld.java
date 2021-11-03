@@ -80,7 +80,7 @@ public class FabricaOverworld implements FabricaElementos{
 	public PacDot construirPacDot(Celda cel, Mapa map) {
 		PacDot dot;
 		int puntaje = 100;
-		dot = new PacDot(puntaje,"../../recursos/imagenes/xpVerde.png",cel);
+		dot = new PacDot(puntaje,"../../recursos/imagenes/xpVerde.png",cel, map);
 		return dot;
 	}
 

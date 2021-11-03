@@ -11,6 +11,10 @@ import logica.entidades.Entidad;
 public class Celda {
 	private int posX;
 	private int posY;
+	
+	private static final int ANCHO = 24;
+	private static final int ALTO = 24;
+	
 	LinkedList<Entidad> entidades;
 	
 	/**
@@ -95,7 +99,13 @@ public class Celda {
 	}
 	//TODO implementar este método con las constantes direcciones.
 	
+	public int getAncho() {
+		return ANCHO;
+	}
 	
+	public int getAlto() {
+		return ALTO;
+	}
 	
 	
 	

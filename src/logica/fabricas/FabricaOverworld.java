@@ -90,8 +90,10 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public Fruta construirFruta(Celda cel, Mapa map) {
-		//TODO
-		return null;
+		Fruta fruit;
+		int puntaje = 1000;
+		fruit = new Fruta(puntaje,"../../recursos/imagenes/fruit.png",cel, map);
+		return fruit;
 	}
 
 
@@ -100,8 +102,9 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public PowerPellet construirPowerPellet(Celda cel, Mapa map) {
-		//TODO
-		return null;
+		PowerPellet pp;
+		pp = new PowerPellet("../../recursos/imagenes/ManzanaDorada.png",16,16,cel, map);
+		return pp;
 	}
 
 
@@ -110,8 +113,9 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public SpeedPotion construirSpeedPotion(Celda cel, Mapa map) {
-		//TODO
-		return null;
+		SpeedPotion sp;
+		sp = new SpeedPotion("../../recursos/imagenes/ManzanaDorada.png",16,16,cel, map);
+		return sp;
 	}
 
 
@@ -120,8 +124,9 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public Bomb construirBomba(Celda cel, Mapa map) {
-		//TODO
-		return null;
+		Bomb bomba;
+		bomba = new Bomb("../../recursos/imagenes/gunpowder.png",16,16,cel, map);
+		return bomba;
 	}
 
 

@@ -33,7 +33,8 @@ public class Partida {
 			entGraficas.add(ent.getEntidadGrafica());
 		}
 		
-		pantalla.imprimirMapa(entGraficas);
+		pantalla.imprimirMapa(entGraficas, fab.getLevel1Layout());
+		//TODO tal vez haya que tener atributo tipo fabrica
 	}
 	
 	public void siguienteNivel() {

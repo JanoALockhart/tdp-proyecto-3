@@ -78,6 +78,10 @@ public class Partida {
 		
 	}
 	
+	public void seApretoEspacio() {
+		
+	}
+	
 	public void addPuntaje() {
 		
 	}

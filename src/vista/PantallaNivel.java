@@ -119,32 +119,32 @@ public class PantallaNivel extends JPanel implements State {
 	}
 	
 	public void seApretoDerecha() {
-		setPuntacion((int) Math.round(Math.random()*100));
+		miPartida.seApretoDerecha();
 	}
 
 	@Override
 	public void seApretoIzquierda() {
-		setPuntacion((int) Math.round(Math.random()*100));
+		miPartida.seApretoIzquierda();
 	}
 
 	@Override
 	public void seApretoAbajo() {
-		setPuntacion((int) Math.round(Math.random()*100));
+		miPartida.seApretoAbajo();
 	}
 
 	@Override
 	public void seApretoArriba() {
-		setPuntacion((int) Math.round(Math.random()*100));
+		miPartida.seApretoArriba();
 	}
 
 	@Override
 	public void seApretoEnter() {
-		setPuntacion((int) Math.round(Math.random()*100));
+		miPartida.seApretoEnter();
 	}
 
 	@Override
 	public void seApretoEspacio() {
-		setPuntacion((int) Math.round(Math.random()*100));
+		miPartida.seApretoEspacio();
 	}
 
 	@Override

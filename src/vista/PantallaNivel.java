@@ -22,10 +22,9 @@ public class PantallaNivel extends JPanel implements State {
 	private UserInterface miUI;
 	
 	private JPanel panel;
-	private JLabel lblVida;
-	private JLabel lblVida_1;
-	private JLabel lblVida_2;
-	private JLabel lblVida_3;
+	
+	private JLabel[] lblsVida;
+	
 	private JLabel lblFruta;
 	private JLabel lblFruta_1;
 	private JLabel lblFruta_2;
@@ -36,7 +35,11 @@ public class PantallaNivel extends JPanel implements State {
 	
 	private Partida miPartida;
 	
-	public PantallaNivel(UserInterface UI, Font h1, FabricaElementos fabrica) {
+	public PantallaNivel(UserInterface UI, Font h1, FabricaElementos fabrica) {		
+		JLabel lblVida;
+		JLabel lblVida_1;
+		JLabel lblVida_2;
+		
 		panel=new JPanel();
 		panel.setBackground(Color.BLACK);
 		panelMapa = new JPanel();
@@ -46,6 +49,8 @@ public class PantallaNivel extends JPanel implements State {
 		
 		miPartida=new Partida(this, fabrica);
 		panelMapa.setLayout(null);
+		
+		lblsVida=new JLabel[3];
 		
 		mainFont=h1;
 		
@@ -81,12 +86,6 @@ public class PantallaNivel extends JPanel implements State {
 		lblVida_2.setFont(mainFont);
 		panel.add(lblVida_2);
 		
-		lblVida_3 = new JLabel("<");
-		lblVida_3.setForeground(Color.WHITE);
-		lblVida_3.setBounds(548, 85, 46, 44);
-		lblVida_3.setFont(mainFont);
-		panel.add(lblVida_3);
-		
 		lblFruta = new JLabel("F");
 		lblFruta.setForeground(Color.WHITE);
 		lblFruta.setFont(mainFont);
@@ -116,6 +115,10 @@ public class PantallaNivel extends JPanel implements State {
 		lblFruta_4.setFont(mainFont);
 		lblFruta_4.setBounds(521, 597, 17, 21);
 		panel.add(lblFruta_4);
+		
+		lblsVida[0]=lblVida;
+		lblsVida[1]=lblVida_1;
+		lblsVida[2]=lblVida_2;
 	}
 	
 	public void seApretoDerecha() {
@@ -149,8 +152,10 @@ public class PantallaNivel extends JPanel implements State {
 
 	@Override
 	public void refrescarLabels() {
-		// TODO Auto-generated method stub
-		
+		int vidas=miPartida.getVidas();
+		for(int i=vidas;vidas<3;i--) {
+			lblsVida[i-1].setForeground(Color.BLACK);
+		}
 	}
 	
 	public void imprimirMapa(Iterable<EntidadGrafica> it, String mapa) {		

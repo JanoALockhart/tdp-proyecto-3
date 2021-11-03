@@ -3,6 +3,7 @@ package logica.entidades.Personaje;
 import logica.entidades.Entidad;
 import logica.entidades.visitadores.*;
 import logica.mapa.Celda;
+import logica.mapa.Mapa;
 
 public abstract class Personaje extends Entidad {
 	
@@ -13,8 +14,8 @@ public abstract class Personaje extends Entidad {
 	public static final int ESTE = 3;
 	public static final int OESTE = 4;
 	
-	public Personaje(String img, int width, int height, Celda c,int vel) {
-		super(img,width,height,c);
+	public Personaje(String img, int width, int height, Celda c,int vel,Mapa map) {
+		super(img,width,height,c,map);
 		velocidad = vel;
 		direccion = ESTE;
 	}

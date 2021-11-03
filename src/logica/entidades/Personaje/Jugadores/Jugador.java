@@ -3,6 +3,7 @@ package logica.entidades.Personaje.Jugadores;
 import logica.entidades.Personaje.Personaje;
 import logica.entidades.visitadores.*;
 import logica.mapa.Celda;
+import logica.mapa.Mapa;
 
 public class Jugador extends Personaje {
 
@@ -11,15 +12,15 @@ public class Jugador extends Personaje {
 	protected TimerEfecto miTimerEfecto;
 	private static Jugador instance;
 	
-	private Jugador(String img, int width, int height, Celda c, int vel) {
-		 super(img,width,height,c,vel);
+	private Jugador(String img, int width, int height, Celda c, int vel, Mapa map) {
+		 super(img,width,height,c,vel,map);
 		 vidas = 3; //TODO VERIFICAR CANT
 		 
 	}
 	
-	public static Jugador getInstance(String img,Celda c, int vel) {
+	public static Jugador getInstance(String img,Celda c, int vel,Mapa map) {
 		if(instance == null) {
-			instance = new Jugador(img,c.getAncho(),c.getAlto(),c,vel);
+			instance = new Jugador(img,c.getAncho(),c.getAlto(),c,vel,map);
 		}
 		return instance;
 	}

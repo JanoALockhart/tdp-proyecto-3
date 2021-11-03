@@ -51,17 +51,17 @@ public abstract class Personaje extends Entidad {
 	public int getDireccion() {return direccion;}
 	
 	public boolean verificarCambioDeCelda() {
-		//TODO miMapa.verificarMovimiento(direccion);
+		miMapa.verificarMovimiento(direccion,miObjetoGrafico.getRect());
 		return true;
 	}
 	
-	public boolean verificarCambioDireccion() {
-		
+	public boolean verificarCambioDireccion(int dir) {
+		miMapa.verificarMovimiento(dir,miObjetoGrafico.getRect());
 	}
 	
 	public void cambiarDireccion(int dir) {
-		if(verificarCambio)
-		direccion = dir;
+		if(verificarCambioDireccion(dir))
+			direccion = dir;
 	}
 	
 	public void accept(Visitor v) {

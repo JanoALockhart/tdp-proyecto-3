@@ -1,6 +1,7 @@
 package logica.builder;
 
 import logica.entidades.Entidad;
+import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.fabricas.FabricaElementos;
 import logica.mapa.*;
 
@@ -20,6 +21,9 @@ public class ArquitectoNivel implements BuilderNivel{
 	 */
 	public void armarNivel1() {
 		try {
+			//Agregar Jugador
+			agregarJugador(10,18);
+			
 			//Agregar pac dots
 			agregarPacDot(1,1);
 			agregarPacDot(2,1);
@@ -556,6 +560,17 @@ public class ArquitectoNivel implements BuilderNivel{
 		
 		cel.add(pac);
 		nivel.addContador();
+		nivel.agregarCelda(cel);
+	}
+	
+	private void agregarJugador(int x,int y) throws Exception{
+		Celda cel;
+		Entidad personaje;
+		
+		cel = miFabrica.construirCelda(x,y);
+		personaje = miFabrica.construirJugador(cel);
+		
+		cel.add(personaje);
 		nivel.agregarCelda(cel);
 	}
 }

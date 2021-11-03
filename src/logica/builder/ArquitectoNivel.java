@@ -554,6 +554,7 @@ public class ArquitectoNivel implements BuilderNivel{
 		cel = miFabrica.construirCelda(x,y);
 		pac = miFabrica.construirPacDot(cel);
 		
+		cel.add(pac);
 		nivel.addContador();
 		nivel.agregarCelda(cel);
 	}

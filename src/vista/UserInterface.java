@@ -13,7 +13,7 @@ import java.io.InputStream;
 
 public class UserInterface extends JFrame {
 	
-	private static final InputStream INPUT_STREAM_FUENTE = UserInterface.class.getResourceAsStream("fonts/Early GameBoy.ttf");
+	private static final InputStream INPUT_STREAM_FUENTE = UserInterface.class.getResourceAsStream("../recursos/fonts/Early GameBoy.ttf");
 	
 	private State miEstado;
 	

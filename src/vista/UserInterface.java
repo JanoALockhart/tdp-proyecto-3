@@ -65,17 +65,7 @@ public class UserInterface extends JFrame {
 		
 		miEstado=new MenuPrincipal(this, 0, mainFont);
 		
-		State pantallaNivel=new PantallaNivel(this, mainFont, fabrica);
-		
-		State seleccionarSkin=new SeleccionarSkin(this, mainFont);
-		
-		State pantallaPuntajes=new PantallaPuntajes(this, mainFont);
-		
 		contentPane.add(miEstado.getPanel(), miEstado.getName());
-		contentPane.add(pantallaNivel.getPanel(), pantallaNivel.getName());
-		contentPane.add(seleccionarSkin.getPanel(), seleccionarSkin.getName());
-		contentPane.add(pantallaPuntajes.getPanel(), pantallaPuntajes.getName());
-		
 		
 		addKeyListener(new KeyAdapter() {
 			@Override
@@ -120,7 +110,6 @@ public class UserInterface extends JFrame {
 		contentPane.add(estado.getPanel(), estado.getName());
 		c1.show(contentPane, name);
 		miEstado=estado;
-		System.out.println(name);
 	}
 	
 	/**

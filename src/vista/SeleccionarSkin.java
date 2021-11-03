@@ -35,6 +35,8 @@ public class SeleccionarSkin extends JPanel implements State{
 	
 	private Font mainFont;
 	
+	private Slider<String> miSlider;
+	
 	public SeleccionarSkin(UserInterface UI, Font h1) {
 		panel=new JPanel();
 		panel.setLayout(null);
@@ -84,24 +86,27 @@ public class SeleccionarSkin extends JPanel implements State{
 		optionList=new String[2];
 		optionList[0]="1";
 		optionList[1]="2";
+		
+		miSlider=new Slider<String>(2);
+		
+		miSlider.setOptionAtN("1", 1);
+		miSlider.setOptionAtN("2", 2);
 	}
 	
 	@Override
 	public void seApretoDerecha() {
 		lblFlechaDerecha.setForeground(Color.YELLOW);
 		lblFlechaIzquierda.setForeground(Color.WHITE);
-		optionSelected++;
-		optionSelected=optionSelected%optionList.length;
-		lblOpcion.setText(optionList[Math.abs(optionSelected)]);
+		miSlider.slideClockwise();
+		lblOpcion.setText(miSlider.getOptionSelected());
 	}
 
 	@Override
 	public void seApretoIzquierda() {
 		lblFlechaIzquierda.setForeground(Color.YELLOW);
 		lblFlechaDerecha.setForeground(Color.WHITE);
-		optionSelected--;
-		optionSelected=optionSelected%optionList.length;
-		lblOpcion.setText(optionList[Math.abs(optionSelected)]);
+		miSlider.slideAnticlockwise();
+		lblOpcion.setText(miSlider.getOptionSelected());
 	}
 
 	@Override
@@ -117,7 +122,7 @@ public class SeleccionarSkin extends JPanel implements State{
 	@Override
 	public void seApretoEnter() {
 		FabricaElementos fabrica;
-		switch(optionSelected) {
+		switch(miSlider.getSliderSelection()) {
 			case 0:{
 				fabrica=new FabricaOverworld();
 				miUI.setFabrica(fabrica);
@@ -128,7 +133,6 @@ public class SeleccionarSkin extends JPanel implements State{
 				miUI.setFabrica(fabrica);
 				break;
 			}
-			
 		}
 		salirAMenuPrincipal();		
 	}
@@ -156,7 +160,7 @@ public class SeleccionarSkin extends JPanel implements State{
 	 * Procedimiento que pone en la UI el menu principal con la opción de "Seleccionar skin" marcada
 	 */
 	private void salirAMenuPrincipal() {
-		State estadoNuevo=new MenuPrincipal(miUI ,1, mainFont);
+		State estadoNuevo=new MenuPrincipal(miUI, 1, mainFont);
 		miUI.cambiarEstado(estadoNuevo, estadoNuevo.getName());
 	}
 }

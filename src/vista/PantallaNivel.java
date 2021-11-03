@@ -10,6 +10,7 @@ import java.awt.GridLayout;
 import java.awt.Rectangle;
 import javax.swing.border.LineBorder;
 
+import logica.entidades.EntidadGrafica;
 import logica.fabricas.FabricaElementos;
 import logica.partida.Partida;
 
@@ -42,17 +43,10 @@ public class PantallaNivel extends JPanel implements State {
 		panelMapa.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelMapa.setBounds(10, 10, 528, 672);
 		panel.add(panelMapa);
-		panelMapa.setLayout(null);
 		
 		miPartida=new Partida(this, fabrica);
+		panelMapa.setLayout(null);
 		
-		JLabel lblCuadrado = new JLabel("");
-		lblCuadrado.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblCuadrado.setBounds(0, 0, 528, 672);
-		panelMapa.add(lblCuadrado);
-		
-		ImageIcon foto = new ImageIcon(PantallaNivel.class.getResource("map.png"));
-		lblCuadrado.setIcon(foto);
 		
 		mainFont=h1;
 		
@@ -157,6 +151,21 @@ public class PantallaNivel extends JPanel implements State {
 	@Override
 	public void refrescarLabels() {
 		// TODO Auto-generated method stub
+		
+	}
+	
+	public void imprimirMapa(Iterable<EntidadGrafica> it) {
+		
+		JLabel lblCuadrado = new JLabel("");
+		lblCuadrado.setBounds(0, 0, 528, 672);
+		lblCuadrado.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		panelMapa.add(lblCuadrado);
+		
+		for(EntidadGrafica e:it) { 
+			//e.getLbl().setIcon(new ImageIcon(PantallaNivel.class.getResource(e.getImg())));
+			panelMapa.add(e.getLbl());
+		}
+		System.out.println("lorem ipsum");
 		
 	}
 	

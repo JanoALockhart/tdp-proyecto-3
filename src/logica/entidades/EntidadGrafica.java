@@ -12,7 +12,7 @@ public class EntidadGrafica{
 		
 		public EntidadGrafica(String dir, int PosX, int PosY, int width, int height) {
 			dirImg = dir;
-			icon = new ImageIcon(dir);
+			icon = new ImageIcon(EntidadGrafica.class.getResource(dir));
 			jlbl = new JLabel(icon);
 			jlbl.setBounds(PosX, PosY, width, height);
 			jlbl.setVisible(true);

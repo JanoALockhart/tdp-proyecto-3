@@ -7,6 +7,8 @@ public class Jugador extends Personaje {
 
 	protected int cantBombas;
 	protected int vidas;
+	protected TimerEfecto miTimerEfecto;
+	protected Jugador intance;
 	
 	public Jugador() {
 		// TODO Auto-generated constructor stub

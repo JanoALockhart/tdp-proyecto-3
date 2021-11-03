@@ -13,7 +13,7 @@ public abstract class Entidad implements Element {
 		int PosX = c.getX() * c.getAncho() + c.getAncho()/2 - width/2; //TODO ARREGLAR ESTOOO CALCULAR POSICION EN PIXELES RESPECTO A TAMA:NO CELDA
 		int PosY = c.getY() * c.getAlto() + c.getAlto()/2 - height/2; //TODO ARREGLAR ESTOOO
 
-		miMapa = c.getMapa(); //TODO
+		//miMapa = c.getMapa(); //TODO
 		
 		miObjetoGrafico = new EntidadGrafica(img, PosX, PosY, width, height);
 		

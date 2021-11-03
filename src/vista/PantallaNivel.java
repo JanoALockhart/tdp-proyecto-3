@@ -41,7 +41,7 @@ public class PantallaNivel extends JPanel implements State {
 		panel.setBackground(Color.BLACK);
 		panelMapa = new JPanel();
 		panelMapa.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelMapa.setBounds(10, 10, 528, 672);
+		panelMapa.setBounds(10, 10, 504, 576);
 		panel.add(panelMapa);
 		
 		miPartida=new Partida(this, fabrica);
@@ -52,13 +52,13 @@ public class PantallaNivel extends JPanel implements State {
 		JLabel lblPuntaje = new JLabel("PUNTAJE:");
 		lblPuntaje.setForeground(Color.WHITE);
 		lblPuntaje.setFont(mainFont);
-		lblPuntaje.setBounds(10, 693, 194, 49);
+		lblPuntaje.setBounds(10, 597, 194, 49);
 		panel.add(lblPuntaje);
 		
 		puntaje = new JLabel("000000");
 		puntaje.setForeground(Color.WHITE);
 		puntaje.setFont(mainFont);
-		puntaje.setBounds(196, 693, 207, 49);
+		puntaje.setBounds(196, 597, 207, 49);
 		panel.add(puntaje);
 		miUI=UI;
 		panel.setLayout(null);
@@ -90,31 +90,31 @@ public class PantallaNivel extends JPanel implements State {
 		lblFruta = new JLabel("F");
 		lblFruta.setForeground(Color.WHITE);
 		lblFruta.setFont(mainFont);
-		lblFruta.setBounds(413, 693, 17, 21);
+		lblFruta.setBounds(413, 597, 17, 21);
 		panel.add(lblFruta);
 		
 		lblFruta_1 = new JLabel("F");
 		lblFruta_1.setForeground(Color.WHITE);
 		lblFruta_1.setFont(mainFont);
-		lblFruta_1.setBounds(440, 693, 17, 21);
+		lblFruta_1.setBounds(440, 597, 17, 21);
 		panel.add(lblFruta_1);
 		
 		lblFruta_2 = new JLabel("F");
 		lblFruta_2.setForeground(Color.WHITE);
 		lblFruta_2.setFont(mainFont);
-		lblFruta_2.setBounds(467, 693, 17, 21);
+		lblFruta_2.setBounds(467, 597, 17, 21);
 		panel.add(lblFruta_2);
 		
 		lblFruta_3 = new JLabel("F");
 		lblFruta_3.setForeground(Color.WHITE);
 		lblFruta_3.setFont(mainFont);
-		lblFruta_3.setBounds(494, 693, 17, 21);
+		lblFruta_3.setBounds(494, 597, 17, 21);
 		panel.add(lblFruta_3);
 		
 		lblFruta_4 = new JLabel("F");
 		lblFruta_4.setForeground(Color.WHITE);
 		lblFruta_4.setFont(mainFont);
-		lblFruta_4.setBounds(521, 693, 17, 21);
+		lblFruta_4.setBounds(521, 597, 17, 21);
 		panel.add(lblFruta_4);
 	}
 	
@@ -155,7 +155,7 @@ public class PantallaNivel extends JPanel implements State {
 	
 	public void imprimirMapa(Iterable<EntidadGrafica> it, String mapa) {		
 		JLabel lblMapa = new JLabel(reEscalar(mapa));
-		lblMapa.setBounds(0, 0, 528, 672);
+		lblMapa.setBounds(0, 0, 504, 576);
 		panelMapa.add(lblMapa);
 		
 		for(EntidadGrafica e:it) { 
@@ -181,7 +181,7 @@ public class PantallaNivel extends JPanel implements State {
 	
 	private ImageIcon reEscalar(String dirImg) {
         ImageIcon img = new ImageIcon(EntidadGrafica.class.getResource(dirImg));
-        Image imgResized = img.getImage().getScaledInstance(528, 672, Image.SCALE_SMOOTH);
+        Image imgResized = img.getImage().getScaledInstance(504, 576, Image.SCALE_SMOOTH);
         return new ImageIcon(imgResized);
     }
 }

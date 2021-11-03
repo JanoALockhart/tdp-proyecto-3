@@ -1,5 +1,6 @@
 package logica.entidades;
 
+import java.awt.Image;
 import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
@@ -13,12 +14,19 @@ public class EntidadGrafica{
 		
 		public EntidadGrafica(String dir, int PosX, int PosY, int width, int height) {
 			dirImg = dir;
+			
+			//Resize imageIcon
 			icon = new ImageIcon(EntidadGrafica.class.getResource(dir));
+			Image imgResized = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+	        icon = new ImageIcon(imgResized);
+			
 			this.width = width;
 			this.height = height;
 			jlbl = new JLabel(icon);
 			jlbl.setBounds(PosX, PosY, width, height);
 			jlbl.setVisible(true);
+			
+	        
 		}
 		
 		public String getImg() {

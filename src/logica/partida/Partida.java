@@ -7,6 +7,7 @@ import java.util.LinkedList;
 
 import logica.builder.*;
 import logica.entidades.*;
+import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.fabricas.*;
 import logica.mapa.Mapa;
 import vista.*;
@@ -17,6 +18,7 @@ public class Partida {
 	private PantallaNivel pantalla;
 	private BuilderNivel builder;
 	private Mapa miMapa;
+	private Jugador player;
 	private int puntaje;
 	
 	
@@ -26,6 +28,7 @@ public class Partida {
 		builder = new ArquitectoNivel(fab);
 		builder.armarNivel1();
 		miMapa = builder.getNivelArmado();
+		player = Jugador.getInstance(null, null, puntaje); //TODO cuidado con la construccion de las cosas...
 		
 		Iterable<Entidad> entidades = miMapa.getTodasLasEntidades();
 		LinkedList<EntidadGrafica> entGraficas = new LinkedList<EntidadGrafica>();
@@ -79,7 +82,7 @@ public class Partida {
 	}
 	
 	public void seApretoEspacio() {
-		
+		player.avanzar();
 	}
 	
 	public void addPuntaje() {

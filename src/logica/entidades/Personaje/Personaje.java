@@ -49,7 +49,8 @@ public abstract class Personaje extends Entidad {
 	}
 	
 	public boolean verificarCambioDeCelda() {
-		miMapa.verificarMovimiento(direccion);
+		//TODO miMapa.verificarMovimiento(direccion);
+		return true;
 	}
 	
 	public void cambiarDireccion(int dir) {

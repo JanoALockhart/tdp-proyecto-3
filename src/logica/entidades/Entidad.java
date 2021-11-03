@@ -5,12 +5,15 @@ import logica.mapa.*;
 
 public abstract class Entidad implements Element {
 	protected EntidadGrafica miObjetoGrafico;
+	protected Mapa miMapa;
 	//TODO Linkear visitor
 	
 	
 	public Entidad(String img, int width, int height, Celda c) {
 		int PosX = c.getX() * c.getAncho() + c.getAncho()/2 - width/2; //TODO ARREGLAR ESTOOO CALCULAR POSICION EN PIXELES RESPECTO A TAMA:NO CELDA
 		int PosY = c.getY() * c.getAlto() + c.getAlto()/2 - height/2; //TODO ARREGLAR ESTOOO
+
+		miMapa = c.getMapa(); //TODO
 		
 		miObjetoGrafico = new EntidadGrafica(img, PosX, PosY, width, height);
 		
@@ -27,5 +30,22 @@ public abstract class Entidad implements Element {
 	
 	public EntidadGrafica getEntidadGrafica() {
 		return miObjetoGrafico;
+	}
+	
+	//METODOS MOVIMIENTO
+	public void moverNorte() {
+		miObjetoGrafico.moverNorte();
+	}
+
+	public void moverSur() {
+		miObjetoGrafico.moverSur();
+	}
+	
+	public void moverEste() {
+		miObjetoGrafico.moverEste();
+	}
+	
+	public void moverOeste() {
+		miObjetoGrafico.moverOeste();
 	}
 }

@@ -9,9 +9,12 @@ public class EntidadGrafica{
 		protected String dirImg;
 		protected JLabel jlbl;
 		protected ImageIcon icon;
+		protected int width, height;
 		
 		public EntidadGrafica(String dir, int PosX, int PosY, int width, int height) {
 			dirImg = dir;
+			this.width = width;
+			this.height = height;
 			icon = new ImageIcon(dir);
 			jlbl = new JLabel(icon);
 			jlbl.setBounds(PosX, PosY, width, height);
@@ -34,4 +37,20 @@ public class EntidadGrafica{
 			//TODO
 		}
 		
+		//METODOS MOVER
+		public void moverNorte() {
+			jlbl.setLocation(jlbl.getX(), jlbl.getY()-1);
+		}
+		
+		public void moverSur() {
+			jlbl.setLocation(jlbl.getX(), jlbl.getY()+1);
+		}
+		
+		public void moverEste() {
+			jlbl.setLocation(jlbl.getX()+1, jlbl.getY());
+		}
+		
+		public void moverOeste() {
+			jlbl.setLocation(jlbl.getX()-1, jlbl.getY());
+		}
 }

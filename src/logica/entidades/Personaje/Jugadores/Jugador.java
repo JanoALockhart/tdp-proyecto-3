@@ -17,9 +17,9 @@ public class Jugador extends Personaje {
 		 
 	}
 	
-	public static Jugador getInstance(String img, int width, int height, Celda c, int vel) {
+	public static Jugador getInstance(String img,Celda c, int vel) {
 		if(instance == null) {
-			instance = new Jugador(img,width,height,c,vel);
+			instance = new Jugador(img,c.getAncho(),c.getAlto(),c,vel);
 		}
 		return instance;
 	}

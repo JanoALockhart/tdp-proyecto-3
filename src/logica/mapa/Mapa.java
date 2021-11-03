@@ -204,8 +204,10 @@ public class Mapa {
 		LinkedList<Entidad> entidades = new LinkedList<Entidad>();
 		for(int posX=0; posX<ANCHO; posX++) {
 			for(int posY=0; posY<ALTO; posY++) {
-				for(Entidad ent : misCeldas[posX][posY].getEntidades()) {
-					entidades.add(ent);
+				if(misCeldas[posX][posY]!=null) {
+					for(Entidad ent : misCeldas[posX][posY].getEntidades()) {
+						entidades.add(ent);
+					}
 				}
 			}
 		}

@@ -6,7 +6,8 @@ import logica.mapa.*;
 public class PacDot extends Punto {
 	
 	public PacDot(int val, String img, Celda c) {
-			super(img ,c.getAncho()/5 ,c.getAlto()/5,c);
+		super(img ,c.getAncho()/5 ,c.getAlto()/5,c);
+		valor = val;
 	}
 	
 	public void accept(Visitor v) {

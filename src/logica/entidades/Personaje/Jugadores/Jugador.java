@@ -7,9 +7,11 @@ public class Jugador extends Personaje {
 
 	protected int cantBombas;
 	protected int vidas;
+	protected TimerEfecto miTimerEfecto;
+	protected Jugador intance;
 	
 	public Jugador() {
-		vidasss = 
+		 
 	}
 	
 	public int getVidas() {

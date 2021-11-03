@@ -16,7 +16,6 @@ public abstract class Entidad implements Element {
 		
 	}
 	
-	
 	public void accept(Visitor v) {
 		
 	}
@@ -26,7 +25,7 @@ public abstract class Entidad implements Element {
 		return true;
 	}
 	
-	public  void eliminar() {
-		miPosicion.remove(this);
+	public EntidadGrafica getEntidadGrafica() {
+		return miObjetoGrafico;
 	}
 }

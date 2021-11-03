@@ -24,7 +24,8 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public Jugador construirJugador(Celda cel) {
-		return new Jugador("/recursos/imagenes/Steve.png", cel);
+		//return new Jugador("/recursos/imagenes/Steve.png", cel);
+		return null;
 	}
 
 
@@ -33,7 +34,9 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public Blinky construirBlinky(Celda cel) {
-		return new Blinky("/recursos/imagenes/Zombie.png", cel);
+		//TODO
+		//return new Blinky("/recursos/imagenes/Zombie.png", cel);
+		return null;
 	}
 
 
@@ -42,7 +45,9 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public Pinky construirPinky(Celda cel) {
-		return new Pinky("/recursos/imagenes/Spider.png",cel);
+		//TODO
+		//return new Pinky("/recursos/imagenes/Spider.png",cel);
+		return null;
 	}
 
 
@@ -51,7 +56,9 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public Inky construirInky(Celda cel) {
-		return new Inky("/recursos/imagenes/Creeper.png",cel);
+		//TODO
+		//return new Inky("/recursos/imagenes/Creeper.png",cel);
+		return null;
 	}
 
 
@@ -60,7 +67,9 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public Clyde construirClyde(Celda cel) {
-		return new Clyde("/recursos/imagenes/Skeleton.png",cel);
+		//TODO
+		//return new Clyde("/recursos/imagenes/Skeleton.png",cel);
+		return null;
 	}
 
 

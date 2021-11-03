@@ -7,7 +7,7 @@ import logica.entidades.EntidadGrafica;
 
 public class Mapa {
 	private Celda misCeldas[][];
-	private int cantPacDots;
+	private int cantCollectibles;
 	//private Asustador asusPerseguidores;
 	
 	private static final int ALTO = 32;
@@ -20,7 +20,7 @@ public class Mapa {
 		//TODO inicializar el asustador
 		//TODO ver dimensiones
 		misCeldas = new Celda[ANCHO][ALTO];
-		cantPacDots = 0;
+		cantCollectibles = 0;
 	}
 	
 	/**
@@ -210,6 +210,10 @@ public class Mapa {
 			}
 		}
 		return entidades;
+	}
+	
+	public void addContador() {
+		cantCollectibles++;
 	}
 	
 }

@@ -33,6 +33,8 @@ public class MenuPrincipal extends JPanel implements State {
 	private UserInterface miUI;
 
 	private Font mainFont;
+	
+	private Slider<JLabel> miSlider;
 		
 	public MenuPrincipal(UserInterface UI, int option, Font h1) {
 		
@@ -84,7 +86,13 @@ public class MenuPrincipal extends JPanel implements State {
 		optionList[1]=lblSkin;
 		optionList[2]=lblScoreBoard;
 		
-		optionList[optionSelected].setForeground(Color.YELLOW);
+		miSlider=new Slider<JLabel>(3, option);
+		
+		miSlider.setOptionAtN(lblNuevoJuego, 1);
+		miSlider.setOptionAtN(lblSkin, 2);
+		miSlider.setOptionAtN(lblScoreBoard, 3);
+		
+		miSlider.getOptionSelected().setForeground(Color.YELLOW);
 	}
 
 	@Override
@@ -99,32 +107,22 @@ public class MenuPrincipal extends JPanel implements State {
 
 	@Override
 	public void seApretoArriba() {
-		optionList[Math.abs(optionSelected)].setForeground(Color.WHITE);
-		optionList[Math.abs(optionSelected)].setFont(mainFont);
-		panel.add(optionList[Math.abs(optionSelected)]);
-		optionSelected--;
-		optionSelected=optionSelected==-1?optionList.length-1:optionSelected%optionList.length;
-		JLabel seleccionada=optionList[Math.abs(optionSelected)];
-		seleccionada.setForeground(Color.YELLOW);	
-		panel.add(seleccionada);	
+		miSlider.getOptionSelected().setForeground(Color.WHITE);
+		miSlider.slideAnticlockwise();
+		miSlider.getOptionSelected().setForeground(Color.YELLOW);	
 	}
 
 	@Override
 	public void seApretoAbajo() {
-		optionList[Math.abs(optionSelected)].setForeground(Color.WHITE);
-		optionList[Math.abs(optionSelected)].setFont(mainFont);
-		panel.add(optionList[Math.abs(optionSelected)]);
-		optionSelected++;
-		optionSelected=optionSelected%optionList.length;
-		JLabel seleccionada=optionList[Math.abs(optionSelected)];
-		seleccionada.setForeground(Color.YELLOW);
-		panel.add(seleccionada);
+		miSlider.getOptionSelected().setForeground(Color.WHITE);
+		miSlider.slideClockwise();
+		miSlider.getOptionSelected().setForeground(Color.YELLOW);
 	}
 
 	@Override
 	public void seApretoEnter() {
 		State estadoNuevo;
-		switch(optionSelected) {
+		switch(miSlider.getSliderSelection()) {
 			case 0:{
 				estadoNuevo=new PantallaNivel(miUI, mainFont, miUI.getFabrica());
 				miUI.setSize(600, 800);
@@ -141,7 +139,6 @@ public class MenuPrincipal extends JPanel implements State {
 				miUI.cambiarEstado(estadoNuevo, estadoNuevo.getName());				
 				break;
 			}
-			
 		}
 	}
 

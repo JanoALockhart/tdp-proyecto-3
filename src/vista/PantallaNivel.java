@@ -153,18 +153,14 @@ public class PantallaNivel extends JPanel implements State {
 		
 	}
 	
-	public void imprimirMapa(Iterable<EntidadGrafica> it, String mapa) {
-		
-		JLabel lblMapa = new JLabel("");
+	public void imprimirMapa(Iterable<EntidadGrafica> it, String mapa) {		
+		JLabel lblMapa = new JLabel(reEscalar(mapa));
 		lblMapa.setBounds(0, 0, 528, 672);
-		lblMapa.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblMapa.setIcon(reEscalar(mapa));
 		panelMapa.add(lblMapa);
 		
 		for(EntidadGrafica e:it) { 
 			panelMapa.add(e.getLbl());
 		}
-		
 	}
 	
 	public JPanel getPanel() {

@@ -17,10 +17,6 @@ public class SeleccionarSkin extends JPanel implements State{
 	
 	private final static String stateName="Seleccionador de Skin";
 	
-	private int optionSelected;
-	
-	private String[] optionList;
-	
 	private UserInterface miUI;
 	
 	private JPanel panel;
@@ -82,10 +78,6 @@ public class SeleccionarSkin extends JPanel implements State{
 		lblImagen.setFont(mainFont);
 		lblImagen.setBounds(10, 11, 580, 553);
 		panel.add(lblImagen);
-		
-		optionList=new String[2];
-		optionList[0]="1";
-		optionList[1]="2";
 		
 		miSlider=new Slider<String>(2);
 		

@@ -11,6 +11,11 @@ public class Slider<E> {
 		options=(E[]) new Object[nroOptions];
 	}
 	
+	public Slider(int nroOptions, int sliderAt){
+		sliderSelection=sliderAt;
+		options=(E[]) new Object[nroOptions];
+	}
+	
 	public void setOptionAtN(E option, int n) {
 		options[--n]=option;
 	}
@@ -22,11 +27,11 @@ public class Slider<E> {
 	
 	public void slideAnticlockwise() {
 		sliderSelection--;
-		sliderSelection=sliderSelection%options.length;	
+		sliderSelection=sliderSelection==-1?options.length-1:sliderSelection%options.length;
 	}
 	
 	public int getSliderSelection() {
-		return sliderSelection;
+		return Math.abs(sliderSelection);
 	}
 	
 	public E getOptionSelected() {

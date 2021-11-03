@@ -9,7 +9,7 @@ public class Jugador extends Personaje {
 	protected int vidas;
 	
 	public Jugador() {
-		// TODO Auto-generated constructor stub
+		vidasss = 
 	}
 	
 	public int getVidas() {
@@ -37,6 +37,6 @@ public class Jugador extends Personaje {
 	}
 	
 	public Jugador getInstance() {
-		return null;
+		return this;
 	}
 }

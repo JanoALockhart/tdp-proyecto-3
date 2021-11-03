@@ -11,18 +11,18 @@ import logica.mapa.Celda;
  * Interface FabricaElementos
  */
 public interface FabricaElementos {
-	public Jugador construirJugador();
-	public Blinky construirBlinky();
-	public Pinky construirPinky();
-	public Inky construirInky();
-	public Clyde construirClyde();
-	public PacDot construirPacDot();
-	public Fruta construirFruta();
-	public PowerPellet construirPowerPellet();
-	public SpeedPotion construirSpeedPotion();
-	public Bomb construirBomba();
+	public Jugador construirJugador(Celda cel);
+	public Blinky construirBlinky(Celda cel);
+	public Pinky construirPinky(Celda cel);
+	public Inky construirInky(Celda cel);
+	public Clyde construirClyde(Celda cel);
+	public PacDot construirPacDot(Celda cel);
+	public Fruta construirFruta(Celda cel);
+	public PowerPellet construirPowerPellet(Celda cel);
+	public SpeedPotion construirSpeedPotion(Celda cel);
+	public Bomb construirBomba(Celda cel);
 	public Celda construirCelda(int x, int y);
-	public Portal construirPortal();
+	public Portal construirPortal(Celda cel);
 	public String getLevel1Layout();
 	
 }

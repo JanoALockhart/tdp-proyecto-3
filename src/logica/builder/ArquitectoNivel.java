@@ -121,8 +121,24 @@ public class ArquitectoNivel implements BuilderNivel{
 	 * Metodo que posiciona celdas y entidades para el nivel2
 	 */
 	public void armarNivel2() {
-		//TODO
-		
+		try {
+			agregarCeldasCon(miFabrica.construirPacDot(),1,1,1,11);
+			agregarCeldasCon(miFabrica.construirPacDot(),1,14,1,17);
+			agregarCeldasCon(miFabrica.construirPacDot(),1,19,1,22);
+			
+			
+			
+			agregarCeldaCon(miFabrica.construirPacDot(),2,1);
+			agregarCeldaCon(miFabrica.construirPacDot(),2,11);
+			agregarCeldaCon(miFabrica.construirPacDot(),2,14);
+			agregarCeldasCon(miFabrica.construirPacDot(),2,17,2,19);
+			agregarCeldaCon(miFabrica.construirPacDot(),2,22);
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
 	}
 
 

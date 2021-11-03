@@ -8,10 +8,10 @@ public abstract class Personaje extends Entidad {
 	
 	protected int direccion;
 	protected int velocidad;
-	protected static final int NORTE = 1;
-	protected static final int SUR = 2;
-	protected static final int ESTE = 3;
-	protected static final int OESTE = 4;
+	public static final int NORTE = 1;
+	public static final int SUR = 2;
+	public static final int ESTE = 3;
+	public static final int OESTE = 4;
 	
 	public Personaje(String img, int width, int height, Celda c,int vel) {
 		super(img,width,height,c);
@@ -48,12 +48,19 @@ public abstract class Personaje extends Entidad {
 		}
 	}
 	
+	public int getDireccion() {return direccion;}
+	
 	public boolean verificarCambioDeCelda() {
 		//TODO miMapa.verificarMovimiento(direccion);
 		return true;
 	}
 	
+	public boolean verificarCambioDireccion() {
+		
+	}
+	
 	public void cambiarDireccion(int dir) {
+		if(verificarCambio)
 		direccion = dir;
 	}
 	

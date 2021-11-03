@@ -556,7 +556,7 @@ public class ArquitectoNivel implements BuilderNivel{
 		Entidad pac;
 		
 		cel = miFabrica.construirCelda(x,y);
-		pac = miFabrica.construirPacDot(cel);
+		pac = miFabrica.construirPacDot(cel,nivel);
 		
 		cel.add(pac);
 		nivel.addContador();
@@ -568,7 +568,7 @@ public class ArquitectoNivel implements BuilderNivel{
 		Entidad personaje;
 		
 		cel = miFabrica.construirCelda(x,y);
-		personaje = miFabrica.construirJugador(cel);
+		personaje = miFabrica.construirJugador(cel,nivel);
 		
 		cel.add(personaje);
 		nivel.agregarCelda(cel);

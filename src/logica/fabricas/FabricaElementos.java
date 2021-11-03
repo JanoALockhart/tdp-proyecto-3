@@ -6,23 +6,24 @@ import logica.entidades.Entornos.*;
 import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.Personaje.Perseguidores.*;
 import logica.mapa.Celda;
+import logica.mapa.Mapa;
 
 /**
  * Interface FabricaElementos
  */
 public interface FabricaElementos {
-	public Jugador construirJugador(Celda cel);
-	public Blinky construirBlinky(Celda cel);
-	public Pinky construirPinky(Celda cel);
-	public Inky construirInky(Celda cel);
-	public Clyde construirClyde(Celda cel);
-	public PacDot construirPacDot(Celda cel);
-	public Fruta construirFruta(Celda cel);
-	public PowerPellet construirPowerPellet(Celda cel);
-	public SpeedPotion construirSpeedPotion(Celda cel);
-	public Bomb construirBomba(Celda cel);
+	public Jugador construirJugador(Celda cel, Mapa map);
+	public Blinky construirBlinky(Celda cel, Mapa map);
+	public Pinky construirPinky(Celda cel, Mapa map);
+	public Inky construirInky(Celda cel, Mapa map);
+	public Clyde construirClyde(Celda cel, Mapa map);
+	public PacDot construirPacDot(Celda cel, Mapa map);
+	public Fruta construirFruta(Celda cel, Mapa map);
+	public PowerPellet construirPowerPellet(Celda cel, Mapa map);
+	public SpeedPotion construirSpeedPotion(Celda cel, Mapa map);
+	public Bomb construirBomba(Celda cel, Mapa map);
 	public Celda construirCelda(int x, int y);
-	public Portal construirPortal(Celda cel);
+	public Portal construirPortal(Celda cel, Mapa maps);
 	public String getLevel1Layout();
 	
 }

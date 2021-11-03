@@ -14,13 +14,13 @@ import vista.*;
  *
  */
 public class Partida {
-	private State pantalla;
+	private PantallaNivel pantalla;
 	private BuilderNivel builder;
 	private Mapa miMapa;
 	private int puntaje;
 	
 	
-	public Partida(State ui,FabricaElementos fab) {
+	public Partida(PantallaNivel ui,FabricaElementos fab) {
 		pantalla = ui;
 		puntaje = 0;	
 		builder = new ArquitectoNivel(fab);

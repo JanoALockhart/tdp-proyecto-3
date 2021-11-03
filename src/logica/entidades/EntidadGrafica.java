@@ -13,13 +13,9 @@ public class EntidadGrafica{
 		
 		public EntidadGrafica(String dir, int PosX, int PosY, int width, int height) {
 			dirImg = dir;
-<<<<<<< HEAD
 			icon = new ImageIcon(EntidadGrafica.class.getResource(dir));
-=======
 			this.width = width;
 			this.height = height;
-			icon = new ImageIcon(dir);
->>>>>>> c3a408bc52182df3f7bcccf1e62de60d6aef133d
 			jlbl = new JLabel(icon);
 			jlbl.setBounds(PosX, PosY, width, height);
 			jlbl.setVisible(true);

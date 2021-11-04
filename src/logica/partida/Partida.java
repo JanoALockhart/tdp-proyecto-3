@@ -62,19 +62,19 @@ public class Partida {
 	}
 	
 	public void seApretoArriba() {
-		
+		player.cambiarDireccion(player.NORTE);
 	}
 	
 	public void seApretoDerecha() {
-		
+		player.cambiarDireccion(player.ESTE);
 	}
 	
 	public void seApretoIzquierda() {
-		
+		player.cambiarDireccion(player.OESTE);
 	}
 	
 	public void seApretoAbajo() {
-		
+		player.cambiarDireccion(player.SUR);
 	}
 	
 	public void seApretoEnter() {

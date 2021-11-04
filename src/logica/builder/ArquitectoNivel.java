@@ -305,6 +305,7 @@ public class ArquitectoNivel implements BuilderNivel{
 			agregarPacDot(15,1);
 			agregarPacDot(17,1);
 			agregarPacDot(18,1);
+			agregarPacDot(19,1);
 			agregarPacDot(1,2);
 			agregarPacDot(7,2);
 			agregarPacDot(9,2);
@@ -401,12 +402,14 @@ public class ArquitectoNivel implements BuilderNivel{
 			agregarPacDot(2,11);
 			agregarPacDot(3,11);
 			agregarPacDot(4,11);
+			agregarPacDot(5,11);
 			agregarPacDot(6,11);
 			agregarPacDot(7,11);
 			agregarPacDot(8,11);
 			agregarPacDot(9,11);
 			agregarPacDot(11,11);
 			agregarPacDot(13,11);
+			agregarPacDot(15,11);
 			agregarPacDot(17,11);
 			agregarPacDot(3,12);
 			agregarPacDot(5,12);

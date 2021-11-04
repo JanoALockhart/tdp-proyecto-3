@@ -92,6 +92,10 @@ public class Partida {
 	public void moverPerseguidores() {
 		
 	}
+	
+	public int getVidas() {
+		return player.getVidas();
+	}
 
 
 }

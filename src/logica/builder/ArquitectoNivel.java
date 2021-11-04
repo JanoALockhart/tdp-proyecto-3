@@ -24,6 +24,21 @@ public class ArquitectoNivel implements BuilderNivel{
 			//Agregar Jugador
 			agregarJugador(10,18);
 			
+			//Agregar fruta
+			agregarFruta(10,14);
+			
+			//Agregar power pellets
+			agregarPowerPellet(1,20);
+			agregarPowerPellet(19,20);
+			agregarPowerPellet(1,1);
+			agregarPowerPellet(19,1);
+			
+			//Agregar speed potion
+			agregarSpeedPotion(5,11);
+			
+			//Agregar bomba
+			agregarBomba(15,11);
+			
 			//Agregar pac dots
 			agregarPacDot(1,1);
 			agregarPacDot(2,1);
@@ -571,6 +586,50 @@ public class ArquitectoNivel implements BuilderNivel{
 		personaje = miFabrica.construirJugador(cel,nivel);
 		
 		cel.add(personaje);
+		nivel.agregarCelda(cel);
+	}
+	
+	private void agregarFruta(int x,int y) throws Exception{
+		Celda cel;
+		Entidad fruta;
+		
+		cel = miFabrica.construirCelda(x,y);
+		fruta = miFabrica.construirFruta(cel,nivel);
+		
+		cel.add(fruta);
+		nivel.agregarCelda(cel);
+	}
+	
+	private void agregarPowerPellet(int x,int y) throws Exception{
+		Celda cel;
+		Entidad pp;
+		
+		cel = miFabrica.construirCelda(x,y);
+		pp = miFabrica.construirPowerPellet(cel,nivel);
+		
+		cel.add(pp);
+		nivel.agregarCelda(cel);
+	}
+	
+	private void agregarSpeedPotion(int x,int y) throws Exception{
+		Celda cel;
+		Entidad sp;
+		
+		cel = miFabrica.construirCelda(x,y);
+		sp = miFabrica.construirSpeedPotion(cel,nivel);
+		
+		cel.add(sp);
+		nivel.agregarCelda(cel);
+	}
+	
+	private void agregarBomba(int x,int y) throws Exception{
+		Celda cel;
+		Entidad bomba;
+		
+		cel = miFabrica.construirCelda(x,y);
+		bomba = miFabrica.construirBomba(cel,nivel);
+		
+		cel.add(bomba);
 		nivel.agregarCelda(cel);
 	}
 }

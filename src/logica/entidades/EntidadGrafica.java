@@ -11,6 +11,7 @@ public class EntidadGrafica{
 		protected JLabel jlbl;
 		protected ImageIcon icon;
 		protected int width, height;
+		private static final int pixelPorPaso = 4;
 		
 		public EntidadGrafica(String dir, int PosX, int PosY, int width, int height) {
 			dirImg = dir;
@@ -52,18 +53,18 @@ public class EntidadGrafica{
 		
 		//METODOS MOVER
 		public void moverNorte() {
-			jlbl.setLocation(jlbl.getX(), jlbl.getY()-1);
+			jlbl.setLocation(jlbl.getX(), jlbl.getY()-pixelPorPaso);
 		}
 		
 		public void moverSur() {
-			jlbl.setLocation(jlbl.getX(), jlbl.getY()+1);
+			jlbl.setLocation(jlbl.getX(), jlbl.getY()+pixelPorPaso);
 		}
 		
 		public void moverEste() {
-			jlbl.setLocation(jlbl.getX()+1, jlbl.getY());
+			jlbl.setLocation(jlbl.getX()+pixelPorPaso, jlbl.getY());
 		}
 		
 		public void moverOeste() {
-			jlbl.setLocation(jlbl.getX()-1, jlbl.getY());
+			jlbl.setLocation(jlbl.getX()-pixelPorPaso, jlbl.getY());
 		}
 }

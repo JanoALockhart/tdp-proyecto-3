@@ -551,6 +551,10 @@ public class ArquitectoNivel implements BuilderNivel{
 			
 			//Agregar Potion
 			agregarSpeedPotion(1, 7);
+			agregarBomba(11, 2);
+			
+			//Agregar fruta
+			agregarFruta(7, 2);
 			
 			//Agregar PacDots
 			agregarPacDot(1,1);
@@ -573,10 +577,8 @@ public class ArquitectoNivel implements BuilderNivel{
 			agregarPacDot(3,2);
 			agregarPacDot(5,2);
 			agregarPacDot(6,2);
-			agregarPacDot(7,2);
 			agregarPacDot(9,2);
 			agregarPacDot(10,2);
-			agregarPacDot(11,2);
 			agregarPacDot(15,2);
 			agregarPacDot(1,3);
 			agregarPacDot(2,3);

@@ -251,7 +251,7 @@ public class Mapa {
 		Point esqSupIzq = hitBox.getLocation();	
 		Point esqSupDer = new Point((int) (esqSupIzq.getX()+hitBox.getWidth()), (int) esqSupIzq.getY());
 		Point esqInfDer = new Point((int) (esqSupIzq.getX()+hitBox.getWidth()), (int) (esqSupIzq.getY()+hitBox.getHeight()));
-		Point esqInfIzq = new Point((int) (esqSupDer.getX()), (int) (esqSupDer.getY()+hitBox.getHeight()));
+		Point esqInfIzq = new Point((int) (esqSupIzq.getX()), (int) (esqSupIzq.getY()+hitBox.getHeight()));
 		
 		switch(direccion) {
 			case Personaje.NORTE:{
@@ -272,13 +272,10 @@ public class Mapa {
 				if(misCeldas[((int)esqSupDer.getX()+1)/ANCHO_CELDA][((int)esqSupDer.getY())/ALTO_CELDA]==null) {
 					puedeAvanzar = false;
 				}
-				System.out.println("bool:"+puedeAvanzar);
 				//Idem con la esquina superior izquierda
 				if(misCeldas[((int)esqInfDer.getX()+1)/ANCHO_CELDA][((int)esqInfDer.getY())/ALTO_CELDA]==null) {
 					puedeAvanzar = false;
 				}
-				System.out.println("bool:"+puedeAvanzar);
-				System.out.println("esqInfDer:("+esqInfDer.getX()+","+esqInfDer.getY()+")");
 				break;
 			}
 			
@@ -287,10 +284,13 @@ public class Mapa {
 				if(misCeldas[((int)esqInfIzq.getX())/ANCHO_CELDA][((int)esqInfIzq.getY()+1)/ALTO_CELDA]==null) {
 					puedeAvanzar = false;
 				}
+				System.out.println("bool:"+puedeAvanzar);
 				//Idem con la esquina superior izquierda
-				if(misCeldas[((int)esqInfDer.getX())/ANCHO_CELDA][((int)esqInfDer.getY()+1)/ALTO_CELDA]==null) {
+				if(misCeldas[((int)  esqInfDer.getX())/ANCHO_CELDA][((int)esqInfDer.getY()+1)/ALTO_CELDA]==null) {
 					puedeAvanzar = false;
 				}
+
+				System.out.println("bool:"+puedeAvanzar);
 				break;
 			}
 			

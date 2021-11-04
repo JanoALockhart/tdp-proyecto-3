@@ -148,16 +148,25 @@ public class FabricaOverworld implements FabricaElementos{
 		return null;
 	}
 	
+	/**
+	 * Metodo que devuelve la imagen de fondo para el nivel1
+	 */
 	public String getLevel1Layout() {
 		return "/recursos/imagenes/Map.png";
 	}
 	
+	/**
+	 * Metodo que devuelve la imagen de fondo para el nivel2
+	 */
 	public String getLevel2Layout() {
-		return null;
+		return "/recursos/imagenes/nivel2.png";
 	}
 	
+	/**
+	 * Metodo que devuelve la imagen de fondo para el nivel3
+	 */
 	public String getLevel3Layout() {
-		return null;
+		return "/recursos/imagenes/MapaPlantillaN3.png";
 	}
 	
 	

@@ -275,7 +275,21 @@ public class ArquitectoNivel implements BuilderNivel{
 	 */
 	public void armarNivel2() {
 		try {
-			agregarPacDot(1,1);
+			//Agregar Jugador
+			agregarJugador(4,22);
+			
+			//Agregar power pellets
+			agregarPowerPellet(15, 18);
+			agregarPowerPellet(5, 5);
+			
+			//Agregar fruta
+			agregarFruta(13, 7);
+			
+			//Agregar potions
+			agregarSpeedPotion(1, 1);
+			agregarBomba(19, 22);
+			
+			//Agregar pacDots
 			agregarPacDot(2,1);
 			agregarPacDot(3,1);
 			agregarPacDot(4,1);
@@ -323,7 +337,6 @@ public class ArquitectoNivel implements BuilderNivel{
 			agregarPacDot(19,4);
 			agregarPacDot(1,5);
 			agregarPacDot(3,5);
-			agregarPacDot(5,5);
 			agregarPacDot(7,5);
 			agregarPacDot(9,5);
 			agregarPacDot(11,5);
@@ -349,7 +362,6 @@ public class ArquitectoNivel implements BuilderNivel{
 			agregarPacDot(7,7);
 			agregarPacDot(9,7);
 			agregarPacDot(11,7);
-			agregarPacDot(13,7);
 			agregarPacDot(14,7);
 			agregarPacDot(15,7);
 			agregarPacDot(16,7);
@@ -470,7 +482,6 @@ public class ArquitectoNivel implements BuilderNivel{
 			agregarPacDot(9,18);
 			agregarPacDot(11,18);
 			agregarPacDot(13,18);
-			agregarPacDot(15,18);
 			agregarPacDot(17,18);
 			agregarPacDot(19,18);
 			agregarPacDot(1,19);
@@ -507,7 +518,6 @@ public class ArquitectoNivel implements BuilderNivel{
 			agregarPacDot(1,22);
 			agregarPacDot(2,22);
 			agregarPacDot(3,22);
-			agregarPacDot(4,22);
 			agregarPacDot(5,22);
 			agregarPacDot(7,22);
 			agregarPacDot(8,22);
@@ -520,7 +530,6 @@ public class ArquitectoNivel implements BuilderNivel{
 			agregarPacDot(16,22);
 			agregarPacDot(17,22);
 			agregarPacDot(18,22);
-			agregarPacDot(19,22);
 			
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -531,7 +540,25 @@ public class ArquitectoNivel implements BuilderNivel{
 
 	
 	public void armarNivel3() {
-		//TODO
+		try {
+			//Agregar Jugador
+			agregarJugador(1,22);
+			
+			//Agregar PowerPellets
+			agregarPowerPellet(13,15);
+			agregarPowerPellet(15,15);
+			agregarPowerPellet(17,15);
+			
+			//Agregar Potion
+			agregarSpeedPotion(1, 7);
+			
+			
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
 		
 	}
 

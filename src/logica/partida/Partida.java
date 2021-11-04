@@ -28,7 +28,7 @@ public class Partida {
 		builder = new ArquitectoNivel(fab);
 		builder.armarNivel1();//TODO cambiar a otro nivel
 		miMapa = builder.getNivelArmado();
-		player = Jugador.getInstance(null, null, puntaje, null); //TODO cuidado con la construccion de las cosas...
+		player = Jugador.getInstance(null, null, 0, null); //TODO cuidado con la construccion de las cosas...
 		
 		Iterable<Entidad> entidades = miMapa.getTodasLasEntidades();
 		LinkedList<EntidadGrafica> entGraficas = new LinkedList<EntidadGrafica>();

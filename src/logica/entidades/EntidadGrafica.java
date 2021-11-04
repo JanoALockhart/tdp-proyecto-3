@@ -37,7 +37,12 @@ public class EntidadGrafica{
 			return jlbl;
 		}
 		
-		public Rectangle getRect() { return jlbl.getBounds();}
+		public Rectangle getRect() { 
+			//return jlbl.getBounds();
+			Rectangle lbl = jlbl.getBounds();
+			Rectangle hitBox = new Rectangle((int)lbl.getX(), (int) lbl.getY(),(int)lbl.getWidth()-1,(int)lbl.getHeight()-1);
+			return hitBox;
+		}
 		
 		public ImageIcon getIcon() { return icon;}
 		

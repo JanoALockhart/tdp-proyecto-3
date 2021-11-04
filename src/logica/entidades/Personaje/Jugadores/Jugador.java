@@ -21,6 +21,7 @@ public class Jugador extends Personaje {
 	public static Jugador getInstance(String img,Celda c, int vel,Mapa map) {
 		if(instance == null) {
 			instance = new Jugador(img,c.getAncho(),c.getAlto(),c,vel,map);
+			System.out.println("h:"+c.getAncho()+",w:"+c.getAncho());
 		}
 		return instance;
 	}

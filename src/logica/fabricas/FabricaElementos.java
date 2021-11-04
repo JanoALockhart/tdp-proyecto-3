@@ -25,5 +25,7 @@ public interface FabricaElementos {
 	public Celda construirCelda(int x, int y);
 	public Portal construirPortal(Celda cel, Mapa maps);
 	public String getLevel1Layout();
+	public String getLevel2Layout();
+	public String getLevel3Layout();
 	
 }

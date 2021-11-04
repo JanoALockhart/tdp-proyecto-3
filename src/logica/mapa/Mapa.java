@@ -246,10 +246,12 @@ public class Mapa {
 	public boolean verificarMovimiento(int direccion, Rectangle hitBox) {
 		boolean puedeAvanzar=true;
 		
-		Point esqSupDer = hitBox.getLocation();
-		Point esqSupIzq = new Point((int) (esqSupDer.getX()+hitBox.getWidth()), (int) esqSupDer.getY());
-		Point esqInfDer = new Point((int) esqSupDer.getX(), (int) (esqSupDer.getY()+hitBox.getHeight()));
-		Point esqInfIzq = new Point((int) (esqSupDer.getX()+hitBox.getWidth()), (int) (esqSupDer.getY()+hitBox.getHeight()));
+		System.out.println(hitBox);
+		
+		Point esqSupIzq = hitBox.getLocation();	
+		Point esqSupDer = new Point((int) (esqSupIzq.getX()+hitBox.getWidth()), (int) esqSupIzq.getY());
+		Point esqInfDer = new Point((int) (esqSupIzq.getX()+hitBox.getWidth()), (int) (esqSupIzq.getY()+hitBox.getHeight()));
+		Point esqInfIzq = new Point((int) (esqSupDer.getX()), (int) (esqSupDer.getY()+hitBox.getHeight()));
 		
 		switch(direccion) {
 			case Personaje.NORTE:{
@@ -261,17 +263,23 @@ public class Mapa {
 				if(misCeldas[((int)esqSupIzq.getX())/ANCHO_CELDA][((int)esqSupIzq.getY()-1)/ALTO_CELDA]==null) {
 					puedeAvanzar = false;
 				}
+				break;
 			}
 			
 			case Personaje.ESTE:{
+				System.out.println("posXPersonaje:"+(int)((esqSupDer.getX()+1)/ANCHO_CELDA));
 				//Si la celda en la que está, el pixel al que se quiere avazar, no es caminable
 				if(misCeldas[((int)esqSupDer.getX()+1)/ANCHO_CELDA][((int)esqSupDer.getY())/ALTO_CELDA]==null) {
 					puedeAvanzar = false;
 				}
+				System.out.println("bool:"+puedeAvanzar);
 				//Idem con la esquina superior izquierda
 				if(misCeldas[((int)esqInfDer.getX()+1)/ANCHO_CELDA][((int)esqInfDer.getY())/ALTO_CELDA]==null) {
 					puedeAvanzar = false;
 				}
+				System.out.println("bool:"+puedeAvanzar);
+				System.out.println("esqInfDer:("+esqInfDer.getX()+","+esqInfDer.getY()+")");
+				break;
 			}
 			
 			case Personaje.SUR:{
@@ -283,6 +291,7 @@ public class Mapa {
 				if(misCeldas[((int)esqInfDer.getX())/ANCHO_CELDA][((int)esqInfDer.getY()+1)/ALTO_CELDA]==null) {
 					puedeAvanzar = false;
 				}
+				break;
 			}
 			
 			case Personaje.OESTE:{
@@ -294,9 +303,10 @@ public class Mapa {
 				if(misCeldas[((int)esqSupIzq.getX()-1)/ANCHO_CELDA][((int)esqSupIzq.getY())/ALTO_CELDA]==null) {
 					puedeAvanzar = false;
 				}
+				break;
 			}
 		}
-		
+		System.out.println("return:"+puedeAvanzar);
 		return puedeAvanzar;
 	}
 	

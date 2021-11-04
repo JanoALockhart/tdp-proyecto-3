@@ -114,7 +114,7 @@ public class FabricaOverworld implements FabricaElementos{
 	 */
 	public SpeedPotion construirSpeedPotion(Celda cel, Mapa map) {
 		SpeedPotion sp;
-		sp = new SpeedPotion("../../recursos/imagenes/ManzanaDorada.png",16,16,cel, map);
+		sp = new SpeedPotion("../../recursos/imagenes/potion.png",16,16,cel, map);
 		return sp;
 	}
 
@@ -150,6 +150,14 @@ public class FabricaOverworld implements FabricaElementos{
 	
 	public String getLevel1Layout() {
 		return "/recursos/imagenes/Map.png";
+	}
+	
+	public String getLevel2Layout() {
+		return null;
+	}
+	
+	public String getLevel3Layout() {
+		return null;
 	}
 	
 	

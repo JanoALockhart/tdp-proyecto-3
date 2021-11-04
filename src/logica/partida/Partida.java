@@ -26,7 +26,7 @@ public class Partida {
 		pantalla = ui;
 		puntaje = 0;	
 		builder = new ArquitectoNivel(fab);
-		builder.armarNivel1();
+		builder.armarNivel1();//TODO cambiar a otro nivel
 		miMapa = builder.getNivelArmado();
 		player = Jugador.getInstance(null, null, puntaje, null); //TODO cuidado con la construccion de las cosas...
 		
@@ -36,7 +36,7 @@ public class Partida {
 			entGraficas.add(ent.getEntidadGrafica());
 		}
 		
-		pantalla.imprimirMapa(entGraficas, fab.getLevel1Layout());
+		pantalla.imprimirMapa(entGraficas, fab.getLevel1Layout());//TODO cambiar al layout de otro lvl
 		//TODO tal vez haya que tener atributo tipo fabrica
 	}
 	

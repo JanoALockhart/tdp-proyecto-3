@@ -40,7 +40,6 @@ public class ArquitectoNivel implements BuilderNivel{
 			agregarBomba(15,11);
 			
 			//Agregar pac dots
-			agregarPacDot(1,1);
 			agregarPacDot(2,1);
 			agregarPacDot(3,1);
 			agregarPacDot(4,1);
@@ -57,7 +56,6 @@ public class ArquitectoNivel implements BuilderNivel{
 			agregarPacDot(16,1);
 			agregarPacDot(17,1);
 			agregarPacDot(18,1);
-			agregarPacDot(19,1);
 			agregarPacDot(1,2);
 			agregarPacDot(4,2);
 			agregarPacDot(9,2);
@@ -144,7 +142,6 @@ public class ArquitectoNivel implements BuilderNivel{
 			agregarPacDot(2,11);
 			agregarPacDot(3,11);
 			agregarPacDot(4,11);
-			agregarPacDot(5,11);
 			agregarPacDot(6,11);
 			agregarPacDot(8,11);
 			agregarPacDot(9,11);
@@ -152,7 +149,6 @@ public class ArquitectoNivel implements BuilderNivel{
 			agregarPacDot(11,11);
 			agregarPacDot(12,11);
 			agregarPacDot(14,11);
-			agregarPacDot(15,11);
 			agregarPacDot(16,11);
 			agregarPacDot(17,11);
 			agregarPacDot(18,11);
@@ -175,7 +171,6 @@ public class ArquitectoNivel implements BuilderNivel{
 			agregarPacDot(7,14);
 			agregarPacDot(8,14);
 			agregarPacDot(9,14);
-			agregarPacDot(10,14);
 			agregarPacDot(11,14);
 			agregarPacDot(12,14);
 			agregarPacDot(13,14);
@@ -231,7 +226,6 @@ public class ArquitectoNivel implements BuilderNivel{
 			agregarPacDot(13,19);
 			agregarPacDot(15,19);
 			agregarPacDot(17,19);
-			agregarPacDot(1,20);
 			agregarPacDot(2,20);
 			agregarPacDot(3,20);
 			agregarPacDot(4,20);
@@ -246,7 +240,6 @@ public class ArquitectoNivel implements BuilderNivel{
 			agregarPacDot(16,20);
 			agregarPacDot(17,20);
 			agregarPacDot(18,20);
-			agregarPacDot(19,20);
 			agregarPacDot(1,21);
 			agregarPacDot(9,21);
 			agregarPacDot(11,21);
@@ -298,7 +291,6 @@ public class ArquitectoNivel implements BuilderNivel{
 			agregarPacDot(15,1);
 			agregarPacDot(17,1);
 			agregarPacDot(18,1);
-			agregarPacDot(19,1);
 			agregarPacDot(1,2);
 			agregarPacDot(7,2);
 			agregarPacDot(9,2);
@@ -397,14 +389,12 @@ public class ArquitectoNivel implements BuilderNivel{
 			agregarPacDot(2,11);
 			agregarPacDot(3,11);
 			agregarPacDot(4,11);
-			agregarPacDot(5,11);
 			agregarPacDot(6,11);
 			agregarPacDot(7,11);
 			agregarPacDot(8,11);
 			agregarPacDot(9,11);
 			agregarPacDot(11,11);
 			agregarPacDot(13,11);
-			agregarPacDot(15,11);
 			agregarPacDot(17,11);
 			agregarPacDot(3,12);
 			agregarPacDot(5,12);

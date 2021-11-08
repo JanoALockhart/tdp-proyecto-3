@@ -19,7 +19,7 @@ import logica.partida.Partida;
 public class PantallaNivel extends JPanel implements State {
 
 	private static final String stateName="Pantalla de nivel"; 
-	private JPanel panelMapa;
+	private JLayeredPane panelMapa;
 	private JLabel puntaje;
 	private UserInterface miUI;
 	
@@ -44,7 +44,8 @@ public class PantallaNivel extends JPanel implements State {
 		
 		panel=new JPanel();
 		panel.setBackground(Color.BLACK);
-		panelMapa = new JPanel();
+		
+		panelMapa = new JLayeredPane();
 		panelMapa.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelMapa.setBounds(10, 10, 504, 576);
 		panel.add(panelMapa);
@@ -162,12 +163,15 @@ public class PantallaNivel extends JPanel implements State {
 	
 	public void imprimirMapa(Iterable<EntidadGrafica> it, String mapa) {		
 		JLabel lblMapa = new JLabel(reEscalar(mapa));
-		JLayeredPane pL=new JLayeredPane();
-		panelMapa.add(pL);
-		lblMapa.setBounds(0, 0, 504, 576);
+		
 		for(EntidadGrafica e:it) { 
 			panelMapa.add(e.getLbl(), e.getPriority());
+			panelMapa.setLayer(e.getLbl(), e.getPriority());
 		}
+		
+		panelMapa.add(lblMapa, 0);
+		panelMapa.setLayer(lblMapa, 0, 0);
+		
 	}
 	
 	public JPanel getPanel() {
@@ -188,7 +192,7 @@ public class PantallaNivel extends JPanel implements State {
 	
 	private ImageIcon reEscalar(String dirImg) {
         ImageIcon img = new ImageIcon(EntidadGrafica.class.getResource(dirImg));
-        Image imgResized = img.getImage().getScaledInstance(504, 576, Image.SCALE_SMOOTH);
+        Image imgResized = img.getImage().getScaledInstance(panelMapa.getHeight(), panelMapa.getWidth(), Image.SCALE_SMOOTH);
         return new ImageIcon(imgResized);
     }
 }

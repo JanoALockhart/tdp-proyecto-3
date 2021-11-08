@@ -1,5 +1,6 @@
 package logica.entidades;
 
+import java.awt.Component;
 import java.awt.Image;
 import java.awt.Rectangle;
 
@@ -10,10 +11,10 @@ public class EntidadGrafica{
 		protected String dirImg;
 		protected JLabel jlbl;
 		protected ImageIcon icon;
-		protected int width, height;
+		protected int width, height, priority;
 		private static final int pixelPorPaso = 4;
 		
-		public EntidadGrafica(String dir, int PosX, int PosY, int width, int height) {
+		public EntidadGrafica(String dir, int PosX, int PosY, int width, int height, int priority) {
 			dirImg = dir;
 			
 			//Resize imageIcon
@@ -23,11 +24,14 @@ public class EntidadGrafica{
 			
 			this.width = width;
 			this.height = height;
+			this.priority = priority;
 			jlbl = new JLabel(icon);
 			jlbl.setBounds(PosX, PosY, width, height);
 			jlbl.setVisible(true);
-			
-	        
+		}
+		
+		public EntidadGrafica(String dir, int PosX, int PosY, int width, int height) {
+			this(dir, PosX, PosY, width, height, 1);
 		}
 		
 		public String getImg() {
@@ -66,5 +70,9 @@ public class EntidadGrafica{
 		
 		public void moverOeste() {
 			jlbl.setLocation(jlbl.getX()-pixelPorPaso, jlbl.getY());
+		}
+
+		public int getPriority() {
+			return priority;
 		}
 }

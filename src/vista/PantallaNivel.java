@@ -5,6 +5,8 @@ import java.awt.Color;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+
 import java.awt.*;
 import java.awt.GridLayout;
 import java.awt.Rectangle;
@@ -160,11 +162,11 @@ public class PantallaNivel extends JPanel implements State {
 	
 	public void imprimirMapa(Iterable<EntidadGrafica> it, String mapa) {		
 		JLabel lblMapa = new JLabel(reEscalar(mapa));
+		JLayeredPane pL=new JLayeredPane();
+		panelMapa.add(pL);
 		lblMapa.setBounds(0, 0, 504, 576);
-		panelMapa.add(lblMapa);
-		
 		for(EntidadGrafica e:it) { 
-			panelMapa.add(e.getLbl());
+			panelMapa.add(e.getLbl(), e.getPriority());
 		}
 	}
 	

@@ -40,7 +40,7 @@ public class Partida {
 			entGraficas.add(ent.getEntidadGrafica());
 		}
 		
-		pantalla.imprimirMapa(entGraficas, fab.getLevel2Layout());//TODO cambiar al layout de otro lvl
+		pantalla.imprimirMapa(entGraficas, fab.getLevel1Layout());//TODO cambiar al layout de otro lvl
 		//TODO tal vez haya que tener atributo tipo fabrica
 	}
 	

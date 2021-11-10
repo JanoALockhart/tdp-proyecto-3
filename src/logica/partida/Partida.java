@@ -21,8 +21,10 @@ public class Partida {
 	private Jugador player;
 	private int puntaje;
 	
+	private static Partida instance;
 	
-	public Partida(PantallaNivel ui,FabricaElementos fab) {
+	
+	private Partida(PantallaNivel ui,FabricaElementos fab) {
 		pantalla = ui;
 		puntaje = 0;	
 		builder = new ArquitectoNivel(fab);
@@ -39,6 +41,13 @@ public class Partida {
 		
 		pantalla.imprimirMapa(entGraficas, fab.getLevel1Layout());//TODO cambiar al layout de otro lvl
 		//TODO tal vez haya que tener atributo tipo fabrica
+	}
+	
+	public static Partida getInstance(PantallaNivel ui, FabricaElementos fab) {
+		if(instance == null) {
+			instance = new Partida(ui,fab);
+		}
+		return instance;
 	}
 	
 	public void siguienteNivel() {

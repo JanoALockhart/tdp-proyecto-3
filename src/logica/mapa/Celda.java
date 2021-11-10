@@ -1,5 +1,6 @@
 package logica.mapa;
 
+import java.awt.Rectangle;
 import java.util.LinkedList;
 
 import logica.entidades.Entidad;
@@ -106,7 +107,6 @@ public class Celda {
 	public int getAlto() {
 		return ALTO;
 	}
-	
 	
 	
 }

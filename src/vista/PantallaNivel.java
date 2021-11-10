@@ -48,9 +48,8 @@ public class PantallaNivel extends JPanel implements State {
 		panelMapa = new JLayeredPane();
 		panelMapa.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelMapa.setBounds(10, 10, 504, 576);
-		panel.add(panelMapa);
 		
-		miPartida=new Partida(this, fabrica);
+		panel.add(panelMapa);
 		panelMapa.setLayout(null);
 		
 		lblsVida=new JLabel[3];
@@ -122,6 +121,8 @@ public class PantallaNivel extends JPanel implements State {
 		lblsVida[0]=lblVida;
 		lblsVida[1]=lblVida_1;
 		lblsVida[2]=lblVida_2;
+		
+		miPartida=new Partida(this, fabrica);
 	}
 	
 	public void seApretoDerecha() {
@@ -163,15 +164,16 @@ public class PantallaNivel extends JPanel implements State {
 	
 	public void imprimirMapa(Iterable<EntidadGrafica> it, String mapa) {		
 		JLabel lblMapa = new JLabel(reEscalar(mapa));
+
+		lblMapa.setSize(504, 576);
+		
+		panelMapa.add(lblMapa, 0);
+		panelMapa.setLayer(lblMapa, 0);
 		
 		for(EntidadGrafica e:it) { 
 			panelMapa.add(e.getLbl(), e.getPriority());
 			panelMapa.setLayer(e.getLbl(), e.getPriority());
 		}
-		
-		panelMapa.add(lblMapa, 0);
-		panelMapa.setLayer(lblMapa, 0, 0);
-		
 	}
 	
 	public JPanel getPanel() {
@@ -192,7 +194,7 @@ public class PantallaNivel extends JPanel implements State {
 	
 	private ImageIcon reEscalar(String dirImg) {
         ImageIcon img = new ImageIcon(EntidadGrafica.class.getResource(dirImg));
-        Image imgResized = img.getImage().getScaledInstance(panelMapa.getHeight(), panelMapa.getWidth(), Image.SCALE_SMOOTH);
+        Image imgResized = img.getImage().getScaledInstance(504, 576, Image.SCALE_SMOOTH);
         return new ImageIcon(imgResized);
     }
 }

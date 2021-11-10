@@ -4,6 +4,7 @@ import logica.entidades.Personaje.Personaje;
 import logica.entidades.visitadores.*;
 import logica.mapa.Celda;
 import logica.mapa.Mapa;
+import logica.partida.Partida;
 
 public class Jugador extends Personaje {
 
@@ -11,6 +12,7 @@ public class Jugador extends Personaje {
 	protected int vidas;
 	protected TimerEfecto miTimerEfecto;
 	private static Jugador instance;
+	private Partida miPartida;
 	
 	private Jugador(String img, int width, int height, Celda c, int vel, Mapa map) {
 		 super(img,width,height,c,vel,map);
@@ -36,8 +38,8 @@ public class Jugador extends Personaje {
 			Partida.perder();
 	}
 	
-	public void accept(Visitor v) {
-		
+	public void accept(Visitor v) {		
+		v.serAfectadoPor(this);
 	}
 	
 	public void ponerBomaba() {
@@ -47,5 +49,7 @@ public class Jugador extends Personaje {
 	public void AumentarVelocidad(int duracion) {
 		
 	}
-	
+	public void addPuntaje(int p) {
+		miPartida.addPuntaje(p);
+	}
 }

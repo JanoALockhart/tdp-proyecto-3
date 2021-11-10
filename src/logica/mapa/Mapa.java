@@ -310,6 +310,21 @@ public class Mapa {
 		return puedeAvanzar;
 	}
 	
+	/**
+	 * Metodo que agrega la entidad, las celdas que toca su hitbox
+	 * @param entity Es la entidad que se debe entregar
+	 */
+	public void colocarEnCeldasQueToca(Entidad entity) {
+		Rectangle hitBox = entity.getEntidadGrafica().getRect();
+		
+		Point esqSupIzq = hitBox.getLocation();	
+		Point esqSupDer = new Point((int) (esqSupIzq.getX()+hitBox.getWidth()), (int) esqSupIzq.getY());
+		Point esqInfDer = new Point((int) (esqSupIzq.getX()+hitBox.getWidth()), (int) (esqSupIzq.getY()+hitBox.getHeight()));
+		Point esqInfIzq = new Point((int) (esqSupIzq.getX()), (int) (esqSupIzq.getY()+hitBox.getHeight()));
+		
+		
+		
+	}
 	
 	
 }

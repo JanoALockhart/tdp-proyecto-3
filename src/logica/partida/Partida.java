@@ -30,6 +30,7 @@ public class Partida {
 		builder = new ArquitectoNivel(fab);
 		DirectorNivel directorLvl = new DirectorNivel1(builder);//TODO cambiar a otro nivel
 		directorLvl.armarNivel();
+
 		miMapa = builder.getNivelArmado();
 		player = Jugador.getInstance(null, null, 0, null); //TODO cuidado con la construccion de las cosas...
 		
@@ -39,7 +40,7 @@ public class Partida {
 			entGraficas.add(ent.getEntidadGrafica());
 		}
 		
-		pantalla.imprimirMapa(entGraficas, fab.getLevel1Layout());//TODO cambiar al layout de otro lvl
+		pantalla.imprimirMapa(entGraficas, fab.getLevel2Layout());//TODO cambiar al layout de otro lvl
 		//TODO tal vez haya que tener atributo tipo fabrica
 	}
 	
@@ -71,20 +72,24 @@ public class Partida {
 		
 	}
 	
-	public void seApretoArriba() {
+	public void seApretoArriba() {		
 		player.cambiarDireccion(player.NORTE);
+		player.avanzar();
 	}
 	
 	public void seApretoDerecha() {
 		player.cambiarDireccion(player.ESTE);
+		player.avanzar();
 	}
 	
 	public void seApretoIzquierda() {
 		player.cambiarDireccion(player.OESTE);
+		player.avanzar();
 	}
 	
 	public void seApretoAbajo() {
 		player.cambiarDireccion(player.SUR);
+		player.avanzar();
 	}
 	
 	public void seApretoEnter() {
@@ -95,8 +100,8 @@ public class Partida {
 		player.avanzar();
 	}
 	
-	public void addPuntaje() {
-		
+	public void addPuntaje(int p) {
+		puntaje += p;
 	}
 	
 	public void moverPerseguidores() {

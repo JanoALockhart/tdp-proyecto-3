@@ -5,7 +5,7 @@ import logica.entidades.Entornos.Entorno;
 import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.Personaje.Perseguidores.Perseguidor;
 
-public class VisitadorPersonaje implements Visitor{
+public class VisitadorJugador implements Visitor{
 
 	@Override
 	public void serAfectadoPor(Perseguidor per) {
@@ -15,8 +15,7 @@ public class VisitadorPersonaje implements Visitor{
 
 	@Override
 	public void serAfectadoPor(Collectible col) {
-		// TODO Auto-generated method stub
-		
+		col.activarEfecto();
 	}
 
 	@Override

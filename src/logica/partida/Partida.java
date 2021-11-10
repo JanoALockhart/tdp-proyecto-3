@@ -26,12 +26,9 @@ public class Partida {
 		pantalla = ui;
 		puntaje = 0;	
 		builder = new ArquitectoNivel(fab);
-<<<<<<< HEAD
-		builder.armarNivel2();//TODO cambiar a otro nivel
-=======
 		DirectorNivel directorLvl = new DirectorNivel1(builder);//TODO cambiar a otro nivel
 		directorLvl.armarNivel();
->>>>>>> d894e71b87d248a0aa31af9a7bdfaf6155e97a81
+
 		miMapa = builder.getNivelArmado();
 		player = Jugador.getInstance(null, null, 0, null); //TODO cuidado con la construccion de las cosas...
 		

@@ -5,7 +5,7 @@ import logica.entidades.visitadores.*;
 
 public class PowerPellet extends PowerUp {
 	public PowerPellet(String img, int width,int height,Celda c, Mapa map) {
-		super(img ,c.getAncho()/3 ,c.getAlto()/3,c, map);
+		super(img ,c.getAncho() ,c.getAlto(),c, map);
 	}
 
 	@Override

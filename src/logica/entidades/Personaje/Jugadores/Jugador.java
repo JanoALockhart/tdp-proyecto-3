@@ -31,7 +31,9 @@ public class Jugador extends Personaje {
 	}
 	
 	public void perderVida() {
-
+		vidas--;
+		if(vidas == 0)
+			Partida.perder();
 	}
 	
 	public void accept(Visitor v) {

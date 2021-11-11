@@ -51,6 +51,10 @@ public class Partida {
 		return instance;
 	}
 	
+	public static Partida getInstance() {
+		return instance;
+	}
+	
 	public void siguienteNivel() {
 		
 	}

@@ -333,7 +333,8 @@ public class Mapa {
 	 * Metodo que realiza las colisiones de la entidad pasada por parámetro
 	 * con todas las entidades que se encuentren en las celdas que toca
 	 * la entidad.
-	 * @param entity Es la entidad 
+	 * @param entity Es la entidad con la que se verificará las colisiones con
+	 * otras entidades.
 	 */
 	public void efectuarColisiones(Entidad entity) {
 		HashSet<Entidad> conjEntidades = new HashSet<Entidad>();

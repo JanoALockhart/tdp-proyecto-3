@@ -28,6 +28,10 @@ public class Jugador extends Personaje {
 		return instance;
 	}
 	
+	public static Jugador getInstance() {
+		return instance;
+	}
+	
 	public int getVidas() {
 		return vidas;
 	}
@@ -35,7 +39,7 @@ public class Jugador extends Personaje {
 	public void perderVida() {
 		vidas--;
 		if(vidas == 0)
-			Partida.perder();
+			Partida.getInstance(null, null).perder();
 	}
 	
 	public void accept(Visitor v) {		
@@ -52,4 +56,6 @@ public class Jugador extends Personaje {
 	public void addPuntaje(int p) {
 		miPartida.addPuntaje(p);
 	}
+	
+
 }

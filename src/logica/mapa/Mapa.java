@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import logica.entidades.Entidad;
 import logica.entidades.EntidadGrafica;
 import logica.entidades.Personaje.Personaje;
+import logica.entidades.Personaje.Jugadores.Jugador;
 
 public class Mapa {
 	private Celda misCeldas[][];
@@ -324,6 +325,15 @@ public class Mapa {
 		
 		
 		
+	}
+
+	public int getAltoCelda() {return ALTO_CELDA;}
+	public int getAnchoCelda() {return ANCHO_CELDA;}
+	
+	public Celda getPosicionJugador() {
+		Jugador jug = Jugador.getInstance();
+		Celda c = getCelda(jug.getEntidadGrafica().getLbl().getX()/ANCHO_CELDA, jug.getEntidadGrafica().getLbl().getY()/ALTO_CELDA);
+		return c;
 	}
 	
 	

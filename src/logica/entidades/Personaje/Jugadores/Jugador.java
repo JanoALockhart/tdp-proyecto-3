@@ -57,5 +57,5 @@ public class Jugador extends Personaje {
 		miPartida.addPuntaje(p);
 	}
 	
-
+	//TODO Funca esto?
 }

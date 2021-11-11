@@ -28,8 +28,8 @@ public class Partida {
 		pantalla = ui;
 		puntaje = 0;	
 		builder = new ArquitectoNivel(fab);
-		DirectorNivel directorLvl = new DirectorNivel1(builder);//TODO cambiar a otro nivel
-		directorLvl.armarNivel();
+		DirectorNivel directorLvl = new DirectorNivel(builder);//TODO cambiar a otro nivel
+		directorLvl.armarNivel("src/recursos/layouts/Nivel1.txt");
 
 		miMapa = builder.getNivelArmado();
 		player = Jugador.getInstance(null, null, 0, null); //TODO cuidado con la construccion de las cosas...

@@ -351,10 +351,10 @@ public class Mapa {
 		//Colisionar entidades
 		for(Entidad entEncontrada:conjEntidades) {
 			if(entEncontrada.getEntidadGrafica().getRect().intersects(entity.getEntidadGrafica().getRect())) {
-				//visitador = entEncontrada.getVisitor()
-				//entity.accept(visitador);
-				//visitador = entity.getVisitor();
-				//entEncontrada.accept(visitador);
+				visitador = entEncontrada.getVisitor();
+				entity.accept(visitador);
+				visitador = entity.getVisitor();
+				entEncontrada.accept(visitador);
 			}
 		}
 		

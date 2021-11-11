@@ -1,5 +1,7 @@
 package logica.entidades.Personaje;
 
+import java.awt.Rectangle;
+
 import logica.entidades.Entidad;
 import logica.entidades.visitadores.*;
 import logica.mapa.Celda;
@@ -22,32 +24,31 @@ public abstract class Personaje extends Entidad {
 	}
 	
 	public void avanzar() {
+		Rectangle oldHitbox = miObjetoGrafico.getRect();//Se crea una copia antigua de la hitbox
 		switch(direccion) {
 			case NORTE:
 				if(verificarCambioDeCelda()) {
 					moverNorte();
-					//TODO MAPA DEBE CHEQUEAR COLISIONES
 				}
 				break;
 			case SUR:
 				if(verificarCambioDeCelda()) {
 					moverSur();
-					//TODO MAPA DEBE CHEQUEAR COLISIONES
 				}
 				break;
 			case ESTE:
 				if(verificarCambioDeCelda()) {
 					moverEste();
-					//TODO MAPA DEBE CHEQUEAR COLISIONES
 				}
 				break;
 			case OESTE:
 				if(verificarCambioDeCelda()) {
 					moverOeste();
-					//TODO MAPA DEBE CHEQUEAR COLISIONES
 				}
 				break;
 		}
+		miMapa.reposicionar(this, oldHitbox);
+		miMapa.efectuarColisiones(this);
 	}
 	
 	public int getDireccion() {return direccion;}

@@ -106,6 +106,7 @@ public class Partida {
 	
 	public void addPuntaje(int p) {
 		puntaje += p;
+		System.out.println("SUMO " + p + " PUNTOS ");
 	}
 	
 	public void moverPerseguidores() {

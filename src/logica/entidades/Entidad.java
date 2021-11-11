@@ -63,4 +63,8 @@ public abstract class Entidad implements Element {
 	public int getY() {
 		return miObjetoGrafico.getLbl().getY()/miMapa.getAltoCelda();
 	}
+
+	public Visitor getVisitor() {
+		return visi;
+	}
 }

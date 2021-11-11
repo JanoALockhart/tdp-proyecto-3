@@ -118,5 +118,10 @@ public class Partida {
 		return player.getVidas();
 	}
 
+	public void elimnarEntidadGrafica(EntidadGrafica miObjetoGrafico) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

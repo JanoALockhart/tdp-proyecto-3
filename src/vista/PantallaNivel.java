@@ -188,7 +188,7 @@ public class PantallaNivel extends JPanel implements State {
 	 * Método que configura el puntaje mostrado en pantalla
 	 * @param puntuacion Puntos que se quieren mostrar
 	 */
-	private void setPuntacion(int puntuacion) {
+	public void setPuntacion(int puntuacion) {
 		puntaje.setText(Integer.toString(puntuacion));
 	}
 	

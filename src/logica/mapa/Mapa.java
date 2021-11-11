@@ -7,6 +7,7 @@ import java.util.*;
 import logica.entidades.Entidad;
 import logica.entidades.EntidadGrafica;
 import logica.entidades.Personaje.Personaje;
+import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.visitadores.Visitor;
 
 public class Mapa {
@@ -381,6 +382,15 @@ public class Mapa {
 		conjuntoCeldas.add(misCeldas[(int)esqInfDer.getX()/ANCHO_CELDA][(int)esqInfDer.getY()/ALTO_CELDA]);
 		
 		return conjuntoCeldas;
+	}
+
+	public int getAltoCelda() {return ALTO_CELDA;}
+	public int getAnchoCelda() {return ANCHO_CELDA;}
+	
+	public Celda getPosicionJugador() {
+		Jugador jug = Jugador.getInstance();
+		Celda c = getCelda(jug.getEntidadGrafica().getLbl().getX()/ANCHO_CELDA, jug.getEntidadGrafica().getLbl().getY()/ALTO_CELDA);
+		return c;
 	}
 	
 	

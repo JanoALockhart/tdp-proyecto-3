@@ -1,12 +1,14 @@
 package logica.entidades.Personaje.Perseguidores;
 
 import logica.mapa.Celda;
+import logica.mapa.Mapa;
 import logica.entidades.visitadores.*;
 
 public class Blinky extends Perseguidor {
 
-	public Blinky(String img) {
-		
+	public Blinky(String img, int width, int height, Celda c, int vel, Mapa map) {
+		super(img,width,height,c,vel,map);
+		celdaObjetivo = calcularObj();
 	}
 	
 	@Override
@@ -17,19 +19,17 @@ public class Blinky extends Perseguidor {
 
 	@Override
 	public void acceptVisitor(Visitor v) {
-		// TODO Auto-generated method stub
-		
+		v.serAfectadoPor(this);
 	}
 
 	@Override
 	public Celda calcularObj() {
-		// TODO Auto-generated method stub
-		return null;
+		Celda c = miMapa.getPosicionJugador();
+		return c;
 	}
 
 	@Override
 	public void avanzar() {
-		// TODO Auto-generated method stub
 		
 	}
 

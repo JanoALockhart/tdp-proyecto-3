@@ -2,11 +2,12 @@ package logica.entidades;
 
 import logica.entidades.visitadores.*;
 import logica.mapa.*;
+import java.awt.Rectangle;
 
 public abstract class Entidad implements Element {
 	protected EntidadGrafica miObjetoGrafico;
 	protected Mapa miMapa;
-	//TODO Linkear visitor
+	protected Visitor visi;
 	
 	
 	public Entidad(String img, int width, int height, Celda c, Mapa map, int priority) {
@@ -32,6 +33,10 @@ public abstract class Entidad implements Element {
 	
 	public EntidadGrafica getEntidadGrafica() {
 		return miObjetoGrafico;
+	}
+	
+	public Rectangle getHitbox() {
+		return miObjetoGrafico.getRect();
 	}
 	
 	//METODOS MOVIMIENTO //TODO MOVER A PERSONAJE (CORTAR)

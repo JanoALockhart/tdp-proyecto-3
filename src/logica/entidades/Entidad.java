@@ -23,7 +23,6 @@ public abstract class Entidad implements Element {
 	}
 	
 	public void accept(Visitor v) {
-		
 	}
 	
 	public boolean colisionaCon(Entidad e) {

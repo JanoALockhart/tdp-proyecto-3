@@ -12,7 +12,6 @@ public class Jugador extends Personaje {
 	protected int vidas;
 	protected TimerEfecto miTimerEfecto;
 	private static Jugador instance;
-	private Partida miPartida;
 	
 	private Jugador(String img, int width, int height, Celda c, int vel, Mapa map) {
 		 super(img,width,height,c,vel,map);
@@ -28,7 +27,7 @@ public class Jugador extends Personaje {
 		return instance;
 	}
 	
-	public int getVidas() {
+	public  int getVidas() {
 		return vidas;
 	}
 	
@@ -47,7 +46,5 @@ public class Jugador extends Personaje {
 	public void AumentarVelocidad(int duracion) {
 		
 	}
-	public void addPuntaje(int p) {
-		miPartida.addPuntaje(p);
-	}
+
 }

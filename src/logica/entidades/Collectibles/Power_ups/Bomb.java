@@ -1,6 +1,7 @@
 package logica.entidades.Collectibles.Power_ups;
 
 
+import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.visitadores.*;
 import logica.mapa.*;
 
@@ -12,10 +13,12 @@ public class Bomb extends PowerUp {
 
 
 	public void accept(Visitor v) {
+		v.serAfectadoPor(this);
 	}
 
 	@Override
 	public void activarEfecto() {
+		Jugador.getInstance(null, null, 0, null).ponerBomaba();
 	}
 
 }

@@ -1,7 +1,6 @@
 package logica.entidades.Collectibles.Puntos;
 
 import logica.entidades.Collectibles.Collectible;
-import logica.entidades.visitadores.Visitor;
 import logica.mapa.Celda;
 import logica.mapa.Mapa;
 

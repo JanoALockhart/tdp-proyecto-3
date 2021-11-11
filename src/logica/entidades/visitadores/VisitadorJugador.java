@@ -9,7 +9,6 @@ public class VisitadorJugador implements Visitor{
 
 	@Override
 	public void serAfectadoPor(Perseguidor per) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -20,13 +19,11 @@ public class VisitadorJugador implements Visitor{
 
 	@Override
 	public void serAfectadoPor(Jugador player) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void serAfectadoPor(Entorno ent) {
-		// TODO Auto-generated method stub
 		
 	}
 

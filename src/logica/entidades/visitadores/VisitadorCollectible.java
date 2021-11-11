@@ -9,7 +9,7 @@ public class VisitadorCollectible implements Visitor{
 
 	@Override
 	public void serAfectadoPor(Perseguidor per) {
-		// TODO Auto-generated method stub	
+		
 	}
 
 	@Override
@@ -24,7 +24,7 @@ public class VisitadorCollectible implements Visitor{
 
 	@Override
 	public void serAfectadoPor(Entorno ent) {
-		// TODO Auto-generated method stub
+		
 	}
 
 }

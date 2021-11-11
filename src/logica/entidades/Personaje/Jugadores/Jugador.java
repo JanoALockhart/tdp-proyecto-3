@@ -12,6 +12,7 @@ public class Jugador extends Personaje {
 	protected int vidas;
 	protected TimerEfecto miTimerEfecto;
 	private static Jugador instance;
+	private Partida miPartida;
 	
 	private Jugador(String img, int width, int height, Celda c, int vel, Mapa map) {
 		 super(img,width,height,c,vel,map);

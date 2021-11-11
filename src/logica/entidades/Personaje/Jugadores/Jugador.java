@@ -53,6 +53,7 @@ public class Jugador extends Personaje {
 	public void AumentarVelocidad(int duracion) {
 		
 	}
+
 	public void addPuntaje(int p) {
 		miPartida.addPuntaje(p);
 	}

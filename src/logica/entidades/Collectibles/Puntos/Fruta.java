@@ -1,8 +1,8 @@
 package logica.entidades.Collectibles.Puntos;
 
-import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.visitadores.*;
 import logica.mapa.*;
+import logica.partida.Partida;
 
 public class Fruta extends Punto {
 	
@@ -16,7 +16,7 @@ public class Fruta extends Punto {
 	}
 	
 	public void activarEfecto() {
-		Jugador.getInstance(null, null, valor, miMapa).addPuntaje(valor);
+		Partida.getInstance(null, null).addPuntaje(valor);
 	}
 
 	

@@ -10,13 +10,12 @@ public class PowerPellet extends PowerUp {
 
 	@Override
 	public void accept(Visitor v) {
-		// TODO Auto-generated method stub	
+		v.serAfectadoPor(this);
 	}
 
 	@Override
 	public void activarEfecto() {
-		// TODO Auto-generated method stub
-		
+		miMapa.asustarPerseguidores();
 	}
 
 

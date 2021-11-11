@@ -1,6 +1,5 @@
 package logica.entidades.Collectibles.Puntos;
 
-import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.visitadores.*;
 import logica.mapa.*;
 import logica.partida.Partida;
@@ -19,7 +18,6 @@ public class PacDot extends Punto {
 	public void activarEfecto() {
 		Partida.getInstance().addPuntaje(valor);//Se suman los puntos
 		miMapa.eliminarDeCeldasQueTocaba(this, getHitbox());//Se lo elimina
-		
 	}
 
 }

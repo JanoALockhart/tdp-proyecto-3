@@ -122,9 +122,7 @@ public class PantallaNivel extends JPanel implements State {
 		lblsVida[1]=lblVida_1;
 		lblsVida[2]=lblVida_2;
 		
-		miPartida=Partida.getInstance();
-		Partida.setUI(this);
-		Partida.setFabrica(fabrica);
+		miPartida=Partida.getInstance(this, fabrica);
 	}
 	
 	public void seApretoDerecha() {

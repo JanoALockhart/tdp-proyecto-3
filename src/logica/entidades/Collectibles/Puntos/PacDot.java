@@ -18,6 +18,7 @@ public class PacDot extends Punto {
 	public void activarEfecto() {
 		Partida.getInstance().addPuntaje(valor);//Se suman los puntos
 		miMapa.eliminarDeCeldasQueTocaba(this, getHitbox());//Se lo elimina
+		Partida.getInstance().elimnarEntidadGrafica(this.miObjetoGrafico);
 	}
 
 }

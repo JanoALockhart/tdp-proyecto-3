@@ -6,14 +6,13 @@ public class Slider<E> {
 	
 	private int sliderSelection;
 	
-	public Slider(int nroOptions){
-		sliderSelection=0;
-		options=(E[]) new Object[nroOptions];
-	}
-	
 	public Slider(int nroOptions, int sliderAt){
 		sliderSelection=sliderAt;
 		options=(E[]) new Object[nroOptions];
+	}
+	
+	public Slider(int nroOptions){
+		this(nroOptions, 0);
 	}
 	
 	public void setOptionAtN(E option, int n) {

@@ -23,6 +23,13 @@ public class ArquitectoNivel implements BuilderNivel{
 		nivel = new Mapa();
 	}
 	
+	public void agregarCeldaVacia(int x, int y) throws Exception{
+		
+		Celda cel = miFabrica.construirCelda(x,y);
+		nivel.agregarCelda(cel);
+		
+	}
+	
 	/**
 	 * Metodo que se encarga de agregar en el nivel, una celda en la posicion
 	 * (x,y) pasadas por parámetro, con una entidad, tambien pasada por

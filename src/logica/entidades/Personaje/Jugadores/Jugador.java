@@ -1,4 +1,4 @@
-package logica.entidades.Personaje.Jugadores;
+ package logica.entidades.Personaje.Jugadores;
 
 import logica.entidades.Personaje.Personaje;
 import logica.entidades.visitadores.*;
@@ -61,7 +61,8 @@ public class Jugador extends Personaje {
 	}
 	
 	public void iniciarTimer() {
-		miTimerJugador.empezar();
+		Thread hilo = new Thread(miTimerJugador);
+		hilo.start();
 	}
 	
 	

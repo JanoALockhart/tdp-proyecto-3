@@ -9,6 +9,7 @@ import logica.entidades.EntidadGrafica;
 import logica.entidades.Personaje.Personaje;
 import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.visitadores.Visitor;
+import logica.partida.Partida;
 
 public class Mapa {
 	private Celda misCeldas[][];
@@ -236,6 +237,8 @@ public class Mapa {
 	 */
 	public void subContador() {
 		cantCollectibles--;
+		if(cantCollectibles==0)
+			Partida.getInstance().siguienteNivel();
 	}
 	
 	/**
@@ -351,10 +354,10 @@ public class Mapa {
 		//Colisionar entidades
 		for(Entidad entEncontrada:conjEntidades) {
 			if(entEncontrada.getEntidadGrafica().getRect().intersects(entity.getEntidadGrafica().getRect())) {
-				//visitador = entEncontrada.getVisitor()
-				//entity.accept(visitador);
-				//visitador = entity.getVisitor();
-				//entEncontrada.accept(visitador);
+				visitador = entEncontrada.getVisitor();
+				entity.accept(visitador);
+				visitador = entity.getVisitor();
+				entEncontrada.accept(visitador);
 			}
 		}
 		
@@ -392,6 +395,5 @@ public class Mapa {
 		Celda c = getCelda(jug.getEntidadGrafica().getLbl().getX()/ANCHO_CELDA, jug.getEntidadGrafica().getLbl().getY()/ALTO_CELDA);
 		return c;
 	}
-	
 	
 }

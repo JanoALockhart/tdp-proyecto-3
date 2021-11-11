@@ -106,6 +106,8 @@ public class Partida {
 	
 	public void addPuntaje(int p) {
 		puntaje += p;
+		pantalla.setPuntacion(puntaje);
+		System.out.println("SUMO " + p + " PUNTOS ");
 	}
 	
 	public void moverPerseguidores() {
@@ -114,6 +116,10 @@ public class Partida {
 	
 	public int getVidas() {
 		return player.getVidas();
+	}
+
+	public void elimnarEntidadGrafica(EntidadGrafica entGrafica) {
+		pantalla.eliminarLabel(entGrafica.getLbl());		
 	}
 
 

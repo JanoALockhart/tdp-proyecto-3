@@ -16,7 +16,9 @@ public class Fruta extends Punto {
 	}
 	
 	public void activarEfecto() {
-		Partida.getInstance(null, null).addPuntaje(valor);
+		Partida.getInstance().addPuntaje(valor);
+		miMapa.eliminarDeCeldasQueTocaba(this, getHitbox());//Se lo elimina
+		Partida.getInstance().elimnarEntidadGrafica(this.miObjetoGrafico);
 	}
 
 	

@@ -13,11 +13,13 @@ public class Jugador extends Personaje {
 	protected TimerEfecto miTimerEfecto;
 	private static Jugador instance;
 	private Partida miPartida;
+	protected TimerJugador miTimerJugador;
 	
 	private Jugador(String img, int width, int height, Celda c, int vel, Mapa map) {
 		 super(img,width,height,c,vel,map);
 		 vidas = 3; //TODO VERIFICAR CANT
-		 visi = new VisitadorJugador();
+		 visi = new VisitadorJugador();		 
+		 this.miTimerJugador = new TimerJugador(this, vel);
 	}
 	
 	public static Jugador getInstance(String img,Celda c, int vel,Mapa map) {
@@ -57,6 +59,12 @@ public class Jugador extends Personaje {
 	public void addPuntaje(int p) {
 		miPartida.addPuntaje(p);
 	}
+	
+	public void iniciarTimer() {
+		miTimerJugador.empezar();
+	}
+	
+	
 	
 	//TODO Funca esto?
 	//TODO hola?

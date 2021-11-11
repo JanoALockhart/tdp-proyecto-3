@@ -27,7 +27,7 @@ public abstract class Entidad implements Element {
 	}
 	
 	public boolean colisionaCon(Entidad e) {
-		//TODO return true;
+		return this.getHitbox().intersects(e.getHitbox());
 	}
 	
 	public EntidadGrafica getEntidadGrafica() {

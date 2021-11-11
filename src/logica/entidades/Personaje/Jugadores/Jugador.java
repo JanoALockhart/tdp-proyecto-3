@@ -10,6 +10,7 @@ public class Jugador extends Personaje {
 
 	protected int cantBombas;
 	protected int vidas;
+	protected int direccionGuardada;
 	protected TimerEfecto miTimerEfecto;
 	private static Jugador instance;
 	private Partida miPartida;
@@ -19,6 +20,7 @@ public class Jugador extends Personaje {
 		 super(img,width,height,c,vel,map);
 		 vidas = 3; //TODO VERIFICAR CANT
 		 visi = new VisitadorJugador();		 
+		 direccionGuardada = ESTE;
 		 this.miTimerJugador = new TimerJugador(this, vel);
 	}
 	
@@ -63,6 +65,15 @@ public class Jugador extends Personaje {
 	public void iniciarTimer() {
 		Thread hilo = new Thread(miTimerJugador);
 		hilo.start();
+	}
+	
+	public void avanzar() {
+		super.cambiarDireccion(direccionGuardada);
+		super.avanzar();
+	}
+	
+	public void cambiarDireccion(int dir) {
+		direccionGuardada = dir;
 	}
 	
 	

@@ -5,7 +5,6 @@ import java.awt.Rectangle;
 import java.util.*;
 
 import logica.entidades.Entidad;
-import logica.entidades.EntidadGrafica;
 import logica.entidades.Personaje.Personaje;
 import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.visitadores.Visitor;
@@ -345,7 +344,7 @@ public class Mapa {
 		Visitor visitador;
 		
 		//Almacenamos todas las entidades de las celda que toca la entidad ingresada por parametro
-		for(Celda cel : getCeldasTocadasPor(entity.getEntidadGrafica().getRect())) {
+		for(Celda cel : getCeldasTocadasPor(entity.getHitbox())) {
 			for(Entidad ent : cel.getEntidades()) {
 				conjEntidades.add(ent);
 			}
@@ -353,7 +352,7 @@ public class Mapa {
 		
 		//Colisionar entidades
 		for(Entidad entEncontrada:conjEntidades) {
-			if(entEncontrada.getEntidadGrafica().getRect().intersects(entity.getEntidadGrafica().getRect())) {
+			if(entEncontrada.colisionaCon(entity)) {
 				visitador = entEncontrada.getVisitor();
 				entity.accept(visitador);
 				visitador = entity.getVisitor();

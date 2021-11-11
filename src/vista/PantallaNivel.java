@@ -184,6 +184,11 @@ public class PantallaNivel extends JPanel implements State {
 		return stateName;
 	}
 	
+	public void eliminarLabel(JLabel label) {
+		label.setVisible(false);
+		panelMapa.remove(panelMapa.getIndexOf(label));
+	}
+	
 	/**
 	 * Método que configura el puntaje mostrado en pantalla
 	 * @param puntuacion Puntos que se quieren mostrar

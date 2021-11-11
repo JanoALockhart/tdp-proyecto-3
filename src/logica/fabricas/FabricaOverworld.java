@@ -25,7 +25,7 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public Jugador construirJugador(Celda cel, Mapa map) {
-		return Jugador.getInstance("/recursos/imagenes/Steve.png", cel,5, map); //TODO Deshardcodear este 5
+		return Jugador.getInstance("/recursos/imagenes/Steve.png", cel,50, map); //TODO Deshardcodear este 5
 	}
 
 

@@ -32,7 +32,7 @@ public class Partida {
 		directorLvl.armarNivel("src/recursos/layouts/Nivel1.txt");
 
 		miMapa = builder.getNivelArmado();
-		player = Jugador.getInstance(null, null, 0, null); //TODO cuidado con la construccion de las cosas...
+		player = Jugador.getInstance();
 		
 		Iterable<Entidad> entidades = miMapa.getTodasLasEntidades();
 		LinkedList<EntidadGrafica> entGraficas = new LinkedList<EntidadGrafica>();
@@ -42,11 +42,15 @@ public class Partida {
 		
 		pantalla.imprimirMapa(entGraficas, fab.getLevel1Layout());//TODO cambiar al layout de otro lvl
 		//TODO tal vez haya que tener atributo tipo fabrica
+		
+		//Inicializar Timers
+		Jugador.getInstance().iniciarTimer();
 	}
 	
 	public static Partida getInstance(PantallaNivel ui, FabricaElementos fab) {
 		if(instance == null) {
 			instance = new Partida(ui,fab);
+			System.out.println("bool:"+instance!=null);
 		}
 		return instance;
 	}
@@ -78,22 +82,18 @@ public class Partida {
 	
 	public void seApretoArriba() {		
 		player.cambiarDireccion(player.NORTE);
-		player.avanzar();
 	}
 	
 	public void seApretoDerecha() {
 		player.cambiarDireccion(player.ESTE);
-		player.avanzar();
 	}
 	
 	public void seApretoIzquierda() {
 		player.cambiarDireccion(player.OESTE);
-		player.avanzar();
 	}
 	
 	public void seApretoAbajo() {
 		player.cambiarDireccion(player.SUR);
-		player.avanzar();
 	}
 	
 	public void seApretoEnter() {
@@ -101,7 +101,7 @@ public class Partida {
 	}
 	
 	public void seApretoEspacio() {
-		player.avanzar();
+	
 	}
 	
 	public void addPuntaje(int p) {

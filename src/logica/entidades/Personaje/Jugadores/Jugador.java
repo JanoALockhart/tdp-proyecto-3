@@ -16,7 +16,7 @@ public class Jugador extends Personaje {
 	private Jugador(String img, int width, int height, Celda c, int vel, Mapa map) {
 		 super(img,width,height,c,vel,map);
 		 vidas = 3; //TODO VERIFICAR CANT
-		 
+		 visi = new VisitadorJugador();
 	}
 	
 	public static Jugador getInstance(String img,Celda c, int vel,Mapa map) {
@@ -58,4 +58,5 @@ public class Jugador extends Personaje {
 	}
 	
 	//TODO Funca esto?
+	//TODO hola?
 }

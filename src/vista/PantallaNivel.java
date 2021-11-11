@@ -37,7 +37,10 @@ public class PantallaNivel extends JPanel implements State {
 	
 	private Partida miPartida;
 	
-	public PantallaNivel(UserInterface UI, Font h1, FabricaElementos fabrica) {		
+	public PantallaNivel(UserInterface UI, Font h1, FabricaElementos fabrica) {	
+		
+		HiloMusica musica=new HiloMusica("El inodoro que habla.wav");
+		
 		JLabel lblVida;
 		JLabel lblVida_1;
 		JLabel lblVida_2;

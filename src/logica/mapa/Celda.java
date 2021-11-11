@@ -1,6 +1,7 @@
 package logica.mapa;
 
 import java.awt.Rectangle;
+import java.util.HashSet;
 import java.util.LinkedList;
 
 import logica.entidades.Entidad;
@@ -16,7 +17,7 @@ public class Celda {
 	private static final int ANCHO = 24;
 	private static final int ALTO = 24;
 	
-	LinkedList<Entidad> entidades;
+	HashSet<Entidad> entidades;
 	
 	/**
 	 * Constructor de Celda
@@ -25,7 +26,7 @@ public class Celda {
 	public Celda(int posX, int posY) {
 		this.posX = posX;
 		this.posY = posY;
-		entidades = new LinkedList<Entidad>();
+		entidades = new HashSet<Entidad>();
 	}
 	
 	/**
@@ -62,13 +63,19 @@ public class Celda {
 	
 	/**
 	 * Metodo que retorna un iterable con las entidades que 
-	 * se encuentran en la celda.
+	 * se encuentran en la celda, al momento de ser llamado este
+	 * método.
 	 * @return Un iterable con las entidades de la celda
-	 * TODO copia o el atributo?
-	 *
 	 */
 	public Iterable<Entidad> getEntidades(){
-		return entidades;
+		LinkedList<Entidad> listaEntidades = new LinkedList<Entidad>();
+		
+		for(Entidad ent : this.entidades) {
+			listaEntidades.add(ent);
+		}
+		
+		return listaEntidades;
+		
 	}
 	
 	/**

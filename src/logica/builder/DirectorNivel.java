@@ -9,7 +9,7 @@ import java.io.IOException;
 /**
  *
  */
-public abstract class DirectorNivel {
+public class DirectorNivel {
 	protected BuilderNivel armador;
 	
 	/**
@@ -21,27 +21,33 @@ public abstract class DirectorNivel {
 	}
 	
 	/**
-	 * Metodo que agrega pacdots en sus ubicaciones basándose 
-	 * en un archivo de texto
-	 * @param dirFile Es la direccion en la que se encuentra el archivo
+	 * Metodo que lee todos los caracteres de un archivo de texto
+	 * y dependiendo del caracter que vaya encontrando, le envia 
+	 * un mensaje al builder para que agregue un elemento específico
 	 */
-	protected void agregarPacDots(String dirFile) {
-		//Colocar PacDots utilizandp archivo
+	public void armarNivel(String dirFile) {
 		try {
-			FileInputStream pacDotsLvl1 = new FileInputStream(dirFile);
-			//TODO en las celdas donde se colocarán otros objetos, escribir otro simbolo
-			char caract = (char) pacDotsLvl1.read();
+			FileInputStream layoutNivel = new FileInputStream(dirFile);
+			char caract = (char) layoutNivel.read();
 			for(int y=0; caract!='F'; y++) {
 				for(int x=0; caract!='\n' && caract!='F'; x++) {
-					if(caract=='.') {
-						armador.agregarPacDot(x, y);
+					
+					switch(caract) {
+						case '.': armador.agregarPacDot(x, y); break;
+						case '_': armador.agregarCeldaVacia(x, y); break;
+						case 's': armador.agregarSpeedPotion(x, y); break;
+						case 'b': armador.agregarBomba(x, y); break;
+						case 'p': armador.agregarPowerPellet(x, y); break;
+						case 'f': armador.agregarFruta(x, y); break;
+						case 'J': armador.agregarJugador(x, y); break;
 					}
-					caract = (char) pacDotsLvl1.read();
+					
+					caract = (char) layoutNivel.read();
 				}
-				caract = (char) pacDotsLvl1.read();
+				caract = (char) layoutNivel.read();
 			}
 			
-			pacDotsLvl1.close();
+			layoutNivel.close();
 		}catch(IOException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
@@ -49,14 +55,7 @@ public abstract class DirectorNivel {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
-		
 	}
-	
-	/**
-	 * Metodo que tiene todos los pasos que
-	 * arman al nivel.
-	 */
-	public abstract void armarNivel();
 	
 	
 }

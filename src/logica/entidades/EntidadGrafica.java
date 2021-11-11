@@ -42,6 +42,7 @@ public class EntidadGrafica{
 			return jlbl;
 		}
 		
+		
 		public Rectangle getRect() { 
 			//return jlbl.getBounds();
 			Rectangle lbl = jlbl.getBounds();

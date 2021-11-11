@@ -26,15 +26,14 @@ public abstract class Entidad implements Element {
 	}
 	
 	public boolean colisionaCon(Entidad e) {
-		//TODO 
-		return true;
+		//TODO return true;
 	}
 	
 	public EntidadGrafica getEntidadGrafica() {
 		return miObjetoGrafico;
 	}
 	
-	//METODOS MOVIMIENTO
+	//METODOS MOVIMIENTO //TODO MOVER A PERSONAJE (CORTAR)
 	public void moverNorte() {
 		miObjetoGrafico.moverNorte();
 	}
@@ -49,5 +48,13 @@ public abstract class Entidad implements Element {
 	
 	public void moverOeste() {
 		miObjetoGrafico.moverOeste();
+	}
+	
+	public int getX() {
+		return miObjetoGrafico.getLbl().getX()/miMapa.getAnchoCelda();
+	}
+
+	public int getY() {
+		return miObjetoGrafico.getLbl().getY()/miMapa.getAltoCelda();
 	}
 }

@@ -2,11 +2,13 @@ package logica.mapa;
 
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.util.LinkedList;
+import java.util.*;
 
 import logica.entidades.Entidad;
 import logica.entidades.EntidadGrafica;
 import logica.entidades.Personaje.Personaje;
+import logica.entidades.Personaje.Jugadores.Jugador;
+import logica.entidades.visitadores.Visitor;
 
 public class Mapa {
 	private Celda misCeldas[][];
@@ -236,7 +238,6 @@ public class Mapa {
 		cantCollectibles--;
 	}
 	
-	
 	/**
 	 * Verifica si el personaje indicado por parámetro puede moverse en la 
 	 * dirección en la que mira.
@@ -246,20 +247,21 @@ public class Mapa {
 	public boolean verificarMovimiento(int direccion, Rectangle hitBox) {
 		boolean puedeAvanzar=true;
 		
-		System.out.println(hitBox);
-		
 		Point esqSupIzq = hitBox.getLocation();	
 		Point esqSupDer = new Point((int) (esqSupIzq.getX()+hitBox.getWidth()), (int) esqSupIzq.getY());
 		Point esqInfDer = new Point((int) (esqSupIzq.getX()+hitBox.getWidth()), (int) (esqSupIzq.getY()+hitBox.getHeight()));
 		Point esqInfIzq = new Point((int) (esqSupIzq.getX()), (int) (esqSupIzq.getY()+hitBox.getHeight()));
 		
+		/*Para la dirección correspondiente, si la celda a la que pertenecen los pixeles a los 
+		 * que se quiere avanzar no son caminables, entonces no se puede avanzar. 
+		 * Ejemplo: si se quiere avanzar hacia el norte, se corroborarán las celda en la que están
+		 * los píxeles inmediantamente encima de las esquinas superior derecha y superior izquierda
+		 * Esto es análogo al resto de las direcciones*/
 		switch(direccion) {
 			case Personaje.NORTE:{
-				//Si la celda en la que está, el pixel al que se quiere avazar, no es caminable
 				if(misCeldas[((int)esqSupDer.getX())/ANCHO_CELDA][((int)esqSupDer.getY()-1)/ALTO_CELDA]==null) {
 					puedeAvanzar = false;
 				}
-				//Idem con la esquina superior izquierda
 				if(misCeldas[((int)esqSupIzq.getX())/ANCHO_CELDA][((int)esqSupIzq.getY()-1)/ALTO_CELDA]==null) {
 					puedeAvanzar = false;
 				}
@@ -267,12 +269,9 @@ public class Mapa {
 			}
 			
 			case Personaje.ESTE:{
-				System.out.println("posXPersonaje:"+(int)((esqSupDer.getX()+1)/ANCHO_CELDA));
-				//Si la celda en la que está, el pixel al que se quiere avazar, no es caminable
 				if(misCeldas[((int)esqSupDer.getX()+1)/ANCHO_CELDA][((int)esqSupDer.getY())/ALTO_CELDA]==null) {
 					puedeAvanzar = false;
 				}
-				//Idem con la esquina superior izquierda
 				if(misCeldas[((int)esqInfDer.getX()+1)/ANCHO_CELDA][((int)esqInfDer.getY())/ALTO_CELDA]==null) {
 					puedeAvanzar = false;
 				}
@@ -280,50 +279,118 @@ public class Mapa {
 			}
 			
 			case Personaje.SUR:{
-				//Si la celda en la que está, el pixel al que se quiere avazar, no es caminable
 				if(misCeldas[((int)esqInfIzq.getX())/ANCHO_CELDA][((int)esqInfIzq.getY()+1)/ALTO_CELDA]==null) {
 					puedeAvanzar = false;
 				}
-				System.out.println("bool:"+puedeAvanzar);
-				//Idem con la esquina superior izquierda
 				if(misCeldas[((int)  esqInfDer.getX())/ANCHO_CELDA][((int)esqInfDer.getY()+1)/ALTO_CELDA]==null) {
 					puedeAvanzar = false;
 				}
 
-				System.out.println("bool:"+puedeAvanzar);
 				break;
 			}
 			
 			case Personaje.OESTE:{
-				//Si la celda en la que está, el pixel al que se quiere avazar, no es caminable
 				if(misCeldas[((int)esqInfIzq.getX()-1)/ANCHO_CELDA][((int)esqInfIzq.getY())/ALTO_CELDA]==null) {
 					puedeAvanzar = false;
 				}
-				//Idem con la esquina superior izquierda
 				if(misCeldas[((int)esqSupIzq.getX()-1)/ANCHO_CELDA][((int)esqSupIzq.getY())/ALTO_CELDA]==null) {
 					puedeAvanzar = false;
 				}
 				break;
 			}
 		}
-		System.out.println("return:"+puedeAvanzar);
 		return puedeAvanzar;
+	}
+	
+	
+	public synchronized void reposicionar(Entidad entity, Rectangle hitBoxVieja) {
+		eliminarDeCeldasQueTocaba(entity,hitBoxVieja);
+		colocarEnCeldasQueToca(entity);
 	}
 	
 	/**
 	 * Metodo que agrega la entidad, las celdas que toca su hitbox
-	 * @param entity Es la entidad que se debe entregar
+	 * @param entity Es la entidad que se debe agregar a las celdas que toca
 	 */
 	public void colocarEnCeldasQueToca(Entidad entity) {
-		Rectangle hitBox = entity.getEntidadGrafica().getRect();
+		for(Celda cel : getCeldasTocadasPor(entity.getEntidadGrafica().getRect())) {
+			cel.add(entity);
+		}
+	}
+	
+	/**
+	 * Metodo que elimina la Entidad entity, de todas las celdas que toca
+	 * el rectángulo hitBoxAnterior
+	 * @param entity Es la entidad que se quiere eliminar de las celdas
+	 * @param hitBoxAnterior Es el area que ocupaba la entidad
+	 */
+	public void eliminarDeCeldasQueTocaba(Entidad entity, Rectangle hitBoxAnterior) {	
+		for(Celda cel : getCeldasTocadasPor(hitBoxAnterior)) {
+			cel.remove(entity);
+		}
+	}
+	
+	/**
+	 * Metodo que realiza las colisiones de la entidad pasada por parámetro
+	 * con todas las entidades que se encuentren en las celdas que toca
+	 * la entidad.
+	 * @param entity Es la entidad con la que se verificará las colisiones con
+	 * otras entidades.
+	 */
+	public void efectuarColisiones(Entidad entity) {
+		HashSet<Entidad> conjEntidades = new HashSet<Entidad>();
+		Visitor visitador;
 		
-		Point esqSupIzq = hitBox.getLocation();	
-		Point esqSupDer = new Point((int) (esqSupIzq.getX()+hitBox.getWidth()), (int) esqSupIzq.getY());
-		Point esqInfDer = new Point((int) (esqSupIzq.getX()+hitBox.getWidth()), (int) (esqSupIzq.getY()+hitBox.getHeight()));
-		Point esqInfIzq = new Point((int) (esqSupIzq.getX()), (int) (esqSupIzq.getY()+hitBox.getHeight()));
+		//Almacenamos todas las entidades de las celda que toca la entidad ingresada por parametro
+		for(Celda cel : getCeldasTocadasPor(entity.getEntidadGrafica().getRect())) {
+			for(Entidad ent : cel.getEntidades()) {
+				conjEntidades.add(ent);
+			}
+		}
+		
+		//Colisionar entidades
+		for(Entidad entEncontrada:conjEntidades) {
+			if(entEncontrada.getEntidadGrafica().getRect().intersects(entity.getEntidadGrafica().getRect())) {
+				//visitador = entEncontrada.getVisitor()
+				//entity.accept(visitador);
+				//visitador = entity.getVisitor();
+				//entEncontrada.accept(visitador);
+			}
+		}
 		
 		
+	}
+	
+	
+	/**
+	 * Metodo que devuelve un iterable de las celdas que intersectan
+	 * con el rectángulo pasado por parámetro.
+	 * @param rec Es el rectangulo de referencia
+	 * @return Un iterable de celdas
+	 */
+	private Iterable<Celda> getCeldasTocadasPor(Rectangle rec) {
+		HashSet<Celda> conjuntoCeldas = new HashSet<Celda>();
 		
+		Point esqSupIzq = rec.getLocation();	
+		Point esqSupDer = new Point((int) (esqSupIzq.getX()+rec.getWidth()), (int) esqSupIzq.getY());
+		Point esqInfDer = new Point((int) (esqSupIzq.getX()+rec.getWidth()), (int) (esqSupIzq.getY()+rec.getHeight()));
+		Point esqInfIzq = new Point((int) (esqSupIzq.getX()), (int) (esqSupIzq.getY()+rec.getHeight()));
+		
+		conjuntoCeldas.add(misCeldas[(int)esqSupIzq.getX()/ANCHO_CELDA][(int)esqSupIzq.getY()/ALTO_CELDA]);
+		conjuntoCeldas.add(misCeldas[(int)esqSupDer.getX()/ANCHO_CELDA][(int)esqSupDer.getY()/ALTO_CELDA]);
+		conjuntoCeldas.add(misCeldas[(int)esqInfIzq.getX()/ANCHO_CELDA][(int)esqInfIzq.getY()/ALTO_CELDA]);
+		conjuntoCeldas.add(misCeldas[(int)esqInfDer.getX()/ANCHO_CELDA][(int)esqInfDer.getY()/ALTO_CELDA]);
+		
+		return conjuntoCeldas;
+	}
+
+	public int getAltoCelda() {return ALTO_CELDA;}
+	public int getAnchoCelda() {return ANCHO_CELDA;}
+	
+	public Celda getPosicionJugador() {
+		Jugador jug = Jugador.getInstance();
+		Celda c = getCelda(jug.getEntidadGrafica().getLbl().getX()/ANCHO_CELDA, jug.getEntidadGrafica().getLbl().getY()/ALTO_CELDA);
+		return c;
 	}
 	
 	

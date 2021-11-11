@@ -6,6 +6,7 @@ public interface BuilderNivel {
 
 	public void reset();
 	public Mapa getNivelArmado();
+	public void agregarCeldaVacia(int x, int y) throws Exception;
 	public void agregarPacDot(int x, int y) throws Exception;
 	public void agregarJugador(int x, int y) throws Exception;
 	public void agregarFruta(int x, int y) throws Exception;

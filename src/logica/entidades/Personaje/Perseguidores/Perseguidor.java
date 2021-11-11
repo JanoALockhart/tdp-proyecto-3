@@ -16,13 +16,17 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 		//TODO Elegir state inicial, hacer los distintos estados 
 	}
 	
-	public abstract void chequearDireccion();
+	public void chequearDireccion() {
+		
+	}
 	
 	public abstract void acceptVisitor(Visitor v);
 	
 	public abstract Celda calcularObj();
 	
 	public void avanzar() {
+		
+		//Ultima operacion, el fantasma debe usar el avanzar de la clase Personaje
 		super.avanzar();
 	}
 	
@@ -38,4 +42,21 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 		return pos.distanciaA(c);
 	}
 	
+	public void rotar180() {
+		switch(direccion) {
+		case Personaje.NORTE:
+			direccion = Personaje.SUR;
+			break;
+		case Personaje.SUR:
+			direccion = Personaje.NORTE;
+			break;
+		case Personaje.ESTE:
+			direccion = Personaje.OESTE;
+			break;
+		case Personaje.OESTE:
+			direccion = Personaje.ESTE;
+			break;
+				
+		}
+	}
 }

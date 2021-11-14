@@ -24,18 +24,16 @@ public class HiloMusica extends Thread {
 	public void audioOn() {
 		File file=new File(fuente);
 		AudioInputStream music;
-		while(true) {
-			try {
-				music = AudioSystem.getAudioInputStream(file);
-				
-				Clip clip=AudioSystem.getClip();
-				clip.open(music);
-				
-				clip.start();
-			} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-				e.printStackTrace();
-			}
-		}		
+		try {
+			music = AudioSystem.getAudioInputStream(file);
+			
+			Clip clip=AudioSystem.getClip();
+			clip.open(music);
+			
+			clip.start();
+		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+			e.printStackTrace();
+		}
 	}
 	
 }

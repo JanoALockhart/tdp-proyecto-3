@@ -1,11 +1,13 @@
 package logica.builder;
 
+import logica.entidades.Personaje.Personaje;
 import logica.mapa.Mapa;
 
 public interface BuilderNivel {
 
 	public void reset();
 	public Mapa getNivelArmado();
+	public Iterable<Personaje> getPerseguidores();
 	public void agregarCeldaVacia(int x, int y) throws Exception;
 	public void agregarPacDot(int x, int y) throws Exception;
 	public void agregarJugador(int x, int y) throws Exception;
@@ -13,5 +15,6 @@ public interface BuilderNivel {
 	public void agregarPowerPellet(int x,int y) throws Exception;
 	public void agregarSpeedPotion(int x,int y) throws Exception;
 	public void agregarBomba(int x,int y) throws Exception;
+	public void agregarBlinky(int x,int y) throws Exception;
 	
 }

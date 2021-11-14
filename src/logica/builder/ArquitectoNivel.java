@@ -1,32 +1,42 @@
 package logica.builder;
 
+import java.util.LinkedList;
+
 import logica.entidades.Entidad;
+import logica.entidades.Personaje.Personaje;
 import logica.fabricas.FabricaElementos;
 import logica.mapa.*;
 
 public class ArquitectoNivel implements BuilderNivel{
 	private FabricaElementos miFabrica;
-	private Mapa nivel;
+	private Mapa map;
+	private LinkedList<Personaje> fantasmas;//TODO Revisar
 	
 	
 	public ArquitectoNivel(FabricaElementos fabrica) {
-		nivel = new Mapa();
+		map = new Mapa();
 		miFabrica = fabrica;
+		fantasmas = new LinkedList<Personaje>();//TODO REvisar
 	}
 	
 	@Override
 	public Mapa getNivelArmado() {
-		return nivel;
+		return map;
+	}
+	
+	//TODO REVISAR
+	public Iterable<Personaje> getPerseguidores(){
+		return fantasmas;
 	}
 	
 	public void reset() {
-		nivel = new Mapa();
+		map = new Mapa();
 	}
 	
 	public void agregarCeldaVacia(int x, int y) throws Exception{
 		
 		Celda cel = miFabrica.construirCelda(x,y);
-		nivel.agregarCelda(cel);
+		map.agregarCelda(cel);
 		
 	}
 	
@@ -44,11 +54,11 @@ public class ArquitectoNivel implements BuilderNivel{
 		Entidad pac;
 		
 		cel = miFabrica.construirCelda(x,y);
-		pac = miFabrica.construirPacDot(cel,nivel);
+		pac = miFabrica.construirPacDot(cel,map);
 		
 		cel.add(pac);
-		nivel.addContador();
-		nivel.agregarCelda(cel);
+		map.addContador();
+		map.agregarCelda(cel);
 	}
 	
 	public void agregarJugador(int x,int y) throws Exception{
@@ -56,10 +66,10 @@ public class ArquitectoNivel implements BuilderNivel{
 		Entidad personaje;
 		
 		cel = miFabrica.construirCelda(x,y);
-		personaje = miFabrica.construirJugador(cel,nivel);
+		personaje = miFabrica.construirJugador(cel,map);
 		
 		cel.add(personaje);
-		nivel.agregarCelda(cel);
+		map.agregarCelda(cel);
 	}
 	
 	public void agregarFruta(int x,int y) throws Exception{
@@ -67,10 +77,10 @@ public class ArquitectoNivel implements BuilderNivel{
 		Entidad fruta;
 		
 		cel = miFabrica.construirCelda(x,y);
-		fruta = miFabrica.construirFruta(cel,nivel);
+		fruta = miFabrica.construirFruta(cel,map);
 		
 		cel.add(fruta);
-		nivel.agregarCelda(cel);
+		map.agregarCelda(cel);
 	}
 	
 	public void agregarPowerPellet(int x,int y) throws Exception{
@@ -78,10 +88,10 @@ public class ArquitectoNivel implements BuilderNivel{
 		Entidad pp;
 		
 		cel = miFabrica.construirCelda(x,y);
-		pp = miFabrica.construirPowerPellet(cel,nivel);
+		pp = miFabrica.construirPowerPellet(cel,map);
 		
 		cel.add(pp);
-		nivel.agregarCelda(cel);
+		map.agregarCelda(cel);
 	}
 	
 	public void agregarSpeedPotion(int x,int y) throws Exception{
@@ -89,10 +99,10 @@ public class ArquitectoNivel implements BuilderNivel{
 		Entidad sp;
 		
 		cel = miFabrica.construirCelda(x,y);
-		sp = miFabrica.construirSpeedPotion(cel,nivel);
+		sp = miFabrica.construirSpeedPotion(cel,map);
 		
 		cel.add(sp);
-		nivel.agregarCelda(cel);
+		map.agregarCelda(cel);
 	}
 	
 	public void agregarBomba(int x,int y) throws Exception{
@@ -100,9 +110,21 @@ public class ArquitectoNivel implements BuilderNivel{
 		Entidad bomba;
 		
 		cel = miFabrica.construirCelda(x,y);
-		bomba = miFabrica.construirBomba(cel,nivel);
+		bomba = miFabrica.construirBomba(cel,map);
 		
 		cel.add(bomba);
-		nivel.agregarCelda(cel);
+		map.agregarCelda(cel);
+	}
+	
+	public void agregarBlinky(int x, int y) throws Exception{
+		Celda cel;
+		Personaje blinky;
+		
+		cel = miFabrica.construirCelda(x, y);
+		blinky = miFabrica.construirBlinky(cel, map);
+		fantasmas.add(blinky);
+		
+		cel.add(blinky);
+		map.agregarCelda(cel);
 	}
 }

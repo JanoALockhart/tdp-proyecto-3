@@ -34,9 +34,7 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public Blinky construirBlinky(Celda cel, Mapa map) {
-		//TODO
-		//return new Blinky("/recursos/imagenes/Zombie.png", cel);
-		return null;
+		return new Blinky("/recursos/imagenes/Zombie.png", cel, 50,map);
 	}
 
 

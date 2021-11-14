@@ -7,6 +7,7 @@ import java.util.LinkedList;
 
 import logica.builder.*;
 import logica.entidades.*;
+import logica.entidades.Personaje.Personaje;
 import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.fabricas.*;
 import logica.mapa.Mapa;
@@ -19,6 +20,8 @@ public class Partida {
 	private BuilderNivel builder;
 	private Mapa miMapa;
 	private Jugador player;
+	private Iterable<Personaje> enemigos;
+	private TimerMovimiento timerAvisaEnemigos;
 	private int puntaje;
 	
 	private static Partida instance;
@@ -33,6 +36,7 @@ public class Partida {
 
 		miMapa = builder.getNivelArmado();
 		player = Jugador.getInstance();
+		enemigos = builder.getPerseguidores();
 		
 		Iterable<Entidad> entidades = miMapa.getTodasLasEntidades();
 		LinkedList<EntidadGrafica> entGraficas = new LinkedList<EntidadGrafica>();
@@ -45,6 +49,12 @@ public class Partida {
 		
 		//Inicializar Timers
 		Jugador.getInstance().iniciarTimer();
+		
+		timerAvisaEnemigos = new TimerMovimiento(this,60);
+		Thread hilo = new Thread(timerAvisaEnemigos);
+		hilo.start();
+		
+		
 	}
 	
 	public static Partida getInstance(PantallaNivel ui, FabricaElementos fab) {
@@ -60,7 +70,11 @@ public class Partida {
 	}
 	
 	public void siguienteNivel() {
-		
+		/*
+		nivelActual.detenerPersonajes();
+		nivelActual = nivelActual.getSiguiente();
+		nivelActual.inicializar();
+		*/
 	}
 	
 	
@@ -81,7 +95,7 @@ public class Partida {
 	}
 	
 	public void seApretoArriba() {		
-		player.cambiarDireccion(player.NORTE);
+		Jugador.getInstance().cambiarDireccion(Jugador.NORTE);
 	}
 	
 	public void seApretoDerecha() {
@@ -111,7 +125,9 @@ public class Partida {
 	}
 	
 	public void moverPerseguidores() {
-		
+		for(Personaje per : enemigos) {
+			per.avanzar();
+		}
 	}
 	
 	public int getVidas() {

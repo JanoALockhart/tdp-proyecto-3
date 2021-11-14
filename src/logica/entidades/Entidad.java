@@ -1,7 +1,10 @@
 package logica.entidades;
 
 import logica.entidades.visitadores.*;
+import logica.geometria.Pixel;
 import logica.mapa.*;
+
+import java.awt.Point;
 import java.awt.Rectangle;
 
 public abstract class Entidad implements Element {
@@ -61,6 +64,10 @@ public abstract class Entidad implements Element {
 
 	public int getY() {
 		return miObjetoGrafico.getLbl().getY()/miMapa.getAltoCelda();
+	}
+	
+	public Pixel getPos() {
+		return new Pixel(miObjetoGrafico.getLbl().getX(), miObjetoGrafico.getLbl().getY());
 	}
 
 	public Visitor getVisitor() {

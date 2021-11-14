@@ -11,10 +11,10 @@ public abstract class Personaje extends Entidad {
 	
 	protected int direccion;
 	protected int velocidad;
-	public static final int NORTE = 1;
+	public static final int NORTE = 0;
 	public static final int SUR = 2;
-	public static final int ESTE = 3;
-	public static final int OESTE = 4;
+	public static final int ESTE = 1;
+	public static final int OESTE = 3;
 	public static final int PERSONAJEPRIORITY = 3;
 	
 	public Personaje(String img, int width, int height, Celda c,int vel,Mapa map) {

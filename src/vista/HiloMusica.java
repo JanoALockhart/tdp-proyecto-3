@@ -11,6 +11,10 @@ public class HiloMusica extends Thread {
 	
 	private Thread musical;
 	
+	private boolean pause;
+	
+	private Clip clip;
+	
 	public HiloMusica(String fuente) {
 		this.fuente=fuente;
 		musical = new Thread(new Runnable() {
@@ -19,6 +23,7 @@ public class HiloMusica extends Thread {
 			}
 		});
 		musical.start();
+		pause=false;
 	}
 	
 	public void audioOn() {
@@ -28,12 +33,26 @@ public class HiloMusica extends Thread {
 			music = AudioSystem.getAudioInputStream(file);
 			
 			Clip clip=AudioSystem.getClip();
-			clip.open(music);
+			this.clip=clip;
 			
-			clip.start();
+			this.clip.open(music);
+			
+			
+			
+			this.clip.start();
 		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void audioPause() {
+		if(pause)clip.start();
+		else clip.stop();
+		pause=!pause;
+	}
+	
+	public boolean getPause() {
+		return pause;
 	}
 	
 }

@@ -155,4 +155,10 @@ public class SeleccionarSkin extends JPanel implements State{
 		State estadoNuevo=new MenuPrincipal(miUI, 1, mainFont);
 		miUI.cambiarEstado(estadoNuevo, estadoNuevo.getName());
 	}
+
+	@Override
+	public void seApretoP(boolean pause) {
+		// TODO Auto-generated method stub
+		
+	}
 }

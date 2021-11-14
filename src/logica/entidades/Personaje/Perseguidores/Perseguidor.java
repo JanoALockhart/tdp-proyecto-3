@@ -30,13 +30,14 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 		Pixel pixel = state.calcularObj();
 		int dirCalculada = calcularDirObjetivo(pixel);
 		
-		super.avanzar();
+		
 		cambiarDireccion(dirCalculada);
 		//Ultima operacion, el fantasma debe usar el avanzar de la clase Personaje
+		super.avanzar();
 	}
 	
 	private int calcularDirObjetivo(Pixel pixelObj) {
-		int dir;
+		int dirAux;
 		int dirFinal = NORTE;
 		double distanciaMinima =  Double.MAX_VALUE;
 		double dist;
@@ -47,11 +48,12 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 		pxlCircundantes[SUR] = new Pixel(actual.getX(),actual.getY()+1); //sur
 		pxlCircundantes[OESTE] = new Pixel(actual.getX()-1,actual.getY()); //oeste
 		
-		for(dir = NORTE; dir<pxlCircundantes.length; dir++) {
-			dist = pxlCircundantes[dir].distanciaA(pixelObj);
-			if(dist<distanciaMinima) {
+		for(dirAux = NORTE; dirAux<pxlCircundantes.length; dirAux++) {
+			dist = pxlCircundantes[dirAux].distanciaA(pixelObj);
+			//El unico problema que tiene esto es cuando hay mas celdas juntas que uno de ancho
+			if(dist<distanciaMinima && miMapa.verificarMovimiento(dirAux, getHitbox()) && dirAux!=(getDireccion()+2)%4) {
 				distanciaMinima = dist;
-				dirFinal = dir;
+				dirFinal = dirAux;
 			}
 		}
 		

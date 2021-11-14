@@ -40,6 +40,7 @@ public class DirectorNivel {
 						case 'p': armador.agregarPowerPellet(x, y); break;
 						case 'f': armador.agregarFruta(x, y); break;
 						case 'J': armador.agregarJugador(x, y); break;
+						case 'B': armador.agregarBlinky(x, y);break;
 					}
 					
 					caract = (char) layoutNivel.read();

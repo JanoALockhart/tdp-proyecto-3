@@ -24,6 +24,7 @@ public class Jugador extends Personaje {
 		 direccionGuardada = ESTE;
 		 cantBombas=0;
 		 this.miTimerJugador = new TimerJugador(this, vel);
+		 this.miTimerEfecto = new TimerEfecto(this);
 	}
 	
 	public static Jugador getInstance(String img,Celda c, int vel,Mapa map) {
@@ -77,12 +78,15 @@ public class Jugador extends Personaje {
 		Partida.getInstance().actualizarBombas(cantBombas);
 	}
 	
-	public void AumentarVelocidad(int duracion) {
-		
+	public void AumentarVelocidad(int duracion, int velociadExtra) {
+		miTimerEfecto.setTimepo(duracion);
+		Thread hilo = new Thread(miTimerEfecto);		
+		hilo.start();
+		miTimerJugador.setVel(velocidad - velociadExtra);
 	}
 	
 	public void decrementarVelocidad() {
-		
+		miTimerJugador.setVel(velocidad);
 	}
 
 	public void addPuntaje(int p) {

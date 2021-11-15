@@ -128,7 +128,7 @@ public class Partida {
 	public void addPuntaje(int p) {
 		puntaje += p;
 		pantalla.setPuntacion(puntaje);
-		System.out.println("SUMO " + p + " PUNTOS ");
+//		System.out.println("SUMO " + p + " PUNTOS ");
 	}
 	
 	public void moverPerseguidores() {

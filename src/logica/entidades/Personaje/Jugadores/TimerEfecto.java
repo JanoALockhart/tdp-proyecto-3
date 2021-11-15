@@ -6,27 +6,33 @@ public class TimerEfecto implements Runnable{
 	protected boolean continuar;
 	protected int contador;
 	
-	public TimerEfecto(Jugador miJugador,int contador) {
+	public TimerEfecto(Jugador miJugador) {
 		this.miJugador = miJugador;
 		this.continuar = true;
-		this.contador = contador;
+		this.contador = 0;
+	}
+	
+	public void setTimepo(int c){
+		contador = c;
 	}
 	
 	@Override
 	public void run() {
-		while(continuar) {
+		while(contador != 0) {
 			try {
-				Thread.sleep(1000);
-				if(contador == 0) {
-					continuar = false;
-				}
+				System.out.println(contador);
+//				if(contador == 0) {
+//					
+//					continuar = false;
+//					break;
+//				}
 				contador--;
-				miJugador.avanzar();
+				Thread.sleep(1000);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-		
+		miJugador.decrementarVelocidad();
 	}
 	
 }

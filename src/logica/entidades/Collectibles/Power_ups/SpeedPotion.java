@@ -7,6 +7,7 @@ import logica.partida.Partida;
 
 public class SpeedPotion extends PowerUp {
 	protected int duracion;
+	protected int velocidadExtra;
 	
 	public SpeedPotion(String img, int width,int height,Celda c, Mapa map) {
 		super(img ,c.getAncho(),c.getAlto(),c, map);
@@ -19,7 +20,7 @@ public class SpeedPotion extends PowerUp {
 
 	@Override
 	public void activarEfecto() {
-		Jugador.getInstance().AumentarVelocidad(4);
+		Jugador.getInstance().AumentarVelocidad(20, 30);
 		miMapa.eliminarDeCeldasQueTocaba(this, getHitbox());//Se lo elimina
 		Partida.getInstance().elimnarEntidadGrafica(this.miObjetoGrafico);
 	}

@@ -141,7 +141,11 @@ public class Partida {
 	 * de la interfaz grafica
 	 */
 	public void quitarVida() {
-		pantalla.refrescarLabels();
+		pantalla.refrescarLabelsVida();
+	}
+	
+	public void actualizarBombas(int cantBombas) {
+		pantalla.refrescarLabelsBomba(cantBombas);
 	}
 
 	public void elimnarEntidadGrafica(EntidadGrafica entGrafica) {

@@ -156,7 +156,7 @@ public class PantallaNivel extends JPanel implements State {
 	@Override
 	public void refrescarLabels() {
 		int vidas=miPartida.getVidas();
-		for(int i=vidas;vidas<3;i--) {
+		for(int i=vidas;0<vidas && vidas<3;i--) {
 			lblsVida[i-1].setForeground(Color.BLACK);
 		}
 	}
@@ -204,7 +204,6 @@ public class PantallaNivel extends JPanel implements State {
 
 	@Override
 	public void seApretoP(boolean pause) {
-		// TODO Auto-generated method stub
-		
+	
 	}
 }

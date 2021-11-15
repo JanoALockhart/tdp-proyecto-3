@@ -1,8 +1,10 @@
 package logica.mapa;
 
 import java.awt.Rectangle;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Set;
 
 import logica.entidades.Entidad;
 import main.Main;
@@ -18,7 +20,7 @@ public class Celda {
 	private static final int ANCHO = Integer.parseInt(Main.dimentionConfig.getProperty("anchoCelda"));
 	private static final int ALTO = Integer.parseInt(Main.dimentionConfig.getProperty("altoCelda"));
 	
-	HashSet<Entidad> entidades;
+	Set<Entidad> entidades;
 	
 	/**
 	 * Constructor de Celda
@@ -27,7 +29,7 @@ public class Celda {
 	public Celda(int posX, int posY) {
 		this.posX = posX;
 		this.posY = posY;
-		entidades = new HashSet<Entidad>();
+		entidades = Collections.synchronizedSet(new HashSet<Entidad>());
 	}
 	
 	/**

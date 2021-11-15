@@ -40,8 +40,6 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 	public void avanzar() {
 		Pixel pixel = state.calcularObj();
 		int dirCalculada = calcularDirObjetivo(pixel);
-		
-		
 		cambiarDireccion(dirCalculada);
 		super.avanzar();
 	}
@@ -82,17 +80,7 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 		
 		return dirFinal;
 	}
-	
-	/**
-	 * Utiliza celda.distanciaA para calcular pitagoras
-	 * @param c Celda objetivo a la que se quiere llegar
-	 * @return
-	 */
-	public double calcularDis(Celda c) {
-		Celda pos = miMapa.getCelda(getX(), getY());
-		return pos.distanciaA(c);
-	}
-	
+
 	public void rotar180() {
 		switch(direccion) {
 		case Personaje.NORTE:

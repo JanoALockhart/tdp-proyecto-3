@@ -74,14 +74,14 @@ public abstract class Entidad implements Element {
 	public void moverOeste() {
 		miObjetoGrafico.moverOeste();
 	}
-	
+	/*
 	public int getX() {
 		return miObjetoGrafico.getLbl().getX()/miMapa.getAnchoCelda();
 	}
 
 	public int getY() {
 		return miObjetoGrafico.getLbl().getY()/miMapa.getAltoCelda();
-	}
+	}*/
 	
 	public Pixel getPos() {
 		return miObjetoGrafico.getPos();

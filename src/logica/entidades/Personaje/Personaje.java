@@ -64,6 +64,12 @@ public abstract class Personaje extends Entidad {
 		return miMapa.verificarMovimiento(direccion,miObjetoGrafico.getRect());
 	}
 	
+	/**
+	 * Metodo que verifica si se puede girar en la direccion indicada.
+	 * Es decir, que luego de girar, pueda avanzar.
+	 * @param dir Es la direccion en la que se quiere girar el personaje
+	 * @return True si puede girar, false en caso contrario
+	 */
 	public boolean verificarCambioDireccion(int dir) {
 		return miMapa.verificarMovimiento(dir,miObjetoGrafico.getRect());
 	}

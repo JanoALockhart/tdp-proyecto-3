@@ -7,12 +7,15 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import logica.geometria.Pixel;
+import main.Main;
+
 public class EntidadGrafica{   
 		protected String dirImg;
 		protected JLabel jlbl;
 		protected ImageIcon icon;
 		protected int width, height, priority;
-		private static final int pixelPorPaso = 4;
+		private static final int pixelPorPaso = Integer.parseInt(Main.dimentionConfig.getProperty("pixelPorPaso"));
 		
 		public EntidadGrafica(String dir, int PosX, int PosY, int width, int height, int priority) {
 			dirImg = dir;
@@ -42,7 +45,11 @@ public class EntidadGrafica{
 			return jlbl;
 		}
 		
-		
+		/**
+		 * Devuelve un rectangulo que es la hitbox del personaje.
+		 * Tiene un pixel menos de ancho y de largo.
+		 * @return Un nuevo rectangulo que representa la hitbox de la entidad.
+		 */
 		public Rectangle getRect() { 
 			//return jlbl.getBounds();
 			Rectangle lbl = jlbl.getBounds();
@@ -75,5 +82,13 @@ public class EntidadGrafica{
 
 		public int getPriority() {
 			return priority;
+		}
+		
+		public Pixel getPos() {
+			return new Pixel(jlbl.getX(),jlbl.getY());
+		}
+		
+		public void setPos(Pixel pxl) {
+			jlbl.setLocation(pxl.getX(),pxl.getY());
 		}
 }

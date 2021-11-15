@@ -23,6 +23,13 @@ public abstract class Personaje extends Entidad {
 		direccion = ESTE;
 	}
 	
+	/**
+	 * Metodo que mueve la entidad en la dirección que tiene
+	 * actualmente (si es posible), envía a Mapa su hitbox previa al
+	 * movimiento y la nueva hitbox para que la entidad sea 
+	 * referenciada por las celdas que toca y le comunica a mapa que
+	 * efectúe las colisiones.
+	 */
 	public void avanzar() {
 		Rectangle oldHitbox = miObjetoGrafico.getRect();//Se crea una copia antigua de la hitbox
 		switch(direccion) {
@@ -66,9 +73,7 @@ public abstract class Personaje extends Entidad {
 			direccion = dir;
 	}
 	
-	public void accept(Visitor v) {
-		
-	}
+	public abstract void accept(Visitor v);
 	
 	
 }

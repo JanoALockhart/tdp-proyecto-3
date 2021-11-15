@@ -9,6 +9,7 @@ import logica.entidades.Personaje.Personaje;
 import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.visitadores.Visitor;
 import logica.partida.Partida;
+import main.Main;
 
 public class Mapa {
 	private Celda misCeldas[][];
@@ -18,8 +19,8 @@ public class Mapa {
 	private static final int ALTO = 24;
 	private static final int ANCHO = 21;
 	
-	private static final int ALTO_CELDA = 24;
-	private static final int ANCHO_CELDA = 24;
+	private static final int ALTO_CELDA = Integer.parseInt(Main.dimentionConfig.getProperty("altoCelda"));
+	private static final int ANCHO_CELDA = Integer.parseInt(Main.dimentionConfig.getProperty("anchoCelda"));
 	
 	/**
 	 * Constructor de la clase Mapa
@@ -76,6 +77,8 @@ public class Mapa {
 	
 	public void asustarPerseguidores() {
 		//TODO activar el observer Asustador
+		//TODO 
+		//TODO
 	}
 	
 	public void agregarCelda(Celda c) throws Exception{
@@ -187,7 +190,14 @@ public class Mapa {
 		return puedeAvanzar;
 	}
 	
-	
+	/**
+	 * Metodo sincronizado que elimina la referencia de la Entidad entity de
+	 * todas las celdas que son tocadas por la hitBoxVieja y la coloca
+	 * en todas las celdas que son tocadas por la hitbox actual
+	 * @param entity Es la entidad que se quiere eliminar de las celdas que ya no
+	 * toca y colocar en las celdas que toca.
+	 * @param hitBoxVieja Es el area de
+	 */
 	public synchronized void reposicionar(Entidad entity, Rectangle hitBoxVieja) {
 		eliminarDeCeldasQueTocaba(entity,hitBoxVieja);
 		colocarEnCeldasQueToca(entity);
@@ -227,7 +237,7 @@ public class Mapa {
 		
 		//Colisionar entidades
 		for(Entidad entEncontrada:getEntidadesCircundantes(entity)) {
-			if(entEncontrada.colisionaCon(entity)) {
+			if(entEncontrada != entity && entEncontrada.colisionaCon(entity)) {
 				visitador = entEncontrada.getVisitor();
 				entity.accept(visitador);
 				visitador = entity.getVisitor();

@@ -16,7 +16,7 @@ public class Clyde extends Perseguidor {
 	}
 
 	@Override
-	public void acceptVisitor(Visitor v) {
+	public void accept(Visitor v) {
 		// TODO Auto-generated method stub
 		
 	}

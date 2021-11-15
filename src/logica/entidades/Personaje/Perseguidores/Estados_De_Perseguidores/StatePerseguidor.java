@@ -8,8 +8,8 @@ import logica.mapa.Celda;
 
 public interface StatePerseguidor {
 
-	public void accept(Visitor v);
 	
 	public Pixel calcularObj();
 	
+	public abstract void activarEfecto();
 }

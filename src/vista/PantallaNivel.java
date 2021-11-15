@@ -8,8 +8,6 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
 import java.awt.*;
-import java.awt.GridLayout;
-import java.awt.Rectangle;
 import javax.swing.border.LineBorder;
 
 import logica.entidades.EntidadGrafica;
@@ -38,10 +36,6 @@ public class PantallaNivel extends JPanel implements State {
 	private Partida miPartida;
 	
 	public PantallaNivel(UserInterface UI, Font h1, FabricaElementos fabrica) {	
-		
-		HiloMusica musica=new HiloMusica("src/vista/amogus.wav");
-		
-		musica.audioOn();
 		
 		JLabel lblVida;
 		JLabel lblVida_1;
@@ -162,8 +156,8 @@ public class PantallaNivel extends JPanel implements State {
 	@Override
 	public void refrescarLabels() {
 		int vidas=miPartida.getVidas();
-		for(int i=vidas;vidas<3;i--) {
-			lblsVida[i-1].setForeground(Color.BLACK);
+		for(int i=vidas;0<=i && i<3;i--) {
+			lblsVida[i].setForeground(Color.BLACK);
 		}
 	}
 	
@@ -207,4 +201,9 @@ public class PantallaNivel extends JPanel implements State {
         Image imgResized = img.getImage().getScaledInstance(504, 576, Image.SCALE_SMOOTH);
         return new ImageIcon(imgResized);
     }
+
+	@Override
+	public void seApretoP(boolean pause) {
+	
+	}
 }

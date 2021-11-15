@@ -24,7 +24,13 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 		
 	}
 	
-	public abstract void acceptVisitor(Visitor v);
+	public void accept(Visitor v) {
+		v.serAfectadoPor(this);
+	}
+	
+	public void activarEfecto() {
+		state.activarEfecto();
+	}
 	
 	public void avanzar() {
 		Pixel pixel = state.calcularObj();
@@ -32,15 +38,17 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 		
 		
 		cambiarDireccion(dirCalculada);
-		//Ultima operacion, el fantasma debe usar el avanzar de la clase Personaje
 		super.avanzar();
 	}
 	
 	private int calcularDirObjetivo(Pixel pixelObj) {
-		int dirAux;
 		int dirFinal = NORTE;
+		
+		int dirAux;
 		double distanciaMinima =  Double.MAX_VALUE;
 		double dist;
+		int cantDescartadas = 0;
+		
 		Pixel pxlCircundantes[] = new Pixel[4];
 		Pixel actual = this.getPos();
 		pxlCircundantes[NORTE] = new Pixel(actual.getX(),actual.getY()-1); //norte
@@ -48,13 +56,23 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 		pxlCircundantes[SUR] = new Pixel(actual.getX(),actual.getY()+1); //sur
 		pxlCircundantes[OESTE] = new Pixel(actual.getX()-1,actual.getY()); //oeste
 		
+		//Por cada pixel en cada direccion, evaluar cual es la mejor posible
 		for(dirAux = NORTE; dirAux<pxlCircundantes.length; dirAux++) {
 			dist = pxlCircundantes[dirAux].distanciaA(pixelObj);
-			//El unico problema que tiene esto es cuando hay mas celdas juntas que uno de ancho
-			if(dist<distanciaMinima && miMapa.verificarMovimiento(dirAux, getHitbox()) && dirAux!=(getDireccion()+2)%4) {
+			//Si se puede ir en la direccion dirAux, no es la direccion opuesta a la del fantasma y tiene la menor distancia al objetivo...
+			if(miMapa.verificarMovimiento(dirAux, getHitbox()) && dirAux!=(getDireccion()+2)%4 && dist<distanciaMinima) {
 				distanciaMinima = dist;
 				dirFinal = dirAux;
+			}else {
+				cantDescartadas++;
 			}
+		}
+		
+		//Si se descartaron las cuatro direcciones, esta en un callejon sin salida.
+		//Entonces tiene que volver por donde vino ()
+		if(cantDescartadas==4) {
+			rotar180();
+			dirFinal = direccion;
 		}
 		
 		return dirFinal;
@@ -89,4 +107,8 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 				
 		}
 	}
+	
+	
+	
+	public StatePerseguidor getState() {return state;}
 }

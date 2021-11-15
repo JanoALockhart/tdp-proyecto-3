@@ -5,6 +5,7 @@ import logica.entidades.visitadores.*;
 import logica.mapa.Celda;
 import logica.mapa.Mapa;
 import logica.partida.Partida;
+import main.Main;
 
 public class Jugador extends Personaje {
 
@@ -18,9 +19,10 @@ public class Jugador extends Personaje {
 	
 	private Jugador(String img, int width, int height, Celda c, int vel, Mapa map) {
 		 super(img,width,height,c,vel,map);
-		 vidas = 3; //TODO VERIFICAR CANT
+		 vidas = Integer.parseInt(Main.personajesConfig.getProperty("vidasJugador")); 
 		 visi = new VisitadorJugador();		 
 		 direccionGuardada = ESTE;
+		 cantBombas=0;
 		 this.miTimerJugador = new TimerJugador(this, vel);
 	}
 	
@@ -42,8 +44,18 @@ public class Jugador extends Personaje {
 	
 	public void perderVida() {
 		vidas--;
+		Partida.getInstance().quitarVida();
+		System.out.println("quitarVida");
+		//miPartida.reposicionar();
+		/*
+		 * Hay que reposicionar todo
+		 * Resetear posiciones
+		 * Eliminar de las celdas que ocupan
+		 * y asignar a nuevas celdas
+		 */
 		if(vidas == 0)
 			Partida.getInstance(null, null).perder();
+		System.out.println("Se perdio vida");
 	}
 	
 	public void accept(Visitor v) {		
@@ -51,7 +63,18 @@ public class Jugador extends Personaje {
 	}
 	
 	public void ponerBomaba() {
-		
+		if(cantBombas>0) {
+			cantBombas--;
+			//poner en mapa el explisivo
+		}
+	}
+	
+	/**
+	 * Metodo que suma una bomba al inventario del jugador
+	 */
+	public void agregarBomba() {
+		cantBombas++;
+		Partida.getInstance().actualizarBombas(cantBombas);
 	}
 	
 	public void AumentarVelocidad(int duracion) {

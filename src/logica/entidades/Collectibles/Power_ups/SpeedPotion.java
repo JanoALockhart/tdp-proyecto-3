@@ -3,6 +3,7 @@ package logica.entidades.Collectibles.Power_ups;
 import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.visitadores.*;
 import logica.mapa.*;
+import logica.partida.Partida;
 
 public class SpeedPotion extends PowerUp {
 	protected int duracion;
@@ -18,7 +19,9 @@ public class SpeedPotion extends PowerUp {
 
 	@Override
 	public void activarEfecto() {
-		Jugador.getInstance(null, null, 0, null).AumentarVelocidad(4);
+		Jugador.getInstance().AumentarVelocidad(4);
+		miMapa.eliminarDeCeldasQueTocaba(this, getHitbox());//Se lo elimina
+		Partida.getInstance().elimnarEntidadGrafica(this.miObjetoGrafico);
 	}
 
 

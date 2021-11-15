@@ -10,6 +10,7 @@ import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.Personaje.Perseguidores.*;
 import logica.mapa.Celda;
 import logica.mapa.Mapa;
+import main.Main;
 
 /**
  *
@@ -25,7 +26,10 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public Jugador construirJugador(Celda cel, Mapa map) {
-		return Jugador.getInstance("/recursos/imagenes/Steve.png", cel,50, map); //TODO Deshardcodear este 5
+		System.out.println(Main.filesConfig.getProperty("steveOW"));
+		String dirImg = Main.filesConfig.getProperty("steveOW");
+		int vel = Integer.parseInt(Main.personajesConfig.getProperty("velJugador"));
+		return Jugador.getInstance(dirImg, cel, vel, map); //TODO Deshardcodear este 5
 	}
 
 
@@ -34,7 +38,8 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public Blinky construirBlinky(Celda cel, Mapa map) {
-		return new Blinky("/recursos/imagenes/Zombie.png", cel, 50,map);
+		String dirImg = Main.filesConfig.getProperty("zombieOW");
+		return new Blinky(dirImg, cel, 50,map);
 	}
 
 
@@ -44,7 +49,8 @@ public class FabricaOverworld implements FabricaElementos{
 	 */
 	public Pinky construirPinky(Celda cel, Mapa map) {
 		//TODO
-		//return new Pinky("/recursos/imagenes/Spider.png",cel);
+		String img = Main.filesConfig.getProperty("spiderOW");
+		//return new Pinky(img,cel);
 		return null;
 	}
 
@@ -54,8 +60,8 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public Inky construirInky(Celda cel, Mapa map) {
-		//TODO
-		//return new Inky("/recursos/imagenes/Creeper.png",cel);
+		String img = Main.filesConfig.getProperty("creeperOW");
+		//return new Inky(,cel);
 		return null;
 	}
 
@@ -66,7 +72,8 @@ public class FabricaOverworld implements FabricaElementos{
 	 */
 	public Clyde construirClyde(Celda cel, Mapa map) {
 		//TODO
-		//return new Clyde("/recursos/imagenes/Skeleton.png",cel);
+		String img = Main.filesConfig.getProperty("skeletonOW");
+		//return new Clyde(img,cel);
 		return null;
 	}
 
@@ -77,8 +84,9 @@ public class FabricaOverworld implements FabricaElementos{
 	 */
 	public PacDot construirPacDot(Celda cel, Mapa map) {
 		PacDot dot;
-		int puntaje = 100;
-		dot = new PacDot(puntaje,"../../recursos/imagenes/xpVerde.png",cel, map);
+		String img = Main.filesConfig.getProperty("pacDotOW");
+		int puntaje = Integer.parseInt(Main.personajesConfig.getProperty("puntajePacDot"));
+		dot = new PacDot(puntaje,img,cel, map);
 		return dot;
 	}
 
@@ -89,8 +97,9 @@ public class FabricaOverworld implements FabricaElementos{
 	 */
 	public Fruta construirFruta(Celda cel, Mapa map) {
 		Fruta fruit;
-		int puntaje = 1000;
-		fruit = new Fruta(puntaje,"../../recursos/imagenes/fruit.png",cel, map);
+		String img = Main.filesConfig.getProperty("frutaOW");
+		int puntaje = Integer.parseInt(Main.personajesConfig.getProperty("puntajeFruta"));
+		fruit = new Fruta(puntaje,img,cel, map);
 		return fruit;
 	}
 
@@ -101,7 +110,10 @@ public class FabricaOverworld implements FabricaElementos{
 	 */
 	public PowerPellet construirPowerPellet(Celda cel, Mapa map) {
 		PowerPellet pp;
-		pp = new PowerPellet("../../recursos/imagenes/ManzanaDorada.png",16,16,cel, map);
+		String img = Main.filesConfig.getProperty("powerPelletOW");
+		int ancho = Integer.parseInt(Main.dimentionConfig.getProperty("anchoPowerPellet"));
+		int alto = Integer.parseInt(Main.dimentionConfig.getProperty("altoPowerPellet"));
+		pp = new PowerPellet(img,ancho,alto,cel, map);
 		return pp;
 	}
 
@@ -112,7 +124,10 @@ public class FabricaOverworld implements FabricaElementos{
 	 */
 	public SpeedPotion construirSpeedPotion(Celda cel, Mapa map) {
 		SpeedPotion sp;
-		sp = new SpeedPotion("../../recursos/imagenes/potion.png",16,16,cel, map);
+		String img = Main.filesConfig.getProperty("speedPotionOW");
+		int ancho = Integer.parseInt(Main.dimentionConfig.getProperty("anchoSpeedPot"));
+		int alto = Integer.parseInt(Main.dimentionConfig.getProperty("altoSpeedPot"));
+		sp = new SpeedPotion(img,ancho,alto,cel, map);
 		return sp;
 	}
 
@@ -123,7 +138,10 @@ public class FabricaOverworld implements FabricaElementos{
 	 */
 	public Bomb construirBomba(Celda cel, Mapa map) {
 		Bomb bomba;
-		bomba = new Bomb("../../recursos/imagenes/gunpowder.png",16,16,cel, map);
+		String img = Main.filesConfig.getProperty("bombaOW");
+		int ancho = Integer.parseInt(Main.dimentionConfig.getProperty("anchoBomba"));
+		int alto = Integer.parseInt(Main.dimentionConfig.getProperty("altoBomba"));
+		bomba = new Bomb(img,ancho,alto,cel, map);
 		return bomba;
 	}
 
@@ -150,21 +168,21 @@ public class FabricaOverworld implements FabricaElementos{
 	 * Metodo que devuelve la imagen de fondo para el nivel1
 	 */
 	public String getLevel1Layout() {
-		return "../../recursos/imagenes/Map.png";
+		return Main.filesConfig.getProperty("mapImgLvl1OW");
 	}
 	
 	/**
 	 * Metodo que devuelve la imagen de fondo para el nivel2
 	 */
 	public String getLevel2Layout() {
-		return "../../recursos/imagenes/nivel2.png";
+		return Main.filesConfig.getProperty("mapImgLvl2OW");
 	}
 	
 	/**
 	 * Metodo que devuelve la imagen de fondo para el nivel3
 	 */
 	public String getLevel3Layout() {
-		return "../../recursos/imagenes/MapaPlantillaN3.png";
+		return Main.filesConfig.getProperty("mapImgLvl3OW");
 	}
 	
 	

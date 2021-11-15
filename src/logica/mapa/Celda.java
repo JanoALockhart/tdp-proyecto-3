@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 
 import logica.entidades.Entidad;
+import main.Main;
 
 /**
  * Clase Celda
@@ -14,8 +15,8 @@ public class Celda {
 	private int posX;
 	private int posY;
 	
-	private static final int ANCHO = 24;
-	private static final int ALTO = 24;
+	private static final int ANCHO = Integer.parseInt(Main.dimentionConfig.getProperty("anchoCelda"));
+	private static final int ALTO = Integer.parseInt(Main.dimentionConfig.getProperty("altoCelda"));
 	
 	HashSet<Entidad> entidades;
 	

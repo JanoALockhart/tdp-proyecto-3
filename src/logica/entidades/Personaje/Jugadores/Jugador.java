@@ -59,7 +59,7 @@ public class Jugador extends Personaje {
 	}
 	
 	public void ponerBomaba() {
-		
+		//TODO IMPLEMENTAR BOMBA
 	}
 	
 	public void AumentarVelocidad(int duracion) {

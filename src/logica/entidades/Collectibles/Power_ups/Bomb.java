@@ -4,6 +4,7 @@ package logica.entidades.Collectibles.Power_ups;
 import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.visitadores.*;
 import logica.mapa.*;
+import logica.partida.Partida;
 
 public class Bomb extends PowerUp {
 	
@@ -18,7 +19,9 @@ public class Bomb extends PowerUp {
 
 	@Override
 	public void activarEfecto() {
-		Jugador.getInstance(null, null, 0, null).ponerBomaba();
+		Jugador.getInstance().agregarBomba();//TODO IMPLEMENTAR
+		miMapa.eliminarDeCeldasQueTocaba(this, getHitbox());//Se lo elimina
+		Partida.getInstance().elimnarEntidadGrafica(this.miObjetoGrafico);
 	}
 
 }

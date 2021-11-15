@@ -42,6 +42,8 @@ public class Jugador extends Personaje {
 	
 	public void perderVida() {
 		vidas--;
+		Partida.getInstance().quitarVida();
+		System.out.println("quitarVida");
 		//miPartida.reposicionar();
 		/*
 		 * Hay que reposicionar todo

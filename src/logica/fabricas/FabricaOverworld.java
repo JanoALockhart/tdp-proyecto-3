@@ -10,6 +10,7 @@ import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.Personaje.Perseguidores.*;
 import logica.mapa.Celda;
 import logica.mapa.Mapa;
+import main.Main;
 
 /**
  *
@@ -25,7 +26,8 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public Jugador construirJugador(Celda cel, Mapa map) {
-		return Jugador.getInstance("/recursos/imagenes/Steve.png", cel,50, map); //TODO Deshardcodear este 5
+		System.out.println(Main.filesConfig.getProperty("steveOW"));
+		return Jugador.getInstance(Main.filesConfig.getProperty("steveOW"), cel,Main.personajesConfig.getProperty("velJugador"), map); //TODO Deshardcodear este 5
 	}
 
 
@@ -34,7 +36,7 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public Blinky construirBlinky(Celda cel, Mapa map) {
-		return new Blinky("/recursos/imagenes/Zombie.png", cel, 50,map);
+		return new Blinky(Main.filesConfig.getProperty("zombieOW"), cel, 50,map);
 	}
 
 
@@ -54,8 +56,7 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public Inky construirInky(Celda cel, Mapa map) {
-		//TODO
-		//return new Inky("/recursos/imagenes/Creeper.png",cel);
+		//return new Inky(Main.filesConfig.getProperty("spiderOW"),cel);
 		return null;
 	}
 
@@ -66,7 +67,7 @@ public class FabricaOverworld implements FabricaElementos{
 	 */
 	public Clyde construirClyde(Celda cel, Mapa map) {
 		//TODO
-		//return new Clyde("/recursos/imagenes/Skeleton.png",cel);
+		//return new Clyde(Main.filesConfig.getProperty("skeletonOW"),cel);
 		return null;
 	}
 
@@ -78,7 +79,7 @@ public class FabricaOverworld implements FabricaElementos{
 	public PacDot construirPacDot(Celda cel, Mapa map) {
 		PacDot dot;
 		int puntaje = 100;
-		dot = new PacDot(puntaje,"../../recursos/imagenes/xpVerde.png",cel, map);
+		dot = new PacDot(puntaje,Main.filesConfig.getProperty("pacDotOW"),cel, map);
 		return dot;
 	}
 
@@ -90,7 +91,7 @@ public class FabricaOverworld implements FabricaElementos{
 	public Fruta construirFruta(Celda cel, Mapa map) {
 		Fruta fruit;
 		int puntaje = 1000;
-		fruit = new Fruta(puntaje,"../../recursos/imagenes/fruit.png",cel, map);
+		fruit = new Fruta(puntaje,Main.filesConfig.getProperty("frutaOW"),cel, map);
 		return fruit;
 	}
 
@@ -101,7 +102,7 @@ public class FabricaOverworld implements FabricaElementos{
 	 */
 	public PowerPellet construirPowerPellet(Celda cel, Mapa map) {
 		PowerPellet pp;
-		pp = new PowerPellet("../../recursos/imagenes/ManzanaDorada.png",16,16,cel, map);
+		pp = new PowerPellet(Main.filesConfig.getProperty("powerPelletOW"),16,16,cel, map);
 		return pp;
 	}
 
@@ -112,7 +113,7 @@ public class FabricaOverworld implements FabricaElementos{
 	 */
 	public SpeedPotion construirSpeedPotion(Celda cel, Mapa map) {
 		SpeedPotion sp;
-		sp = new SpeedPotion("../../recursos/imagenes/potion.png",16,16,cel, map);
+		sp = new SpeedPotion(Main.filesConfig.getProperty("speedPotionOW"),16,16,cel, map);
 		return sp;
 	}
 
@@ -123,7 +124,7 @@ public class FabricaOverworld implements FabricaElementos{
 	 */
 	public Bomb construirBomba(Celda cel, Mapa map) {
 		Bomb bomba;
-		bomba = new Bomb("../../recursos/imagenes/gunpowder.png",16,16,cel, map);
+		bomba = new Bomb(Main.filesConfig.getProperty("bombaOW"),16,16,cel, map);
 		return bomba;
 	}
 
@@ -150,21 +151,21 @@ public class FabricaOverworld implements FabricaElementos{
 	 * Metodo que devuelve la imagen de fondo para el nivel1
 	 */
 	public String getLevel1Layout() {
-		return "../../recursos/imagenes/Map.png";
+		return Main.filesConfig.getProperty("mapImgLvl1OW");
 	}
 	
 	/**
 	 * Metodo que devuelve la imagen de fondo para el nivel2
 	 */
 	public String getLevel2Layout() {
-		return "../../recursos/imagenes/nivel2.png";
+		return Main.filesConfig.getProperty("mapImgLvl2OW");
 	}
 	
 	/**
 	 * Metodo que devuelve la imagen de fondo para el nivel3
 	 */
 	public String getLevel3Layout() {
-		return "../../recursos/imagenes/MapaPlantillaN3.png";
+		return Main.filesConfig.getProperty("mapImgLvl3OW");
 	}
 	
 	

@@ -9,7 +9,7 @@ public class Blinky extends Perseguidor {
 
 	public Blinky(String img, Celda c, int vel, Mapa map) {
 		super(img,c.getAlto(),c.getAlto(),c,vel,map);	
-		state = new BlinkyPersiguiendo();    
+		state = new BlinkyPersiguiendo(this);    
 		visi = new VisitadorPerseguidor();
 		//pixelObjetivo = state.calcularObj();
 	}
@@ -22,13 +22,13 @@ public class Blinky extends Perseguidor {
 
 	@Override
 	public void accept(Visitor v) {
-		v.serAfectadoPor(this);
+		v.serAfectadoPor(this);//TODO Esto va o lo borramos???
 	}
 
+
 	@Override
-	public void asustar() {
-		// TODO Auto-generated method stub
-		
+	public void perseguir() {
+		state = new BlinkyPersiguiendo(this);
 	}
 
 	

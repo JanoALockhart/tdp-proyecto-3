@@ -120,7 +120,7 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 	 */
 	public void asustar() {
 		StatePerseguidor estadoViejo = state;
-		state = new Asustado();//Por aca se deberia utilizar el timer
+		state = new Asustado(this);//Por aca se deberia utilizar el timer
 	}
 	
 	public void desAsustar() {
@@ -140,6 +140,9 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 	 */
 	public void morir() {
 		//TODO implementar
+//		if(pos == casilla de muerto) {
+//			perseguir()
+//		}
 	}
 	
 	

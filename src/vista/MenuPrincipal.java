@@ -160,12 +160,6 @@ public class MenuPrincipal extends JPanel implements State {
 		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
-	public void refrescarLabels() {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	public JPanel getPanel() {
 		return panel;

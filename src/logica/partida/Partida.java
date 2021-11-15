@@ -22,7 +22,7 @@ public class Partida {
 	private BuilderNivel builder;
 	private Mapa miMapa;
 	private Jugador player;
-	private Iterable<Personaje> enemigos;
+	private Iterable<Perseguidor> enemigos;
 	private TimerMovimiento timerAvisaEnemigos;
 	private int puntaje;
 	
@@ -41,12 +41,17 @@ public class Partida {
 		enemigos = builder.getPerseguidores();
 		
 		Iterable<Entidad> entidades = miMapa.getTodasLasEntidades();
+		
 		LinkedList<EntidadGrafica> entGraficas = new LinkedList<EntidadGrafica>();
+
+		LinkedList<String> fruits = new LinkedList<String>();
+		
+		fruits.add("../../recursos/imagenes/fruit.png");
 		for(Entidad ent : entidades) {
 			entGraficas.add(ent.getEntidadGrafica());
 		}
 		
-		pantalla.imprimirMapa(entGraficas, fab.getLevel1Layout());//TODO cambiar al layout de otro lvl
+		pantalla.imprimirMapa(entGraficas, fab.getLevel1Layout(), fruits);//TODO cambiar al layout de otro lvl
 		//TODO tal vez haya que tener atributo tipo fabrica
 		
 		//Inicializar Timers
@@ -124,7 +129,7 @@ public class Partida {
 	public void addPuntaje(int p) {
 		puntaje += p;
 		pantalla.setPuntacion(puntaje);
-		System.out.println("SUMO " + p + " PUNTOS ");
+//		System.out.println("SUMO " + p + " PUNTOS ");
 	}
 	
 	public void moverPerseguidores() {

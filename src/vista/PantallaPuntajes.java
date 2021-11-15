@@ -257,12 +257,6 @@ public class PantallaPuntajes implements State {
 	}
 
 	@Override
-	public void refrescarLabels() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public JPanel getPanel() {
 		return panel;
 	}

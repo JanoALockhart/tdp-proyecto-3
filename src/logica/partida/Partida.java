@@ -140,8 +140,8 @@ public class Partida {
 	 * Notifica a la interfaz grafica para que saque un corazon 
 	 * de la interfaz grafica
 	 */
-	public void quitarVida() {
-		pantalla.refrescarLabelsVida();
+	public void quitarVida(int vidasRestantes) {
+		pantalla.refrescarLabelsVida(vidasRestantes);
 	}
 	
 	public void actualizarBombas(int cantBombas) {

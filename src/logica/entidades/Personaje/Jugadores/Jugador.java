@@ -44,7 +44,7 @@ public class Jugador extends Personaje {
 	
 	public void perderVida() {
 		vidas--;
-		Partida.getInstance().quitarVida();
+		Partida.getInstance().quitarVida(vidas);
 		System.out.println("quitarVida");
 		//miPartida.reposicionar();
 		/*
@@ -78,6 +78,10 @@ public class Jugador extends Personaje {
 	}
 	
 	public void AumentarVelocidad(int duracion) {
+		
+	}
+	
+	public void decrementarVelocidad() {
 		
 	}
 

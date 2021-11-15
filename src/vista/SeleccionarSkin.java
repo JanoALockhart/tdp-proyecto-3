@@ -135,11 +135,6 @@ public class SeleccionarSkin extends JPanel implements State{
 	}
 
 	@Override
-	public void refrescarLabels() {
-		
-	}
-
-	@Override
 	public JPanel getPanel() {
 		return panel;
 	}

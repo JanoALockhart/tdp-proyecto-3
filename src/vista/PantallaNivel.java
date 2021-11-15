@@ -30,6 +30,7 @@ public class PantallaNivel extends JPanel implements State {
 	private JLabel lblFruta_2;
 	private JLabel lblFruta_3;
 	private JLabel lblFruta_4;
+	private JLabel lblBomba;
 	
 	private Font mainFont;
 	
@@ -90,7 +91,7 @@ public class PantallaNivel extends JPanel implements State {
 		lblFruta = new JLabel("F");
 		lblFruta.setForeground(Color.WHITE);
 		lblFruta.setFont(mainFont);
-		lblFruta.setBounds(413, 597, 17, 21);
+		lblFruta.setBounds(413, 597, 32, 32);
 		panel.add(lblFruta);
 		
 		lblFruta_1 = new JLabel("F");
@@ -102,7 +103,7 @@ public class PantallaNivel extends JPanel implements State {
 		lblFruta_2 = new JLabel("F");
 		lblFruta_2.setForeground(Color.WHITE);
 		lblFruta_2.setFont(mainFont);
-		lblFruta_2.setBounds(467, 597, 17, 21);
+		lblFruta_2.setBounds(467, 597, 32, 32);
 		panel.add(lblFruta_2);
 		
 		lblFruta_3 = new JLabel("F");
@@ -114,12 +115,24 @@ public class PantallaNivel extends JPanel implements State {
 		lblFruta_4 = new JLabel("F");
 		lblFruta_4.setForeground(Color.WHITE);
 		lblFruta_4.setFont(mainFont);
-		lblFruta_4.setBounds(521, 597, 17, 21);
+		lblFruta_4.setBounds(521, 597, 32, 32);
 		panel.add(lblFruta_4);
 		
 		lblsVida[0]=lblVida;
 		lblsVida[1]=lblVida_1;
 		lblsVida[2]=lblVida_2;
+		
+		lblBomba = new JLabel("X0");
+		lblBomba.setForeground(Color.WHITE);
+		lblBomba.setBounds(526, 300, 92, 49);
+		lblBomba.setFont(mainFont);
+		panel.add(lblBomba);
+		
+		JLabel lblB = new JLabel(reEscalar("../../recursos/imagenes/gunpowder.png", 32, 32));
+		lblB.setForeground(Color.WHITE);
+		lblB.setFont(null);
+		lblB.setBounds(530, 274, 32, 32);
+		panel.add(lblB);
 		
 		miPartida=Partida.getInstance(this, fabrica);
 	}
@@ -153,16 +166,20 @@ public class PantallaNivel extends JPanel implements State {
 		miPartida.seApretoEspacio();
 	}
 
-	@Override
-	public void refrescarLabels() {
-		int vidas=miPartida.getVidas();
+	public void refrescarLabelsVida(int vidas) {
 		for(int i=vidas;0<=i && i<3;i--) {
 			lblsVida[i].setForeground(Color.BLACK);
-		}
+		}	
+	}
+	
+	public void refrescarLabelsBomba(int bombas) {
+		if(bombas==0) lblBomba.setForeground(Color.BLACK);
+		
+		lblBomba.setText("X"+bombas);
 	}
 	
 	public void imprimirMapa(Iterable<EntidadGrafica> it, String mapa) {		
-		JLabel lblMapa = new JLabel(reEscalar(mapa));
+		JLabel lblMapa = new JLabel(reEscalar(mapa, 504, 576));
 
 		lblMapa.setSize(504, 576);
 		
@@ -196,9 +213,9 @@ public class PantallaNivel extends JPanel implements State {
 		puntaje.setText(Integer.toString(puntuacion));
 	}
 	
-	private ImageIcon reEscalar(String dirImg) {
+	private ImageIcon reEscalar(String dirImg, int x, int y) {
         ImageIcon img = new ImageIcon(EntidadGrafica.class.getResource(dirImg));
-        Image imgResized = img.getImage().getScaledInstance(504, 576, Image.SCALE_SMOOTH);
+        Image imgResized = img.getImage().getScaledInstance(x, y, Image.SCALE_SMOOTH);
         return new ImageIcon(imgResized);
     }
 

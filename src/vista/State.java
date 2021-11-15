@@ -33,11 +33,6 @@ public interface State {
 	 * Se apreto la barra espaciadora
 	 */
 	public void seApretoEspacio();
-
-	/**	
-	 * Se actualizan todas las imagenes
-	 */
-	public void refrescarLabels();
 	
 	/**
 	 * Se muteo la música

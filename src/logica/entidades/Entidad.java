@@ -11,14 +11,25 @@ public abstract class Entidad implements Element {
 	protected EntidadGrafica miObjetoGrafico;
 	protected Mapa miMapa;
 	protected Visitor visi;
+	protected Pixel posInicial;
 	
-	
+	/**
+	 * Constructor de Entidad
+	 * @param img Es la imagen que tiene asociada
+	 * @param width Es el ancho en pixeles de la imagen
+	 * @param height Es la altura en pixeles de la imagen
+	 * @param c Es la celda en la que será posicionada la entidad
+	 * @param map Es el mapa en el que está la entidad
+	 * @param priority Es el nivel de altura en el que será presentado en la gui
+	 */
 	public Entidad(String img, int width, int height, Celda c, Mapa map, int priority) {
-		int PosX = c.getX() * c.getAncho() + c.getAncho()/2 - width/2; //TODO ARREGLAR ESTOOO CALCULAR POSICION EN PIXELES RESPECTO A TAMA:NO CELDA
-		int PosY = c.getY() * c.getAlto() + c.getAlto()/2 - height/2; //TODO ARREGLAR ESTOOO
+		int posX = c.getX() * c.getAncho() + c.getAncho()/2 - width/2; //TODO ARREGLAR ESTOOO CALCULAR POSICION EN PIXELES RESPECTO A TAMA:NO CELDA
+		int posY = c.getY() * c.getAlto() + c.getAlto()/2 - height/2; //TODO ARREGLAR ESTOOO
+		
+		posInicial = new Pixel(posX,posY);
 		
 		miMapa = map;
-		miObjetoGrafico = new EntidadGrafica(img, PosX, PosY, width, height, priority);
+		miObjetoGrafico = new EntidadGrafica(img, posX, posY, width, height, priority);
 		
 	}
 	
@@ -29,6 +40,12 @@ public abstract class Entidad implements Element {
 	public void accept(Visitor v) {
 	}
 	
+	/**
+	 * Método que corrobora si la entidad que recibió el mensaje
+	 * es intersectada por la entidad pasada por parámetro.
+	 * @param e Es la entidad con la que se quiere corroborar si colisionó
+	 * @return True en cado de que las entidades se intersecten. False en caso contrario
+	 */
 	public boolean colisionaCon(Entidad e) {
 		return this.getHitbox().intersects(e.getHitbox());
 	}
@@ -72,5 +89,9 @@ public abstract class Entidad implements Element {
 
 	public Visitor getVisitor() {
 		return visi;
+	}
+	
+	public void resetearPosInicial() {
+		
 	}
 }

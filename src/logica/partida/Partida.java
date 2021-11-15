@@ -135,6 +135,18 @@ public class Partida {
 	public int getVidas() {
 		return player.getVidas();
 	}
+	
+	/**
+	 * Notifica a la interfaz grafica para que saque un corazon 
+	 * de la interfaz grafica
+	 */
+	public void quitarVida() {
+		pantalla.refrescarLabelsVida();
+	}
+	
+	public void actualizarBombas(int cantBombas) {
+		pantalla.refrescarLabelsBomba(cantBombas);
+	}
 
 	public void elimnarEntidadGrafica(EntidadGrafica entGrafica) {
 		pantalla.eliminarLabel(entGrafica.getLbl());		

@@ -21,11 +21,6 @@ public class TimerEfecto implements Runnable{
 		while(contador != 0) {
 			try {
 				System.out.println(contador);
-//				if(contador == 0) {
-//					
-//					continuar = false;
-//					break;
-//				}
 				contador--;
 				Thread.sleep(1000);
 			} catch (Exception e) {

@@ -25,11 +25,9 @@ public class PantallaNivel extends JPanel implements State {
 	
 	private JLabel[] lblsVida;
 	
-	private JLabel lblFruta;
-	private JLabel lblFruta_1;
-	private JLabel lblFruta_2;
-	private JLabel lblFruta_3;
-	private JLabel lblFruta_4;
+	private JLabel[] lblsFruta;
+	
+	private JLabel lblFrutaNumber;
 	private JLabel lblBomba;
 	
 	private Font mainFont;
@@ -41,6 +39,10 @@ public class PantallaNivel extends JPanel implements State {
 		JLabel lblVida;
 		JLabel lblVida_1;
 		JLabel lblVida_2;
+		
+		JLabel lblFruta_1;
+		JLabel lblFruta_2;
+		JLabel lblFruta_3;
 		
 		panel=new JPanel();
 		panel.setBackground(Color.BLACK);
@@ -54,6 +56,8 @@ public class PantallaNivel extends JPanel implements State {
 		
 		lblsVida=new JLabel[3];
 		
+		lblsFruta=new JLabel[3];
+		
 		mainFont=h1;
 		
 		JLabel lblPuntaje = new JLabel("PUNTAJE:");
@@ -62,7 +66,7 @@ public class PantallaNivel extends JPanel implements State {
 		lblPuntaje.setBounds(10, 597, 194, 49);
 		panel.add(lblPuntaje);
 		
-		puntaje = new JLabel("000000");
+		puntaje = new JLabel("0");
 		puntaje.setForeground(Color.WHITE);
 		puntaje.setFont(mainFont);
 		puntaje.setBounds(196, 597, 207, 49);
@@ -88,39 +92,37 @@ public class PantallaNivel extends JPanel implements State {
 		lblVida_2.setFont(mainFont);
 		panel.add(lblVida_2);
 		
-		lblFruta = new JLabel("F");
-		lblFruta.setForeground(Color.WHITE);
-		lblFruta.setFont(mainFont);
-		lblFruta.setBounds(413, 597, 32, 32);
-		panel.add(lblFruta);
-		
-		lblFruta_1 = new JLabel("F");
+		lblFruta_1 = new JLabel();
 		lblFruta_1.setForeground(Color.WHITE);
 		lblFruta_1.setFont(mainFont);
-		lblFruta_1.setBounds(440, 597, 17, 21);
+		lblFruta_1.setBounds(387, 605, 32, 32);
 		panel.add(lblFruta_1);
 		
-		lblFruta_2 = new JLabel("F");
+		lblFruta_2 = new JLabel();
 		lblFruta_2.setForeground(Color.WHITE);
 		lblFruta_2.setFont(mainFont);
-		lblFruta_2.setBounds(467, 597, 32, 32);
+		lblFruta_2.setBounds(429, 605, 32, 32);
 		panel.add(lblFruta_2);
 		
-		lblFruta_3 = new JLabel("F");
+		lblFruta_3 = new JLabel();
 		lblFruta_3.setForeground(Color.WHITE);
 		lblFruta_3.setFont(mainFont);
-		lblFruta_3.setBounds(494, 597, 17, 21);
+		lblFruta_3.setBounds(471, 605, 32, 32);
 		panel.add(lblFruta_3);
 		
-		lblFruta_4 = new JLabel("F");
-		lblFruta_4.setForeground(Color.WHITE);
-		lblFruta_4.setFont(mainFont);
-		lblFruta_4.setBounds(521, 597, 32, 32);
-		panel.add(lblFruta_4);
+		lblFrutaNumber = new JLabel();
+		lblFrutaNumber.setForeground(Color.WHITE);
+		lblFrutaNumber.setFont(mainFont);
+		lblFrutaNumber.setBounds(510, 597, 84, 49);
+		panel.add(lblFrutaNumber);
 		
 		lblsVida[0]=lblVida;
 		lblsVida[1]=lblVida_1;
 		lblsVida[2]=lblVida_2;
+		
+		lblsFruta[0]=lblFruta_1;
+		lblsFruta[1]=lblFruta_2;
+		lblsFruta[2]=lblFruta_3;
 		
 		lblBomba = new JLabel("X0");
 		lblBomba.setForeground(Color.WHITE);
@@ -178,8 +180,10 @@ public class PantallaNivel extends JPanel implements State {
 		lblBomba.setText("X"+bombas);
 	}
 	
-	public void imprimirMapa(Iterable<EntidadGrafica> it, String mapa) {		
+	public void imprimirMapa(Iterable<EntidadGrafica> it, String mapa, Iterable<String> frutas) {		
 		JLabel lblMapa = new JLabel(reEscalar(mapa, 504, 576));
+		
+		int contFruits=0;
 
 		lblMapa.setSize(504, 576);
 		
@@ -190,6 +194,14 @@ public class PantallaNivel extends JPanel implements State {
 			panelMapa.add(e.getLbl(), e.getPriority());
 			panelMapa.setLayer(e.getLbl(), e.getPriority());
 		}
+		
+		for(String fruit:frutas) {
+			System.out.println(fruit);
+			lblsFruta[contFruits].setIcon(reEscalar(fruit, 32, 32));
+			contFruits++;
+		}
+		
+		lblFrutaNumber.setText("x"+contFruits);
 	}
 	
 	public JPanel getPanel() {

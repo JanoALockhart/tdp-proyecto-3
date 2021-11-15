@@ -7,12 +7,14 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import main.Main;
+
 public class EntidadGrafica{   
 		protected String dirImg;
 		protected JLabel jlbl;
 		protected ImageIcon icon;
 		protected int width, height, priority;
-		private static final int pixelPorPaso = 4;
+		private static final int pixelPorPaso = Integer.parseInt(Main.dimentionConfig.getProperty("pixelPorPaso"));
 		
 		public EntidadGrafica(String dir, int PosX, int PosY, int width, int height, int priority) {
 			dirImg = dir;

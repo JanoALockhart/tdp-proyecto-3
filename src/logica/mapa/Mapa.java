@@ -9,6 +9,7 @@ import logica.entidades.Personaje.Personaje;
 import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.visitadores.Visitor;
 import logica.partida.Partida;
+import main.Main;
 
 public class Mapa {
 	private Celda misCeldas[][];
@@ -18,8 +19,8 @@ public class Mapa {
 	private static final int ALTO = 24;
 	private static final int ANCHO = 21;
 	
-	private static final int ALTO_CELDA = 24;
-	private static final int ANCHO_CELDA = 24;
+	private static final int ALTO_CELDA = Integer.parseInt(Main.dimentionConfig.getProperty("altoCelda"));
+	private static final int ANCHO_CELDA = Integer.parseInt(Main.dimentionConfig.getProperty("anchoCelda"));
 	
 	/**
 	 * Constructor de la clase Mapa

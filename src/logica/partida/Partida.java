@@ -11,6 +11,7 @@ import logica.entidades.Personaje.Personaje;
 import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.fabricas.*;
 import logica.mapa.Mapa;
+import main.Main;
 import vista.*;
 /** 
  *
@@ -32,7 +33,7 @@ public class Partida {
 		puntaje = 0;	
 		builder = new ArquitectoNivel(fab);
 		DirectorNivel directorLvl = new DirectorNivel(builder);//TODO cambiar a otro nivel
-		directorLvl.armarNivel("src/recursos/layouts/Nivel1.txt");
+		directorLvl.armarNivel(Main.filesConfig.getProperty("fileLvl1"));
 
 		miMapa = builder.getNivelArmado();
 		player = Jugador.getInstance();
@@ -50,7 +51,8 @@ public class Partida {
 		//Inicializar Timers
 		Jugador.getInstance().iniciarTimer();
 		
-		timerAvisaEnemigos = new TimerMovimiento(this,60);
+		int velEnemigos = Integer.parseInt(Main.personajesConfig.getProperty("velEnemigos"));
+		timerAvisaEnemigos = new TimerMovimiento(this,velEnemigos);
 		Thread hilo = new Thread(timerAvisaEnemigos);
 		hilo.start();
 		

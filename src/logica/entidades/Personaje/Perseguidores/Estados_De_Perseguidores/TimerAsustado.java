@@ -1,12 +1,15 @@
 package logica.entidades.Personaje.Perseguidores.Estados_De_Perseguidores;
 
+import logica.entidades.Personaje.Perseguidores.Perseguidor;
+
 public class TimerAsustado implements Runnable{
 
 	protected int contador;
+	protected Perseguidor miPersiguidor;
 	
-	public TimerAsustado() {
-		
-		this.contador = 0;
+	public TimerAsustado(Perseguidor miPerseguidor) {
+		this.miPersiguidor = miPerseguidor;
+		contador = 0;
 	}
 	
 	public void setTimepo(int c){
@@ -23,7 +26,7 @@ public class TimerAsustado implements Runnable{
 				e.printStackTrace();
 			}
 		}
-		
+		miPersiguidor.desAsustar();
 	}
 	
 }

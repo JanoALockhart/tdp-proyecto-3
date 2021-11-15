@@ -41,12 +41,17 @@ public class Partida {
 		enemigos = builder.getPerseguidores();
 		
 		Iterable<Entidad> entidades = miMapa.getTodasLasEntidades();
+		
 		LinkedList<EntidadGrafica> entGraficas = new LinkedList<EntidadGrafica>();
+
+		LinkedList<String> fruits = new LinkedList<String>();
+		
+		fruits.add("../../recursos/imagenes/fruit.png");
 		for(Entidad ent : entidades) {
 			entGraficas.add(ent.getEntidadGrafica());
 		}
 		
-		pantalla.imprimirMapa(entGraficas, fab.getLevel1Layout());//TODO cambiar al layout de otro lvl
+		pantalla.imprimirMapa(entGraficas, fab.getLevel1Layout(), fruits);//TODO cambiar al layout de otro lvl
 		//TODO tal vez haya que tener atributo tipo fabrica
 		
 		//Inicializar Timers

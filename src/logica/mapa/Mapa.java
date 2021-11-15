@@ -227,7 +227,7 @@ public class Mapa {
 		
 		//Colisionar entidades
 		for(Entidad entEncontrada:getEntidadesCircundantes(entity)) {
-			if(entEncontrada.colisionaCon(entity)) {
+			if(entEncontrada != entity && entEncontrada.colisionaCon(entity)) {
 				visitador = entEncontrada.getVisitor();
 				entity.accept(visitador);
 				visitador = entity.getVisitor();

@@ -66,9 +66,7 @@ public abstract class Personaje extends Entidad {
 			direccion = dir;
 	}
 	
-	public void accept(Visitor v) {
-		
-	}
+	public abstract void accept(Visitor v);
 	
 	
 }

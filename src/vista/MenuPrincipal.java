@@ -2,11 +2,16 @@ package vista;
 
 import javax.swing.JPanel;
 import java.awt.Color;
+
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.FontFormatException;
 
 import javax.swing.SwingConstants;
+
+import logica.entidades.EntidadGrafica;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
@@ -25,6 +30,8 @@ public class MenuPrincipal extends JPanel implements State {
 	private JLabel lblSkin;
 	
 	private JLabel lblScoreBoard;
+	
+	JLabel lblSound;
 	
 	private JLabel[] optionList;
 	
@@ -82,6 +89,11 @@ public class MenuPrincipal extends JPanel implements State {
 		lblScoreBoard.setBounds(10, 379, 580, 43);
 		panel.add(lblScoreBoard);
 		
+		lblSound = new JLabel(new ImageIcon(MenuPrincipal.class.getResource("../recursos/imagenes/soundON.png")));
+		lblSound.setForeground(Color.WHITE);
+		lblSound.setBounds(24, 24, 64, 64);
+		panel.add(lblSound);
+		
 		optionList[0]=lblNuevoJuego;
 		optionList[1]=lblSkin;
 		optionList[2]=lblScoreBoard;
@@ -93,6 +105,7 @@ public class MenuPrincipal extends JPanel implements State {
 		miSlider.setOptionAtN(lblScoreBoard, 3);
 		
 		miSlider.getOptionSelected().setForeground(Color.YELLOW);
+		
 	}
 
 	@Override
@@ -160,5 +173,15 @@ public class MenuPrincipal extends JPanel implements State {
 	
 	public String getName() {
 		return stateName;
+	}
+
+	@Override
+	public void seApretoP(boolean pause) {
+		String imgSource=pause?"../recursos/imagenes/soundOFF.png":"../recursos/imagenes/soundON.png";
+		panel.remove(lblSound);
+		lblSound = new JLabel(new ImageIcon(MenuPrincipal.class.getResource(imgSource)));
+		lblSound.setBounds(24, 24, 64, 64);
+		panel.add(lblSound);
+		panel.repaint();
 	}
 }

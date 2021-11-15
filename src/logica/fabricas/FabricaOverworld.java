@@ -27,7 +27,7 @@ public class FabricaOverworld implements FabricaElementos{
 	 */
 	public Jugador construirJugador(Celda cel, Mapa map) {
 		System.out.println(Main.filesConfig.getProperty("steveOW"));
-		return Jugador.getInstance(Main.filesConfig.getProperty("steveOW"), cel,Main.personajesConfig.getProperty("velJugador"), map); //TODO Deshardcodear este 5
+		return Jugador.getInstance(Main.filesConfig.getProperty("steveOW"), cel,50, map); //TODO Deshardcodear este 5
 	}
 
 

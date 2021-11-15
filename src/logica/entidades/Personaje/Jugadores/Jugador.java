@@ -42,8 +42,16 @@ public class Jugador extends Personaje {
 	
 	public void perderVida() {
 		vidas--;
+		//miPartida.reposicionar();
+		/*
+		 * Hay que reposicionar todo
+		 * Resetear posiciones
+		 * Eliminar de las celdas que ocupan
+		 * y asignar a nuevas celdas
+		 */
 		if(vidas == 0)
 			Partida.getInstance(null, null).perder();
+		System.out.println("Se perdio vida");
 	}
 	
 	public void accept(Visitor v) {		

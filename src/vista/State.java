@@ -38,7 +38,12 @@ public interface State {
 	 * Se actualizan todas las imagenes
 	 */
 	public void refrescarLabels();
-
+	
+	/**
+	 * Se muteo la música
+	 */
+	public void seApretoP(boolean pause);	
+	
 	/**	
 	 * Devuelve el panel contenedor del contenido gráfico
 	 * @return El panel contenedor del contenido gráfico
@@ -50,4 +55,5 @@ public interface State {
 	 * @return Nombre de la LayoutCard
 	 */
 	public String getName();
+	
 }

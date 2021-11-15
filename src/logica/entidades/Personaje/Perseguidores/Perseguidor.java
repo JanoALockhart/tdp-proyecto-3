@@ -24,7 +24,13 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 		
 	}
 	
-	public abstract void acceptVisitor(Visitor v);
+	public void accept(Visitor v) {
+		v.serAfectadoPor(this);
+	}
+	
+	public void activarEfecto() {
+		state.activarEfecto();
+	}
 	
 	public void avanzar() {
 		Pixel pixel = state.calcularObj();
@@ -89,4 +95,8 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 				
 		}
 	}
+	
+	
+	
+	public StatePerseguidor getState() {return state;}
 }

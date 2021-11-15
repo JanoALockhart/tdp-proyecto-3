@@ -6,16 +6,18 @@ import logica.mapa.Celda;
 
 public class Muerto implements StatePerseguidor {
 
-	@Override
-	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 	@Override
 	public Pixel calcularObj() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void activarEfecto() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

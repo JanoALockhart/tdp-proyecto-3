@@ -7,7 +7,7 @@ public class TimerEfecto {
 	public int cantSegundos;
 	
 	public TimerEfecto() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	public void comenzar() {

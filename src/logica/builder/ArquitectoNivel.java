@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 import logica.entidades.Entidad;
 import logica.entidades.Personaje.Personaje;
+import logica.entidades.Personaje.Perseguidores.Perseguidor;
 import logica.fabricas.FabricaElementos;
 import logica.mapa.*;
 
@@ -118,7 +119,7 @@ public class ArquitectoNivel implements BuilderNivel{
 	
 	public void agregarBlinky(int x, int y) throws Exception{
 		Celda cel;
-		Personaje blinky;
+		Perseguidor blinky;
 		
 		cel = miFabrica.construirCelda(x, y);
 		blinky = miFabrica.construirBlinky(cel, map);

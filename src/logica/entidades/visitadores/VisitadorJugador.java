@@ -9,7 +9,7 @@ public class VisitadorJugador implements Visitor{
 
 	@Override
 	public void serAfectadoPor(Perseguidor per) {
-		
+		System.out.println("holaaaa");
 	}
 
 	@Override

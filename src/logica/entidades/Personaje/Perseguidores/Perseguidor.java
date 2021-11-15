@@ -16,9 +16,11 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 
 	protected Pixel pixelObjetivo;
 	protected StatePerseguidor state;
+	protected TimerAsustado miTimerAsustado;
 	
 	public Perseguidor(String img, int width, int height, Celda c,int vel,Mapa map) {
 		super(img,width,height,c,vel,map);
+		miTimerAsustado = new TimerAsustado(this);
 		//TODO Elegir state inicial, hacer los distintos estados 
 	}
 	
@@ -118,13 +120,17 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 	 * Si sobrevive, pasa al estado perseguir
 	 * 
 	 */
-	public void asustar() {
+	public void asustar(int duracion) {
 		StatePerseguidor estadoViejo = state;
 		state = new Asustado();//Por aca se deberia utilizar el timer
+		
+		miTimerAsustado.setTimepo(duracion);
+		Thread timer = new Thread(miTimerAsustado);
+		timer.start();
 	}
 	
 	public void desAsustar() {
-		
+		// Aca se tiene que setiar el estado correpondiente
 	}
 	
 	/**

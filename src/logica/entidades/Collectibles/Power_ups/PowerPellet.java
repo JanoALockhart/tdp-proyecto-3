@@ -16,7 +16,7 @@ public class PowerPellet extends PowerUp {
 
 	@Override
 	public void activarEfecto() {
-		miMapa.asustarPerseguidores();//TODO implementar asustar
+		Partida.getInstance().asustarPerseguidores();//TODO implementar asustar
 		miMapa.eliminarDeCeldasQueTocaba(this, getHitbox());//Se lo elimina
 		Partida.getInstance().elimnarEntidadGrafica(this.miObjetoGrafico);
 	}

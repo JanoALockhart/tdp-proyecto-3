@@ -138,6 +138,14 @@ public class Partida {
 		}
 	}
 	
+	public void asustarPerseguidores() {
+		for(Perseguidor enemy : enemigos) {
+			enemy.asustar();
+		}
+		
+	}
+	
+	
 	public int getVidas() {
 		return player.getVidas();
 	}

@@ -9,7 +9,8 @@ public class VisitadorJugador implements Visitor{
 
 	@Override
 	public void serAfectadoPor(Perseguidor per) {
-		
+		//ahora se activa
+		per.activarEfecto();
 	}
 
 	@Override

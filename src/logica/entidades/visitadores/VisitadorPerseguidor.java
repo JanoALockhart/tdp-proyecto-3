@@ -15,14 +15,12 @@ public class VisitadorPerseguidor implements Visitor{
 
 	@Override
 	public void serAfectadoPor(Collectible col) {
-		// TODO Auto-generated method stub
-		
+		//No se activa
 	}
 
 	@Override
 	public void serAfectadoPor(Jugador player) {
-		// TODO Auto-generated method stub
-		
+		//No se activa
 	}
 
 	@Override

@@ -21,7 +21,7 @@ public class Blinky extends Perseguidor {
 	}
 
 	@Override
-	public void acceptVisitor(Visitor v) {
+	public void accept(Visitor v) {
 		v.serAfectadoPor(this);
 	}
 

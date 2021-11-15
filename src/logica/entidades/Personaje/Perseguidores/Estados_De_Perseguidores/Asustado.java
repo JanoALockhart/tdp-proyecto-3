@@ -8,16 +8,18 @@ public class Asustado implements StatePerseguidor {
 
 	protected TimerAsustado miTimerAsustado;
 	
-	@Override
-	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public Pixel calcularObj() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+	@Override
+	public void activarEfecto() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

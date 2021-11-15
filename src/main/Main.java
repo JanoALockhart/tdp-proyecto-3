@@ -34,15 +34,15 @@ public class Main {
 	 */
 	private static void loadConfiguration() {
 		try {
-			InputStream inputFilesConfig = new FileInputStream("src/recursos/config/direccionesArchivos.txt");
+			InputStream inputFilesConfig = new FileInputStream("src/recursos/config/direccionesArchivos.properties");
 			Main.filesConfig = new Properties();
 			Main.filesConfig.load(inputFilesConfig);
 			
-			InputStream inputDimConfig = new FileInputStream("src/recursos/config/dimensionesElementos.txt");
+			InputStream inputDimConfig = new FileInputStream("src/recursos/config/dimensionesElementos.properties");
 			Main.dimentionConfig = new Properties();
 			Main.dimentionConfig.load(inputDimConfig);
 			
-			InputStream inputPersonajesConfig = new FileInputStream("src/recursos/config/personajesConfig.txt");
+			InputStream inputPersonajesConfig = new FileInputStream("src/recursos/config/personajesConfig.properties");
 			Main.personajesConfig = new Properties();
 			Main.personajesConfig.load(inputPersonajesConfig);
 		}catch (IOException e) {

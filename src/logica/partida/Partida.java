@@ -9,6 +9,7 @@ import logica.builder.*;
 import logica.entidades.*;
 import logica.entidades.Personaje.Personaje;
 import logica.entidades.Personaje.Jugadores.Jugador;
+import logica.entidades.Personaje.Perseguidores.Perseguidor;
 import logica.fabricas.*;
 import logica.mapa.Mapa;
 import main.Main;
@@ -131,6 +132,14 @@ public class Partida {
 			per.avanzar();
 		}
 	}
+	
+	public void asustarPerseguidores() {
+		for(Perseguidor enemy : enemigos) {
+			enemy.asustar();
+		}
+		
+	}
+	
 	
 	public int getVidas() {
 		return player.getVidas();

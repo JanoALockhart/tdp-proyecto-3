@@ -10,6 +10,8 @@ import logica.entidades.Personaje.Perseguidores.Estados_De_Perseguidores.StatePe
 import logica.entidades.visitadores.*;
 import logica.geometria.Pixel;
 
+import logica.entidades.Personaje.Perseguidores.Estados_De_Perseguidores.*;
+
 public abstract class Perseguidor extends Personaje implements Asustable{
 
 	protected Pixel pixelObjetivo;
@@ -78,8 +80,6 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 		return dirFinal;
 	}
 	
-	public abstract void asustar();
-	
 	/**
 	 * Utiliza celda.distanciaA para calcular pitagoras
 	 * @param c Celda objetivo a la que se quiere llegar
@@ -109,6 +109,17 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 	}
 	
 	
+	//ESTADOS 
+	public void asustar() {
+		StatePerseguidor estadoViejo = state;
+		state = new Asustado();
+	}
+	
+	public void desAsustar() {
+		
+	}
+	
+	public abstract void perseguir();
 	
 	public StatePerseguidor getState() {return state;}
 }

@@ -2,6 +2,7 @@ package logica.entidades.Personaje.Perseguidores;
 
 import logica.mapa.Celda;
 import logica.mapa.Mapa;
+import main.Main;
 
 import java.awt.Point;
 
@@ -120,10 +121,10 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 	 * Si sobrevive, pasa al estado perseguir
 	 * 
 	 */
-	public void asustar(int duracion) {
+	public void asustar() {
 		StatePerseguidor estadoViejo = state;
 		state = new Asustado(this);//Por aca se deberia utilizar el timer
-		miTimerAsustado.setTimepo(duracion);
+		miTimerAsustado.setTimepo( Integer.parseInt( Main.personajesConfig.getProperty("tiempoAsustado")));
 		Thread timer = new Thread(miTimerAsustado);
 		timer.start();
 	}

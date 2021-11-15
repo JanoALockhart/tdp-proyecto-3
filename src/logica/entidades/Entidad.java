@@ -84,7 +84,7 @@ public abstract class Entidad implements Element {
 	}
 	
 	public Pixel getPos() {
-		return new Pixel(miObjetoGrafico.getLbl().getX(), miObjetoGrafico.getLbl().getY());
+		return miObjetoGrafico.getPos();
 	}
 
 	public Visitor getVisitor() {
@@ -92,6 +92,8 @@ public abstract class Entidad implements Element {
 	}
 	
 	public void resetearPosInicial() {
-		
+		Rectangle hitBox = miObjetoGrafico.getRect();
+		miObjetoGrafico.setPos(posInicial);
+		miMapa.reposicionar(this, hitBox);
 	}
 }

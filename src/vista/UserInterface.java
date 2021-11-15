@@ -25,6 +25,8 @@ public class UserInterface extends JFrame {
 	
 	private FabricaElementos fabrica;
 	
+	private HiloMusica musica;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -52,6 +54,10 @@ public class UserInterface extends JFrame {
 		setContentPane(contentPane);
 		c1=new CardLayout(0,0);		
 		contentPane.setLayout(c1);
+		
+		musica=new HiloMusica("src/vista/amogus.wav");
+		
+		musica.audioOn();
 		
 		try {
 			mainFont = Font.createFont(Font.TRUETYPE_FONT, INPUT_STREAM_FUENTE);
@@ -93,6 +99,11 @@ public class UserInterface extends JFrame {
 					} 
 					case KeyEvent.VK_SPACE:{
 						miEstado.seApretoEspacio();
+						break;
+					} 
+					case KeyEvent.VK_P:{
+						musica.audioPause();
+						miEstado.seApretoP(musica.getPause());
 						break;
 					} 
 				}

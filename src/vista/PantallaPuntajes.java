@@ -272,4 +272,10 @@ public class PantallaPuntajes implements State {
 		return stateName;
 	}
 
+	@Override
+	public void seApretoP(boolean pause) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

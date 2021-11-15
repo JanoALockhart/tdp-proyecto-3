@@ -110,16 +110,38 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 	
 	
 	//ESTADOS 
+	/**
+	 * Estado asustado,
+	 * En este estado elije un camino random;
+	 * Si es tocado en este estado,
+	 * Se pasa al estado muerto
+	 * Si sobrevive, pasa al estado perseguir
+	 * 
+	 */
 	public void asustar() {
 		StatePerseguidor estadoViejo = state;
-		state = new Asustado();
+		state = new Asustado();//Por aca se deberia utilizar el timer
 	}
 	
 	public void desAsustar() {
 		
 	}
 	
+	/**
+	 * Dependiendo el fantasma se le asigna un perseguir distinto
+	 */
 	public abstract void perseguir();
+	
+	/**
+	 * El fantasma entra en estado muerto;
+	 * vuelve a su casilla,
+	 * y se resetea su estado a perseguidor
+	 * 
+	 */
+	public void morir() {
+		//TODO implementar
+	}
+	
 	
 	public StatePerseguidor getState() {return state;}
 }

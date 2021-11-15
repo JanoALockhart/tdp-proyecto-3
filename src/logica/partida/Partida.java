@@ -9,6 +9,7 @@ import logica.builder.*;
 import logica.entidades.*;
 import logica.entidades.Personaje.Personaje;
 import logica.entidades.Personaje.Jugadores.Jugador;
+import logica.entidades.Personaje.Perseguidores.Perseguidor;
 import logica.fabricas.*;
 import logica.mapa.Mapa;
 import main.Main;
@@ -21,7 +22,7 @@ public class Partida {
 	private BuilderNivel builder;
 	private Mapa miMapa;
 	private Jugador player;
-	private Iterable<Personaje> enemigos;
+	private Iterable<Perseguidor> enemigos;
 	private TimerMovimiento timerAvisaEnemigos;
 	private int puntaje;
 	

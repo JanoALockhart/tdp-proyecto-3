@@ -3,7 +3,6 @@ package logica.builder;
 import java.util.LinkedList;
 
 import logica.entidades.Entidad;
-import logica.entidades.Personaje.Personaje;
 import logica.entidades.Personaje.Perseguidores.Perseguidor;
 import logica.fabricas.FabricaElementos;
 import logica.mapa.*;
@@ -11,13 +10,13 @@ import logica.mapa.*;
 public class ArquitectoNivel implements BuilderNivel{
 	private FabricaElementos miFabrica;
 	private Mapa map;
-	private LinkedList<Personaje> fantasmas;//TODO Revisar
+	private LinkedList<Perseguidor> fantasmas;//TODO Revisar
 	
 	
 	public ArquitectoNivel(FabricaElementos fabrica) {
 		map = new Mapa();
 		miFabrica = fabrica;
-		fantasmas = new LinkedList<Personaje>();//TODO REvisar
+		fantasmas = new LinkedList<Perseguidor>();//TODO REvisar
 	}
 	
 	@Override
@@ -26,7 +25,7 @@ public class ArquitectoNivel implements BuilderNivel{
 	}
 	
 	//TODO REVISAR
-	public Iterable<Personaje> getPerseguidores(){
+	public Iterable<Perseguidor> getPerseguidores(){
 		return fantasmas;
 	}
 	

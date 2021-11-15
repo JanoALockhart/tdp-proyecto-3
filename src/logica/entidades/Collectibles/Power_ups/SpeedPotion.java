@@ -20,7 +20,7 @@ public class SpeedPotion extends PowerUp {
 
 	@Override
 	public void activarEfecto() {
-		Jugador.getInstance().AumentarVelocidad(20, 30);
+		Jugador.getInstance().AumentarVelocidad(20, 10);
 		miMapa.eliminarDeCeldasQueTocaba(this, getHitbox());//Se lo elimina
 		Partida.getInstance().elimnarEntidadGrafica(this.miObjetoGrafico);
 	}

@@ -75,12 +75,6 @@ public class Mapa {
 	}
 	
 	
-	public void asustarPerseguidores() {
-		//TODO activar el observer Asustador
-		//TODO 
-		//TODO
-	}
-	
 	public void agregarCelda(Celda c) throws Exception{
 		try {
 			misCeldas[c.getX()][c.getY()]=c;

@@ -66,7 +66,7 @@ public class Jugador extends Personaje {
 	public void ponerBomaba() {
 		if(cantBombas>0) {
 			cantBombas--;
-			//poner en mapa el explisivo
+			//TODO poner en mapa el explisivo
 		}
 	}
 	

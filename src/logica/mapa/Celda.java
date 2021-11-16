@@ -10,8 +10,8 @@ import logica.entidades.Entidad;
 import main.Main;
 
 /**
- * Clase Celda
- *
+ * Clase Celda. Contiene un conjunto de entidades y
+ * su posicion en el mapa.
  */
 public class Celda {
 	private int posX;

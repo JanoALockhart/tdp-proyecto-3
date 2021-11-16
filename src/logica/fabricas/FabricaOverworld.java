@@ -26,27 +26,16 @@ public class FabricaOverworld implements FabricaElementos{
 	 * su entidadGrafica y lo devuleve
 	 */
 	public Jugador construirJugador(Celda cel, Mapa map) {
-		System.out.println(Main.filesConfig.getProperty("steveOW"));
 		String dirImg = Main.filesConfig.getProperty("steveOW");
 		int vel = Integer.parseInt(Main.personajesConfig.getProperty("velJugador"));
-		return Jugador.getInstance(dirImg, cel, vel, map); //TODO Deshardcodear este 5
+		return Jugador.getInstance(dirImg, cel, vel, map); 
 	}
 
-
-	/**
-	 * Metodo que crea la instancia de jugador, le asigna
-	 * su entidadGrafica y lo devuleve
-	 */
 	public Blinky construirBlinky(Celda cel, Mapa map) {
 		String dirImg = Main.filesConfig.getProperty("zombieOW");
-		return new Blinky(dirImg, cel, 50,map);
+		return new Blinky(dirImg, cel, 50,map);//TODO eliminar la velocidad del constructor
 	}
 
-
-	/**
-	 * Metodo que crea la instancia de jugador, le asigna
-	 * su entidadGrafica y lo devuleve
-	 */
 	public Pinky construirPinky(Celda cel, Mapa map) {
 		//TODO
 		String img = Main.filesConfig.getProperty("spiderOW");
@@ -54,22 +43,12 @@ public class FabricaOverworld implements FabricaElementos{
 		return null;
 	}
 
-
-	/**
-	 * Metodo que crea la instancia de jugador, le asigna
-	 * su entidadGrafica y lo devuleve
-	 */
 	public Inky construirInky(Celda cel, Mapa map) {
 		String img = Main.filesConfig.getProperty("creeperOW");
 		//return new Inky(,cel);
 		return null;
 	}
 
-
-	/**
-	 * Metodo que crea la instancia de jugador, le asigna
-	 * su entidadGrafica y lo devuleve
-	 */
 	public Clyde construirClyde(Celda cel, Mapa map) {
 		//TODO
 		String img = Main.filesConfig.getProperty("skeletonOW");
@@ -77,11 +56,6 @@ public class FabricaOverworld implements FabricaElementos{
 		return null;
 	}
 
-
-	/**
-	 * Metodo que crea la instancia de jugador, le asigna
-	 * su entidadGrafica y lo devuleve
-	 */
 	public PacDot construirPacDot(Celda cel, Mapa map) {
 		PacDot dot;
 		String img = Main.filesConfig.getProperty("pacDotOW");
@@ -90,11 +64,6 @@ public class FabricaOverworld implements FabricaElementos{
 		return dot;
 	}
 
-
-	/**
-	 * Metodo que crea la instancia de jugador, le asigna
-	 * su entidadGrafica y lo devuleve
-	 */
 	public Fruta construirFruta(Celda cel, Mapa map) {
 		Fruta fruit;
 		String img = Main.filesConfig.getProperty("frutaOW");
@@ -103,11 +72,6 @@ public class FabricaOverworld implements FabricaElementos{
 		return fruit;
 	}
 
-
-	/**
-	 * Metodo que crea la instancia de jugador, le asigna
-	 * su entidadGrafica y lo devuleve
-	 */
 	public PowerPellet construirPowerPellet(Celda cel, Mapa map) {
 		PowerPellet pp;
 		String img = Main.filesConfig.getProperty("powerPelletOW");
@@ -117,11 +81,6 @@ public class FabricaOverworld implements FabricaElementos{
 		return pp;
 	}
 
-
-	/**
-	 * Metodo que crea la instancia de jugador, le asigna
-	 * su entidadGrafica y lo devuleve
-	 */
 	public SpeedPotion construirSpeedPotion(Celda cel, Mapa map) {
 		SpeedPotion sp;
 		String img = Main.filesConfig.getProperty("speedPotionOW");
@@ -131,11 +90,6 @@ public class FabricaOverworld implements FabricaElementos{
 		return sp;
 	}
 
-
-	/**
-	 * Metodo que crea la instancia de jugador, le asigna
-	 * su entidadGrafica y lo devuleve
-	 */
 	public Bomb construirBomba(Celda cel, Mapa map) {
 		Bomb bomba;
 		String img = Main.filesConfig.getProperty("bombaOW");
@@ -145,20 +99,11 @@ public class FabricaOverworld implements FabricaElementos{
 		return bomba;
 	}
 
-
-	/**
-	 * Metodo que crea la instancia de jugador, le asigna
-	 * su entidadGrafica y lo devuleve
-	 */
 	public Celda construirCelda(int x, int y) {
 		return new Celda(x,y);
 	}
 
 
-	/**
-	 * Metodo que crea la instancia de jugador, le asigna
-	 * su entidadGrafica y lo devuleve
-	 */
 	public Portal construirPortal(Celda cel, Mapa map) {
 		// TODO Auto-generated method stub
 		return null;

@@ -9,6 +9,7 @@ import java.io.IOException;
 /**
  * Esta clase tiene la responsabilidad de posicionar elementos
  * en el mapa utilizando los servicios provistos por BuilderNivel
+ * y ayudándose de un archivo de texto.
  * 
  */
 public class DirectorNivel {

@@ -26,7 +26,7 @@ public class TimerEfecto implements Runnable{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
+		}		
 		miJugador.decrementarVelocidad();
 	}
 	

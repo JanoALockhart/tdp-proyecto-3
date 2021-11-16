@@ -4,7 +4,10 @@ import logica.entidades.Personaje.Perseguidores.Perseguidor;
 import logica.mapa.Mapa;
 
 public interface BuilderNivel {
-
+	
+	/**
+	 * 
+	 */
 	public void reset();
 	public Mapa getNivelArmado();
 	public Iterable<Perseguidor> getPerseguidores();

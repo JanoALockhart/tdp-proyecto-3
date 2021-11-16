@@ -7,19 +7,30 @@ import logica.entidades.Personaje.Perseguidores.Perseguidor;
 import logica.fabricas.FabricaElementos;
 import logica.mapa.*;
 
+/** 
+ * Esta clase tiene la responsabilidad de brindar los métodos
+ * necesarios para posicionar elementos en el mapa.
+ */
 public class ArquitectoNivel implements BuilderNivel{
 	private FabricaElementos miFabrica;
 	private Mapa map;
 	private LinkedList<Perseguidor> fantasmas;//TODO Revisar
 	
-	
+	/**
+	 * Constructior del arquitecto nivel
+	 * @param fabrica
+	 */
 	public ArquitectoNivel(FabricaElementos fabrica) {
 		map = new Mapa();
 		miFabrica = fabrica;
 		fantasmas = new LinkedList<Perseguidor>();//TODO REvisar
 	}
 	
-	@Override
+	/**
+	 * Metodo que devuelve la instancia de mapa armada 
+	 * hasta el momento
+	 * @return Devuelve el mapa armado hasta el momento.
+	 */
 	public Mapa getNivelArmado() {
 		return map;
 	}
@@ -40,15 +51,6 @@ public class ArquitectoNivel implements BuilderNivel{
 		
 	}
 	
-	/**
-	 * Metodo que se encarga de agregar en el nivel, una celda en la posicion
-	 * (x,y) pasadas por parámetro, con una entidad, tambien pasada por
-	 * parámetro. Si la entidad es null, la celda se crea vacía.
-	 * @param entity Es la entidad que estará en la celda. Si es nula,
-	 * la celda se creará vacía.
-	 * @param x Es la coordenada x de la celda en el mapa.
-	 * @param y Es la coordenada y de la celda en el mapa.
-	 */
 	public void agregarPacDot(int x, int y) throws Exception{
 		Celda cel;
 		Entidad pac;

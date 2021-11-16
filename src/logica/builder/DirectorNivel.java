@@ -7,7 +7,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
- *
+ * Esta clase tiene la responsabilidad de posicionar elementos
+ * en el mapa utilizando los servicios provistos por BuilderNivel
+ * 
  */
 public class DirectorNivel {
 	protected BuilderNivel armador;

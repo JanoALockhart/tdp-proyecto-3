@@ -4,6 +4,7 @@ import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.visitadores.*;
 import logica.mapa.*;
 import logica.partida.Partida;
+import main.Main;
 
 public class SpeedPotion extends PowerUp {
 	protected int duracion;
@@ -20,7 +21,10 @@ public class SpeedPotion extends PowerUp {
 
 	@Override
 	public void activarEfecto() {
-		Jugador.getInstance().AumentarVelocidad(20, 10);
+		int duracion = Integer.parseInt(Main.personajesConfig.getProperty("duracionSP"));
+		int velExtra = Integer.parseInt(Main.personajesConfig.getProperty("velExtraSP"));
+		
+		Jugador.getInstance().AumentarVelocidad(duracion, velExtra);
 		miMapa.eliminarDeCeldasQueTocaba(this, getHitbox());//Se lo elimina
 		Partida.getInstance().elimnarEntidadGrafica(this.miObjetoGrafico);
 	}

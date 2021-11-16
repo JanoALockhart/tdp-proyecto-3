@@ -118,10 +118,6 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 		timer.start();
 	}
 	
-	public void desAsustar() {
-		// Aca se tiene que setiar el estado correpondiente
-	}
-	
 	/**
 	 * Dependiendo el fantasma se le asigna un perseguir distinto
 	 */

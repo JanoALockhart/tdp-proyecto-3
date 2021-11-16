@@ -26,7 +26,7 @@ public class TimerAsustado implements Runnable{
 				e.printStackTrace();
 			}
 		}
-		miPersiguidor.desAsustar();
+		miPersiguidor.perseguir();
 	}
 	
 }

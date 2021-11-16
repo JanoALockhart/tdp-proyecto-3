@@ -34,7 +34,7 @@ public class Partida {
 		puntaje = 0;	
 		builder = new ArquitectoNivel(fab);
 		DirectorNivel directorLvl = new DirectorNivel(builder);//TODO cambiar a otro nivel
-		directorLvl.armarNivel(Main.filesConfig.getProperty("fileLvl1"));
+		directorLvl.armarNivel(Main.filesConfig.getProperty("fileLvl3"));
 
 		miMapa = builder.getNivelArmado();
 		player = Jugador.getInstance();
@@ -51,7 +51,7 @@ public class Partida {
 			entGraficas.add(ent.getEntidadGrafica());
 		}
 		
-		pantalla.imprimirMapa(entGraficas, fab.getLevel1Layout(), fruits);//TODO cambiar al layout de otro lvl
+		pantalla.imprimirMapa(entGraficas, fab.getLevel3Layout(), fruits);//TODO cambiar al layout de otro lvl
 		//TODO tal vez haya que tener atributo tipo fabrica
 		
 		//Inicializar Timers

@@ -11,6 +11,11 @@ import logica.entidades.visitadores.Visitor;
 import logica.partida.Partida;
 import main.Main;
 
+/**
+ * La clase Mapa tiene la responsabilidad de alojar a todas las celdas
+ * caminables en sus posiciones asignadas y efectuar colisiones entre
+ * paredes con entidades, ente entidades, y entre celdas y entidades
+ */
 public class Mapa {
 	private Celda misCeldas[][];
 	private int cantCollectibles;
@@ -26,8 +31,6 @@ public class Mapa {
 	 * Constructor de la clase Mapa
 	 */
 	public Mapa() {
-		//TODO inicializar el asustador
-		//TODO ver dimensiones
 		misCeldas = new Celda[ANCHO][ALTO];
 		cantCollectibles = 0;
 	}
@@ -74,7 +77,14 @@ public class Mapa {
 		return conjEntidades;
 	}
 	
-	
+	/**
+	 * Metodo que agrega una celda en la poscion que tiene almacenada
+	 * Lanza una excepción si las posiciones de la celda están fuera de
+	 * los limites del mapa
+	 * @param c Es la celda que se quiere agregar
+	 * @throws Exception Es lanzada cuando la celda que se quiere agregar
+	 * tiene una posicion fuera de rango
+	 */
 	public void agregarCelda(Celda c) throws Exception{
 		try {
 			misCeldas[c.getX()][c.getY()]=c;
@@ -187,7 +197,9 @@ public class Mapa {
 	/**
 	 * Metodo sincronizado que elimina la referencia de la Entidad entity de
 	 * todas las celdas que son tocadas por la hitBoxVieja y la coloca
-	 * en todas las celdas que son tocadas por la hitbox actual
+	 * en todas las celdas que son tocadas por la hitbox actual. Este método es 
+	 * sincronizado para evitar que una entidad que se movió no detecte a otra
+	 * entidad en las mismas celdas que tocaba pero que está siendo reposicionada
 	 * @param entity Es la entidad que se quiere eliminar de las celdas que ya no
 	 * toca y colocar en las celdas que toca.
 	 * @param hitBoxVieja Es el area de

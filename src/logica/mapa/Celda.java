@@ -47,23 +47,7 @@ public class Celda {
 	public int getY() {
 		return posY;
 	}
-	
-	/**
-	 * Calcula la distancia desde la celda a la que se le pidio este mensaje
-	 * a la celda pasada por parámetro, aplicando teorema de pitágoras.
-	 * @param c Es la celda objetivo.
-	 * @return La distancia entre esta celda y la celda pasada por parámetro
-	 */
-	public double distanciaA(Celda c) {
-		float difX;
-		float difY;
-		difX = Math.abs(this.posX-c.getX());
-		difY = Math.abs(this.posY-c.getY());
-		
-		
-		return Math.sqrt(difY*difY+difX*difX);
-	}
-	
+
 	/**
 	 * Metodo que retorna un iterable con las entidades que 
 	 * se encuentran en la celda, al momento de ser llamado este
@@ -96,19 +80,6 @@ public class Celda {
 	public void remove(Entidad e) {
 		entidades.remove(e);
 	}
-	
-	
-	/**
-	 * Metodo que devuelve la celda adyacente a esta celda
-	 * en la dirección indicada
-	 * @param direccion Es la direccion en la que está la celda que
-	 * se desea obtener
-	 * @return La celda adyacente de esta celda que esta en la dirección indicada
-	 */
-	public Celda getCeldaVecina(int direccion) {
-		return null;
-	}
-	//TODO implementar este método con las constantes direcciones.
 	
 	public int getAncho() {
 		return ANCHO;

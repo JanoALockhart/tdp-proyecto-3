@@ -18,12 +18,13 @@ public class TimerEfecto implements Runnable{
 	public void run() {
 		while(contador != 0) {
 			try {
+				System.out.println(contador);
 				contador--;
 				Thread.sleep(1000);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
+		}		
 		miJugador.decrementarVelocidad();
 	}
 	

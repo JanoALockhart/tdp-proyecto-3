@@ -113,6 +113,7 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 		StatePerseguidor estadoViejo = state;
 		rotar180();
 		state = new Asustado(this);//Por aca se deberia utilizar el timer
+		
 		miTimerAsustado.setTimepo( Integer.parseInt( Main.personajesConfig.getProperty("tiempoAsustado")));
 		Thread timer = new Thread(miTimerAsustado);
 		timer.start();

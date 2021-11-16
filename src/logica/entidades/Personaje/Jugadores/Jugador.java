@@ -17,6 +17,8 @@ public class Jugador extends Personaje {
 	private Partida miPartida;
 	protected TimerJugador miTimerJugador;
 	
+	//private Thread threadEfectoVelocidad;
+	
 	private Jugador(String img, int width, int height, Celda c, int vel, Mapa map) {
 		 super(img,width,height,c,vel,map);
 		 vidas = Integer.parseInt(Main.personajesConfig.getProperty("vidasJugador")); 
@@ -79,9 +81,14 @@ public class Jugador extends Personaje {
 	}
 	
 	public void AumentarVelocidad(int duracion, int velociadExtra) {
-		miTimerEfecto.setTimepo(duracion);
-		Thread hilo = new Thread(miTimerEfecto);		
-		hilo.start();
+		Thread threadEfectoVelocidad;
+		if(miTimerEfecto.isZero()) {			 
+			threadEfectoVelocidad = new Thread(miTimerEfecto);		
+			miTimerEfecto.setTimepo(duracion);	
+			threadEfectoVelocidad.start();		
+		}else {
+			miTimerEfecto.anotherOne();
+		}
 		miTimerJugador.setVel(velocidad - velociadExtra);
 	}
 	

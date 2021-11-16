@@ -1,5 +1,7 @@
 package logica.entidades.Personaje.Jugadores;
 
+import main.Main;
+
 public class TimerEfecto implements Runnable{
 	
 	protected Jugador miJugador;
@@ -18,6 +20,7 @@ public class TimerEfecto implements Runnable{
 	public void run() {
 		while(contador != 0) {
 			try {
+				System.out.println(contador);
 				contador--;
 				Thread.sleep(1000);
 			} catch (Exception e) {
@@ -27,4 +30,11 @@ public class TimerEfecto implements Runnable{
 		miJugador.decrementarVelocidad();
 	}
 	
+	public void anotherOne() {
+		contador+=Integer.parseInt(Main.personajesConfig.getProperty("duracionSP"));
+	}
+	
+	public boolean isZero() {
+		return contador==0;
+	}
 }

@@ -1,0 +1,7 @@
+Excepciones sin resolucion:
+ IllegalStateException: al iniciar el juego hay problema 	con la musica. Intentar comenzarlo de nuevo
+ ConcurrentModificationException:
+	A veces, mientras se está jugando aparece.
+	Aparentemente no tiene ningun efecto secundario
+
+	

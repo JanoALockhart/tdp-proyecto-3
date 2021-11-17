@@ -100,25 +100,46 @@ public class Partida {
 		return instance;
 	}
 	
-	//TODO preguntar
+	/**
+	 * Metodo que provoca que se pase al siguiente nivel.
+	 * Si no existe siguiente nivel, se activa la pantalla
+	 * de victoria.
+	 */
 	public void siguienteNivel() {
+		System.out.println("comio todo");
 		/*
-		nivelActual.detenerPersonajes();
+		nivelActual.detener();
 		nivelActual = nivelActual.getSiguiente();
-		nivelActual.inicializar();
+		if(nivelActual!=null){
+			nivelActual.inicializar()
+		}else{
+			victoria()
+		}
 		*/
 	}
 	
-	public void imprimirMapa() {
+	public void imprimirMapa(Iterable<Entidad> entities, String layout) {
+		//TODO revisar lo del fruits
+		LinkedList<EntidadGrafica> entGraficas = new LinkedList<EntidadGrafica>();
+
+		//TODO revisar esto
+		LinkedList<String> fruits = new LinkedList<String>();
+		fruits.add("../../recursos/imagenes/fruit.png");
+		//
 		
+		for(Entidad ent : entities) {
+			entGraficas.add(ent.getEntidadGrafica());
+		}
+		pantalla.imprimirMapa(entGraficas, layout, fruits);
 	}
 	
 	public void perder() {
-		
+		//nivelActual.detener();
+		//mostrarPantallaDerrota
 	}
 	
-	public void victoria() {
-		
+	private void victoria() {
+		//Mostrar pantalla victoria
 	}
 	
 	/**
@@ -134,7 +155,7 @@ public class Partida {
 	 * la tecla para la derecha fue presionada
 	 */
 	public void seApretoDerecha() {
-		player.cambiarDireccion(player.ESTE);
+		Jugador.getInstance().cambiarDireccion(Jugador.ESTE);
 	}
 	
 	/**
@@ -142,7 +163,7 @@ public class Partida {
 	 * la tecla para la izquierda fue presionada
 	 */
 	public void seApretoIzquierda() {
-		player.cambiarDireccion(player.OESTE);
+		player.cambiarDireccion(Jugador.OESTE);
 	}
 	
 	/**
@@ -150,7 +171,7 @@ public class Partida {
 	 * la tecla para abajo fue presionada
 	 */
 	public void seApretoAbajo() {
-		player.cambiarDireccion(player.SUR);
+		player.cambiarDireccion(Jugador.SUR);
 	}
 	
 	public void seApretoEnter() {

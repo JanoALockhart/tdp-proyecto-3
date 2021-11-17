@@ -105,6 +105,10 @@ public class Jugador extends Personaje {
 		hilo.start();
 	}
 	
+	public void detener() {
+		miTimerJugador.detener();
+	}
+	
 	public void avanzar() {
 		super.cambiarDireccion(direccionGuardada);
 		super.avanzar();

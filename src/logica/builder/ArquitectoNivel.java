@@ -6,6 +6,7 @@ import logica.entidades.Entidad;
 import logica.entidades.Personaje.Perseguidores.Perseguidor;
 import logica.fabricas.FabricaElementos;
 import logica.mapa.*;
+import logica.partida.ControladorPerseguidores;
 
 /** 
  * Esta clase tiene la responsabilidad de brindar los métodos
@@ -14,7 +15,9 @@ import logica.mapa.*;
 public class ArquitectoNivel implements BuilderNivel{
 	private FabricaElementos miFabrica;
 	private Mapa map;
-	private LinkedList<Perseguidor> fantasmas;//TODO Revisar
+	private LinkedList<Perseguidor> fantasmas;//TODO Remover
+	private ControladorPerseguidores mentePerseguidores;
+	
 	
 	/**
 	 * Constructior del arquitecto nivel
@@ -23,7 +26,8 @@ public class ArquitectoNivel implements BuilderNivel{
 	public ArquitectoNivel(FabricaElementos fabrica) {
 		map = new Mapa();
 		miFabrica = fabrica;
-		fantasmas = new LinkedList<Perseguidor>();//TODO REvisar
+		fantasmas = new LinkedList<Perseguidor>();//TODO REmover
+		mentePerseguidores = new ControladorPerseguidores();
 	}
 	
 	/**
@@ -35,9 +39,13 @@ public class ArquitectoNivel implements BuilderNivel{
 		return map;
 	}
 	
-	//TODO REVISAR
+	//TODO Remover
 	public Iterable<Perseguidor> getPerseguidores(){
 		return fantasmas;
+	}
+	
+	public ControladorPerseguidores getMentePerseguidores() {
+		return mentePerseguidores;
 	}
 	
 	public void reset() {
@@ -124,7 +132,8 @@ public class ArquitectoNivel implements BuilderNivel{
 		
 		cel = miFabrica.construirCelda(x, y);
 		blinky = miFabrica.construirBlinky(cel, map);
-		fantasmas.add(blinky);
+		fantasmas.add(blinky);//TODO remover
+		mentePerseguidores.addPerseguidor(blinky);
 		
 		cel.add(blinky);
 		map.agregarCelda(cel);

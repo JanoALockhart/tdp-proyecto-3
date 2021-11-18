@@ -97,4 +97,6 @@ public abstract class Entidad implements Element {
 		miObjetoGrafico.setPos(posInicial);
 		miMapa.reposicionar(this, hitBox);
 	}
+	
+	public Pixel getPosInicial() {return posInicial;}
 }

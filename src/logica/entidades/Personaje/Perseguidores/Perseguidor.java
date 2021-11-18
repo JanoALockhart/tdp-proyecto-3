@@ -7,7 +7,6 @@ import main.Main;
 import java.awt.Point;
 
 import logica.entidades.Personaje.Personaje;
-import logica.entidades.Personaje.Perseguidores.Estados_De_Perseguidores.StatePerseguidor;
 import logica.entidades.visitadores.*;
 import logica.geometria.Pixel;
 
@@ -137,9 +136,7 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 	 */
 	public void morir() {
 		//TODO implementar
-//		if(pos == casilla de muerto) {
-//			perseguir()
-//		}
+		state = new Muerto(this);
 	}
 	
 	

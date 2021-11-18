@@ -27,4 +27,8 @@ public class Pixel {
 	
 		return Math.sqrt(difX*difX + difY*difY);
 	}
+	
+	public boolean equals(Pixel pxl) {
+		return getX()==pxl.getX() && getY()==pxl.getY();
+	}
 }

@@ -4,6 +4,7 @@ import java.awt.Rectangle;
 
 import logica.entidades.Entidad;
 import logica.entidades.visitadores.*;
+import logica.geometria.HitBox;
 import logica.mapa.Celda;
 import logica.mapa.Mapa;
 
@@ -31,7 +32,7 @@ public abstract class Personaje extends Entidad {
 	 * efectúe las colisiones.
 	 */
 	public void avanzar() {
-		Rectangle oldHitbox = miObjetoGrafico.getRect();//Se crea una copia antigua de la hitbox
+		HitBox oldHitbox = miObjetoGrafico.getRect();//Se crea una copia antigua de la hitbox
 		switch(direccion) {
 			case NORTE:
 				if(verificarCambioDeCelda()) {

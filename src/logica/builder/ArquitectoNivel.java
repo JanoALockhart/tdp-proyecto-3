@@ -1,6 +1,5 @@
 package logica.builder;
 
-import java.util.LinkedList;
 
 import logica.entidades.Entidad;
 import logica.entidades.Personaje.Perseguidores.Perseguidor;
@@ -15,7 +14,6 @@ import logica.partida.ControladorPerseguidores;
 public class ArquitectoNivel implements BuilderNivel{
 	private FabricaElementos miFabrica;
 	private Mapa map;
-	private LinkedList<Perseguidor> fantasmas;//TODO Remover
 	private ControladorPerseguidores mentePerseguidores;
 	
 	
@@ -26,7 +24,6 @@ public class ArquitectoNivel implements BuilderNivel{
 	public ArquitectoNivel(FabricaElementos fabrica) {
 		map = new Mapa();
 		miFabrica = fabrica;
-		fantasmas = new LinkedList<Perseguidor>();//TODO REmover
 		mentePerseguidores = new ControladorPerseguidores();
 	}
 	
@@ -37,11 +34,6 @@ public class ArquitectoNivel implements BuilderNivel{
 	 */
 	public Mapa getNivelArmado() {
 		return map;
-	}
-	
-	//TODO Remover
-	public Iterable<Perseguidor> getPerseguidores(){
-		return fantasmas;
 	}
 	
 	public ControladorPerseguidores getMentePerseguidores() {
@@ -71,15 +63,15 @@ public class ArquitectoNivel implements BuilderNivel{
 		map.agregarCelda(cel);
 	}
 	
+	//TODO revisar para hacer mejor
+	//Tal vez metodo posicionar en mapa como el de Jugador pero a todas las entidades
 	public void agregarJugador(int x,int y) throws Exception{
 		Celda cel;
 		Entidad personaje;
 		
 		cel = miFabrica.construirCelda(x,y);
-		personaje = miFabrica.construirJugador(cel,map);
-		
-		cel.add(personaje);
 		map.agregarCelda(cel);
+		personaje = miFabrica.construirJugador(cel,map);
 	}
 	
 	public void agregarFruta(int x,int y) throws Exception{
@@ -132,7 +124,6 @@ public class ArquitectoNivel implements BuilderNivel{
 		
 		cel = miFabrica.construirCelda(x, y);
 		blinky = miFabrica.construirBlinky(cel, map);
-		fantasmas.add(blinky);//TODO remover
 		mentePerseguidores.addPerseguidor(blinky);
 		
 		cel.add(blinky);

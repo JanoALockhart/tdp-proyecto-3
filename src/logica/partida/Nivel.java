@@ -4,6 +4,7 @@
 package logica.partida;
 
 import logica.builder.*;
+import logica.entidades.Entidad;
 import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.mapa.Mapa;
 import main.Main;
@@ -63,6 +64,8 @@ public class Nivel {
 			miPartida.imprimirMapa(miMapa.getTodasLasEntidades(), layoutImg);
 			mentePerseguidores = miBuilder.getMentePerseguidores();
 			
+			System.out.println(miMapa.toString());
+			
 			Thread.sleep(1000);
 			comenzarTimers();
 		}catch(InterruptedException e) {
@@ -101,5 +104,16 @@ public class Nivel {
 	public void detener() {
 		Jugador.getInstance().detener();
 		mentePerseguidores.detenerPerseguidores();
+	}
+	
+	public void asustarPerseguidores() {
+		mentePerseguidores.asustarPerseguidores();
+	}
+	
+	public void removerBasura() {
+		for(Entidad ent : miMapa.getTodasLasEntidades()) {
+			//System.out.println("is:"+ent.getClass());
+			miPartida.elimnarEntidadGrafica(ent.getEntidadGrafica());
+		}
 	}
 }

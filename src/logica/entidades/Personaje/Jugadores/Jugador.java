@@ -2,6 +2,7 @@
 
 import logica.entidades.Personaje.Personaje;
 import logica.entidades.visitadores.*;
+import logica.geometria.Pixel;
 import logica.mapa.Celda;
 import logica.mapa.Mapa;
 import logica.partida.Partida;
@@ -15,7 +16,7 @@ public class Jugador extends Personaje {
 	protected TimerEfecto miTimerEfecto;
 	private static Jugador instance;
 	private Partida miPartida;
-	protected TimerJugador miTimerJugador;
+	private TimerJugador miTimerJugador;
 	
 	//private Thread threadEfectoVelocidad;
 	
@@ -25,14 +26,12 @@ public class Jugador extends Personaje {
 		 visi = new VisitadorJugador();		 
 		 direccionGuardada = ESTE;
 		 cantBombas=0;
-		 this.miTimerJugador = new TimerJugador(this, vel);
 		 this.miTimerEfecto = new TimerEfecto(this);
 	}
 	
 	public static Jugador getInstance(String img,Celda c, int vel,Mapa map) {
 		if(instance == null) {
 			instance = new Jugador(img,c.getAncho(),c.getAlto(),c,vel,map);
-			System.out.println("h:"+c.getAncho()+",w:"+c.getAncho());
 		}
 		return instance;
 	}
@@ -47,18 +46,13 @@ public class Jugador extends Personaje {
 	
 	public void perderVida() {
 		vidas--;
-		Partida.getInstance().quitarVida(vidas);
-		System.out.println("quitarVida");
-		//miPartida.reposicionar();
-		/*
-		 * Hay que reposicionar todo
-		 * Resetear posiciones
-		 * Eliminar de las celdas que ocupan
-		 * y asignar a nuevas celdas
-		 */
-		if(vidas == 0)
-			Partida.getInstance(null, null).perder();
-		System.out.println("Se perdio vida");
+		if(vidas == 0) {
+			Partida.getInstance().perder();
+		}else {
+			Partida.getInstance().quitarVida(vidas);
+		}
+		
+		
 	}
 	
 	public void accept(Visitor v) {		
@@ -101,12 +95,13 @@ public class Jugador extends Personaje {
 	}
 	
 	public void iniciarTimer() {
-		Thread hilo = new Thread(miTimerJugador);
-		hilo.start();
+		miTimerJugador = new TimerJugador(this,velocidad);
+		miTimerJugador.start();
 	}
 	
 	public void detener() {
 		miTimerJugador.detener();
+		miTimerEfecto.detener();
 	}
 	
 	public void avanzar() {
@@ -119,7 +114,13 @@ public class Jugador extends Personaje {
 	}
 	
 	
-	
-	//TODO Funca esto?
-	//TODO hola?
+	//TODO Revisar esto para hacerlo mejor
+	public void colocarEnMapa(Celda cel, Mapa map) {
+		miMapa = map;
+		Pixel pInic = new Pixel(cel.getX()*cel.getAncho(),cel.getY()*cel.getAlto());
+		miObjetoGrafico.setPos(pInic);
+		posInicial = pInic;
+		System.out.println("rec en Jugador: "+miObjetoGrafico.getRect());
+		miMapa.colocarEnCeldasQueToca(this);
+	}
 }

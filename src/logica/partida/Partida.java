@@ -20,12 +20,9 @@ import vista.*;
  */
 public class Partida {
 	private PantallaNivel pantalla;
-	private BuilderNivel builder;
-	private Mapa miMapa;
 	private Jugador player;
-	private Iterable<Perseguidor> enemigos;
-	private TimerMovimiento timerAvisaEnemigos;
 	private int puntaje;
+	private Nivel nivelActual;
 	
 	private static Partida instance;
 	
@@ -38,40 +35,17 @@ public class Partida {
 	private Partida(PantallaNivel ui,FabricaElementos fab) {
 		pantalla = ui;
 		puntaje = 0;	
-		builder = new ArquitectoNivel(fab);
+		
+		Nivel lvl1 = new Nivel(fab, this, Main.filesConfig.getProperty("fileLvl1"), fab.getLevel1Layout());
+		Nivel lvl2 = new Nivel(fab, this, Main.filesConfig.getProperty("fileLvl2"), fab.getLevel2Layout());
+		Nivel lvl3 = new Nivel(fab, this, Main.filesConfig.getProperty("fileLvl3"), fab.getLevel3Layout());
+		
+		nivelActual=lvl1;
+		lvl1.setSigNivel(lvl2);
+		lvl2.setSigNivel(lvl3);
 
-		DirectorNivel directorLvl = new DirectorNivel(builder);
-		directorLvl.armarNivel(Main.filesConfig.getProperty("fileLvl1"));//TODO cambiar a otro nivel
-
-		miMapa = builder.getNivelArmado();
+		lvl1.inicializar();
 		player = Jugador.getInstance();
-		enemigos = builder.getPerseguidores();
-		
-		Iterable<Entidad> entidades = miMapa.getTodasLasEntidades();
-		
-		LinkedList<EntidadGrafica> entGraficas = new LinkedList<EntidadGrafica>();
-
-		//TODO revisar esto
-		LinkedList<String> fruits = new LinkedList<String>();
-		fruits.add("../../recursos/imagenes/fruit.png");
-		//
-		
-		for(Entidad ent : entidades) {
-			entGraficas.add(ent.getEntidadGrafica());
-		}
-		
-		pantalla.imprimirMapa(entGraficas, fab.getLevel1Layout(), fruits);//TODO cambiar al layout de otro lvl
-		//TODO tal vez haya que tener atributo tipo fabrica
-		
-		//Inicializar Timers
-		Jugador.getInstance().iniciarTimer();
-		
-		int velEnemigos = Integer.parseInt(Main.personajesConfig.getProperty("velEnemigos"));
-		timerAvisaEnemigos = new TimerMovimiento(this,velEnemigos);
-		Thread hilo = new Thread(timerAvisaEnemigos);
-		hilo.start();
-		
-		
 	}
 	
 	/**
@@ -86,7 +60,6 @@ public class Partida {
 	public static Partida getInstance(PantallaNivel ui, FabricaElementos fab) {
 		if(instance == null) {
 			instance = new Partida(ui,fab);
-			System.out.println("bool:"+instance!=null);
 		}
 		return instance;
 	}
@@ -106,19 +79,18 @@ public class Partida {
 	 * de victoria.
 	 */
 	public void siguienteNivel() {
-		System.out.println("comio todo");
-		/*
 		nivelActual.detener();
-		nivelActual = nivelActual.getSiguiente();
+		//nivelActual.removerBasura(); Jugador no lo borra
+		nivelActual = nivelActual.getSigNivel();
 		if(nivelActual!=null){
-			nivelActual.inicializar()
+			nivelActual.inicializar();
 		}else{
-			victoria()
+			victoria();
 		}
-		*/
 	}
 	
-	public void imprimirMapa(Iterable<Entidad> entities, String layout) {
+	//TODO no imprime el mapa nuevo cuando se pasa de nivel
+	public void imprimirMapa(Iterable<Entidad> entities, String layout) { 
 		//TODO revisar lo del fruits
 		LinkedList<EntidadGrafica> entGraficas = new LinkedList<EntidadGrafica>();
 
@@ -140,6 +112,7 @@ public class Partida {
 	
 	private void victoria() {
 		//Mostrar pantalla victoria
+		System.out.println("Ganaste");
 	}
 	
 	/**
@@ -179,7 +152,7 @@ public class Partida {
 	}
 	
 	public void seApretoEspacio() {
-	
+		
 	}
 	
 	/**
@@ -192,26 +165,13 @@ public class Partida {
 		pantalla.setPuntacion(puntaje);
 //		System.out.println("SUMO " + p + " PUNTOS ");
 	}
-	
-	/**
-	 * Metodo que avisa a todos los perseguidores que deben
-	 * moverse
-	 */
-	public void moverPerseguidores() {
-		for(Personaje per : enemigos) {
-			per.avanzar();
-		}
-	}
-	
+
 	/**
 	 * Metodo que avisa a todos los perseguidores que deben 
 	 * asustarse.
 	 */
 	public void asustarPerseguidores() {
-		for(Perseguidor enemy : enemigos) {
-			enemy.asustar();
-		}
-		
+		nivelActual.asustarPerseguidores();
 	}
 	
 	/**
@@ -222,6 +182,7 @@ public class Partida {
 	 */
 	public void quitarVida(int vidasRestantes) {
 		pantalla.refrescarLabelsVida(vidasRestantes);
+		//nivelActual.resetear();
 	}
 	
 	/**

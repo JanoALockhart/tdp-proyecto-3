@@ -8,7 +8,7 @@ package logica.partida;
  */
 public class TimerMovimiento implements Runnable{
 	
-	protected Partida miPartida;
+	protected ControladorPerseguidores menteEnemigos;
 	protected int vel;
 	protected boolean continuar;
 	
@@ -18,8 +18,8 @@ public class TimerMovimiento implements Runnable{
 	 * que mueva los perseguidores.
 	 * @param vel Es la cantidad de tiempo entre avisos a la partida.
 	 */
-	public TimerMovimiento(Partida miPartida, int vel) {
-		this.miPartida = miPartida;
+	public TimerMovimiento(ControladorPerseguidores mente, int vel) {
+		menteEnemigos = mente;
 		this.vel = vel;
 		continuar = true;
 	}
@@ -37,7 +37,7 @@ public class TimerMovimiento implements Runnable{
 		while(continuar) {
 			try {
 				Thread.sleep(vel);
-				miPartida.moverPerseguidores();
+				menteEnemigos.moverPerseguidores();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

@@ -7,6 +7,7 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import logica.geometria.HitBox;
 import logica.geometria.Pixel;
 import main.Main;
 
@@ -50,10 +51,10 @@ public class EntidadGrafica{
 		 * Tiene un pixel menos de ancho y de largo.
 		 * @return Un nuevo rectangulo que representa la hitbox de la entidad.
 		 */
-		public Rectangle getRect() { 
+		public HitBox getRect() { 
 			//return jlbl.getBounds();
 			Rectangle lbl = jlbl.getBounds();
-			Rectangle hitBox = new Rectangle((int)lbl.getX(), (int) lbl.getY(),(int)lbl.getWidth()-1,(int)lbl.getHeight()-1);
+			HitBox hitBox = new HitBox((int)lbl.getX(), (int) lbl.getY(),(int)lbl.getWidth()-1,(int)lbl.getHeight()-1);
 			return hitBox;
 		}
 		

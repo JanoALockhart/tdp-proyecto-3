@@ -9,7 +9,6 @@ public class TimerJugador extends Thread{
 	public TimerJugador(Jugador miJugador, int vel) {
 		this.miJugador = miJugador;
 		this.vel = vel;
-		continuar = true;
 	}
 
 	public void setVel(int v) {
@@ -18,12 +17,14 @@ public class TimerJugador extends Thread{
 	
 	@Override
 	public void run() {
+		continuar = true;
 		while(continuar) {
 			try {
 				Thread.sleep(vel);
 				miJugador.avanzar();
 			} catch (Exception e) {
 				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 		}
 		
@@ -31,7 +32,6 @@ public class TimerJugador extends Thread{
 
 	public void detener() {
 		continuar = false;
-		this.interrupt();
 	}
 	
 	public void empezar() {

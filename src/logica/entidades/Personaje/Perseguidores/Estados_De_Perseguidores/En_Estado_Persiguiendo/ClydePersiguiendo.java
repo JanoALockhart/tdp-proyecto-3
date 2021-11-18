@@ -27,7 +27,7 @@ public class ClydePersiguiendo extends Persiguiendo {
 			obj = pxJug;
 		else
 			obj = miFantasma.getPosInicial();
-		return null;
+		return obj;
 	}
 
 }

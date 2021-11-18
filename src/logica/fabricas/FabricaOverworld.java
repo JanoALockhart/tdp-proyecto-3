@@ -41,8 +41,7 @@ public class FabricaOverworld implements FabricaElementos{
 	public Pinky construirPinky(Celda cel, Mapa map) {
 		//TODO
 		String img = Main.filesConfig.getProperty("spiderOW");
-		//return new Pinky(img,cel);
-		return null;
+		return new Pinky(img,cel,50,map);
 	}
 
 	public Inky construirInky(Celda cel, Mapa map) {
@@ -52,10 +51,9 @@ public class FabricaOverworld implements FabricaElementos{
 	}
 
 	public Clyde construirClyde(Celda cel, Mapa map) {
-		//TODO
 		String img = Main.filesConfig.getProperty("skeletonOW");
-		//return new Clyde(img,cel);
-		return null;
+		return new Clyde(img,cel,50,map); //TODO eliminar la velocidad del constructor
+		
 	}
 
 	public PacDot construirPacDot(Celda cel, Mapa map) {

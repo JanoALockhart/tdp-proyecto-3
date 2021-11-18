@@ -80,11 +80,11 @@ public class Nivel {
 			detener();
 			Jugador.getInstance().resetearPosInicial();
 			mentePerseguidores.resetPerseguidores();
-			//Thread.sleep(1000);
+			Thread.sleep(250);
 			comenzarTimers();
 		}catch(Exception e) {
 			e.printStackTrace();
-			System.out.println(e.getMessage());
+			//System.out.println(e.getMessage());
 		}
 	}
 	

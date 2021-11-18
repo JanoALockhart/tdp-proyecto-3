@@ -129,4 +129,28 @@ public class ArquitectoNivel implements BuilderNivel{
 		cel.add(blinky);
 		map.agregarCelda(cel);
 	}
+	
+	public void agregarPinky(int x, int y) throws Exception{
+		Celda cel;
+		Perseguidor pinky;
+		
+		cel = miFabrica.construirCelda(x, y);
+		pinky = miFabrica.construirPinky(cel, map);
+		mentePerseguidores.addPerseguidor(pinky);
+		
+		cel.add(pinky);
+		map.agregarCelda(cel);
+	}
+	
+	public void agregarClyde(int x, int y) throws Exception{
+		Celda cel;
+		Perseguidor clyde;
+		
+		cel = miFabrica.construirCelda(x, y);
+		clyde = miFabrica.construirClyde(cel, map);
+		mentePerseguidores.addPerseguidor(clyde);
+		
+		cel.add(clyde);
+		map.agregarCelda(cel);
+	}
 }

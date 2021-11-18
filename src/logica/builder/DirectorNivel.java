@@ -44,6 +44,8 @@ public class DirectorNivel {
 						case 'f': armador.agregarFruta(x, y); break;
 						case 'J': armador.agregarJugador(x, y); break;
 						case 'B': armador.agregarBlinky(x, y);break;
+						case 'P': armador.agregarPinky(x, y);break;
+						case 'C': armador.agregarClyde(x, y);break;
 					}
 					
 					caract = (char) layoutNivel.read();

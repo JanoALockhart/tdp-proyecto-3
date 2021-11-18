@@ -46,6 +46,7 @@ public class Jugador extends Personaje {
 	
 	public void perderVida() {
 		vidas--;
+		System.out.println("vidas Jugador: "+vidas);
 		if(vidas == 0) {
 			Partida.getInstance().perder();
 		}else {

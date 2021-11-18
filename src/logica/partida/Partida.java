@@ -80,7 +80,7 @@ public class Partida {
 	 */
 	public void siguienteNivel() {
 		nivelActual.detener();
-		//nivelActual.removerBasura(); Jugador no lo borra
+		//nivelActual.removerBasura(); Fantasmas no lo borra
 		nivelActual = nivelActual.getSigNivel();
 		if(nivelActual!=null){
 			nivelActual.inicializar();
@@ -106,7 +106,8 @@ public class Partida {
 	}
 	
 	public void perder() {
-		//nivelActual.detener();
+		System.out.println("Perdiste");
+		nivelActual.detener();
 		//mostrarPantallaDerrota
 	}
 	
@@ -181,8 +182,8 @@ public class Partida {
 	 * quedan al jugador
 	 */
 	public void quitarVida(int vidasRestantes) {
-		pantalla.refrescarLabelsVida(vidasRestantes);
 		nivelActual.resetear();
+		pantalla.refrescarLabelsVida(vidasRestantes);
 	}
 	
 	/**

@@ -284,21 +284,6 @@ public class Mapa {
 		
 		return conjuntoCeldas;
 	}
-	
-	//TODO remover. Solo para testeo
-	public String toString() {
-		String caracts="";
-		for(int y=0; y<ALTO; y++) {
-			for(int x=0; x<ANCHO; x++) {
-				if(misCeldas[x][y]==null) {
-					caracts+="#";
-				}else {
-					caracts+=" ";
-				}
-			}
-			caracts+="\n";
-		}
-		return caracts;
-	}
+
 	
 }

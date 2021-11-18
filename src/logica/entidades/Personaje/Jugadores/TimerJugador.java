@@ -18,10 +18,8 @@ public class TimerJugador extends Thread{
 	
 	@Override
 	public void run() {
-		int i=0;
 		while(continuar) {
 			try {
-				System.out.println(i++);
 				Thread.sleep(vel);
 				miJugador.avanzar();
 			} catch (Exception e) {

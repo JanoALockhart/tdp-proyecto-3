@@ -120,7 +120,6 @@ public class Jugador extends Personaje {
 		Pixel pInic = new Pixel(cel.getX()*cel.getAncho(),cel.getY()*cel.getAlto());
 		miObjetoGrafico.setPos(pInic);
 		posInicial = pInic;
-		System.out.println("rec en Jugador: "+miObjetoGrafico.getRect());
 		miMapa.colocarEnCeldasQueToca(this);
 	}
 }

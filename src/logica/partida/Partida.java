@@ -182,7 +182,7 @@ public class Partida {
 	 */
 	public void quitarVida(int vidasRestantes) {
 		pantalla.refrescarLabelsVida(vidasRestantes);
-		//nivelActual.resetear();
+		nivelActual.resetear();
 	}
 	
 	/**

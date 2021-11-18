@@ -22,6 +22,7 @@ public class TimerEfecto implements Runnable{
 	public void run() {
 		while(contador != 0 && seguir) {
 			try {
+				System.out.println(contador);
 				contador--;
 				Thread.sleep(1000);
 			} catch (Exception e) {
@@ -32,7 +33,7 @@ public class TimerEfecto implements Runnable{
 	}
 	
 	public void anotherOne() {
-		contador+=Integer.parseInt(Main.personajesConfig.getProperty("duracionSP"));
+		contador=Integer.parseInt(Main.personajesConfig.getProperty("duracionSP"));
 	}
 	
 	public boolean isZero() {

@@ -80,8 +80,9 @@ public class Jugador extends Personaje {
 	
 	public void AumentarVelocidad(int duracion, int velociadExtra) {
 		miTimerEfecto.setTimepo(duracion);
-		Thread hilo = new Thread(miTimerEfecto);		
-		hilo.start();
+		Thread hilo = new Thread(miTimerEfecto);
+		if(!hilo.isInterrupted())
+			hilo.start();
 		miTimerJugador.setVel(velocidad - velociadExtra);
 	}
 	

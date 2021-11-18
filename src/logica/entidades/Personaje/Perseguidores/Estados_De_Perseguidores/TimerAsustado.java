@@ -1,6 +1,7 @@
 package logica.entidades.Personaje.Perseguidores.Estados_De_Perseguidores;
 
 import logica.entidades.Personaje.Perseguidores.Perseguidor;
+import main.Main;
 
 public class TimerAsustado implements Runnable{
 
@@ -20,7 +21,6 @@ public class TimerAsustado implements Runnable{
 	public void run() {
 		while(contador != 0) {
 			try {
-//				System.out.println(contador);
 				contador--;
 				Thread.sleep(1000);
 			} catch (Exception e) {
@@ -30,4 +30,11 @@ public class TimerAsustado implements Runnable{
 		miPersiguidor.perseguir();
 	}
 	
+	public void anotherOne() {
+		contador+=Integer.parseInt(Main.personajesConfig.getProperty("tiempoAsustado"));
+	}
+	
+	public boolean isZero() {
+		return contador==0;
+	}
 }

@@ -1,6 +1,7 @@
 package logica.entidades;
 
 import logica.entidades.visitadores.*;
+import logica.geometria.HitBox;
 import logica.geometria.Pixel;
 import logica.mapa.*;
 
@@ -54,7 +55,7 @@ public abstract class Entidad implements Element {
 		return miObjetoGrafico;
 	}
 	
-	public Rectangle getHitbox() {
+	public HitBox getHitbox() {
 		return miObjetoGrafico.getRect();
 	}
 	
@@ -92,7 +93,7 @@ public abstract class Entidad implements Element {
 	}
 	
 	public void resetearPosInicial() {
-		Rectangle hitBox = miObjetoGrafico.getRect();
+		HitBox hitBox = miObjetoGrafico.getRect();
 		miObjetoGrafico.setPos(posInicial);
 		miMapa.reposicionar(this, hitBox);
 	}

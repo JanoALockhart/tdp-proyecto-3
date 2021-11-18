@@ -111,13 +111,18 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 	 */
 	public void asustar() {
 		StatePerseguidor estadoViejo = state;
+		Thread timer;
 		rotar180();
-		state = new Asustado(this);//Por aca se deberia utilizar el timer
-		
-		miTimerAsustado.setTimepo( Integer.parseInt( Main.personajesConfig.getProperty("tiempoAsustado")));
-		Thread timer = new Thread(miTimerAsustado);
-		timer.start();
+		state = new Asustado(this);
+		if(miTimerAsustado.isZero()) {
+			timer = new Thread(miTimerAsustado);	
+			miTimerAsustado.setTimepo(Integer.parseInt(Main.personajesConfig.getProperty("tiempoAsustado")));	
+			timer.start();
+		}else {
+			miTimerAsustado.anotherOne();
+		}
 	}
+	
 	
 	/**
 	 * Dependiendo el fantasma se le asigna un perseguir distinto

@@ -1,11 +1,11 @@
 package logica.builder;
 
-import java.util.LinkedList;
 
 import logica.entidades.Entidad;
 import logica.entidades.Personaje.Perseguidores.Perseguidor;
 import logica.fabricas.FabricaElementos;
 import logica.mapa.*;
+import logica.partida.ControladorPerseguidores;
 
 /** 
  * Esta clase tiene la responsabilidad de brindar los métodos
@@ -14,7 +14,8 @@ import logica.mapa.*;
 public class ArquitectoNivel implements BuilderNivel{
 	private FabricaElementos miFabrica;
 	private Mapa map;
-	private LinkedList<Perseguidor> fantasmas;//TODO Revisar
+	private ControladorPerseguidores mentePerseguidores;
+	
 	
 	/**
 	 * Constructior del arquitecto nivel
@@ -23,7 +24,7 @@ public class ArquitectoNivel implements BuilderNivel{
 	public ArquitectoNivel(FabricaElementos fabrica) {
 		map = new Mapa();
 		miFabrica = fabrica;
-		fantasmas = new LinkedList<Perseguidor>();//TODO REvisar
+		mentePerseguidores = new ControladorPerseguidores();
 	}
 	
 	/**
@@ -35,9 +36,8 @@ public class ArquitectoNivel implements BuilderNivel{
 		return map;
 	}
 	
-	//TODO REVISAR
-	public Iterable<Perseguidor> getPerseguidores(){
-		return fantasmas;
+	public ControladorPerseguidores getMentePerseguidores() {
+		return mentePerseguidores;
 	}
 	
 	public void reset() {
@@ -63,15 +63,15 @@ public class ArquitectoNivel implements BuilderNivel{
 		map.agregarCelda(cel);
 	}
 	
+	//TODO revisar para hacer mejor
+	//Tal vez metodo posicionar en mapa como el de Jugador pero a todas las entidades
 	public void agregarJugador(int x,int y) throws Exception{
 		Celda cel;
 		Entidad personaje;
 		
 		cel = miFabrica.construirCelda(x,y);
-		personaje = miFabrica.construirJugador(cel,map);
-		
-		cel.add(personaje);
 		map.agregarCelda(cel);
+		personaje = miFabrica.construirJugador(cel,map);
 	}
 	
 	public void agregarFruta(int x,int y) throws Exception{
@@ -124,7 +124,7 @@ public class ArquitectoNivel implements BuilderNivel{
 		
 		cel = miFabrica.construirCelda(x, y);
 		blinky = miFabrica.construirBlinky(cel, map);
-		fantasmas.add(blinky);
+		mentePerseguidores.addPerseguidor(blinky);
 		
 		cel.add(blinky);
 		map.agregarCelda(cel);

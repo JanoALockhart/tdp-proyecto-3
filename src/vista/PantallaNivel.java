@@ -29,6 +29,7 @@ public class PantallaNivel extends JPanel implements State {
 	
 	private JLabel lblFrutaNumber;
 	private JLabel lblBomba;
+	private JLabel lblMapa;
 	
 	private Font mainFont;
 	
@@ -181,7 +182,9 @@ public class PantallaNivel extends JPanel implements State {
 	}
 	
 	public void imprimirMapa(Iterable<EntidadGrafica> it, String mapa, Iterable<String> frutas) {		
-		JLabel lblMapa = new JLabel(reEscalar(mapa, 504, 576));
+		if(lblMapa!=null) panelMapa.remove(lblMapa);
+		
+		lblMapa = new JLabel(reEscalar(mapa, 504, 576));
 		
 		int contFruits=0;
 

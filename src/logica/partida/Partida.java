@@ -5,6 +5,8 @@ package logica.partida;
 
 import java.util.LinkedList;
 
+import datos.JugadorDatos;
+import datos.Serializador;
 import logica.builder.*;
 import logica.entidades.*;
 import logica.entidades.Personaje.Personaje;
@@ -154,6 +156,14 @@ public class Partida {
 	
 	public void seApretoEspacio() {
 		
+		/**TEST SERIALIZADOR
+		JugadorDatos jug = new JugadorDatos("asldasd",345);
+		
+		Serializador ser = new Serializador();
+		ser.guardarJugador(jug);
+		for(JugadorDatos jd : ser.obtenerTopPlayers()) {
+			System.out.println(jd.getNombre()+":"+jd.getPuntaje());
+		}*/
 	}
 	
 	/**

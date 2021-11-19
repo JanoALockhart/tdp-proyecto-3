@@ -9,7 +9,6 @@ import main.Main;
 public class ControladorPerseguidores {
 	private LinkedList<Perseguidor> enemigos;
 	private TimerMovimiento timerMov;
-	private TimerAsustado timerAsustado;//TODO ver si esto es factible
 	
 	public ControladorPerseguidores() {
 		enemigos = new LinkedList<Perseguidor>();

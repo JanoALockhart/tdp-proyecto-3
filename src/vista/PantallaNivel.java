@@ -10,7 +10,7 @@ import javax.swing.JLayeredPane;
 import java.awt.*;
 import javax.swing.border.LineBorder;
 
-import logica.entidades.EntidadGrafica;
+import logica.entidades.entGrafica.EntidadGrafica;
 import logica.fabricas.FabricaElementos;
 import logica.partida.Partida;
 
@@ -130,7 +130,7 @@ public class PantallaNivel extends JPanel implements State {
 		lblBomba.setFont(mainFont);
 		panel.add(lblBomba);
 		
-		JLabel lblB = new JLabel(reEscalar("../../recursos/imagenes/gunpowder.png", 32, 32));
+		JLabel lblB = new JLabel(reEscalar("src/recursos/imagenes/gunpowder.png", 32, 32));
 		lblB.setForeground(Color.WHITE);
 		lblB.setFont(null);
 		lblB.setBounds(530, 274, 32, 32);
@@ -226,7 +226,7 @@ public class PantallaNivel extends JPanel implements State {
 	}
 	
 	private ImageIcon reEscalar(String dirImg, int x, int y) {
-        ImageIcon img = new ImageIcon(EntidadGrafica.class.getResource(dirImg));
+        ImageIcon img = new ImageIcon(dirImg);
         Image imgResized = img.getImage().getScaledInstance(x, y, Image.SCALE_SMOOTH);
         return new ImageIcon(imgResized);
     }

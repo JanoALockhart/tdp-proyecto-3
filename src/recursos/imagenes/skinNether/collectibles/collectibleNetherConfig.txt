@@ -1,0 +1,5 @@
+pacDot=../../../recursos/imagenes/xpVerde.png
+fruta=../../../recursos/imagenes/fruit.png
+powerPellet=../../../recursos/imagenes/ManzanaDorada.png
+speedPotion=../../../recursos/imagenes/potion.png
+bomba=../../../recursos/imagenes/gunpowder.png

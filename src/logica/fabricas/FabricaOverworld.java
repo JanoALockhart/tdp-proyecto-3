@@ -28,8 +28,8 @@ public class FabricaOverworld implements FabricaElementos{
 	public Jugador construirJugador(Celda cel, Mapa map) {//TODO revisar para hacer mejor
 		String dirImg = Main.filesConfig.getProperty("steveOW");
 		int vel = Integer.parseInt(Main.personajesConfig.getProperty("velJugador"));
-		Jugador.getInstance(dirImg, cel, vel, map); 
-		Jugador.getInstance().colocarEnMapa(cel, map);
+		//Jugador.getInstance(dirImg, cel, vel, map);  //TODO modificado
+		//Jugador.getInstance().colocarEnMapa(cel, map);
 		return Jugador.getInstance();
 	}
 

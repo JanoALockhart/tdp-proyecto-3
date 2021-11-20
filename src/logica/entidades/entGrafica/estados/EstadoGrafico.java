@@ -1,4 +1,4 @@
-package logica.entidades.entGrafica;
+package logica.entidades.entGrafica.estados;
 
 import java.util.Properties;
 

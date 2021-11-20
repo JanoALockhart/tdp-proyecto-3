@@ -12,6 +12,8 @@ import logica.entidades.*;
 import logica.entidades.Personaje.Personaje;
 import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.Personaje.Perseguidores.Perseguidor;
+import logica.entidades.entGrafica.EntidadGrafica;
+import logica.entidades.entGrafica.JugadorGrafico;
 import logica.fabricas.*;
 import logica.mapa.Mapa;
 import main.Main;
@@ -22,7 +24,7 @@ import vista.*;
  */
 public class Partida {
 	private PantallaNivel pantalla;
-	private Jugador player;
+	private Jugador<JugadorGrafico> player;
 	private int puntaje;
 	private Nivel nivelActual;
 	
@@ -92,7 +94,7 @@ public class Partida {
 	}
 	
 	//TODO no imprime el mapa nuevo cuando se pasa de nivel
-	public void imprimirMapa(Iterable<Entidad> entities, String layout) { 
+	public void imprimirMapa(Iterable<Entidad<? extends EntidadGrafica>> iterable, String layout) { 
 		//TODO revisar lo del fruits
 		LinkedList<EntidadGrafica> entGraficas = new LinkedList<EntidadGrafica>();
 
@@ -101,7 +103,7 @@ public class Partida {
 		fruits.add("../../recursos/imagenes/fruit.png");
 		//
 		
-		for(Entidad ent : entities) {
+		for(Entidad<? extends EntidadGrafica> ent : iterable) {
 			entGraficas.add(ent.getEntidadGrafica());
 		}
 		pantalla.imprimirMapa(entGraficas, layout, fruits);

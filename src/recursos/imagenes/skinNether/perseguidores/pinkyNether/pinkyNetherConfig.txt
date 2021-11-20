@@ -1,0 +1,11 @@
+deadNORTE=../../../recursos/imagenes/fruit.png
+deadESTE=../../../recursos/imagenes/fruit.png
+deadOESTE=../../../recursos/imagenes/fruit.png
+deadSUR=../../../recursos/imagenes/fruit.png
+
+miedoso=../../../recursos/imagenes/ZombieAsustado.gif
+
+normalNORTE=../../../recursos/imagenes/Spider.png
+normalESTE=../../../recursos/imagenes/Spider.png
+normalOESTE=../../../recursos/imagenes/Spider.png
+normalSUR=../../../recursos/imagenes/Spider.png

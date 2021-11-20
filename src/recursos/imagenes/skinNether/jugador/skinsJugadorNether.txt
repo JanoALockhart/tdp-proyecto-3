@@ -1,0 +1,9 @@
+normalNORTE=../../../recursos/imagenes/skinNether/jugador/normal/jugadorNormalNORTE.png
+normalESTE=../../../recursos/imagenes/skinNether/jugador/normal/jugadorNormalESTE.png
+normalSUR=../../../recursos/imagenes/skinNether/jugador/normal/jugadorNormalSUR.png
+normalOESTE=../../../recursos/imagenes/skinNether/jugador/normal/jugadorNormalOESTE.png
+
+velozNORTE=../../../recursos/imagenes/skinNether/jugador/veloz/jugadorVelozNORTE.png
+velozSUR=../../../recursos/imagenes/skinNether/jugador/veloz/jugadorVelozSUR.png
+velozESTE=../../../recursos/imagenes/skinNether/jugador/veloz/jugadorVelozESTE.png
+velozOESTE=../../../recursos/imagenes/skinNether/jugador/veloz/jugadorVelozOESTE.png

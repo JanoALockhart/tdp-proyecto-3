@@ -3,12 +3,14 @@ package logica.entidades.Personaje;
 import java.awt.Rectangle;
 
 import logica.entidades.Entidad;
+import logica.entidades.entGrafica.PersonajeGrafico;
 import logica.entidades.visitadores.*;
 import logica.geometria.HitBox;
+import logica.geometria.Pixel;
 import logica.mapa.Celda;
 import logica.mapa.Mapa;
 
-public abstract class Personaje extends Entidad {
+public abstract class Personaje<PG extends PersonajeGrafico> extends Entidad<PG> {
 	
 	protected int direccion;
 	protected int velocidad;
@@ -19,10 +21,26 @@ public abstract class Personaje extends Entidad {
 	public static final int PERSONAJEPRIORITY = 3;
 	
 	public Personaje(String img, int width, int height, Celda c,int vel,Mapa map) {
-		super(img,width,height,c,map, PERSONAJEPRIORITY);
+		super(map);
 		velocidad = vel;
 		direccion = ESTE;
 	}
+	
+		public void moverNorte() {
+			miObjetoGrafico.moverNorte();
+		}
+
+		public void moverSur() {
+			miObjetoGrafico.moverSur();
+		}
+		
+		public void moverEste() {
+			miObjetoGrafico.moverEste();
+		}
+		
+		public void moverOeste() {
+			miObjetoGrafico.moverOeste();
+		}
 	
 	/**
 	 * Metodo que mueve la entidad en la dirección que tiene
@@ -76,8 +94,23 @@ public abstract class Personaje extends Entidad {
 	}
 	
 	public void cambiarDireccion(int dir) {
-		if(verificarCambioDireccion(dir))
+		if(verificarCambioDireccion(dir)) {
 			direccion = dir;
+			miObjetoGrafico.rotarSprite(dir);
+		}
+			
+	}
+	
+	public void resetearPosInicial() {
+		HitBox hitBox = miObjetoGrafico.getRect();
+		miObjetoGrafico.setPos(miObjetoGrafico.getPosInicial());
+		miObjetoGrafico.setNormal(direccion);
+		miMapa.reposicionar(this, hitBox);
+		//Por métodos como este se tuvieron que usar wildcards (?) en la genericidad para evitar casteo
+		/**
+		 * The method reposicionar(Entidad<EntidadGrafica>, HitBox) in the type Mapa is not applicable 
+		 * for the arguments (Entidad<EG>, HitBox)
+		 */
 	}
 	
 	public abstract void accept(Visitor v);

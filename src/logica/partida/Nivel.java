@@ -6,8 +6,8 @@ package logica.partida;
 import logica.builder.*;
 import logica.entidades.Entidad;
 import logica.entidades.Personaje.Jugadores.Jugador;
+import logica.entidades.entGrafica.EntidadGrafica;
 import logica.mapa.Mapa;
-import main.Main;
 import logica.fabricas.*;
 /**
  * Clase responsable de crear y controlar todos los 
@@ -110,7 +110,7 @@ public class Nivel {
 	}
 	
 	public void removerBasura() {
-		for(Entidad ent : miMapa.getTodasLasEntidades()) {
+		for(Entidad<? extends EntidadGrafica> ent : miMapa.getTodasLasEntidades()) {
 			//System.out.println("is:"+ent.getClass());
 			miPartida.elimnarEntidadGrafica(ent.getEntidadGrafica());
 		}

@@ -2,7 +2,10 @@ package logica.builder;
 
 
 import logica.entidades.Entidad;
+import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.Personaje.Perseguidores.Perseguidor;
+import logica.entidades.entGrafica.EntidadGrafica;
+import logica.entidades.entGrafica.JugadorGrafico;
 import logica.fabricas.FabricaElementos;
 import logica.mapa.*;
 import logica.partida.ControladorPerseguidores;
@@ -53,7 +56,7 @@ public class ArquitectoNivel implements BuilderNivel{
 	
 	public void agregarPacDot(int x, int y) throws Exception{
 		Celda cel;
-		Entidad pac;
+		Entidad<EntidadGrafica> pac;
 		
 		cel = miFabrica.construirCelda(x,y);
 		pac = miFabrica.construirPacDot(cel,map);
@@ -67,11 +70,12 @@ public class ArquitectoNivel implements BuilderNivel{
 	//Tal vez metodo posicionar en mapa como el de Jugador pero a todas las entidades
 	public void agregarJugador(int x,int y) throws Exception{
 		Celda cel;
-		Entidad personaje;
+		Jugador<JugadorGrafico> personaje;
 		
 		cel = miFabrica.construirCelda(x,y);
 		map.agregarCelda(cel);
 		personaje = miFabrica.construirJugador(cel,map);
+		personaje.colocarEnMapa(cel, map);
 	}
 	
 	public void agregarFruta(int x,int y) throws Exception{

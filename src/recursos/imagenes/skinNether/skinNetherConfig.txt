@@ -1,9 +1,9 @@
-jugadorNormalNORTE=../../../recursos/imagenes/skinNether/jugador/normal/jugadorNormalNORTE.png
-jugadorNormalESTE=../../../recursos/imagenes/skinNether/jugador/normal/jugadorNormalESTE.png
-jugadorNormalSUR=../../../recursos/imagenes/skinNether/jugador/normal/jugadorNormalSUR.png
-jugadorNormalOESTE=../../../recursos/imagenes/skinNether/jugador/normal/jugadorNormalOESTE.png
+skinsBlinky=src/recursos/imagenes/skinNether/perseguidores/blinkyNether/blinkyNetherConfig.txt
+skinsPinky=src/recursos/imagenes/skinNether/perseguidores/pinkyNether/pinkyNetherConfig.txt
+skinsClyde=src/recursos/imagenes/skinNether/perseguidores/clydeNether/clydeNetherConfig.txt
 
-jugadorVelozNORTE=../../recursos/imagenes/skinNether/jugador/veloz/jugadorVelozNORTE.png
-jugadorVelozESTE=../../recursos/imagenes/skinNether/jugador/veloz/jugadorVelozESTE.png
-jugadorVelozOESTE=../../recursos/imagenes/skinNether/jugador/veloz/jugadorVelozOESTE.png
-jugadorVelozSUR=../../recursos/imagenes/skinNether/jugador/veloz/jugadorVelozSUR.png
+skinsJugador=src/recursos/imagenes/skinNether/jugador/skinsJugadorNether.txt
+
+skinsCollectibles=src/recursos/imagenes/skinNether/collectibles/collectibleNetherConfig.txt
+
+mapas=src/recursos/imagenes/skinNether/mapas/mapasConfig.txt

@@ -1,13 +1,14 @@
 package logica.entidades.Collectibles.Puntos;
 
+import logica.entidades.entGrafica.EntidadGrafica;
 import logica.entidades.visitadores.*;
 import logica.mapa.*;
 import logica.partida.Partida;
 
 public class PacDot extends Punto {
 	
-	public PacDot(int val, String img, Celda c, Mapa m) {
-		super(img ,c.getAncho()/3 ,c.getAlto()/3,c,m);
+	public PacDot(int val, EntidadGrafica ent, Mapa m) {
+		super(ent, m);
 		valor = val;
 	}
 	

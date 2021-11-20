@@ -11,16 +11,18 @@ import logica.entidades.visitadores.*;
 import logica.geometria.Pixel;
 
 import logica.entidades.Personaje.Perseguidores.Estados_De_Perseguidores.*;
+import logica.entidades.entGrafica.PerseguidorGrafico;
 
-public abstract class Perseguidor extends Personaje implements Asustable{
+public abstract class Perseguidor extends Personaje<PerseguidorGrafico> implements Asustable{
 
 	protected Pixel pixelObjetivo;
 	protected StatePerseguidor state;
 	protected TimerAsustado miTimerAsustado;
 	
-	public Perseguidor(String img, int width, int height, Celda c,int vel,Mapa map) {
+	public Perseguidor(PerseguidorGrafico pg, String img, int width, int height, Celda c,int vel,Mapa map) {
 		super(img,width,height,c,vel,map);
 		miTimerAsustado = new TimerAsustado(this);
+		miObjetoGrafico = pg;
 		//TODO Elegir state inicial, hacer los distintos estados 
 	}
 	
@@ -109,10 +111,10 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 	 * 
 	 */
 	public void asustar() {
-		StatePerseguidor estadoViejo = state;
 		Thread timer;
 		rotar180();
 		state = new Asustado(this);
+		miObjetoGrafico.setAsustado(direccion);
 		if(miTimerAsustado.isZero()) {
 			timer = new Thread(miTimerAsustado);	
 			miTimerAsustado.setTimepo(Integer.parseInt(Main.personajesConfig.getProperty("tiempoAsustado")));	
@@ -137,6 +139,7 @@ public abstract class Perseguidor extends Personaje implements Asustable{
 	public void morir() {
 		//TODO implementar
 		state = new Muerto(this);
+		miObjetoGrafico.setMuerto(direccion);
 	}
 	
 	

@@ -1,6 +1,7 @@
  package logica.entidades.Personaje.Jugadores;
 
 import logica.entidades.Personaje.Personaje;
+import logica.entidades.entGrafica.JugadorGrafico;
 import logica.entidades.visitadores.*;
 import logica.geometria.Pixel;
 import logica.mapa.Celda;
@@ -8,35 +9,37 @@ import logica.mapa.Mapa;
 import logica.partida.Partida;
 import main.Main;
 
-public class Jugador extends Personaje {
+public class Jugador<JG extends JugadorGrafico> extends Personaje<JugadorGrafico> {
 
 	protected int cantBombas;
 	protected int vidas;
 	protected int direccionGuardada;
 	protected TimerEfecto miTimerEfecto;
-	private static Jugador instance;
+	private static Jugador<JugadorGrafico> instance;
 	private Partida miPartida;
 	private TimerJugador miTimerJugador;
 	
 	//private Thread threadEfectoVelocidad;
 	
-	private Jugador(String img, int width, int height, Celda c, int vel, Mapa map) {
+	private Jugador(JugadorGrafico jg, String img, int width, int height, Celda c, int vel, Mapa map) {
+		//TODO siendo modificado
 		 super(img,width,height,c,vel,map);
 		 vidas = Integer.parseInt(Main.personajesConfig.getProperty("vidasJugador")); 
 		 visi = new VisitadorJugador();		 
 		 direccionGuardada = ESTE;
 		 cantBombas=0;
+		 miObjetoGrafico = jg;
 		 this.miTimerEfecto = new TimerEfecto(this);
 	}
 	
-	public static Jugador getInstance(String img,Celda c, int vel,Mapa map) {
+	public static Jugador<JugadorGrafico> getInstance(JugadorGrafico jg, String img,Celda c, int vel,Mapa map) {
 		if(instance == null) {
-			instance = new Jugador(img,c.getAncho(),c.getAlto(),c,vel,map);
+			instance = new Jugador<JugadorGrafico>(jg, img,c.getAncho(),c.getAlto(),c,vel,map);
 		}
 		return instance;
 	}
 	
-	public static Jugador getInstance() {
+	public static Jugador<JugadorGrafico> getInstance() {
 		return instance;
 	}
 	
@@ -85,10 +88,12 @@ public class Jugador extends Personaje {
 			miTimerEfecto.anotherOne();
 		}
 		miTimerJugador.setVel(velocidad - velociadExtra);
+		miObjetoGrafico.setVeloz(direccion);
 	}
 	
 	public void decrementarVelocidad() {
 		miTimerJugador.setVel(velocidad);
+		miObjetoGrafico.setNormal(direccion);
 	}
 
 	public void addPuntaje(int p) {
@@ -115,12 +120,13 @@ public class Jugador extends Personaje {
 	}
 	
 	
-	//TODO Revisar esto para hacerlo mejor
 	public void colocarEnMapa(Celda cel, Mapa map) {
 		miMapa = map;
 		Pixel pInic = new Pixel(cel.getX()*cel.getAncho(),cel.getY()*cel.getAlto());
 		miObjetoGrafico.setPos(pInic);
-		posInicial = pInic;
+		miObjetoGrafico.setPosInicial(pInic); 
+		miObjetoGrafico.setNormal(direccion);
 		miMapa.colocarEnCeldasQueToca(this);
 	}
+	
 }

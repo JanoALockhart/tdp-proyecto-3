@@ -10,7 +10,7 @@ import java.awt.FontFormatException;
 
 import javax.swing.SwingConstants;
 
-import logica.entidades.EntidadGrafica;
+import logica.entidades.entGrafica.EntidadGrafica;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;

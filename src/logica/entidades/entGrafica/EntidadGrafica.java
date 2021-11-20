@@ -1,4 +1,4 @@
-package logica.entidades;
+package logica.entidades.entGrafica;
 
 import java.awt.Component;
 import java.awt.Image;
@@ -15,11 +15,12 @@ public class EntidadGrafica{
 		protected String dirImg;
 		protected JLabel jlbl;
 		protected ImageIcon icon;
+		protected Pixel posInicial;
 		protected int width, height, priority;
-		private static final int pixelPorPaso = Integer.parseInt(Main.dimentionConfig.getProperty("pixelPorPaso"));
 		
-		public EntidadGrafica(String dir, int PosX, int PosY, int width, int height, int priority) {
+		public EntidadGrafica(String dir, int posX, int posY, int width, int height, int priority) {
 			dirImg = dir;
+			posInicial = new Pixel(posX,posY);
 			
 			//Resize imageIcon
 			icon = new ImageIcon(EntidadGrafica.class.getResource(dir));
@@ -30,7 +31,7 @@ public class EntidadGrafica{
 			this.height = height;
 			this.priority = priority;
 			jlbl = new JLabel(icon);
-			jlbl.setBounds(PosX, PosY, width, height);
+			jlbl.setBounds(posX, posY, width, height);
 			jlbl.setVisible(true);
 		}
 		
@@ -59,27 +60,7 @@ public class EntidadGrafica{
 		}
 		
 		public ImageIcon getIcon() { return icon;}
-		
-		public void rotarSprite() {
-			//TODO
-		}
-		
-		//METODOS MOVER
-		public void moverNorte() {
-			jlbl.setLocation(jlbl.getX(), jlbl.getY()-pixelPorPaso);
-		}
-		
-		public void moverSur() {
-			jlbl.setLocation(jlbl.getX(), jlbl.getY()+pixelPorPaso);
-		}
-		
-		public void moverEste() {
-			jlbl.setLocation(jlbl.getX()+pixelPorPaso, jlbl.getY());
-		}
-		
-		public void moverOeste() {
-			jlbl.setLocation(jlbl.getX()-pixelPorPaso, jlbl.getY());
-		}
+
 
 		public int getPriority() {
 			return priority;
@@ -87,6 +68,14 @@ public class EntidadGrafica{
 		
 		public Pixel getPos() {
 			return new Pixel(jlbl.getX(),jlbl.getY());
+		}
+		
+		public Pixel getPosInicial() {
+			return posInicial;
+		}
+		
+		public void setPosInicial(Pixel nuevoPxl) {
+			posInicial = nuevoPxl;
 		}
 		
 		public void setPos(Pixel pxl) {

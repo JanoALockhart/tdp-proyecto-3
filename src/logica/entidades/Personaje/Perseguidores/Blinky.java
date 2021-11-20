@@ -2,13 +2,17 @@ package logica.entidades.Personaje.Perseguidores;
 
 import logica.mapa.Celda;
 import logica.mapa.Mapa;
+
+import java.util.Properties;
+
 import logica.entidades.Personaje.Perseguidores.Estados_De_Perseguidores.En_Estado_Persiguiendo.BlinkyPersiguiendo;
+import logica.entidades.entGrafica.PerseguidorGrafico;
 import logica.entidades.visitadores.*;
 
 public class Blinky extends Perseguidor {
 
-	public Blinky(String img, Celda c, int vel, Mapa map) {
-		super(img,c.getAlto(),c.getAlto(),c,vel,map);	
+	public Blinky(PerseguidorGrafico skin, String img, Celda c, int vel, Mapa map) {
+		super(skin, img,c.getAlto(),c.getAlto(),c,vel,map);	
 		state = new BlinkyPersiguiendo(this);    
 		visi = new VisitadorPerseguidor();
 		//pixelObjetivo = state.calcularObj();
@@ -29,6 +33,7 @@ public class Blinky extends Perseguidor {
 	@Override
 	public void perseguir() {
 		state = new BlinkyPersiguiendo(this);
+		miObjetoGrafico.setNormal(direccion);
 	}
 
 	

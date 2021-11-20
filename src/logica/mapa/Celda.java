@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.Set;
 
 import logica.entidades.Entidad;
+import logica.entidades.entGrafica.EntidadGrafica;
 import main.Main;
 
 /**
@@ -20,7 +21,7 @@ public class Celda {
 	private static final int ANCHO = Integer.parseInt(Main.dimentionConfig.getProperty("anchoCelda"));
 	private static final int ALTO = Integer.parseInt(Main.dimentionConfig.getProperty("altoCelda"));
 	
-	Set<Entidad> entidades;
+	Set<Entidad<? extends EntidadGrafica>> entidades;
 	
 	/**
 	 * Constructor de Celda
@@ -29,7 +30,7 @@ public class Celda {
 	public Celda(int posX, int posY) {
 		this.posX = posX;
 		this.posY = posY;
-		entidades = Collections.synchronizedSet(new HashSet<Entidad>());
+		entidades = Collections.synchronizedSet(new HashSet<Entidad<? extends EntidadGrafica>>());
 	}
 	
 	/**
@@ -54,10 +55,10 @@ public class Celda {
 	 * método.
 	 * @return Un iterable con las entidades de la celda
 	 */
-	public Iterable<Entidad> getEntidades(){
-		LinkedList<Entidad> listaEntidades = new LinkedList<Entidad>();
+	public LinkedList<Entidad<? extends EntidadGrafica>> getEntidades(){
+		LinkedList<Entidad<? extends EntidadGrafica>> listaEntidades = new LinkedList<Entidad<? extends EntidadGrafica>>();
 		
-		for(Entidad ent : this.entidades) {
+		for(Entidad<? extends EntidadGrafica> ent : this.entidades) {
 			listaEntidades.add(ent);
 		}
 		
@@ -67,18 +68,18 @@ public class Celda {
 	
 	/**
 	 * Metodo que coloca una entidad en esta celda.
-	 * @param e Es la entidad que será colocada.
+	 * @param entidad Es la entidad que será colocada.
 	 */
-	public void add(Entidad e) {
-		entidades.add(e);
+	public void add(Entidad<? extends EntidadGrafica> entidad) {
+		entidades.add(entidad);
 	}
 	
 	/**
 	 * Metodo que elimina una entidad dada de esta celda.
-	 * @param e Es la entidad a remover.
+	 * @param entidad Es la entidad a remover.
 	 */
-	public void remove(Entidad e) {
-		entidades.remove(e);
+	public void remove(Entidad<? extends EntidadGrafica> entidad) {
+		entidades.remove(entidad);
 	}
 	
 	public int getAncho() {

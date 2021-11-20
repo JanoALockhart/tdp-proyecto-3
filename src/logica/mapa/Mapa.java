@@ -7,6 +7,7 @@ import java.util.*;
 import logica.entidades.Entidad;
 import logica.entidades.Personaje.Personaje;
 import logica.entidades.Personaje.Jugadores.Jugador;
+import logica.entidades.entGrafica.EntidadGrafica;
 import logica.entidades.visitadores.Visitor;
 import logica.geometria.HitBox;
 import logica.geometria.Pixel;
@@ -65,13 +66,13 @@ public class Mapa {
 	 * de las celdas adyacentes.
 	 * @return Un Iterable con las entidades encontradas en el rango
 	 */
-	public Iterable<Entidad> getEntidadesCircundantes(Entidad entity){
-		HashSet<Entidad> conjEntidades = new HashSet<Entidad>();
+	public Iterable<Entidad<? extends EntidadGrafica>> getEntidadesCircundantes(Entidad<? extends EntidadGrafica> entity){
+		HashSet<Entidad<? extends EntidadGrafica>> conjEntidades = new HashSet<Entidad<? extends EntidadGrafica>>();
 		
 		
 		//Almacenamos todas las entidades de las celda que toca la entidad ingresada por parametro
 		for(Celda cel : getCeldasTocadasPor(entity.getHitbox())) {
-			for(Entidad ent : cel.getEntidades()) {
+			for(Entidad<? extends EntidadGrafica> ent : cel.getEntidades()) {
 				conjEntidades.add(ent);
 			}
 		}
@@ -100,12 +101,12 @@ public class Mapa {
 	 * Solo es usado para mostrar todas las entidades cuando se crea un nuevo nivel.
 	 * @return Una coleccion de entidades.
 	 */
-	public Iterable<Entidad> getTodasLasEntidades(){
-		LinkedList<Entidad> entidades = new LinkedList<Entidad>();
+	public Iterable<Entidad<? extends EntidadGrafica>> getTodasLasEntidades(){
+		LinkedList<Entidad<? extends EntidadGrafica>> entidades = new LinkedList<Entidad<? extends EntidadGrafica>>();
 		for(int posX=0; posX<ANCHO; posX++) {
 			for(int posY=0; posY<ALTO; posY++) {
 				if(misCeldas[posX][posY]!=null) {
-					for(Entidad ent : misCeldas[posX][posY].getEntidades()) {
+					for(Entidad<? extends EntidadGrafica> ent : misCeldas[posX][posY].getEntidades()) {
 						entidades.add(ent);
 					}
 				}
@@ -202,39 +203,39 @@ public class Mapa {
 	 * en todas las celdas que son tocadas por la hitbox actual. Este método es 
 	 * sincronizado para evitar que una entidad que se movió no detecte a otra
 	 * entidad en las mismas celdas que tocaba pero que está siendo reposicionada
-	 * @param entity Es la entidad que se quiere eliminar de las celdas que ya no
+	 * @param entidad Es la entidad que se quiere eliminar de las celdas que ya no
 	 * toca y colocar en las celdas que toca.
 	 * @param hitBoxVieja Es el area de
 	 */
-	public synchronized void reposicionar(Entidad entity, HitBox hitBoxVieja) {
-		eliminarDeCeldasQueTocaba(entity,hitBoxVieja);
-		colocarEnCeldasQueToca(entity);
+	public synchronized void reposicionar(Entidad<? extends EntidadGrafica> entidad, HitBox hitBoxVieja) {
+		eliminarDeCeldasQueTocaba(entidad,hitBoxVieja);
+		colocarEnCeldasQueToca(entidad);
 	}
 	
 	/**
 	 * Metodo que agrega la entidad, las celdas que toca su hitbox
-	 * @param entity Es la entidad que se debe agregar a las celdas que toca
+	 * @param entidad Es la entidad que se debe agregar a las celdas que toca
 	 */
-	public void colocarEnCeldasQueToca(Entidad entity) {
-		for(Celda cel : getCeldasTocadasPor(entity.getEntidadGrafica().getRect())) {
-			cel.add(entity);
+	public void colocarEnCeldasQueToca(Entidad<? extends EntidadGrafica> entidad) {
+		for(Celda cel : getCeldasTocadasPor(entidad.getEntidadGrafica().getRect())) {
+			cel.add(entidad);
 		}
 	}
 	
 	/**
 	 * Metodo que elimina la Entidad entity, de todas las celdas que toca
 	 * el rectángulo hitBoxAnterior
-	 * @param entity Es la entidad que se quiere eliminar de las celdas
+	 * @param entidad Es la entidad que se quiere eliminar de las celdas
 	 * @param hitBoxAnterior Es el area que ocupaba la entidad
 	 */
-	public void eliminarDeCeldasQueTocaba(Entidad entity, HitBox hitBoxAnterior) {	
+	public void eliminarDeCeldasQueTocaba(Entidad<? extends EntidadGrafica> entidad, HitBox hitBoxAnterior) {	
 		try {
 			for(Celda cel : getCeldasTocadasPor(hitBoxAnterior)) {
-				cel.remove(entity);
+				cel.remove(entidad);
 			}
 		}catch(NullPointerException e) {
 			System.out.println("HB anterior: "+hitBoxAnterior);
-			System.out.println("HB Now:"+entity.getHitbox());
+			System.out.println("HB Now:"+entidad.getHitbox());
 		}
 	}
 	
@@ -246,11 +247,11 @@ public class Mapa {
 	 * @param entity Es la entidad con la que se verificará las colisiones con
 	 * otras entidades.
 	 */
-	public synchronized void efectuarColisiones(Entidad entity) {
+	public synchronized void efectuarColisiones(Entidad<? extends EntidadGrafica> entity) {
 		Visitor visitador;
 		
 		//Colisionar entidades
-		for(Entidad entEncontrada:getEntidadesCircundantes(entity)) {
+		for(Entidad<? extends EntidadGrafica> entEncontrada:getEntidadesCircundantes(entity)) {
 			if(entEncontrada != entity && entEncontrada.colisionaCon(entity)) {
 				visitador = entEncontrada.getVisitor();
 				entity.accept(visitador);

@@ -17,13 +17,8 @@ public abstract class Entidad<EG extends EntidadGrafica> implements Element {
 	protected Visitor visi;
 	
 	/**
-	 * Constructor de Entidad
-	 * @param img Es la imagen que tiene asociada
-	 * @param width Es el ancho en pixeles de la imagen
-	 * @param height Es la altura en pixeles de la imagen
-	 * @param c Es la celda en la que será posicionada la entidad
-	 * @param map Es el mapa en el que está la entidad
-	 * @param priority Es el nivel de altura en el que será presentado en la gui
+	 * Constructot de entidad
+	 * @param map Es el mapa en el que se encuentra
 	 */
 	public Entidad(Mapa map) {
 		miMapa = map;
@@ -31,8 +26,7 @@ public abstract class Entidad<EG extends EntidadGrafica> implements Element {
 		
 	}
 	
-	public void accept(Visitor v) {
-	}
+	public abstract void accept(Visitor v);
 	
 	/**
 	 * Método que corrobora si la entidad que recibió el mensaje

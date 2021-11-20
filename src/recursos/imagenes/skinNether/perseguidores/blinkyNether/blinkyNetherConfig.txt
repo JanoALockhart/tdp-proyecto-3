@@ -5,7 +5,7 @@ deadSUR=../../../recursos/imagenes/fruit.png
 
 miedoso=../../../recursos/imagenes/ZombieAsustado.gif
 
-normalNORTE=../../../recursos/imagenes/Zombie.png
-normalESTE=../../../recursos/imagenes/Zombie.png
-normalOESTE=../../../recursos/imagenes/Zombie.png
-normalSUR=../../../recursos/imagenes/Zombie.png
+normalNORTE=../../../recursos/imagenes/skinNether/perseguidores/blinkyNether/normal/magmaCubeNORTE.png
+normalESTE=../../../recursos/imagenes/skinNether/perseguidores/blinkyNether/normal/magmaCubeESTE.png
+normalOESTE=../../../recursos/imagenes/skinNether/perseguidores/blinkyNether/normal/magmaCubeOESTE.png
+normalSUR=../../../recursos/imagenes/skinNether/perseguidores/blinkyNether/normal/magmaCubeSUR.png

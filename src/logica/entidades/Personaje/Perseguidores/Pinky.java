@@ -8,8 +8,8 @@ import logica.entidades.visitadores.*;
 
 public class Pinky extends Perseguidor {
 
-	public Pinky(PerseguidorGrafico skin, String img, Celda c, int vel, Mapa map) {
-		super(skin, img,c.getAlto(),c.getAlto(),c,vel,map);	
+	public Pinky(PerseguidorGrafico skin, int vel, Mapa map) {
+		super(skin,vel,map);	
 		state = new PinkyPersiguiendo(this);    
 		visi = new VisitadorPerseguidor();
 	}

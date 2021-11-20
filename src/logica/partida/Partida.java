@@ -100,7 +100,7 @@ public class Partida {
 
 		//TODO revisar esto
 		LinkedList<String> fruits = new LinkedList<String>();
-		fruits.add("../../recursos/imagenes/fruit.png");
+		fruits.add("src/recursos/imagenes/fruit.png");
 		//
 		
 		for(Entidad<? extends EntidadGrafica> ent : iterable) {

@@ -10,8 +10,8 @@ public class Inky extends Perseguidor {
 	
 	public Blinky miPana;
 
-	public Inky(PerseguidorGrafico skin, String img, Celda c, int vel, Mapa map,Blinky miPana ) {
-		super(skin,img,c.getAlto(),c.getAlto(),c,vel,map);	
+	public Inky(PerseguidorGrafico skin, int vel, Mapa map, Blinky miPana ) {
+		super(skin,vel,map);	
 		state = new InkyPersiguiendo(this);    
 		visi = new VisitadorPerseguidor();
 		this.miPana = miPana;

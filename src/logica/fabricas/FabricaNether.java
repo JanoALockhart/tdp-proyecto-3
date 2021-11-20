@@ -44,30 +44,40 @@ public class FabricaNether implements FabricaElementos{
 		int vel = Integer.parseInt(Main.personajesConfig.getProperty("velJugador"));
 		Properties dirSkins = abrirArchivoSkins(archivoDirImgs.getProperty("skinsJugador"));
 		String dirImg = dirSkins.getProperty("normalESTE");
-		JugadorGrafico jugGraf = new JugadorGrafico(dirSkins, dirImg, cel.getX(), cel.getY(), cel.getAncho(), cel.getAlto(),3);
-		Jugador.getInstance(jugGraf, dirImg, cel, vel, map); 
+		int prio = Integer.parseInt(Main.personajesConfig.getProperty("prioJugador"));
+		JugadorGrafico jugGraf = new JugadorGrafico(dirSkins, dirImg, cel.getX(), cel.getY(), cel.getAncho(), cel.getAlto(),prio);
+		Jugador.getInstance(jugGraf, vel, map); 
 		return Jugador.getInstance();
 	}
 
 	public Blinky construirBlinky(Celda cel, Mapa map) {
 		Properties dirSkins = abrirArchivoSkins(archivoDirImgs.getProperty("skinsBlinky"));
 		String dirImg = dirSkins.getProperty("normalESTE");
-		Posicionador p = new Posicionador(cel,1);
-		PerseguidorGrafico skin = new PerseguidorGrafico(dirSkins,dirImg,p.getX(),p.getY(),p.getAncho(),p.getAlto(),3); 
-		return new Blinky(skin, dirImg, cel, 50,map);//TODO eliminar parametros inutiles del constructor
+		int prio = Integer.parseInt(Main.personajesConfig.getProperty("prioJugador"));
+		int tam = Integer.parseInt(Main.dimentionConfig.getProperty("tamPerseguidor"));
+		Posicionador p = new Posicionador(cel,tam);
+		PerseguidorGrafico skin = new PerseguidorGrafico(dirSkins,dirImg,p.getX(),p.getY(),p.getAncho(),p.getAlto(),prio); 
+		return new Blinky(skin, 50,map);//TODO eliminar velocidad del constructor
 	}
 
 	public Pinky construirPinky(Celda cel, Mapa map) {
 		Properties dirSkins = abrirArchivoSkins(archivoDirImgs.getProperty("skinsPinky"));
 		String dirImg = dirSkins.getProperty("normalESTE");
-		Posicionador p = new Posicionador(cel,1);
-		PerseguidorGrafico skin = new PerseguidorGrafico(dirSkins,dirImg,p.getX(),p.getY(),p.getAncho(),p.getAlto(),3); 
-		return new Pinky(skin,dirImg,cel,50,map);
+		int prio = Integer.parseInt(Main.personajesConfig.getProperty("prioJugador"));
+		int tam = Integer.parseInt(Main.dimentionConfig.getProperty("tamPerseguidor"));
+		Posicionador p = new Posicionador(cel,tam);
+		PerseguidorGrafico skin = new PerseguidorGrafico(dirSkins,dirImg,p.getX(),p.getY(),p.getAncho(),p.getAlto(),prio); 
+		return new Pinky(skin,50,map);
 	}
 
 	//TODO implementar
 	public Inky construirInky(Celda cel, Mapa map) {
-		String img = Main.filesConfig.getProperty("creeperOW");
+		Properties dirSkins = abrirArchivoSkins(archivoDirImgs.getProperty("skinsInky"));
+		String dirImg = dirSkins.getProperty("normalESTE");
+		int prio = Integer.parseInt(Main.personajesConfig.getProperty("prioJugador"));
+		int tam = Integer.parseInt(Main.dimentionConfig.getProperty("tamPerseguidor"));
+		Posicionador p = new Posicionador(cel,tam);
+		PerseguidorGrafico skin = new PerseguidorGrafico(dirSkins,dirImg,p.getX(),p.getY(),p.getAncho(),p.getAlto(),prio); 
 		//return new Inky(,cel);
 		return null;
 	}
@@ -75,9 +85,11 @@ public class FabricaNether implements FabricaElementos{
 	public Clyde construirClyde(Celda cel, Mapa map) {
 		Properties dirSkins = abrirArchivoSkins(archivoDirImgs.getProperty("skinsClyde"));
 		String dirImg = dirSkins.getProperty("normalESTE");
-		Posicionador p = new Posicionador(cel,1);
-		PerseguidorGrafico skin = new PerseguidorGrafico(dirSkins,dirImg,p.getX(),p.getY(),p.getAncho(),p.getAlto(),3); 
-		return new Clyde(skin,dirImg,cel,50,map);
+		int prio = Integer.parseInt(Main.personajesConfig.getProperty("prioJugador"));
+		int tam = Integer.parseInt(Main.dimentionConfig.getProperty("tamPerseguidor"));
+		Posicionador p = new Posicionador(cel,tam);
+		PerseguidorGrafico skin = new PerseguidorGrafico(dirSkins,dirImg,p.getX(),p.getY(),p.getAncho(),p.getAlto(),prio); 
+		return new Clyde(skin,50,map);
 	}
 
 	public PacDot construirPacDot(Celda cel, Mapa map) {
@@ -86,8 +98,11 @@ public class FabricaNether implements FabricaElementos{
 		Properties dirSkins = abrirArchivoSkins(archivoDirImgs.getProperty("skinsCollectibles"));
 		String dirImg = dirSkins.getProperty("pacDot");
 		
-		Posicionador p = new Posicionador(cel,3);		
-		EntidadGrafica skin = new EntidadGrafica(dirImg,p.getX(),p.getY(),p.getAncho(),p.getAlto(),3); 
+		int prio = Integer.parseInt(Main.personajesConfig.getProperty("prioCollectible"));
+		int tam = Integer.parseInt(Main.dimentionConfig.getProperty("tamPacDot"));
+		
+		Posicionador p = new Posicionador(cel,tam);		
+		EntidadGrafica skin = new EntidadGrafica(dirImg,p.getX(),p.getY(),p.getAncho(),p.getAlto(),prio); 
 		
 	
 		return new PacDot(puntaje,skin,map);
@@ -99,8 +114,11 @@ public class FabricaNether implements FabricaElementos{
 		Properties dirSkins = abrirArchivoSkins(archivoDirImgs.getProperty("skinsCollectibles"));
 		String img = dirSkins.getProperty("fruta");
 		
-		Posicionador p = new Posicionador(cel,3);//TODO este numerito representa la porcion de celda, desharcodearlo		
-		EntidadGrafica skin = new EntidadGrafica(img,p.getX(),p.getY(),p.getAncho(),p.getAlto(),2); //TODO deshardocodear estos numeritos
+		int prio = Integer.parseInt(Main.personajesConfig.getProperty("prioCollectible"));
+		int tam = Integer.parseInt(Main.dimentionConfig.getProperty("tamFruit"));
+		
+		Posicionador p = new Posicionador(cel,tam);//TODO este numerito representa la porcion de celda, desharcodearlo		
+		EntidadGrafica skin = new EntidadGrafica(img,p.getX(),p.getY(),p.getAncho(),p.getAlto(),prio); //TODO deshardocodear estos numeritos
 		
 		return new Fruta(puntaje,skin, map);
 	}
@@ -109,10 +127,12 @@ public class FabricaNether implements FabricaElementos{
 		Properties dirSkins = abrirArchivoSkins(archivoDirImgs.getProperty("skinsCollectibles"));
 		String img = dirSkins.getProperty("powerPellet");
 		
-		Posicionador p = new Posicionador(cel,1);//TODO este numerito representa la porcion de celda, desharcodearlo		
-		EntidadGrafica skin = new EntidadGrafica(img,p.getX(),p.getY(),p.getAncho(),p.getAlto(),2); //TODO deshardocodear estos numeritos
+		int prio = Integer.parseInt(Main.personajesConfig.getProperty("prioCollectible"));
+		int tam = Integer.parseInt(Main.dimentionConfig.getProperty("tamPowerPellet"));
 		
-		
+		Posicionador p = new Posicionador(cel,tam);//TODO este numerito representa la porcion de celda, desharcodearlo		
+		EntidadGrafica skin = new EntidadGrafica(img,p.getX(),p.getY(),p.getAncho(),p.getAlto(),prio); //TODO deshardocodear estos numeritos
+			
 		return new PowerPellet(skin, map);
 	}
 
@@ -120,8 +140,11 @@ public class FabricaNether implements FabricaElementos{
 		Properties dirSkins = abrirArchivoSkins(archivoDirImgs.getProperty("skinsCollectibles"));
 		String img = dirSkins.getProperty("speedPotion");
 		
-		Posicionador p = new Posicionador(cel,2);//TODO este numerito representa la porcion de celda, desharcodearlo		
-		EntidadGrafica skin = new EntidadGrafica(img,p.getX(),p.getY(),p.getAncho(),p.getAlto(),2); //TODO deshardocodear estos numeritos
+		int prio = Integer.parseInt(Main.personajesConfig.getProperty("prioCollectible"));
+		int tam = Integer.parseInt(Main.dimentionConfig.getProperty("tamSpeedPotion"));
+		
+		Posicionador p = new Posicionador(cel,tam);//TODO este numerito representa la porcion de celda, desharcodearlo		
+		EntidadGrafica skin = new EntidadGrafica(img,p.getX(),p.getY(),p.getAncho(),p.getAlto(),prio); //TODO deshardocodear estos numeritos
 		
 		return new SpeedPotion(skin, map);
 	}
@@ -130,8 +153,11 @@ public class FabricaNether implements FabricaElementos{
 		Properties dirSkins = abrirArchivoSkins(archivoDirImgs.getProperty("skinsCollectibles"));
 		String img = dirSkins.getProperty("bomba");
 		
-		Posicionador p = new Posicionador(cel,2);//TODO este numerito representa la porcion de celda, desharcodearlo		
-		EntidadGrafica skin = new EntidadGrafica(img,p.getX(),p.getY(),p.getAncho(),p.getAlto(),2); //TODO deshardocodear estos numeritos
+		int prio = Integer.parseInt(Main.personajesConfig.getProperty("prioCollectible"));
+		int tam = Integer.parseInt(Main.dimentionConfig.getProperty("tamBomb"));
+		
+		Posicionador p = new Posicionador(cel,tam);//TODO este numerito representa la porcion de celda, desharcodearlo		
+		EntidadGrafica skin = new EntidadGrafica(img,p.getX(),p.getY(),p.getAncho(),p.getAlto(),prio); //TODO deshardocodear estos numeritos
 		
 		return new Bomb(skin, map);
 	}

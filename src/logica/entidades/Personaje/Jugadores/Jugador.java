@@ -21,9 +21,9 @@ public class Jugador<JG extends JugadorGrafico> extends Personaje<JugadorGrafico
 	
 	//private Thread threadEfectoVelocidad;
 	
-	private Jugador(JugadorGrafico jg, String img, int width, int height, Celda c, int vel, Mapa map) {
+	private Jugador(JugadorGrafico jg, int vel, Mapa map) {
 		//TODO siendo modificado
-		 super(img,width,height,c,vel,map);
+		 super(vel,map);
 		 vidas = Integer.parseInt(Main.personajesConfig.getProperty("vidasJugador")); 
 		 visi = new VisitadorJugador();		 
 		 direccionGuardada = ESTE;
@@ -32,9 +32,9 @@ public class Jugador<JG extends JugadorGrafico> extends Personaje<JugadorGrafico
 		 this.miTimerEfecto = new TimerEfecto(this);
 	}
 	
-	public static Jugador<JugadorGrafico> getInstance(JugadorGrafico jg, String img,Celda c, int vel,Mapa map) {
+	public static Jugador<JugadorGrafico> getInstance(JugadorGrafico jg, int vel,Mapa map) {
 		if(instance == null) {
-			instance = new Jugador<JugadorGrafico>(jg, img,c.getAncho(),c.getAlto(),c,vel,map);
+			instance = new Jugador<JugadorGrafico>(jg,vel,map);
 		}
 		return instance;
 	}

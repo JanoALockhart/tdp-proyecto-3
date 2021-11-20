@@ -9,8 +9,8 @@ import logica.entidades.visitadores.*;
 
 public class Clyde extends Perseguidor {
 
-	public Clyde(PerseguidorGrafico skin, String img, Celda c, int vel, Mapa map) {
-		super(skin, img,c.getAlto(),c.getAlto(),c,vel,map);	
+	public Clyde(PerseguidorGrafico skin, int vel, Mapa map) {
+		super(skin,vel,map);	
 		state = new ClydePersiguiendo(this);    
 		visi = new VisitadorPerseguidor();
 	}

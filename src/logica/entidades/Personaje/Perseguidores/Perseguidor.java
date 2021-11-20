@@ -19,8 +19,8 @@ public abstract class Perseguidor extends Personaje<PerseguidorGrafico> implemen
 	protected StatePerseguidor state;
 	protected TimerAsustado miTimerAsustado;
 	
-	public Perseguidor(PerseguidorGrafico pg, String img, int width, int height, Celda c,int vel,Mapa map) {
-		super(img,width,height,c,vel,map);
+	public Perseguidor(PerseguidorGrafico pg,int vel,Mapa map) {
+		super(vel,map);
 		miTimerAsustado = new TimerAsustado(this);
 		miObjetoGrafico = pg;
 		//TODO Elegir state inicial, hacer los distintos estados 

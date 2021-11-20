@@ -11,8 +11,8 @@ import logica.entidades.visitadores.*;
 
 public class Blinky extends Perseguidor {
 
-	public Blinky(PerseguidorGrafico skin, String img, Celda c, int vel, Mapa map) {
-		super(skin, img,c.getAlto(),c.getAlto(),c,vel,map);	
+	public Blinky(PerseguidorGrafico skin, int vel, Mapa map) {
+		super(skin,vel,map);	
 		state = new BlinkyPersiguiendo(this);    
 		visi = new VisitadorPerseguidor();
 		//pixelObjetivo = state.calcularObj();

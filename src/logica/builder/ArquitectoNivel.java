@@ -3,6 +3,8 @@ package logica.builder;
 
 import logica.entidades.Entidad;
 import logica.entidades.Personaje.Jugadores.Jugador;
+import logica.entidades.Personaje.Perseguidores.Blinky;
+import logica.entidades.Personaje.Perseguidores.Inky;
 import logica.entidades.Personaje.Perseguidores.Perseguidor;
 import logica.entidades.entGrafica.EntidadGrafica;
 import logica.entidades.entGrafica.JugadorGrafico;
@@ -18,6 +20,9 @@ public class ArquitectoNivel implements BuilderNivel{
 	private FabricaElementos miFabrica;
 	private Mapa map;
 	private ControladorPerseguidores mentePerseguidores;
+	
+	private Blinky compaBlinky;
+	private Inky compaInky;
 	
 	
 	/**
@@ -80,7 +85,7 @@ public class ArquitectoNivel implements BuilderNivel{
 	
 	public void agregarFruta(int x,int y) throws Exception{
 		Celda cel;
-		Entidad fruta;
+		Entidad<EntidadGrafica> fruta;
 		
 		cel = miFabrica.construirCelda(x,y);
 		fruta = miFabrica.construirFruta(cel,map);
@@ -91,7 +96,7 @@ public class ArquitectoNivel implements BuilderNivel{
 	
 	public void agregarPowerPellet(int x,int y) throws Exception{
 		Celda cel;
-		Entidad pp;
+		Entidad<EntidadGrafica> pp;
 		
 		cel = miFabrica.construirCelda(x,y);
 		pp = miFabrica.construirPowerPellet(cel,map);
@@ -102,7 +107,7 @@ public class ArquitectoNivel implements BuilderNivel{
 	
 	public void agregarSpeedPotion(int x,int y) throws Exception{
 		Celda cel;
-		Entidad sp;
+		Entidad<EntidadGrafica> sp;
 		
 		cel = miFabrica.construirCelda(x,y);
 		sp = miFabrica.construirSpeedPotion(cel,map);
@@ -113,7 +118,7 @@ public class ArquitectoNivel implements BuilderNivel{
 	
 	public void agregarBomba(int x,int y) throws Exception{
 		Celda cel;
-		Entidad bomba;
+		Entidad<EntidadGrafica> bomba;
 		
 		cel = miFabrica.construirCelda(x,y);
 		bomba = miFabrica.construirBomba(cel,map);
@@ -124,10 +129,14 @@ public class ArquitectoNivel implements BuilderNivel{
 	
 	public void agregarBlinky(int x, int y) throws Exception{
 		Celda cel;
-		Perseguidor blinky;
+		Blinky blinky;
 		
 		cel = miFabrica.construirCelda(x, y);
 		blinky = miFabrica.construirBlinky(cel, map);
+		compaBlinky = blinky;
+		if(compaInky!=null) {
+			compaInky.setPana(blinky);
+		}
 		mentePerseguidores.addPerseguidor(blinky);
 		
 		cel.add(blinky);
@@ -157,4 +166,15 @@ public class ArquitectoNivel implements BuilderNivel{
 		cel.add(clyde);
 		map.agregarCelda(cel);
 	}
+	
+	public void agregarInky(int x, int y) throws Exception{
+		Celda cel = miFabrica.construirCelda(x, y);
+		Inky ink = miFabrica.construirInky(cel, map, compaBlinky);
+		
+		compaInky = ink;
+		mentePerseguidores.addPerseguidor(ink);
+		cel.add(ink);
+		map.agregarCelda(cel);
+	}
+	
 }

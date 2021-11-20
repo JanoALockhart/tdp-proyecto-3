@@ -71,15 +71,14 @@ public class FabricaNether implements FabricaElementos{
 	}
 
 	//TODO implementar
-	public Inky construirInky(Celda cel, Mapa map) {
+	public Inky construirInky(Celda cel, Mapa map, Blinky pana) {
 		Properties dirSkins = abrirArchivoSkins(archivoDirImgs.getProperty("skinsInky"));
 		String dirImg = dirSkins.getProperty("normalESTE");
 		int prio = Integer.parseInt(Main.personajesConfig.getProperty("prioJugador"));
 		int tam = Integer.parseInt(Main.dimentionConfig.getProperty("tamPerseguidor"));
 		Posicionador p = new Posicionador(cel,tam);
 		PerseguidorGrafico skin = new PerseguidorGrafico(dirSkins,dirImg,p.getX(),p.getY(),p.getAncho(),p.getAlto(),prio); 
-		//return new Inky(,cel);
-		return null;
+		return new Inky(skin, 50, map, pana);
 	}
 
 	public Clyde construirClyde(Celda cel, Mapa map) {

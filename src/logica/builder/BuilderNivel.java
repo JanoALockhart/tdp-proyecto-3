@@ -21,5 +21,6 @@ public interface BuilderNivel {
 	public void agregarBlinky(int x,int y) throws Exception;
 	public void agregarPinky(int x, int y) throws Exception;
 	public void agregarClyde(int x, int y) throws Exception;
+	public void agregarInky(int x, int y) throws Exception;
 	
 }

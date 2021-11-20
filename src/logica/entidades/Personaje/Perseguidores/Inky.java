@@ -23,5 +23,9 @@ public class Inky extends Perseguidor {
 		miObjetoGrafico.setNormal(direccion);
 	}
 	
+	public void setPana(Blinky pana) {
+		miPana = pana;
+	}
+	
 
 }

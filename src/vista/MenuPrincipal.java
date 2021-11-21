@@ -139,7 +139,6 @@ public class MenuPrincipal extends JPanel implements State {
 			case 0:{
 				estadoNuevo=new PantallaNivel(miUI, mainFont, miUI.getFabrica());
 				miUI.setSize(600, 700);
-				//estadoNuevo=new PantallaFinal(miUI, mainFont);
 				miUI.cambiarEstado(estadoNuevo, estadoNuevo.getName());
 				break;
 			}

@@ -110,9 +110,6 @@ public class Nivel {
 	}
 	
 	public void removerBasura() {
-		for(Entidad<? extends EntidadGrafica> ent : miMapa.getTodasLasEntidades()) {
-			//System.out.println("is:"+ent.getClass());
-			miPartida.elimnarEntidadGrafica(ent.getEntidadGrafica());
-		}
+		Partida.getInstance().elimnarEntidadesGrafica(miMapa.getTodasLasEntidades());
 	}
 }

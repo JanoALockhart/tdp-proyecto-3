@@ -114,11 +114,11 @@ public class Partida {
 	public void perder() {
 		System.out.println("Perdiste");
 		nivelActual.detener();
-		//mostrarPantallaDerrota
+		pantalla.pantallaFinal("DEFEAT", puntaje);
 	}
 	
 	private void victoria() {
-		//Mostrar pantalla victoria
+		pantalla.pantallaFinal("VICTORY", puntaje);
 		System.out.println("Ganaste");
 	}
 	

@@ -1,5 +1,5 @@
-pacDot=
-fruta=
-powerPellet=
-speedPotion=
-bomba=
+pacDot=../../../recursos/imagenes/skinOverworld/collectibles/xpVerde.png
+fruta=../../../recursos/imagenes/skinOverworld/collectibles/fruit.png
+powerPellet=../../../recursos/imagenes/skinOverworld/collectibles/ManzanaDorada.png
+speedPotion=../../../recursos/imagenes/skinOverworld/collectibles/potion.png
+bomba=../../../recursos/imagenes/skinOverworld/collectibles/gunpowder.png

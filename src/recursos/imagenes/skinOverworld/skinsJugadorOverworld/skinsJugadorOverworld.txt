@@ -1,7 +1,7 @@
-normalNORTE=
-normalESTE=
-normalSUR=
-normalOESTE=
+normalNORTE=../../../recursos/imagenes/skinOverworld/skinsJugadorOverworld/normal/Steve.png
+normalESTE=../../../recursos/imagenes/skinOverworld/skinsJugadorOverworld/normal/Steve.png
+normalSUR=../../../recursos/imagenes/skinOverworld/skinsJugadorOverworld/normal/Steve.png
+normalOESTE=../../../recursos/imagenes/skinOverworld/skinsJugadorOverworld/normal/Steve.png
 
 velozNORTE=
 velozSUR=

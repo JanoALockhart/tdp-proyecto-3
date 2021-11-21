@@ -1,11 +1,11 @@
-deadNORTE=
-deadESTE=
-deadOESTE=
-deadSUR=
+deadNORTE=../../../recursos/imagenes/skinOverworld/perseguidores/perseguidorMuerto.png
+deadESTE=../../../recursos/imagenes/skinOverworld/perseguidores/perseguidorMuerto.png
+deadOESTE=../../../recursos/imagenes/skinOverworld/perseguidores/perseguidorMuerto.png
+deadSUR=../../../recursos/imagenes/skinOverworld/perseguidores/perseguidorMuerto.png
 
-miedoso=
+miedoso=../../../recursos/imagenes/skinOverworld/perseguidores/ZombieAsustado.gif
 
-normalNORTE=
-normalESTE=
-normalOESTE=
-normalSUR=
+normalNORTE=../../../recursos/imagenes/skinOverworld/perseguidores/pinkyOverworld/Spider.png
+normalESTE=../../../recursos/imagenes/skinOverworld/perseguidores/pinkyOverworld/Spider.png
+normalOESTE=../../../recursos/imagenes/skinOverworld/perseguidores/pinkyOverworld/Spider.png
+normalSUR=../../../recursos/imagenes/skinOverworld/perseguidores/pinkyOverworld/Spider.png

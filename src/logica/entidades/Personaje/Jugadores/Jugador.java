@@ -19,10 +19,7 @@ public class Jugador<JG extends JugadorGrafico> extends Personaje<JugadorGrafico
 	private Partida miPartida;
 	private TimerJugador miTimerJugador;
 	
-	//private Thread threadEfectoVelocidad;
-	
 	private Jugador(JugadorGrafico jg, int vel, Mapa map) {
-		//TODO siendo modificado
 		 super(vel,map);
 		 vidas = Integer.parseInt(Main.personajesConfig.getProperty("vidasJugador")); 
 		 visi = new VisitadorJugador();		 
@@ -43,8 +40,8 @@ public class Jugador<JG extends JugadorGrafico> extends Personaje<JugadorGrafico
 		return instance;
 	}
 	
-	public int getVidas() {
-		return vidas;
+	public void reestablecerVidas() {
+		vidas = Integer.parseInt(Main.personajesConfig.getProperty("vidasJugador")); 
 	}
 	
 	public void perderVida() {

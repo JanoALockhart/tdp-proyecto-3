@@ -1,0 +1,9 @@
+normalNORTE=
+normalESTE=
+normalSUR=
+normalOESTE=
+
+velozNORTE=
+velozSUR=
+velozESTE=
+velozOESTE=

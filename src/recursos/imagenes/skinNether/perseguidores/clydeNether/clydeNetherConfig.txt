@@ -1,11 +1,11 @@
-deadNORTE=../../../recursos/imagenes/fruit.png
-deadESTE=../../../recursos/imagenes/fruit.png
-deadOESTE=../../../recursos/imagenes/fruit.png
-deadSUR=../../../recursos/imagenes/fruit.png
+deadNORTE=../../../recursos/imagenes/skinNether/perseguidores/clydeNether/muerto/blazemuertoNORTE.png
+deadESTE=../../../recursos/imagenes/skinNether/perseguidores/clydeNether/muerto/blazemuertoESTE.png
+deadOESTE=../../../recursos/imagenes/skinNether/perseguidores/clydeNether/muerto/blazemuertoOESTE.png
+deadSUR=../../../recursos/imagenes/skinNether/perseguidores/clydeNether/muerto/blazemuertoSUR.png
 
-miedoso=../../../recursos/imagenes/ZombieAsustado.gif
+miedoso=../../../recursos/imagenes/skinNether/perseguidores/clydeNether/asustado/blazeAsustado.png
 
-normalNORTE=../../../recursos/imagenes/Skeleton.png
-normalESTE=../../../recursos/imagenes/Skeleton.png
-normalOESTE=../../../recursos/imagenes/Skeleton.png
-normalSUR=../../../recursos/imagenes/Skeleton.png
+normalNORTE=../../../recursos/imagenes/skinNether/perseguidores/clydeNether/normal/blazeNORTE.png
+normalESTE=../../../recursos/imagenes/skinNether/perseguidores/clydeNether/normal/blazeESTE.png
+normalOESTE=../../../recursos/imagenes/skinNether/perseguidores/clydeNether/normal/blazeOESTE.png
+normalSUR=../../../recursos/imagenes/skinNether/perseguidores/clydeNether/normal/blazeSUR.png

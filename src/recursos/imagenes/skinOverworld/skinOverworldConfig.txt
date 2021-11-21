@@ -1,0 +1,9 @@
+skinsBlinky=
+skinsPinky=
+skinsClyde=
+
+skinsJugador=
+
+skinsCollectibles=
+
+mapas=

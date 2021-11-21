@@ -24,16 +24,21 @@ public abstract class PersonajeGrafico extends EntidadGrafica{
 	 * 
 	 * @param dir
 	 */
-	public void rotarSprite(int dir) {
-		String nuevaImg; 
+	public void rotarSprite(int dir) throws NullPointerException{
+		String nuevaImg=null;
 		ImageIcon nuevoIcon;
-	
-		nuevaImg = miEstadoAct.getImgGirada(dir);
-		nuevoIcon = new ImageIcon(PersonajeGrafico.class.getResource(nuevaImg));
-		Image imgResized = nuevoIcon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT);
-        icon = new ImageIcon(imgResized);
-        
-        jlbl.setIcon(icon);
+		try {
+			nuevaImg = miEstadoAct.getImgGirada(dir);
+			nuevoIcon = new ImageIcon(PersonajeGrafico.class.getResource(nuevaImg));
+			Image imgResized = nuevoIcon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT);
+	        icon = new ImageIcon(imgResized);
+	        
+	        jlbl.setIcon(icon);
+		}catch(NullPointerException e) {
+			System.out.println("dir: "+ dir);
+			System.out.println("url: "+ nuevaImg);
+			e.printStackTrace();
+		}
 	}
 
 	public void moverNorte() {

@@ -1,9 +1,9 @@
-normalNORTE=../../../recursos/imagenes/skinNether/jugador/normal/jugadorNormalNORTE.png
-normalESTE=../../../recursos/imagenes/skinNether/jugador/normal/jugadorNormalESTE.png
-normalSUR=../../../recursos/imagenes/skinNether/jugador/normal/jugadorNormalSUR.png
-normalOESTE=../../../recursos/imagenes/skinNether/jugador/normal/jugadorNormalOESTE.png
+normalNORTE=../../../recursos/imagenes/skinNether/jugador/normal/steveNorte.png
+normalESTE=../../../recursos/imagenes/skinNether/jugador/normal/steveEste.png
+normalSUR=../../../recursos/imagenes/skinNether/jugador/normal/steveSur.png
+normalOESTE=../../../recursos/imagenes/skinNether/jugador/normal/steveOeste.png
 
-velozNORTE=../../../recursos/imagenes/skinNether/jugador/veloz/jugadorVelozNORTE.png
-velozSUR=../../../recursos/imagenes/skinNether/jugador/veloz/jugadorVelozSUR.png
-velozESTE=../../../recursos/imagenes/skinNether/jugador/veloz/jugadorVelozESTE.png
-velozOESTE=../../../recursos/imagenes/skinNether/jugador/veloz/jugadorVelozOESTE.png
+velozNORTE=../../../recursos/imagenes/skinNether/jugador/veloz/steveVelozNorte.png
+velozSUR=../../../recursos/imagenes/skinNether/jugador/veloz/steveVelozSur.png
+velozESTE=../../../recursos/imagenes/skinNether/jugador/veloz/steveVelozEste.png
+velozOESTE=../../../recursos/imagenes/skinNether/jugador/veloz/steveVelozOeste.png

@@ -1,0 +1,5 @@
+pacDot=
+fruta=
+powerPellet=
+speedPotion=
+bomba=

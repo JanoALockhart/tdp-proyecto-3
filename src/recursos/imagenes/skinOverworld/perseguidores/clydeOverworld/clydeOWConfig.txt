@@ -1,0 +1,11 @@
+deadNORTE=
+deadESTE=
+deadOESTE=
+deadSUR=
+
+miedoso=
+
+normalNORTE=
+normalESTE=
+normalOESTE=
+normalSUR=

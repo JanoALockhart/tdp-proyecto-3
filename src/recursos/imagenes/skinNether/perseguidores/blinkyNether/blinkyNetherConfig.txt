@@ -1,9 +1,9 @@
-deadNORTE=../../../recursos/imagenes/fruit.png
-deadESTE=../../../recursos/imagenes/fruit.png
-deadOESTE=../../../recursos/imagenes/fruit.png
-deadSUR=../../../recursos/imagenes/fruit.png
+deadNORTE=../../../recursos/imagenes/skinNether/perseguidores/blinkyNether/muerto/mgCubeMuertoNORTE.png
+deadESTE=../../../recursos/imagenes/skinNether/perseguidores/blinkyNether/muerto/mgCubeMuertoESTE.png
+deadOESTE=../../../recursos/imagenes/skinNether/perseguidores/blinkyNether/muerto/mgCubeMuertoOESTE.png
+deadSUR=../../../recursos/imagenes/skinNether/perseguidores/blinkyNether/muerto/mgCubeMuertoSUR.png
 
-miedoso=../../../recursos/imagenes/ZombieAsustado.gif
+miedoso=../../../recursos/imagenes/skinNether/perseguidores/blinkyNether/asustado/mgCubeAsustado.png
 
 normalNORTE=../../../recursos/imagenes/skinNether/perseguidores/blinkyNether/normal/magmaCubeNORTE.png
 normalESTE=../../../recursos/imagenes/skinNether/perseguidores/blinkyNether/normal/magmaCubeESTE.png

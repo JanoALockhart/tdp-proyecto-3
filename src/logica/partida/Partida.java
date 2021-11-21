@@ -222,7 +222,7 @@ public class Partida {
 		pantalla.eliminarLabel(entGrafica.getLbl());		
 	}
 	
-	public void elimnarEntidadGrafica(Iterable<Entidad<? extends EntidadGrafica>> restantes) {
+	public void eliminarImgBasura(Iterable<EntidadGrafica> restantes) {
 		pantalla.removerBasura(restantes);	
 	}
 

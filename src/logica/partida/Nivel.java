@@ -3,6 +3,8 @@
  */
 package logica.partida;
 
+import java.util.LinkedList;
+
 import logica.builder.*;
 import logica.entidades.Entidad;
 import logica.entidades.Personaje.Jugadores.Jugador;
@@ -110,6 +112,10 @@ public class Nivel {
 	}
 	
 	public void removerBasura() {
-		Partida.getInstance().elimnarEntidadesGrafica(miMapa.getTodasLasEntidades());
+		LinkedList<EntidadGrafica> borrar = new LinkedList<EntidadGrafica>();
+		for(Entidad<? extends EntidadGrafica> ent : miMapa.getTodasLasEntidades()) {
+			borrar.add(ent.getEntidadGrafica());
+		}
+		Partida.getInstance().eliminarImgBasura(borrar);
 	}
 }

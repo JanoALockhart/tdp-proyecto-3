@@ -5,7 +5,7 @@ deadSUR=../../../recursos/imagenes/skinNether/perseguidores/inkyNether/muerto/pi
 
 miedoso=../../../recursos/imagenes/skinNether/perseguidores/inkyNether/asustado/piglinAsustado.png
 
-normalNORTE=../../../recursos/imagenes/skinNether/perseguidores/inkyNether/muerto/piglinNORTE.png
-normalESTE=../../../recursos/imagenes/skinNether/perseguidores/inkyNether/muerto/piglinESTE.png
-normalOESTE=../../../recursos/imagenes/skinNether/perseguidores/inkyNether/muerto/piglinOESTE.png
-normalSUR=../../../recursos/imagenes/skinNether/perseguidores/inkyNether/muerto/piglinSUR.png
+normalNORTE=../../../recursos/imagenes/skinNether/perseguidores/inkyNether/normal/piglinNORTE.png
+normalESTE=../../../recursos/imagenes/skinNether/perseguidores/inkyNether/normal/piglinESTE.png
+normalOESTE=../../../recursos/imagenes/skinNether/perseguidores/inkyNether/normal/piglinOESTE.png
+normalSUR=../../../recursos/imagenes/skinNether/perseguidores/inkyNether/normal/piglinSUR.png

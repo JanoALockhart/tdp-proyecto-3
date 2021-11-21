@@ -138,6 +138,7 @@ public abstract class Perseguidor extends Personaje<PerseguidorGrafico> implemen
 	 */
 	public void morir() {
 		//TODO implementar
+		miTimerAsustado.seMurio();
 		state = new Muerto(this);
 		miObjetoGrafico.setMuerto(direccion);
 	}

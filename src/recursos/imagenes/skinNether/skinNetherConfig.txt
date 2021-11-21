@@ -1,6 +1,7 @@
 skinsBlinky=src/recursos/imagenes/skinNether/perseguidores/blinkyNether/blinkyNetherConfig.txt
 skinsPinky=src/recursos/imagenes/skinNether/perseguidores/pinkyNether/pinkyNetherConfig.txt
 skinsClyde=src/recursos/imagenes/skinNether/perseguidores/clydeNether/clydeNetherConfig.txt
+skinsInky=src/recursos/imagenes/skinNether/perseguidores/inkyNether/inkyNetherConfig.txt
 
 skinsJugador=src/recursos/imagenes/skinNether/jugador/skinsJugadorNether.txt
 

@@ -3,7 +3,7 @@ normalESTE=../../../recursos/imagenes/skinOverworld/skinsJugadorOverworld/normal
 normalSUR=../../../recursos/imagenes/skinOverworld/skinsJugadorOverworld/normal/Steve.png
 normalOESTE=../../../recursos/imagenes/skinOverworld/skinsJugadorOverworld/normal/Steve.png
 
-velozNORTE=
-velozSUR=
-velozESTE=
-velozOESTE=
+velozNORTE=../../../recursos/imagenes/skinOverworld/skinsJugadorOverworld/veloz/SteveWinged.png
+velozSUR=../../../recursos/imagenes/skinOverworld/skinsJugadorOverworld/veloz/SteveWinged.png
+velozESTE=../../../recursos/imagenes/skinOverworld/skinsJugadorOverworld/veloz/SteveWinged.png
+velozOESTE=../../../recursos/imagenes/skinOverworld/skinsJugadorOverworld/veloz/SteveWinged.png

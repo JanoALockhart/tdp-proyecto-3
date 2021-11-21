@@ -12,14 +12,14 @@ public class Inky extends Perseguidor {
 
 	public Inky(PerseguidorGrafico skin, int vel, Mapa map, Blinky miPana ) {
 		super(skin,vel,map);	
-		state = new InkyPersiguiendo(this);    
+		state = new InkyPersiguiendo(this,miPana);    
 		visi = new VisitadorPerseguidor();
 		this.miPana = miPana;
 	}
 
 	@Override
 	public void perseguir() {
-		state = new InkyPersiguiendo(this);
+		state = new InkyPersiguiendo(this,miPana);
 		miObjetoGrafico.setNormal(direccion);
 	}
 	

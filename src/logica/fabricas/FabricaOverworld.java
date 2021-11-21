@@ -28,7 +28,7 @@ public class FabricaOverworld implements FabricaElementos{
 	
 	public FabricaOverworld() {
 		try {
-			InputStream inputFilesConfig = new FileInputStream("src/recursos/imagenes/skinNether/skinOverworldConfig.txt");
+			InputStream inputFilesConfig = new FileInputStream("src/recursos/imagenes/skinOverworld/skinOverworldConfig.txt");
 			archivoDirImgs = new Properties();
 			archivoDirImgs.load(inputFilesConfig);
 	

@@ -1,9 +1,10 @@
-skinsBlinky=
-skinsPinky=
-skinsClyde=
+skinsBlinky=src/recursos/imagenes/skinOverworld/perseguidores/blinkyOverworld/blinkyOWConfig.txt
+skinsPinky=src/recursos/imagenes/skinOverworld/perseguidores/pinkyOverworld/pinkyOWConfig.txt
+skinsClyde=src/recursos/imagenes/skinOverworld/perseguidores/clydeOverworld/clydeOWConfig.txt
+skinsInky=src/recursos/imagenes/skinOverworld/perseguidores/inkyOverworld/inkyOWConfig.txt
 
-skinsJugador=
+skinsJugador=src/recursos/imagenes/skinOverworld/skinsJugadorOverworld/skinsJugadorOverworld.txt
 
-skinsCollectibles=
+skinsCollectibles=src/recursos/imagenes/skinOverworld/collectibles/collectibleOverworldConfig.txt
 
-mapas=
+mapas=src/recursos/imagenes/skinOverworld/mapas/mapasConfig.txt

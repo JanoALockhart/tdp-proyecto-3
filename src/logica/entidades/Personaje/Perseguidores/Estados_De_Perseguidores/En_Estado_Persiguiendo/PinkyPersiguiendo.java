@@ -32,7 +32,7 @@ public class PinkyPersiguiendo extends Persiguiendo {
 		Pixel pxJug = Jugador.getInstance().getPos();
 		switch(Jugador.getInstance().getDireccion()) {
 			case Jugador.NORTE: 
-				obj = new Pixel(pxJug.getX(), pxJug.getY()-4*altoCelda);
+				obj = new Pixel(pxJug.getX()-2*anchoCelda, pxJug.getY()-4*altoCelda);
 				break;
 			case Jugador.ESTE:
 				obj = new Pixel(pxJug.getX()+4*anchoCelda, pxJug.getY());

@@ -13,7 +13,7 @@ public class Muerto extends StatePerseguidor {
 
 	@Override
 	public Pixel calcularObj() {
-		// TODO SERIA VOLVER A LA CASA
+		// SERIA VOLVER A LA CASA
 		if(miFantasma.getPosInicial().equals(miFantasma.getPos())) {
 			miFantasma.perseguir();
 		}

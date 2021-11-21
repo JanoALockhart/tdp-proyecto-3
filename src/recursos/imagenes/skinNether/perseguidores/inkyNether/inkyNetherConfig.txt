@@ -1,11 +1,11 @@
-deadNORTE=../../../recursos/imagenes/fruit.png
-deadESTE=../../../recursos/imagenes/fruit.png
-deadOESTE=../../../recursos/imagenes/fruit.png
-deadSUR=../../../recursos/imagenes/fruit.png
+deadNORTE=../../../recursos/imagenes/skinNether/perseguidores/inkyNether/muerto/piglinMuertoNORTE.png
+deadESTE=../../../recursos/imagenes/skinNether/perseguidores/inkyNether/muerto/piglinMuertoESTE.png
+deadOESTE=../../../recursos/imagenes/skinNether/perseguidores/inkyNether/muerto/piglinMuertoOESTE.png
+deadSUR=../../../recursos/imagenes/skinNether/perseguidores/inkyNether/muerto/piglinMuertoSUR.png
 
-miedoso=../../../recursos/imagenes/ZombieAsustado.gif
+miedoso=../../../recursos/imagenes/skinNether/perseguidores/inkyNether/asustado/piglinAsustado.png
 
-normalNORTE=../../../recursos/imagenes/Crepper.png
-normalESTE=../../../recursos/imagenes/Crepper.png
-normalOESTE=../../../recursos/imagenes/Crepper.png
-normalSUR=../../../recursos/imagenes/Crepper.png
+normalNORTE=../../../recursos/imagenes/skinNether/perseguidores/inkyNether/muerto/piglinMuertoNORTE.png
+normalESTE=../../../recursos/imagenes/skinNether/perseguidores/inkyNether/muerto/piglinMuertoESTE.png
+normalOESTE=../../../recursos/imagenes/skinNether/perseguidores/inkyNether/muerto/piglinMuertoOESTE.png
+normalSUR=../../../recursos/imagenes/skinNether/perseguidores/inkyNether/muerto/piglinMuertoSUR.png

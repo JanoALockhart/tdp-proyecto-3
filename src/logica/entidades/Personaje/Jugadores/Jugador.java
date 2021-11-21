@@ -75,6 +75,10 @@ public class Jugador<JG extends JugadorGrafico> extends Personaje<JugadorGrafico
 		Partida.getInstance().actualizarBombas(cantBombas);
 	}
 	
+	public void reestablecerBombas() {
+		cantBombas=0;
+	}
+	
 	public void AumentarVelocidad(int duracion, int velociadExtra) {
 		Thread threadEfectoVelocidad;
 		if(miTimerEfecto.isZero()) {			 

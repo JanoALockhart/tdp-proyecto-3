@@ -50,6 +50,8 @@ public class Partida {
 
 		lvl1.inicializar();
 		player = Jugador.getInstance();
+		player.reestablecerVidas();
+		player.reestablecerBombas();
 	}
 	
 	/**

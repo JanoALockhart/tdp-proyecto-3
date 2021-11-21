@@ -207,6 +207,12 @@ public class PantallaNivel extends JPanel implements State {
 		lblFrutaNumber.setText("x"+contFruits);
 	}
 	
+	public void removerBasura(Iterable<EntidadGrafica> it) {
+		for(EntidadGrafica e:it) { 
+			panelMapa.remove(e.getLbl());
+		}
+	}
+	
 	public JPanel getPanel() {
 		return panel;		
 	}

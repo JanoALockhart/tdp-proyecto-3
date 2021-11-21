@@ -3,11 +3,14 @@ package vista;
 import java.awt.Color;
 
 import javax.swing.JPanel;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
 import logica.fabricas.FabricaElementos;
+import logica.fabricas.FabricaNether;
 import logica.fabricas.FabricaOverworld;
 
 import java.awt.event.KeyAdapter;
@@ -29,7 +32,11 @@ public class SeleccionarSkin extends JPanel implements State{
 	
 	private JLabel lblOpcion;
 	
+	private JLabel lblImagen;
+	
 	private Font mainFont;
+	
+	private Icon[] icons;
 	
 	private Slider<String> miSlider;
 	
@@ -62,7 +69,7 @@ public class SeleccionarSkin extends JPanel implements State{
 		lblSkin.setBounds(10, 11, 580, 283);
 		panel.add(lblSkin);
 		
-		lblOpcion = new JLabel("opcion");
+		lblOpcion = new JLabel("Overworld");
 		lblOpcion.setForeground(Color.WHITE);
 		lblOpcion.setHorizontalAlignment(SwingConstants.CENTER);
 		lblOpcion.setFont(mainFont);
@@ -72,7 +79,7 @@ public class SeleccionarSkin extends JPanel implements State{
 		panel.setBackground(Color.BLACK);
 		panel.setLayout(null);
 		
-		JLabel lblImagen = new JLabel(" IMAGEN ");
+		lblImagen = new JLabel("  ");
 		lblImagen.setHorizontalAlignment(SwingConstants.CENTER);
 		lblImagen.setForeground(Color.WHITE);
 		lblImagen.setFont(mainFont);
@@ -81,8 +88,15 @@ public class SeleccionarSkin extends JPanel implements State{
 		
 		miSlider=new Slider<String>(2);
 		
-		miSlider.setOptionAtN("1", 1);
-		miSlider.setOptionAtN("2", 2);
+		miSlider.setOptionAtN("Overworld", 1);
+		miSlider.setOptionAtN("Nether", 2);
+		
+		icons=new Icon[2];
+		
+		icons[0]=new ImageIcon(MenuPrincipal.class.getResource("../recursos/imagenes/gunpowder.png"));
+		icons[1]=new ImageIcon(MenuPrincipal.class.getResource("../recursos/imagenes/tnt.png"));
+		
+		lblImagen.setIcon(icons[0]);
 	}
 	
 	@Override
@@ -91,6 +105,7 @@ public class SeleccionarSkin extends JPanel implements State{
 		lblFlechaIzquierda.setForeground(Color.WHITE);
 		miSlider.slideClockwise();
 		lblOpcion.setText(miSlider.getOptionSelected());
+		lblImagen.setIcon(icons[miSlider.getSliderSelection()]); 
 	}
 
 	@Override
@@ -99,6 +114,7 @@ public class SeleccionarSkin extends JPanel implements State{
 		lblFlechaDerecha.setForeground(Color.WHITE);
 		miSlider.slideAnticlockwise();
 		lblOpcion.setText(miSlider.getOptionSelected());
+		lblImagen.setIcon(icons[miSlider.getSliderSelection()]); 
 	}
 
 	@Override
@@ -121,7 +137,7 @@ public class SeleccionarSkin extends JPanel implements State{
 				break;
 			}
 			case 1:{
-				fabrica=new FabricaOverworld();
+				fabrica=new FabricaNether();
 				miUI.setFabrica(fabrica);
 				break;
 			}

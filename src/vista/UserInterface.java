@@ -51,7 +51,7 @@ public class UserInterface extends JFrame {
 			e.printStackTrace();
 		}	
 		
-		fabrica=new FabricaNether(); //TODO modificado
+		fabrica=new FabricaOverworld(); //TODO modificado
 		
 		miEstado=new MenuPrincipal(this, 0, mainFont);
 		

@@ -3,3 +3,5 @@ fruta=../../../recursos/imagenes/skinNether/collectibles/sopa.png
 powerPellet=../../../recursos/imagenes/skinNether/collectibles/diamondSword.png
 speedPotion=../../../recursos/imagenes/skinNether/collectibles/speedPotionNether.png
 bomba=../../../recursos/imagenes/skinNether/collectibles/bombaColl.png
+tnt=../../../recursos/imagenes/skinNether/collectibles/bed.png
+explosion=../../../recursos/imagenes/skinNether/collectibles/explosion.png

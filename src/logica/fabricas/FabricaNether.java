@@ -166,16 +166,15 @@ public class FabricaNether implements FabricaElementos{
 		//TODO este metodo es llamado cuando se coloca el explosivo
 		int tam=1;
 		Properties dirSkins = abrirArchivoSkins(archivoDirImgs.getProperty("skinsCollectibles"));
-		String imgDet; //TODO asignar imagen
-		String imgExp; //TODO asignar imagen
+		String imgDet = dirSkins.getProperty("tnt");
+		String imgExp = dirSkins.getProperty("explosion");
 		int prio = Integer.parseInt(Main.personajesConfig.getProperty("prioCollectible"));	
-		int ancho;
-		int alto;
-		EntidadGrafica tnt = new EntidadGrafica(imgDet,x,y,ancho,alto,prio);
-		int rango;
-		int duracion1;
-		int duracion2;
-		//return new Explosivo(tnt,imgExp,rango, dur1, dur2,map)
+		int dimension = Integer.parseInt(Main.dimentionConfig.getProperty("TNTsize"));
+		EntidadGrafica tnt = new EntidadGrafica(imgDet,x,y,dimension,dimension,prio);
+		int rango = Integer.parseInt(Main.personajesConfig.getProperty("rangoBomba"));
+		int dur1 = Integer.parseInt(Main.personajesConfig.getProperty("tiempoExplosion"));
+		int dur2 = Integer.parseInt(Main.personajesConfig.getProperty("fuego"));
+		return new Explosivo(tnt,imgExp,rango, dur1, dur2,map);
 		return null;
 	}
 

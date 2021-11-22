@@ -234,20 +234,25 @@ public class PantallaNivel extends JPanel implements State {
 		puntaje.setText(Integer.toString(puntuacion));
 	}
 	
-	private ImageIcon reEscalar(String dirImg, int x, int y) {
-        ImageIcon img = new ImageIcon(dirImg);
-        Image imgResized = img.getImage().getScaledInstance(x, y, Image.SCALE_SMOOTH);
-        return new ImageIcon(imgResized);
-    }
-	
-	private void pantallaFinal(String text, int points) {
+	public void pantallaFinal(String text, int points) {
 		State estadoNuevo=new PantallaFinal(miUI, mainFont, text, points);
 		miUI.setSize(600, 600);
 		miUI.cambiarEstado(estadoNuevo, estadoNuevo.getName());
 	}
 
+	public void seAgregoEntidad(EntidadGrafica entidad) {
+		panelMapa.add(entidad.getLbl(), entidad.getPriority());
+		panelMapa.setLayer(entidad.getLbl(), entidad.getPriority());
+	}
+	
 	@Override
 	public void seApretoP(boolean pause) {
-	
+		
 	}
+	
+	private ImageIcon reEscalar(String dirImg, int x, int y) {
+        ImageIcon img = new ImageIcon(dirImg);
+        Image imgResized = img.getImage().getScaledInstance(x, y, Image.SCALE_SMOOTH);
+        return new ImageIcon(imgResized);
+    }
 }

@@ -94,6 +94,15 @@ public class UserInterface extends JFrame {
 			}
 		});
 		
+		Runtime.getRuntime().addShutdownHook(new Thread()
+		{
+		    @Override
+		    public void run()
+		    {
+		        musica.onGameClosed();
+		        musica=null;
+		    }
+		});
 	}
 	
 	/**

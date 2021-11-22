@@ -104,6 +104,13 @@ public class MenuPrincipal extends JPanel implements State {
 		miSlider.setOptionAtN(lblSkin, 2);
 		miSlider.setOptionAtN(lblScoreBoard, 3);
 		
+		JLabel lblP = new JLabel("P");
+		lblP.setHorizontalAlignment(SwingConstants.CENTER);
+		lblP.setForeground(Color.WHITE);
+		lblP.setFont(mainFont);
+		lblP.setBounds(20, 99, 68, 64);
+		panel.add(lblP);
+		
 		miSlider.getOptionSelected().setForeground(Color.YELLOW);
 		
 	}

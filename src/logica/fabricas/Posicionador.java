@@ -28,7 +28,6 @@ public class Posicionador {
 		posX = c.getX() * c.getAncho() + c.getAncho()/2 - ancho/2; 
 		posY = c.getY() * c.getAlto() + c.getAlto()/2 - alto/2;
 	}
-	
 	/**
 	 * Método que devuelve la posicion x calculada
 	 * @return La posicion x calculada

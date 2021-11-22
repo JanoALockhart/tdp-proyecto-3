@@ -10,6 +10,7 @@ import logica.entidades.Collectibles.Power_ups.PowerPellet;
 import logica.entidades.Collectibles.Power_ups.SpeedPotion;
 import logica.entidades.Collectibles.Puntos.Fruta;
 import logica.entidades.Collectibles.Puntos.PacDot;
+import logica.entidades.Entornos.Explosivo;
 import logica.entidades.Entornos.Portal;
 import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.Personaje.Perseguidores.Blinky;
@@ -159,6 +160,22 @@ public class FabricaOverworld implements FabricaElementos{
 		EntidadGrafica skin = new EntidadGrafica(img,p.getX(),p.getY(),p.getAncho(),p.getAlto(),prio); //TODO deshardocodear estos numeritos
 		
 		return new Bomb(skin, map);
+	}
+	
+	public Explosivo construirExplosivo(int x, int y, Mapa map) {
+		//TODO este metodo es llamado cuando se coloca el explosivo
+		int tam=1;
+		Properties dirSkins = abrirArchivoSkins(archivoDirImgs.getProperty("skinsCollectibles"));
+		String imgDet = dirSkins.getProperty("tnt");
+		String imgExp = dirSkins.getProperty("explosion");
+		int prio = Integer.parseInt(Main.personajesConfig.getProperty("prioCollectible"));	
+		int dimension = Integer.parseInt(Main.dimentionConfig.getProperty("TNTsize"));
+		EntidadGrafica tnt = new EntidadGrafica(imgDet,x,y,dimension,dimension,prio);
+		int rango = Integer.parseInt(Main.personajesConfig.getProperty("rangoBomba"));
+		int dur1 = Integer.parseInt(Main.personajesConfig.getProperty("tiempoExplosion"));
+		int dur2 = Integer.parseInt(Main.personajesConfig.getProperty("fuego"));
+		return new Explosivo(tnt,imgExp,rango, dur1, dur2,map);
+		return null;
 	}
 
 	public Celda construirCelda(int x, int y) {

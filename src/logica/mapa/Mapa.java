@@ -274,14 +274,30 @@ public class Mapa {
 		HashSet<Celda> conjuntoCeldas = new HashSet<Celda>();
 		
 		Pixel esqSupIzq = rec.getPixelSuperiorIzquierdo();	
-		Pixel esqSupDer = rec.getPixelSuperiorDerecho();
 		Pixel esqInfDer = rec.getPixelInferiorDerecho();
+		
+		/*
+		Pixel esqSupDer = rec.getPixelSuperiorDerecho();
 		Pixel esqInfIzq = rec.getPixelInferiorIzquierdo();
 		
 		conjuntoCeldas.add(misCeldas[esqSupIzq.getX()/ANCHO_CELDA][esqSupIzq.getY()/ALTO_CELDA]);
 		conjuntoCeldas.add(misCeldas[esqSupDer.getX()/ANCHO_CELDA][esqSupDer.getY()/ALTO_CELDA]);
 		conjuntoCeldas.add(misCeldas[esqInfIzq.getX()/ANCHO_CELDA][esqInfIzq.getY()/ALTO_CELDA]);
 		conjuntoCeldas.add(misCeldas[esqInfDer.getX()/ANCHO_CELDA][esqInfDer.getY()/ALTO_CELDA]);
+		*/
+		
+		int x1 = esqSupIzq.getX()/ANCHO_CELDA;
+		int x2 = esqInfDer.getX()/ANCHO_CELDA;
+		int y1 = esqSupIzq.getY()/ALTO_CELDA;
+		int y2 = esqInfDer.getY()/ALTO_CELDA;
+		
+		for(int x = x1; x<=x2; x++) {
+			for(int y = y1; y<=y2; y++) {
+				if(0<=x && x<ANCHO*ANCHO_CELDA && 0<=y && y<ALTO*ALTO_CELDA && misCeldas[x][y]!=null) {
+					conjuntoCeldas.add(misCeldas[x][y]);
+				}
+			}
+		}
 		
 		return conjuntoCeldas;
 	}

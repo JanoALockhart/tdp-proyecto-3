@@ -118,4 +118,9 @@ public class Nivel {
 		}
 		Partida.getInstance().eliminarImgBasura(borrar);
 	}
+	
+	public void crearExplosivo(int x, int y) {
+		//Explosivo exp = fab.construirExplosivo(x,y,miMapa);
+		//exp.iniciar();
+	}
 }

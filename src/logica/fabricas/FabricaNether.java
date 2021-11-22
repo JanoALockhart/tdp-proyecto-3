@@ -10,6 +10,7 @@ import logica.entidades.Collectibles.Power_ups.PowerPellet;
 import logica.entidades.Collectibles.Power_ups.SpeedPotion;
 import logica.entidades.Collectibles.Puntos.Fruta;
 import logica.entidades.Collectibles.Puntos.PacDot;
+import logica.entidades.Entornos.Explosivo;
 import logica.entidades.Entornos.Portal;
 import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.Personaje.Perseguidores.Blinky;
@@ -159,6 +160,23 @@ public class FabricaNether implements FabricaElementos{
 		EntidadGrafica skin = new EntidadGrafica(img,p.getX(),p.getY(),p.getAncho(),p.getAlto(),prio); //TODO deshardocodear estos numeritos
 		
 		return new Bomb(skin, map);
+	}
+	
+	public Explosivo construirExplosivo(int x, int y, Mapa map) {
+		//TODO este metodo es llamado cuando se coloca el explosivo
+		int tam=1;
+		Properties dirSkins = abrirArchivoSkins(archivoDirImgs.getProperty("skinsCollectibles"));
+		String imgDet; //TODO asignar imagen
+		String imgExp; //TODO asignar imagen
+		int prio = Integer.parseInt(Main.personajesConfig.getProperty("prioCollectible"));	
+		int ancho;
+		int alto;
+		EntidadGrafica tnt = new EntidadGrafica(imgDet,x,y,ancho,alto,prio);
+		int rango;
+		int duracion1;
+		int duracion2;
+		//return new Explosivo(tnt,imgExp,rango, dur1, dur2,map)
+		return null;
 	}
 
 	public Celda construirCelda(int x, int y) {

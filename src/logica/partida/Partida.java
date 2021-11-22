@@ -225,6 +225,10 @@ public class Partida {
 	public void eliminarImgBasura(Iterable<EntidadGrafica> restantes) {
 		pantalla.removerBasura(restantes);	
 	}
+	
+	public void colocarEntidadGrafica(EntidadGrafica entGraf) {
+		//TODO le paso a la gui una entidad grafica
+	}
 
 
 }

@@ -293,7 +293,7 @@ public class Mapa {
 		
 		for(int x = x1; x<=x2; x++) {
 			for(int y = y1; y<=y2; y++) {
-				if(misCeldas[x][y]!=null) {
+				if(0<=x && x<ANCHO*ANCHO_CELDA && 0<=y && y<ALTO*ALTO_CELDA && misCeldas[x][y]!=null) {
 					conjuntoCeldas.add(misCeldas[x][y]);
 				}
 			}

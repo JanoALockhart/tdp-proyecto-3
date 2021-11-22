@@ -81,9 +81,9 @@ public class Jugador<JG extends JugadorGrafico> extends Personaje<JugadorGrafico
 	
 	public void AumentarVelocidad(int duracion, int velociadExtra) {
 		Thread threadEfectoVelocidad;
-		if(miTimerEfecto.isZero()) {			 
+		if(miTimerEfecto.isZero()) {
+			miTimerEfecto.setTimepo(duracion);
 			threadEfectoVelocidad = new Thread(miTimerEfecto);		
-			miTimerEfecto.setTimepo(duracion);	
 			threadEfectoVelocidad.start();		
 		}else {
 			miTimerEfecto.anotherOne();

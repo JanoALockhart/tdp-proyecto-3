@@ -14,12 +14,14 @@ public class TimerEfecto implements Runnable{
 		seguir=true;
 	}
 	
-	public void setTimepo(int c){
+	public void setTimepo(int c){		
 		contador = c;
+		System.out.println("seteado tiempo "+contador);
 	}
 	
 	@Override
 	public void run() {
+		seguir=true;
 		while(contador != 0 && seguir) {
 			try {
 				System.out.println(contador);
@@ -42,5 +44,6 @@ public class TimerEfecto implements Runnable{
 	
 	public void detener() {
 		seguir = false;
+		contador=0;
 	}
 }

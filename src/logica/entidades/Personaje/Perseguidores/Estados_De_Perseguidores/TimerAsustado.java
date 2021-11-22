@@ -24,6 +24,7 @@ public class TimerAsustado implements Runnable{
 		while(contador != 0 && !muerto) {
 			try {
 				contador--;
+				System.out.println("asus: "+contador);
 				Thread.sleep(1000);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -42,5 +43,8 @@ public class TimerAsustado implements Runnable{
 		return contador==0;
 	}
 	
-	public void seMurio() {muerto = true;}
+	public void seMurio() {
+		muerto = true;
+		contador=0;
+	}
 }

@@ -27,7 +27,7 @@ public class ClydePersiguiendo extends Persiguiendo {
 		Pixel obj = null;
 		Pixel pxJug = Jugador.getInstance().getPos();
 		int largoCelda = Integer.parseInt(Main.dimentionConfig.getProperty("altoCelda"));
-		double distancia = miFantasma.getPos().distanciaA(pxJug) / (4*largoCelda);
+		double distancia = miFantasma.getPos().distanciaA(pxJug) / (largoCelda);
 		if( distancia > 4  )
 			obj = pxJug;
 		else

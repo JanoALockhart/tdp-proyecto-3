@@ -1,3 +1,3 @@
-mapImgLvl1=src/recursos/imagenes/skinNether/mapas/Map.png
-mapImgLvl2=src/recursos/imagenes/skinNether/mapas/nivel2.png
-mapImgLvl3=src/recursos/imagenes/skinNether/mapas/MapaPlantillaN3.png
+mapImgLvl1=src/recursos/imagenes/skinNether/mapas/nivel1Nether.png
+mapImgLvl2=src/recursos/imagenes/skinNether/mapas/nivel2Nether.png
+mapImgLvl3=src/recursos/imagenes/skinNether/mapas/nivel3Nether.png

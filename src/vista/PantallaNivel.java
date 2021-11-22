@@ -240,8 +240,8 @@ public class PantallaNivel extends JPanel implements State {
         return new ImageIcon(imgResized);
     }
 	
-	private void pantallaFinal(String text) {
-		State estadoNuevo=new PantallaFinal(miUI, mainFont, text);
+	private void pantallaFinal(String text, int points) {
+		State estadoNuevo=new PantallaFinal(miUI, mainFont, text, points);
 		miUI.setSize(600, 600);
 		miUI.cambiarEstado(estadoNuevo, estadoNuevo.getName());
 	}

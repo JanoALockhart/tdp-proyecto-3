@@ -7,6 +7,9 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
+import datos.JugadorDatos;
+import datos.Serializador;
+
 public class PantallaPuntajes implements State {
 
 	private static final String stateName="Pantalla de puntajes"; 
@@ -20,6 +23,9 @@ public class PantallaPuntajes implements State {
 	// private SerializadorDatos misDatos;
 	
 	public PantallaPuntajes(UserInterface UI, Font h1) {
+		Serializador serializer=new Serializador();
+		Iterable<JugadorDatos> top7=serializer.obtenerTopPlayers();
+		
 		miUI=UI;
 
 		panel=new JPanel();
@@ -218,6 +224,34 @@ public class PantallaPuntajes implements State {
 		lblApreteEspacioPara.setFont(mainFont);
 		lblApreteEspacioPara.setBounds(10, 497, 580, 50);
 		panel.add(lblApreteEspacioPara);
+		
+		JLabel[] jugadores=new JLabel[7];
+		
+		jugadores[0]=lblJugador_1;
+		jugadores[1]=lblJugador_2;
+		jugadores[2]=lblJugador_3;
+		jugadores[3]=lblJugador_4;
+		jugadores[4]=lblJugador_5;
+		jugadores[5]=lblJugador_6;
+		jugadores[6]=lblJugador_7;
+
+		JLabel[] puntos=new JLabel[7];
+		
+		puntos[0]=lblPuntos_1;
+		puntos[1]=lblPuntos_2;
+		puntos[2]=lblPuntos_3;
+		puntos[3]=lblPuntos_4;
+		puntos[4]=lblPuntos_5;
+		puntos[5]=lblPuntos_6;
+		puntos[6]=lblPuntos_7;
+		
+		int cont=0;
+		
+		for(JugadorDatos jugador: top7) {
+			jugadores[cont].setText(jugador.getNombre());
+			puntos[cont].setText(jugador.getPuntaje()+"");
+			cont++;
+		}
 	}
 	
 	@Override

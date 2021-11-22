@@ -93,7 +93,7 @@ public class SeleccionarSkin extends JPanel implements State{
 		
 		icons=new Icon[2];
 		
-		icons[0]=new ImageIcon(MenuPrincipal.class.getResource("../recursos/imagenes/gunpowder.png"));
+		icons[0]=new ImageIcon(MenuPrincipal.class.getResource("../recursos/imagenes/tnt.png"));
 		icons[1]=new ImageIcon(MenuPrincipal.class.getResource("../recursos/imagenes/tnt.png"));
 		
 		lblImagen.setIcon(icons[0]);

@@ -35,7 +35,7 @@ public class Explosivo extends Entorno {
 	public void explotar() {
 		Partida.getInstance().elimnarEntidadGrafica(miObjetoGrafico);
 		//Cambiar entidad grafica
-		
+		//HOLA?
 		//Eliminar la tnt logica del mapa
 		miMapa.eliminarDeCeldasQueTocaba(this, getHitbox());
 		

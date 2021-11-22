@@ -86,7 +86,7 @@ public class Partida {
 	 */
 	public void siguienteNivel() {
 		nivelActual.detener();
-		//nivelActual.removerBasura(); Fantasmas no lo borra
+		nivelActual.removerBasura(); 
 		nivelActual = nivelActual.getSigNivel();
 		if(nivelActual!=null){
 			nivelActual.inicializar();
@@ -114,11 +114,11 @@ public class Partida {
 	public void perder() {
 		System.out.println("Perdiste");
 		nivelActual.detener();
-		//mostrarPantallaDerrota
+		pantalla.pantallaFinal("DEFEAT", puntaje);
 	}
 	
 	private void victoria() {
-		//Mostrar pantalla victoria
+		pantalla.pantallaFinal("VICTORY", puntaje);
 		System.out.println("Ganaste");
 	}
 	
@@ -220,6 +220,10 @@ public class Partida {
 	 */
 	public void elimnarEntidadGrafica(EntidadGrafica entGrafica) {
 		pantalla.eliminarLabel(entGrafica.getLbl());		
+	}
+	
+	public void eliminarImgBasura(Iterable<EntidadGrafica> restantes) {
+		pantalla.removerBasura(restantes);	
 	}
 
 

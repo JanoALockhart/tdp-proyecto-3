@@ -7,10 +7,12 @@ public class TimerAsustado implements Runnable{
 
 	protected int contador;
 	protected Perseguidor miPersiguidor;
+	protected boolean muerto;
 	
 	public TimerAsustado(Perseguidor miPerseguidor) {
 		this.miPersiguidor = miPerseguidor;
 		contador = 0;
+		muerto = false;
 	}
 	
 	public void setTimepo(int c){
@@ -19,7 +21,7 @@ public class TimerAsustado implements Runnable{
 	
 	@Override
 	public void run() {
-		while(contador != 0) {
+		while(contador != 0 && !muerto) {
 			try {
 				contador--;
 				Thread.sleep(1000);
@@ -27,14 +29,18 @@ public class TimerAsustado implements Runnable{
 				e.printStackTrace();
 			}
 		}
-		miPersiguidor.perseguir();
+		if(!muerto)
+			miPersiguidor.perseguir();
+		muerto = false;
 	}
 	
 	public void anotherOne() {
-		contador+=Integer.parseInt(Main.personajesConfig.getProperty("tiempoAsustado"));
+		contador=Integer.parseInt(Main.personajesConfig.getProperty("tiempoAsustado"));
 	}
 	
 	public boolean isZero() {
 		return contador==0;
 	}
+	
+	public void seMurio() {muerto = true;}
 }

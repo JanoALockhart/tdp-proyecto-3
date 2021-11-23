@@ -102,8 +102,6 @@ public class Partida {
 
 		//TODO revisar esto
 		LinkedList<String> fruits = new LinkedList<String>();
-		fruits.add("src/recursos/imagenes/fruit.png");
-		//
 		
 		for(Entidad<? extends EntidadGrafica> ent : iterable) {
 			entGraficas.add(ent.getEntidadGrafica());
@@ -159,15 +157,7 @@ public class Partida {
 	}
 	
 	public void seApretoEspacio() {
-		
-		/**TEST SERIALIZADOR
-		JugadorDatos jug = new JugadorDatos("asldasd",345);
-		
-		Serializador ser = new Serializador();
-		ser.guardarJugador(jug);
-		for(JugadorDatos jd : ser.obtenerTopPlayers()) {
-			System.out.println(jd.getNombre()+":"+jd.getPuntaje());
-		}*/
+		Jugador.getInstance().ponerBomaba();	
 	}
 	
 	/**
@@ -227,8 +217,22 @@ public class Partida {
 	}
 	
 	public void colocarEntidadGrafica(EntidadGrafica entGraf) {
-		//TODO le paso a la gui una entidad grafica
+		pantalla.seAgregoEntidad(entGraf);
+	}
+	
+	public void crearExplosivo(int x, int y, int bombasRestantes) {
+		pantalla.refrescarLabelsBomba(bombasRestantes);
+		nivelActual.crearExplosivo(x, y);
 	}
 
+	
+	/**TEST SERIALIZADOR
+	JugadorDatos jug = new JugadorDatos("asldasd",345);
+	
+	Serializador ser = new Serializador();
+	ser.guardarJugador(jug);
+	for(JugadorDatos jd : ser.obtenerTopPlayers()) {
+		System.out.println(jd.getNombre()+":"+jd.getPuntaje());
+	}*/
 
 }

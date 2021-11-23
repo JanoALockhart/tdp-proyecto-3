@@ -8,14 +8,13 @@ import logica.partida.Partida;
 
 public class Explosivo extends Entorno {
 
-	private int radio;
-	private int delayExplosion;
 	protected TimerExplosion miTimer;
 	protected EntidadGrafica fuego;
 	
 	public Explosivo(EntidadGrafica tnt, EntidadGrafica fuego, Mapa map) {
 		super(tnt,map);
 		map.colocarEnCeldasQueToca(this);
+		visi = new VisitadorEntorno();
 		Partida.getInstance().colocarEntidadGrafica(tnt);
 		miTimer = new TimerExplosion(this);
 		this.fuego = fuego;
@@ -26,7 +25,8 @@ public class Explosivo extends Entorno {
 	}
 	
 	public void iniciar() {
-		miTimer.run();
+		System.out.println("inicio");
+		miTimer.start();
 	}
 	
 	/**

@@ -2,6 +2,7 @@ package logica.builder;
 
 
 import logica.entidades.Entidad;
+import logica.entidades.Entornos.Explosivo;
 import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.Personaje.Perseguidores.Blinky;
 import logica.entidades.Personaje.Perseguidores.Inky;
@@ -175,6 +176,11 @@ public class ArquitectoNivel implements BuilderNivel{
 		mentePerseguidores.addPerseguidor(ink);
 		cel.add(ink);
 		map.agregarCelda(cel);
+	}
+	
+	public void colocarExplosivo(int x, int y) {
+		Explosivo expl = miFabrica.construirExplosivo(x, y, map);
+		expl.iniciar();
 	}
 	
 }

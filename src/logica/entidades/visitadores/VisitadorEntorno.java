@@ -11,7 +11,6 @@ public class VisitadorEntorno implements Visitor{
 
 	@Override
 	public void serAfectadoPor(Perseguidor per) {
-		Partida.getInstance().addPuntaje(Integer.parseInt(Main.personajesConfig.getProperty("puntajeAlMorir")));
 		per.morir();
 		//TODO Chequear esto si no es con el state.activarEfecto desde fantasma
 	}

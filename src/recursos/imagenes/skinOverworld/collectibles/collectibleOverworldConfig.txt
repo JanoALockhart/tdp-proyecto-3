@@ -3,5 +3,5 @@ fruta=../../../recursos/imagenes/skinOverworld/collectibles/fruit.png
 powerPellet=../../../recursos/imagenes/skinOverworld/collectibles/ManzanaDorada.png
 speedPotion=../../../recursos/imagenes/skinOverworld/collectibles/potion.png
 bomba=../../../recursos/imagenes/skinOverworld/collectibles/gunpowder.png
-tnt=../../../recursos/imagenes/skinNether/collectibles/tnt.png
-explosion=../../../recursos/imagenes/skinNether/collectibles/explosionFire.pngs
+tnt=../../../recursos/imagenes/skinOverworld/collectibles/tnt.png
+explosion=../../../recursos/imagenes/skinOverworld/collectibles/explosionFire.png

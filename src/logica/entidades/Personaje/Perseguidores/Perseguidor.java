@@ -2,6 +2,7 @@ package logica.entidades.Personaje.Perseguidores;
 
 import logica.mapa.Celda;
 import logica.mapa.Mapa;
+import logica.partida.Partida;
 import main.Main;
 
 import java.awt.Point;
@@ -138,6 +139,8 @@ public abstract class Perseguidor extends Personaje<PerseguidorGrafico> implemen
 	 */
 	public void morir() {
 		//TODO implementar
+		Partida.getInstance().addPuntaje(Integer.parseInt(Main.personajesConfig.getProperty("puntajeAlMorir")));
+		
 		miTimerAsustado.seMurio();
 		state = new Muerto(this);
 		miObjetoGrafico.setMuerto(direccion);

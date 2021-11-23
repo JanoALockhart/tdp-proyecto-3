@@ -14,6 +14,7 @@ public class Explosivo extends Entorno {
 	public Explosivo(EntidadGrafica tnt, EntidadGrafica fuego, Mapa map) {
 		super(tnt,map);
 		map.colocarEnCeldasQueToca(this);
+		visi = new VisitadorEntorno();
 		Partida.getInstance().colocarEntidadGrafica(tnt);
 		miTimer = new TimerExplosion(this);
 		this.fuego = fuego;

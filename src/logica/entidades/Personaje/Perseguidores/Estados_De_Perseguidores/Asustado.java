@@ -54,7 +54,6 @@ public class Asustado extends StatePerseguidor {
 
 	@Override
 	public void activarEfecto() {
-		Partida.getInstance().addPuntaje(Integer.parseInt(Main.personajesConfig.getProperty("puntajeAlMorir")));
 		miFantasma.morir();
 	}
 

@@ -20,7 +20,7 @@ public class VisitadorPerseguidor implements Visitor{
 	}
 
 	@Override
-	public void serAfectadoPor(Jugador<JugadorGrafico> player) {
+	public void serAfectadoPor(Jugador<? extends JugadorGrafico> player) {
 		//No se activa
 	}
 

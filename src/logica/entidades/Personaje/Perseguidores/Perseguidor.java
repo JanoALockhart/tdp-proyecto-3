@@ -21,7 +21,6 @@ public abstract class Perseguidor extends Personaje<PerseguidorGrafico> implemen
 		super(vel,map);
 		miTimerAsustado = new TimerAsustado(this);
 		miObjetoGrafico = pg;
-		//TODO Elegir state inicial, hacer los distintos estados 
 	}
 	
 	public void chequearDireccion() {

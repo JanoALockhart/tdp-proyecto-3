@@ -65,7 +65,7 @@ public class Jugador<JG extends JugadorGrafico> extends Personaje<JugadorGrafico
 		if(cantBombas>0) {
 			cantBombas--;
 			pos = this.getPos();
-			Partida.getInstance().crearExplosivo(pos.getX(), pos.getY());
+			Partida.getInstance().crearExplosivo(pos.getX(), pos.getY(),cantBombas);
 		}
 	}
 	

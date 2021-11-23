@@ -220,7 +220,8 @@ public class Partida {
 		pantalla.seAgregoEntidad(entGraf);
 	}
 	
-	public void crearExplosivo(int x, int y) {
+	public void crearExplosivo(int x, int y, int bombasRestantes) {
+		pantalla.refrescarLabelsBomba(bombasRestantes);
 		nivelActual.crearExplosivo(x, y);
 	}
 

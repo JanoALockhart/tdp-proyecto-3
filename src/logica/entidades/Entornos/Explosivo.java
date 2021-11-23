@@ -24,7 +24,8 @@ public class Explosivo extends Entorno {
 	}
 	
 	public void iniciar() {
-		miTimer.run();
+		System.out.println("inicio");
+		miTimer.start();
 	}
 	
 	/**

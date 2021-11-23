@@ -229,13 +229,11 @@ public class FabricaNether implements FabricaElementos{
 	}
 	
 	public String getIconoBomba() {
-		Properties dirSkins = abrirArchivoSkins(archivoDirImgs.getProperty("skinsCollectibles"));
-		return dirSkins.getProperty("tnt");
+		return "../recursos/imagenes/skinNether/collectibles/bombaColl.png";
 	}
 	@Override
 	public String getIconoFruit() {
-		Properties dirSkins = abrirArchivoSkins(archivoDirImgs.getProperty("skinsCollectibles"));
-		return dirSkins.getProperty("fruta");
+		return "../recursos/imagenes/skinNether/collectibles/sopa.png";
 	}
 	
 }

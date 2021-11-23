@@ -229,13 +229,11 @@ public class FabricaOverworld implements FabricaElementos{
 	}
 	@Override
 	public String getIconoBomba() {
-		Properties dirSkins = abrirArchivoSkins(archivoDirImgs.getProperty("skinsCollectibles"));
-		return dirSkins.getProperty("tnt");
+		return "../recursos/imagenes/skinOverworld/collectibles/gunpowder.png";
 	}
 	@Override
 	public String getIconoFruit() {
-		Properties dirSkins = abrirArchivoSkins(archivoDirImgs.getProperty("skinsCollectibles"));
-		return dirSkins.getProperty("fruta");
+		return "../recursos/imagenes/skinOverworld/collectibles/fruit.png";
 	}
 	
 }

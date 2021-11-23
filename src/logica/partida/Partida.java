@@ -24,6 +24,7 @@ import vista.*;
  */
 public class Partida {
 	private PantallaNivel pantalla;
+	private FabricaElementos fab;
 	private Jugador<JugadorGrafico> player;
 	private int puntaje;
 	private Nivel nivelActual;
@@ -32,14 +33,31 @@ public class Partida {
 	
 	/**
 	 * Constructor de partida
-	 * @param ui Es la pantalla a la que está asociada la partida
-	 * @param fab Es la fabrica con la que se obtendrán los elementos
-	 * a colocar en el mapa.
 	 */
-	private Partida(PantallaNivel ui,FabricaElementos fab) {
+	private Partida() {
+
+	}
+	
+	/**
+	 * Metodo estático para el patron singleton. Este método es el que se
+	 * llama cuando la instancia debe ser creada por primera vez. 
+	 * En los sucesivos llamados, se debe utilizar getInstance()
+	 * @param ui Es la pantalla que tiene asociada la partida
+	 * @param fab Es la fabrica con la que se obtienen los elementos
+	 * a colocar en el mapa.
+	 * @return La instancia unica de partida
+	 */
+	public static Partida getInstance() {
+		if(instance == null) {
+			instance = new Partida();
+		}
+		return instance;
+	}
+	
+	public void inicializarNuevaPartida(PantallaNivel ui, FabricaElementos fab) {
 		pantalla = ui;
-		puntaje = 0;	
-		
+		this.fab = fab;
+		puntaje = 0;
 		Nivel lvl1 = new Nivel(fab, this, Main.filesConfig.getProperty("fileLvl1"), fab.getLevel1Layout());
 		Nivel lvl2 = new Nivel(fab, this, Main.filesConfig.getProperty("fileLvl2"), fab.getLevel2Layout());
 		Nivel lvl3 = new Nivel(fab, this, Main.filesConfig.getProperty("fileLvl3"), fab.getLevel3Layout());
@@ -52,31 +70,6 @@ public class Partida {
 		player = Jugador.getInstance();
 		player.reestablecerVidas();
 		player.reestablecerBombas();
-	}
-	
-	/**
-	 * Metodo estático para el patron singleton. Este método es el que se
-	 * llama cuando la instancia debe ser creada por primera vez. 
-	 * En los sucesivos llamados, se debe utilizar getInstance()
-	 * @param ui Es la pantalla que tiene asociada la partida
-	 * @param fab Es la fabrica con la que se obtienen los elementos
-	 * a colocar en el mapa.
-	 * @return La instancia unica de partida
-	 */
-	public static Partida getInstance(PantallaNivel ui, FabricaElementos fab) {
-		if(instance == null) {
-			instance = new Partida(ui,fab);
-		}
-		return instance;
-	}
-	
-	/**
-	 * Metodo estático del patron singleton. Debe ser llamado luego
-	 * de haber creado la instancia con getInstance(PantallaNivel, FabricaELementos)
-	 * @return La instancia unica de partida
-	 */
-	public static Partida getInstance() {
-		return instance;
 	}
 	
 	/**
@@ -95,29 +88,22 @@ public class Partida {
 		}
 	}
 	
-	//TODO no imprime el mapa nuevo cuando se pasa de nivel
 	public void imprimirMapa(Iterable<Entidad<? extends EntidadGrafica>> iterable, String layout) { 
-		//TODO revisar lo del fruits
 		LinkedList<EntidadGrafica> entGraficas = new LinkedList<EntidadGrafica>();
-
-		//TODO revisar esto
-		LinkedList<String> fruits = new LinkedList<String>();
 		
 		for(Entidad<? extends EntidadGrafica> ent : iterable) {
 			entGraficas.add(ent.getEntidadGrafica());
 		}
-		pantalla.imprimirMapa(entGraficas, layout, fruits);
+		pantalla.imprimirMapa(entGraficas, layout);
 	}
 	
 	public void perder() {
-		System.out.println("Perdiste");
 		nivelActual.detener();
 		pantalla.pantallaFinal("DEFEAT", puntaje);
 	}
 	
 	private void victoria() {
 		pantalla.pantallaFinal("VICTORY", puntaje);
-		System.out.println("Ganaste");
 	}
 	
 	/**
@@ -153,7 +139,6 @@ public class Partida {
 	}
 	
 	public void seApretoEnter() {
-		
 	}
 	
 	public void seApretoEspacio() {
@@ -168,7 +153,6 @@ public class Partida {
 	public void addPuntaje(int p) {
 		puntaje += p;
 		pantalla.setPuntacion(puntaje);
-//		System.out.println("SUMO " + p + " PUNTOS "); //Comentario
 	}
 
 	/**
@@ -224,15 +208,5 @@ public class Partida {
 		pantalla.refrescarLabelsBomba(bombasRestantes);
 		nivelActual.crearExplosivo(x, y);
 	}
-
-	
-	/**TEST SERIALIZADOR
-	JugadorDatos jug = new JugadorDatos("asldasd",345);
-	
-	Serializador ser = new Serializador();
-	ser.guardarJugador(jug);
-	for(JugadorDatos jd : ser.obtenerTopPlayers()) {
-		System.out.println(jd.getNombre()+":"+jd.getPuntaje());
-	}*/
 
 }

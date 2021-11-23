@@ -118,7 +118,8 @@ public class PantallaNivel extends JPanel implements State {
 		lblB.setBounds(530, 274, 32, 32);
 		panel.add(lblB);
 		
-		miPartida=Partida.getInstance(this, fabrica);
+		miPartida=Partida.getInstance();
+		miPartida.inicializarNuevaPartida(this, fabrica);
 	}
 	
 	public void seApretoDerecha() {
@@ -160,7 +161,7 @@ public class PantallaNivel extends JPanel implements State {
 		lblBomba.setText("X"+bombas);
 	}
 	
-	public void imprimirMapa(Iterable<EntidadGrafica> it, String mapa, Iterable<String> frutas) {		
+	public void imprimirMapa(Iterable<EntidadGrafica> it, String mapa) {		
 		if(lblMapa!=null) panelMapa.remove(lblMapa);
 		
 		lblMapa = new JLabel(reEscalar(mapa, 504, 576));

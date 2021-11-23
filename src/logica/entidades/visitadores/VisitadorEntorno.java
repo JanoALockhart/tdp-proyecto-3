@@ -10,7 +10,7 @@ public class VisitadorEntorno implements Visitor{
 	
 	@Override
 	public void serAfectadoPor(Perseguidor per) {
-		per.meTocaExplosion();
+		per.morir();
 	}
 
 	@Override

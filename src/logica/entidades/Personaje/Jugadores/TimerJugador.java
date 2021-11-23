@@ -1,12 +1,14 @@
 package logica.entidades.Personaje.Jugadores;
 
+import logica.entidades.entGrafica.JugadorGrafico;
+
 public class TimerJugador extends Thread{
 	
-	private Jugador miJugador;
+	private Jugador<? extends JugadorGrafico> miJugador;
 	private int vel;
 	private boolean continuar;
 	
-	public TimerJugador(Jugador miJugador, int vel) {
+	public TimerJugador(Jugador<? extends JugadorGrafico> miJugador, int vel) {
 		this.miJugador = miJugador;
 		this.vel = vel;
 	}
@@ -23,8 +25,7 @@ public class TimerJugador extends Thread{
 				Thread.sleep(vel);
 				miJugador.avanzar();
 			} catch (Exception e) {
-				e.printStackTrace();
-				System.out.println(e.getMessage());
+
 			}
 		}
 		
@@ -32,6 +33,7 @@ public class TimerJugador extends Thread{
 
 	public void detener() {
 		continuar = false;
+		this.interrupt();
 	}
 	
 	public void empezar() {

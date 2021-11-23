@@ -122,6 +122,9 @@ public class Jugador<JG extends JugadorGrafico> extends Personaje<JugadorGrafico
 		direccionGuardada = dir;
 	}
 	
+	public void setEntidadGrafica(JugadorGrafico jugGraf) {
+		miObjetoGrafico = jugGraf;
+	}
 	
 	public void colocarEnMapa(Celda cel, Mapa map) {
 		miMapa = map;

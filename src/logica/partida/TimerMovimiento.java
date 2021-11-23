@@ -6,7 +6,7 @@ package logica.partida;
  *  le envie mensaje a los perseguidores para que 
  *  se muevan.
  */
-public class TimerMovimiento implements Runnable{
+public class TimerMovimiento extends Thread{
 	
 	protected ControladorPerseguidores menteEnemigos;
 	protected int vel;
@@ -39,7 +39,7 @@ public class TimerMovimiento implements Runnable{
 				Thread.sleep(vel);
 				menteEnemigos.moverPerseguidores();
 			} catch (Exception e) {
-				e.printStackTrace();
+
 			}
 		}
 		
@@ -50,14 +50,7 @@ public class TimerMovimiento implements Runnable{
 	 */
 	public void detener() {
 		continuar = false;
-	}
-	
-	/**
-	 * Metodo que ejecuta el metodo run
-	 */
-	public void empezar() {
-		continuar = true;
-		run();
+		this.interrupt();
 	}
 	
 }

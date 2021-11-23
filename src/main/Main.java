@@ -1,6 +1,5 @@
 package main;
 import java.awt.EventQueue;
-import java.io.IOException;
 import java.io.*;
 import java.util.Properties;
 
@@ -27,6 +26,7 @@ public class Main {
 				}
 			}
 		});
+		
 	}
 	
 	/**

@@ -16,6 +16,6 @@ public interface Visitor {
 
 	public void serAfectadoPor(Perseguidor per);
 	public void serAfectadoPor(Collectible col);
-	public void serAfectadoPor(Jugador<JugadorGrafico> player);
+	public void serAfectadoPor(Jugador<? extends JugadorGrafico> player);
 	public void serAfectadoPor(Entorno ent);
 }

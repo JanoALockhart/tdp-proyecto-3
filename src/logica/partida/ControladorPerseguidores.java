@@ -34,9 +34,6 @@ public class ControladorPerseguidores {
 		//Crear aca el timer de asustarlos
 	}
 	
-	//TODO habria que crear un metodo desasustar
-	//para que asi haya un solo thread???
-	
 	/**
 	 * Metodo que comunica a todos los perseguidores que se
 	 * muevan un paso.

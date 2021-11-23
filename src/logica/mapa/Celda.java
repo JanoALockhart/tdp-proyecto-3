@@ -21,7 +21,7 @@ public class Celda {
 	private static final int ANCHO = Integer.parseInt(Main.dimentionConfig.getProperty("anchoCelda"));
 	private static final int ALTO = Integer.parseInt(Main.dimentionConfig.getProperty("altoCelda"));
 	
-	Set<Entidad<? extends EntidadGrafica>> entidades;
+	private Set<Entidad<? extends EntidadGrafica>> entidades;
 	
 	/**
 	 * Constructor de Celda

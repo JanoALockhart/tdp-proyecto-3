@@ -4,33 +4,28 @@ import logica.entidades.Collectibles.Collectible;
 import logica.entidades.Entornos.Entorno;
 import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.Personaje.Perseguidores.Perseguidor;
-import logica.partida.Partida;
-import main.Main;
+import logica.entidades.entGrafica.JugadorGrafico;
 
 public class VisitadorEntorno implements Visitor{
 
 	@Override
 	public void serAfectadoPor(Perseguidor per) {
 		per.morir();
-		//TODO Chequear esto si no es con el state.activarEfecto desde fantasma
 	}
 
 	@Override
 	public void serAfectadoPor(Collectible col) {
-		// TODO Auto-generated method stub
-		
+		//No se activa
 	}
 
 	@Override
-	public void serAfectadoPor(Jugador player) {
-		// TODO Auto-generated method stub
-		
+	public void serAfectadoPor(Jugador<JugadorGrafico> player) {
+		//No se activa
 	}
 
 	@Override
 	public void serAfectadoPor(Entorno ent) {
-		// TODO Auto-generated method stub
-		
+		//No se activa
 	}
 
 }

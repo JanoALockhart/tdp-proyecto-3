@@ -276,16 +276,6 @@ public class Mapa {
 		Pixel esqSupIzq = rec.getPixelSuperiorIzquierdo();	
 		Pixel esqInfDer = rec.getPixelInferiorDerecho();
 		
-		/*
-		Pixel esqSupDer = rec.getPixelSuperiorDerecho();
-		Pixel esqInfIzq = rec.getPixelInferiorIzquierdo();
-		
-		conjuntoCeldas.add(misCeldas[esqSupIzq.getX()/ANCHO_CELDA][esqSupIzq.getY()/ALTO_CELDA]);
-		conjuntoCeldas.add(misCeldas[esqSupDer.getX()/ANCHO_CELDA][esqSupDer.getY()/ALTO_CELDA]);
-		conjuntoCeldas.add(misCeldas[esqInfIzq.getX()/ANCHO_CELDA][esqInfIzq.getY()/ALTO_CELDA]);
-		conjuntoCeldas.add(misCeldas[esqInfDer.getX()/ANCHO_CELDA][esqInfDer.getY()/ALTO_CELDA]);
-		*/
-		
 		int x1 = esqSupIzq.getX()/ANCHO_CELDA;
 		int x2 = esqInfDer.getX()/ANCHO_CELDA;
 		int y1 = esqSupIzq.getY()/ALTO_CELDA;

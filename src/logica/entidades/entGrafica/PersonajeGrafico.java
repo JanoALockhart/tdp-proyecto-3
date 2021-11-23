@@ -31,7 +31,7 @@ public abstract class PersonajeGrafico extends EntidadGrafica{
 			nuevaImg = miEstadoAct.getImgGirada(dir);
 			nuevoIcon = new ImageIcon(PersonajeGrafico.class.getResource(nuevaImg));
 			Image imgResized = nuevoIcon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT);
-	        icon = new ImageIcon(imgResized);
+	        ImageIcon icon = new ImageIcon(imgResized);
 	        
 	        jlbl.setIcon(icon);
 		}catch(NullPointerException e) {

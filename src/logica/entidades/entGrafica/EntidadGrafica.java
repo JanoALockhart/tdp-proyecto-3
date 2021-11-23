@@ -12,18 +12,17 @@ import logica.geometria.Pixel;
 import main.Main;
 
 public class EntidadGrafica{   
-		protected String dirImg;
+		protected String imgDefault;
 		protected JLabel jlbl;
-		protected ImageIcon icon;
 		protected Pixel posInicial;
 		protected int width, height, priority;
 		
 		public EntidadGrafica(String dir, int posX, int posY, int width, int height, int priority) {
-			dirImg = dir;
+			imgDefault = dir;
 			posInicial = new Pixel(posX,posY);
 			
 			//Resize imageIcon
-			icon = new ImageIcon(EntidadGrafica.class.getResource(dir));
+			ImageIcon icon = new ImageIcon(EntidadGrafica.class.getResource(dir));
 			Image imgResized = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
 	        icon = new ImageIcon(imgResized);
 			
@@ -40,7 +39,7 @@ public class EntidadGrafica{
 		}
 		
 		public String getImg() {
-			return dirImg;
+			return imgDefault;
 		}
 		
 		public JLabel getLbl() {
@@ -58,9 +57,6 @@ public class EntidadGrafica{
 			HitBox hitBox = new HitBox((int)lbl.getX(), (int) lbl.getY(),(int)lbl.getWidth()-1,(int)lbl.getHeight()-1);
 			return hitBox;
 		}
-		
-		public ImageIcon getIcon() { return icon;}
-
 
 		public int getPriority() {
 			return priority;

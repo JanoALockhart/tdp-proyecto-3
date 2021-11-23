@@ -177,4 +177,9 @@ public class ArquitectoNivel implements BuilderNivel{
 		map.agregarCelda(cel);
 	}
 	
+	public void colocarExplosivo(int x, int y) {
+		Explosivo expl = miFabrica.construirExplosivo(x, y, map);
+		expl.iniciar();
+	}
+	
 }

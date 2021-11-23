@@ -120,7 +120,7 @@ public class Nivel {
 	}
 	
 	public void crearExplosivo(int x, int y) {
-		//Explosivo exp = fab.construirExplosivo(x,y,miMapa);
-		//exp.iniciar();
+		Explosivo exp =
+		exp.iniciar();
 	}
 }

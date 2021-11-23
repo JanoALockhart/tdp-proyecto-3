@@ -63,7 +63,7 @@ public class Jugador<JG extends JugadorGrafico> extends Personaje<JugadorGrafico
 	public void ponerBomaba() {
 		if(cantBombas>0) {
 			cantBombas--;
-			//TODO poner en mapa el explisivo
+			//TODO poner en mapa el explosivo
 		}
 	}
 	

@@ -229,6 +229,10 @@ public class Partida {
 	public void colocarEntidadGrafica(EntidadGrafica entGraf) {
 		//TODO le paso a la gui una entidad grafica
 	}
+	
+	public void crearExplosivo(int x, int y) {
+		nivelActual.crearExplosivo(x, y);
+	}
 
 
 }

@@ -229,11 +229,11 @@ public class FabricaNether implements FabricaElementos{
 	}
 	
 	public String getIconoBomba() {
-		return "../recursos/imagenes/skinNether/collectibles/bombaColl.png";
+		return "src/recursos/imagenes/skinNether/collectibles/bombaColl.png";
 	}
 	@Override
 	public String getIconoFruit() {
-		return "../recursos/imagenes/skinNether/collectibles/sopa.png";
+		return "src/recursos/imagenes/skinNether/collectibles/sopa.png";
 	}
 	
 }

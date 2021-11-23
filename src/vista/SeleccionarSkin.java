@@ -79,11 +79,11 @@ public class SeleccionarSkin extends JPanel implements State{
 		panel.setBackground(Color.BLACK);
 		panel.setLayout(null);
 		
-		lblImagen = new JLabel("  ");
+		lblImagen = new JLabel("");
 		lblImagen.setHorizontalAlignment(SwingConstants.CENTER);
 		lblImagen.setForeground(Color.WHITE);
 		lblImagen.setFont(mainFont);
-		lblImagen.setBounds(10, 11, 580, 553);
+		lblImagen.setBounds(236, 11, 128, 553);
 		panel.add(lblImagen);
 		
 		miSlider=new Slider<String>(2);
@@ -93,8 +93,8 @@ public class SeleccionarSkin extends JPanel implements State{
 		
 		icons=new Icon[2];
 		
-		icons[0]=new ImageIcon(MenuPrincipal.class.getResource("../recursos/imagenes/tnt.png"));
-		icons[1]=new ImageIcon(MenuPrincipal.class.getResource("../recursos/imagenes/tnt.png"));
+		icons[0]=new ImageIcon(MenuPrincipal.class.getResource("../recursos/imagenes/skinOverworld/previewOverworld.png"));
+		icons[1]=new ImageIcon(MenuPrincipal.class.getResource("../recursos/imagenes/skinNether/previewNether.png"));
 		
 		lblImagen.setIcon(icons[0]);
 	}

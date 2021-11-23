@@ -229,11 +229,11 @@ public class FabricaOverworld implements FabricaElementos{
 	}
 	@Override
 	public String getIconoBomba() {
-		return "../recursos/imagenes/skinOverworld/collectibles/gunpowder.png";
+		return "src/recursos/imagenes/skinOverworld/collectibles/gunpowder.png";
 	}
 	@Override
 	public String getIconoFruit() {
-		return "../recursos/imagenes/skinOverworld/collectibles/fruit.png";
+		return "src/recursos/imagenes/skinOverworld/collectibles/fruit.png";
 	}
 	
 }

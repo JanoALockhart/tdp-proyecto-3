@@ -271,6 +271,7 @@ public class Mapa {
 	 * @return Un iterable de celdas
 	 */
 	private Iterable<Celda> getCeldasTocadasPor(HitBox rec) {
+		
 		HashSet<Celda> conjuntoCeldas = new HashSet<Celda>();
 		
 		Pixel esqSupIzq = rec.getPixelSuperiorIzquierdo();	
@@ -281,9 +282,10 @@ public class Mapa {
 		int y1 = esqSupIzq.getY()/ALTO_CELDA;
 		int y2 = esqInfDer.getY()/ALTO_CELDA;
 		
+		
 		for(int x = x1; x<=x2; x++) {
 			for(int y = y1; y<=y2; y++) {
-				if(0<=x && x<ANCHO*ANCHO_CELDA && 0<=y && y<ALTO*ALTO_CELDA && misCeldas[x][y]!=null) {
+				if(0<=x && x<ANCHO && 0<=y && y<ALTO && misCeldas[x][y]!=null) {//SI no se sale de los limites del mapa
 					conjuntoCeldas.add(misCeldas[x][y]);
 				}
 			}

@@ -16,7 +16,7 @@ public class Serializador {
 			bestPlayers = new TopJugadores();
 			FileInputStream fileInputStream = new FileInputStream("src/datos/puntajes.score");
 		    ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-		    bestPlayers = (TopJugadores) objectInputStream.readObject();//TODO PREGUNTAR
+		    bestPlayers = (TopJugadores) objectInputStream.readObject();
 		    objectInputStream.close();
 		    
 		}catch(FileNotFoundException e){

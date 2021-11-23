@@ -1,6 +1,5 @@
 package logica.entidades.entGrafica;
 
-import java.awt.Component;
 import java.awt.Image;
 import java.awt.Rectangle;
 
@@ -9,7 +8,6 @@ import javax.swing.JLabel;
 
 import logica.geometria.HitBox;
 import logica.geometria.Pixel;
-import main.Main;
 
 public class EntidadGrafica{   
 		protected String imgDefault;

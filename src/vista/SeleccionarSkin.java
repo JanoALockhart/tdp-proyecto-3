@@ -169,7 +169,6 @@ public class SeleccionarSkin extends JPanel implements State{
 
 	@Override
 	public void seApretoP(boolean pause) {
-		// TODO Auto-generated method stub
 		
 	}
 }

@@ -256,31 +256,26 @@ public class PantallaPuntajes implements State {
 	
 	@Override
 	public void seApretoDerecha() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void seApretoIzquierda() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void seApretoAbajo() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void seApretoArriba() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void seApretoEnter() {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -302,7 +297,6 @@ public class PantallaPuntajes implements State {
 
 	@Override
 	public void seApretoP(boolean pause) {
-		// TODO Auto-generated method stub
 		
 	}
 

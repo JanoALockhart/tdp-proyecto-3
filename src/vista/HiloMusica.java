@@ -40,8 +40,8 @@ public class HiloMusica extends Thread {
 			
 			
 			this.clip.start();
-		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-			e.printStackTrace();
+		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException | IllegalStateException e) {
+
 		}
 	}
 	
@@ -55,4 +55,7 @@ public class HiloMusica extends Thread {
 		return pause;
 	}
 	
+	public void onGameClosed() {
+		clip.close();
+	}
 }

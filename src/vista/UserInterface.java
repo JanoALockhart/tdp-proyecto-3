@@ -51,7 +51,7 @@ public class UserInterface extends JFrame {
 			e.printStackTrace();
 		}	
 		
-		fabrica=new FabricaNether(); //TODO modificado
+		fabrica=new FabricaOverworld();
 		
 		miEstado=new MenuPrincipal(this, 0, mainFont);
 		
@@ -94,6 +94,15 @@ public class UserInterface extends JFrame {
 			}
 		});
 		
+		Runtime.getRuntime().addShutdownHook(new Thread()
+		{
+		    @Override
+		    public void run()
+		    {
+		        musica.onGameClosed();
+		        musica=null;
+		    }
+		});
 	}
 	
 	/**

@@ -10,17 +10,22 @@ public class Explosivo extends Entorno {
 
 	private int radio;
 	protected TimerExplosion miTimer;
+	protected EntidadGrafica fuego;
 	
 	public Explosivo(EntidadGrafica tnt, EntidadGrafica fuego, Mapa map) {
 		super(tnt,map);
 		map.colocarEnCeldasQueToca(this);
-		//TODO IMPRIMIR EN PARTIDA Partida.getInstance().
+		Partida.getInstance().colocarEntidadGrafica(tnt);
 		miTimer = new TimerExplosion(this);
-		//TODO DECIRLE A PARTIDA QUE IMPRIMA AL EXPLOSIVO
+		this.fuego = fuego;
 	}
 	
 	public void accept(Visitor v) {
 		v.serAfectadoPor(this);
+	}
+	
+	public void iniciar() {
+		miTimer.run();
 	}
 	
 	/**
@@ -33,11 +38,10 @@ public class Explosivo extends Entorno {
 	 */
 	public void explotar() {
 		Partida.getInstance().elimnarEntidadGrafica(miObjetoGrafico);
-		//Cambiar entidad grafica
-		
-		//Eliminar la tnt logica del mapa
 		miMapa.eliminarDeCeldasQueTocaba(this, getHitbox());
-		
+		miObjetoGrafico = fuego;
+		Partida.getInstance().colocarEntidadGrafica(miObjetoGrafico);
+		miMapa.colocarEnCeldasQueToca(this);
 	}
 	
 	/**
@@ -48,9 +52,5 @@ public class Explosivo extends Entorno {
 		Partida.getInstance().elimnarEntidadGrafica(miObjetoGrafico);
 	}
 
-	@Override
-	public void activarEfecto() {
-		//LLamar a morir desde el visitor
-	}
-	
+
 }

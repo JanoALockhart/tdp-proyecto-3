@@ -24,7 +24,6 @@ public interface FabricaElementos {
 	public SpeedPotion construirSpeedPotion(Celda cel, Mapa map);
 	public Bomb construirBomba(Celda cel, Mapa map);
 	public Celda construirCelda(int x, int y);
-	public Portal construirPortal(Celda cel, Mapa maps);
 	public Explosivo construirExplosivo(int x, int y, Mapa map);
 	public String getLevel1Layout();
 	public String getLevel2Layout();

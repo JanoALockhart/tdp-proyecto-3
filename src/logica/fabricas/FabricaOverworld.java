@@ -11,7 +11,6 @@ import logica.entidades.Collectibles.Power_ups.SpeedPotion;
 import logica.entidades.Collectibles.Puntos.Fruta;
 import logica.entidades.Collectibles.Puntos.PacDot;
 import logica.entidades.Entornos.Explosivo;
-import logica.entidades.Entornos.Portal;
 import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.Personaje.Perseguidores.Blinky;
 import logica.entidades.Personaje.Perseguidores.Clyde;
@@ -185,11 +184,6 @@ public class FabricaOverworld implements FabricaElementos{
 		return new Celda(x,y);
 	}
 
-
-	public Portal construirPortal(Celda cel, Mapa map) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	/**
 	 * Metodo que devuelve la imagen de fondo para el nivel1

@@ -25,4 +25,8 @@ public class Muerto extends StatePerseguidor {
 		//NO HAY EFECTO CUANDO SE COLISIONA CON UN FANTASMA MUERTO
 	}
 
+	public boolean puedeMorir() {
+		return false;
+	}
+	
 }

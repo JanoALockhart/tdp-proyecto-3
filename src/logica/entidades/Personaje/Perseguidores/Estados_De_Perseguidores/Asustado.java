@@ -56,5 +56,9 @@ public class Asustado extends StatePerseguidor {
 	public void activarEfecto() {
 		miFantasma.morir();
 	}
+	
+	public boolean puedeMorir() {
+		return true;
+	}
 
 }

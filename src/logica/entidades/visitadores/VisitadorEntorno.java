@@ -7,11 +7,10 @@ import logica.entidades.Personaje.Perseguidores.Perseguidor;
 import logica.entidades.entGrafica.JugadorGrafico;
 
 public class VisitadorEntorno implements Visitor{
-	//Atributo de Explosivo
+	
 	@Override
 	public void serAfectadoPor(Perseguidor per) {
-		//Expolosivo.exploto
-		per.morir();
+		per.meTocaExplosion();
 	}
 
 	@Override

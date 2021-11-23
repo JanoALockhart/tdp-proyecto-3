@@ -17,7 +17,10 @@ public abstract class Persiguiendo extends StatePerseguidor {
 
 	public void activarEfecto() {
 		//Restar vida a pacman y resetearlo
-		System.out.println("perder Vida");
 		Jugador.getInstance().perderVida();
+	}
+	
+	public boolean puedeMorir() {
+		return true;
 	}
 }

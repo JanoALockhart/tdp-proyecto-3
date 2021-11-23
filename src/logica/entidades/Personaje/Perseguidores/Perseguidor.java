@@ -141,6 +141,11 @@ public abstract class Perseguidor extends Personaje<PerseguidorGrafico> implemen
 		miObjetoGrafico.setMuerto(direccion);
 	}
 	
+	public void meTocaExplosion() {
+		if(state.puedeMorir()) {
+			morir();
+		}
+	}
 	
 	public StatePerseguidor getState() {return state;}
 }

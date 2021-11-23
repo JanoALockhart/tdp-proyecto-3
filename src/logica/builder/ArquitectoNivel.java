@@ -2,6 +2,7 @@ package logica.builder;
 
 
 import logica.entidades.Entidad;
+import logica.entidades.Entornos.Explosivo;
 import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.Personaje.Perseguidores.Blinky;
 import logica.entidades.Personaje.Perseguidores.Inky;

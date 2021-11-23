@@ -8,7 +8,6 @@ import logica.partida.Partida;
 
 public class Explosivo extends Entorno {
 
-	private int radio;
 	protected TimerExplosion miTimer;
 	protected EntidadGrafica fuego;
 	

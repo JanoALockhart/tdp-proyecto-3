@@ -171,11 +171,14 @@ public class FabricaOverworld implements FabricaElementos{
 		int prio = Integer.parseInt(Main.personajesConfig.getProperty("prioCollectible"));	
 		int dimension = Integer.parseInt(Main.dimentionConfig.getProperty("TNTsize"));
 		EntidadGrafica tnt = new EntidadGrafica(imgDet,x,y,dimension,dimension,prio);
-		int rango = Integer.parseInt(Main.personajesConfig.getProperty("rangoBomba"));
-		int dur1 = Integer.parseInt(Main.personajesConfig.getProperty("tiempoExplosion"));
-		int dur2 = Integer.parseInt(Main.personajesConfig.getProperty("fuego"));
-		return new Explosivo(tnt,imgExp,rango, dur1, dur2,map);
-		return null;
+		int rango = Integer.parseInt(Main.dimentionConfig.getProperty("ExplosionSize"));
+		
+		//Calcular dimensiones
+		int xExp = (x+dimension/2-rango/2);
+		int yExp = (y+dimension/2-rango/2);
+	
+		EntidadGrafica explosion = new EntidadGrafica(imgExp,xExp,yExp,rango,rango,prio);
+		return new Explosivo(tnt,explosion,map);
 	}
 
 	public Celda construirCelda(int x, int y) {
@@ -223,6 +226,16 @@ public class FabricaOverworld implements FabricaElementos{
 			e.printStackTrace();
 		}
 		return file;
+	}
+	@Override
+	public String getIconoBomba() {
+		Properties dirSkins = abrirArchivoSkins(archivoDirImgs.getProperty("skinsCollectibles"));
+		return dirSkins.getProperty("tnt");
+	}
+	@Override
+	public String getIconoFruit() {
+		Properties dirSkins = abrirArchivoSkins(archivoDirImgs.getProperty("skinsCollectibles"));
+		return dirSkins.getProperty("fruta");
 	}
 	
 }

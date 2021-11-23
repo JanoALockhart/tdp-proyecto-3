@@ -61,9 +61,11 @@ public class Jugador<JG extends JugadorGrafico> extends Personaje<JugadorGrafico
 	}
 	
 	public void ponerBomaba() {
+		Pixel pos;
 		if(cantBombas>0) {
 			cantBombas--;
-			//TODO poner en mapa el explosivo
+			pos = this.getPos();
+			Partida.getInstance().crearExplosivo(pos.getX(), pos.getY());
 		}
 	}
 	

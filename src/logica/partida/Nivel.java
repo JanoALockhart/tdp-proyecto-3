@@ -120,7 +120,6 @@ public class Nivel {
 	}
 	
 	public void crearExplosivo(int x, int y) {
-		Explosivo exp =
-		exp.iniciar();
+		miBuilder.colocarExplosivo(x, y);
 	}
 }

@@ -29,5 +29,7 @@ public interface FabricaElementos {
 	public String getLevel1Layout();
 	public String getLevel2Layout();
 	public String getLevel3Layout();
+	public String getIconoBomba();
+	public String getIconoFruit();
 	
 }

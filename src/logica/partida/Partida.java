@@ -159,15 +159,7 @@ public class Partida {
 	}
 	
 	public void seApretoEspacio() {
-		
-		/**TEST SERIALIZADOR
-		JugadorDatos jug = new JugadorDatos("asldasd",345);
-		
-		Serializador ser = new Serializador();
-		ser.guardarJugador(jug);
-		for(JugadorDatos jd : ser.obtenerTopPlayers()) {
-			System.out.println(jd.getNombre()+":"+jd.getPuntaje());
-		}*/
+		Jugador.getInstance().ponerBomaba();	
 	}
 	
 	/**
@@ -227,12 +219,21 @@ public class Partida {
 	}
 	
 	public void colocarEntidadGrafica(EntidadGrafica entGraf) {
-		//TODO le paso a la gui una entidad grafica
+		pantalla.seAgregoEntidad(entGraf);
 	}
 	
 	public void crearExplosivo(int x, int y) {
 		nivelActual.crearExplosivo(x, y);
 	}
 
+	
+	/**TEST SERIALIZADOR
+	JugadorDatos jug = new JugadorDatos("asldasd",345);
+	
+	Serializador ser = new Serializador();
+	ser.guardarJugador(jug);
+	for(JugadorDatos jd : ser.obtenerTopPlayers()) {
+		System.out.println(jd.getNombre()+":"+jd.getPuntaje());
+	}*/
 
 }

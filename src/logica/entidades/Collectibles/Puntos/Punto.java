@@ -1,4 +1,4 @@
-package logica.entidades.Collectibles.Puntos;
+ package logica.entidades.Collectibles.Puntos;
 
 import logica.entidades.Collectibles.Collectible;
 import logica.entidades.entGrafica.EntidadGrafica;

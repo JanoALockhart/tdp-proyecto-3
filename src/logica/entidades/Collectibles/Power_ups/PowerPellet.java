@@ -10,11 +10,17 @@ public class PowerPellet extends PowerUp {
 		super(ent, map);
 	}
 
+	/**Es el que se encarga de activar el efecto de los power Pellet que es para poder comer a los fantasmas(osea matar);
+	 * @param v recibe un visitor que luego se manda a los distintos visitadores
+	 */
 	@Override
 	public void accept(Visitor v) {
 		v.serAfectadoPor(this);
 	}
 
+	/**
+	 * Este metodo te deja matar a los fantasmas, y hace que estos huyan del jugador 
+	 */
 	@Override
 	public void activarEfecto() {
 		Partida.getInstance().asustarPerseguidores();//TODO implementar asustar

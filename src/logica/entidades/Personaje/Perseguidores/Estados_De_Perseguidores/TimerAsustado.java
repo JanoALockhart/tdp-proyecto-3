@@ -21,16 +21,19 @@ public class TimerAsustado implements Runnable{
 	
 	@Override
 	public void run() {
-		while(contador != 0 && !muerto) {
+		muerto = false;
+		while(contador > 0 && !muerto) {
 			try {
+				System.out.println("contador "+contador);
 				contador--;
 				Thread.sleep(1000);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-		if(!muerto)
+		if(!muerto) {
 			miPersiguidor.perseguir();
+		}
 		muerto = false;
 	}
 	

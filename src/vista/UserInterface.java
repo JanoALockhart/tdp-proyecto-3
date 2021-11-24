@@ -39,7 +39,7 @@ public class UserInterface extends JFrame {
 		c1=new CardLayout(0,0);		
 		contentPane.setLayout(c1);
 		
-		musica=new HiloMusica("src/vista/amogus.wav");
+		musica=new HiloMusica("src/recursos/sonidos/musica.wav");
 		
 		musica.audioOn();
 		

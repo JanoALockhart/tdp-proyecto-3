@@ -229,4 +229,8 @@ public class PantallaNivel extends JPanel implements State {
         Image imgResized = img.getImage().getScaledInstance(x, y, Image.SCALE_SMOOTH);
         return new ImageIcon(imgResized);
     }
+
+	public void reproducirSonido(String string, float volume) {
+		miUI.reproducirSonido(string, volume);
+	}
 }

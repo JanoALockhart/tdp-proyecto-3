@@ -204,4 +204,8 @@ public class Partida {
 		nivelActual.crearExplosivo(x, y);
 	}
 
+	public void reproducirSonido(String string, float volume) {
+		pantalla.reproducirSonido(string, volume);
+	}
+
 }

@@ -58,4 +58,19 @@ public class HiloMusica extends Thread {
 	public void onGameClosed() {
 		clip.close();
 	}
+	
+	public void reproducirSonido(String source, float volume) {
+		try {
+			Clip cli = AudioSystem.getClip();
+			cli.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(source)));
+			
+			FloatControl gainControl = 
+				    (FloatControl) cli.getControl(FloatControl.Type.MASTER_GAIN);
+				gainControl.setValue(volume);
+			
+			cli.start();
+		} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
+			e.printStackTrace();
+		}
+	}
 }

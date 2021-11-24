@@ -39,7 +39,7 @@ public class UserInterface extends JFrame {
 		c1=new CardLayout(0,0);		
 		contentPane.setLayout(c1);
 		
-		musica=new HiloMusica("src/vista/amogus.wav");
+		musica=new HiloMusica("src/recursos/sonidos/musica.wav");
 		
 		musica.audioOn();
 		
@@ -139,6 +139,10 @@ public class UserInterface extends JFrame {
 	 */
 	public void setFabrica(FabricaElementos fabricaNueva) {
 		fabrica=fabricaNueva;
+	}
+
+	public void reproducirSonido(String string, float volume) {
+		musica.reproducirSonido(string, volume);
 	}
 
 }

@@ -35,18 +35,7 @@ public class PacDot extends Punto {
 		Partida.getInstance().elimnarEntidadGrafica(this.miObjetoGrafico);
 		miMapa.subContador();//Se elimina un pacdot de la cuenta
 		
-		try {
-			Clip cli = AudioSystem.getClip();
-			cli.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/logica/entidades/Collectibles/Puntos/Pac-Dot-Sound.wav")));
-			
-			FloatControl gainControl = 
-				    (FloatControl) cli.getControl(FloatControl.Type.MASTER_GAIN);
-				gainControl.setValue(-15.0f);
-			
-			cli.start();
-		} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
-			e.printStackTrace();
-		}
+		Partida.getInstance().reproducirSonido("../recursos/sonidos/Pac-Dot-Sound.wav", -15.0f);
 		
 		
 	}

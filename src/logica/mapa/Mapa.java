@@ -1,12 +1,8 @@
 package logica.mapa;
-
-import java.awt.Point;
-import java.awt.Rectangle;
 import java.util.*;
 
 import logica.entidades.Entidad;
 import logica.entidades.Personaje.Personaje;
-import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.entGrafica.EntidadGrafica;
 import logica.entidades.visitadores.Visitor;
 import logica.geometria.HitBox;

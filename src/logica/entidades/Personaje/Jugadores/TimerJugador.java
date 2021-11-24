@@ -33,7 +33,6 @@ public class TimerJugador extends Thread{
 
 	public void detener() {
 		continuar = false;
-		this.interrupt();
 	}
 	
 	public void empezar() {

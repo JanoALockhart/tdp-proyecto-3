@@ -24,7 +24,6 @@ public class TimerAsustado implements Runnable{
 		muerto = false;
 		while(contador > 0 && !muerto) {
 			try {
-				System.out.println("contador "+contador);
 				contador--;
 				Thread.sleep(1000);
 			} catch (Exception e) {

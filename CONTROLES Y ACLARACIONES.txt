@@ -1,0 +1,28 @@
+En todas las pantallas:
+	Apretar P para prender/apagar musica de fondo
+
+En el menu principal:
+	Para moverse entre las opciones utilizar las teclas w y s. Apretar Enter para que 
+	la opcion pintada de amarillo sea la elegida 
+
+Dentro de la partida:
+	Los controles son w, a, s, d para cambiar la direccion hacia arriba, izquierda,
+	abajo y derecha respectivamente.
+	Para colocar bomba, apretar la barra espaciadora.
+
+En la pantalla final(luego de que se pierde o se gana):
+	Usar las teclas w y s para cambiar la letra marcada en amarillo
+	Usar las teclas a y d para cambiar la letra que se quiere modificar
+	Apretar enter para confirmar el nombre y volver al menu principal
+
+En la pantalla de puntuaciones:
+	Espacio para volver al menu principal
+
+
+
+Excepciones sin resolucion:
+
+IllegalStateException: al iniciar el juego, a veces lanza una excepcion relacionada con el formato de la musica. Si se cierra y vuelve a iniciar el juego y la excepcion no vuelve a salir, puede jugarse con normalidad.
+
+
+	

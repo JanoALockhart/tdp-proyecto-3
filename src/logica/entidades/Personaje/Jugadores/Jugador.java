@@ -46,14 +46,7 @@ public class Jugador<JG extends JugadorGrafico> extends Personaje<JugadorGrafico
 	
 	public void perderVida() {
 		vidas--;
-		System.out.println("vidas Jugador: "+vidas);
-		if(vidas == 0) {
-			Partida.getInstance().perder();
-		}else {
-			Partida.getInstance().quitarVida(vidas);
-		}
-		
-		
+		Partida.getInstance().quitarVida(vidas);	
 	}
 	
 	public void accept(Visitor v) {		
@@ -125,7 +118,7 @@ public class Jugador<JG extends JugadorGrafico> extends Personaje<JugadorGrafico
 	public void setEntidadGrafica(JugadorGrafico jugGraf) {
 		miObjetoGrafico = jugGraf;
 	}
-	
+
 	public void colocarEnMapa(Celda cel, Mapa map) {
 		miMapa = map;
 		Pixel pInic = new Pixel(cel.getX()*cel.getAncho(),cel.getY()*cel.getAlto());

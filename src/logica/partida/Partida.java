@@ -4,18 +4,11 @@
 package logica.partida;
 
 import java.util.LinkedList;
-
-import datos.JugadorDatos;
-import datos.Serializador;
-import logica.builder.*;
 import logica.entidades.*;
-import logica.entidades.Personaje.Personaje;
 import logica.entidades.Personaje.Jugadores.Jugador;
-import logica.entidades.Personaje.Perseguidores.Perseguidor;
 import logica.entidades.entGrafica.EntidadGrafica;
 import logica.entidades.entGrafica.JugadorGrafico;
 import logica.fabricas.*;
-import logica.mapa.Mapa;
 import main.Main;
 import vista.*;
 /** 
@@ -24,7 +17,6 @@ import vista.*;
  */
 public class Partida {
 	private PantallaNivel pantalla;
-	private FabricaElementos fab;
 	private Jugador<JugadorGrafico> player;
 	private int puntaje;
 	private Nivel nivelActual;
@@ -56,7 +48,6 @@ public class Partida {
 	
 	public void inicializarNuevaPartida(PantallaNivel ui, FabricaElementos fab) {
 		pantalla = ui;
-		this.fab = fab;
 		puntaje = 0;
 		Nivel lvl1 = new Nivel(fab, this, Main.filesConfig.getProperty("fileLvl1"), fab.getLevel1Layout());
 		Nivel lvl2 = new Nivel(fab, this, Main.filesConfig.getProperty("fileLvl2"), fab.getLevel2Layout());
@@ -170,7 +161,11 @@ public class Partida {
 	 * quedan al jugador
 	 */
 	public void quitarVida(int vidasRestantes) {
-		nivelActual.resetear();
+		if(vidasRestantes>0) {
+			nivelActual.resetear();
+		}else {
+			this.perder();
+		}
 		pantalla.refrescarLabelsVida(vidasRestantes);
 	}
 	

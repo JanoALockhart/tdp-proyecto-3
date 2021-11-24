@@ -62,7 +62,6 @@ public class ControladorPerseguidores {
 	}
 	
 	public void detenerPerseguidores() {
-		System.out.println("se detiene");
 		timerMov.detener();
 	}
 }

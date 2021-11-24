@@ -1,9 +1,6 @@
 package logica.entidades.Personaje.Perseguidores;
 
-import logica.mapa.Celda;
 import logica.mapa.Mapa;
-
-import java.util.Properties;
 
 import logica.entidades.Personaje.Perseguidores.Estados_De_Perseguidores.En_Estado_Persiguiendo.BlinkyPersiguiendo;
 import logica.entidades.entGrafica.PerseguidorGrafico;
@@ -26,7 +23,7 @@ public class Blinky extends Perseguidor {
 
 	@Override
 	public void accept(Visitor v) {
-		v.serAfectadoPor(this);//TODO Esto va o lo borramos???
+		v.serAfectadoPor(this);
 	}
 
 

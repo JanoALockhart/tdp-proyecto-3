@@ -1,14 +1,15 @@
 package logica.entidades.Personaje.Jugadores;
 
+import logica.entidades.entGrafica.JugadorGrafico;
 import main.Main;
 
 public class TimerEfecto implements Runnable{
 	
-	protected Jugador miJugador;
+	protected Jugador<? extends JugadorGrafico> miJugador;
 	protected int contador;
 	protected boolean seguir;
 	
-	public TimerEfecto(Jugador miJugador) {
+	public TimerEfecto(Jugador<? extends JugadorGrafico> miJugador) {
 		this.miJugador = miJugador;
 		this.contador = 0;
 		seguir=true;
@@ -16,7 +17,6 @@ public class TimerEfecto implements Runnable{
 	
 	public void setTimepo(int c){		
 		contador = c;
-		System.out.println("seteado tiempo "+contador);
 	}
 	
 	@Override
@@ -24,7 +24,6 @@ public class TimerEfecto implements Runnable{
 		seguir=true;
 		while(contador != 0 && seguir) {
 			try {
-				System.out.println(contador);
 				contador--;
 				Thread.sleep(1000);
 			} catch (Exception e) {

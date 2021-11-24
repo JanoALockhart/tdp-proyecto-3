@@ -39,7 +39,7 @@ public class TimerMovimiento extends Thread{
 				Thread.sleep(vel);
 				menteEnemigos.moverPerseguidores();
 			} catch (Exception e) {
-
+				
 			}
 		}
 		
@@ -50,7 +50,6 @@ public class TimerMovimiento extends Thread{
 	 */
 	public void detener() {
 		continuar = false;
-		this.interrupt();
 	}
 	
 }

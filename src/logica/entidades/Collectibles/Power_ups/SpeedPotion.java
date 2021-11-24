@@ -1,13 +1,5 @@
 package logica.entidades.Collectibles.Power_ups;
 
-import java.io.IOException;
-
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.FloatControl;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-
 import logica.entidades.Personaje.Jugadores.Jugador;
 import logica.entidades.entGrafica.EntidadGrafica;
 import logica.entidades.visitadores.*;
@@ -23,11 +15,17 @@ public class SpeedPotion extends PowerUp {
 		super(ent, map);
 	}
 
+	/**Es el que se encarga de activar el efecto de la potion que es aumentar la velocidad;
+	 * @param v recibe un visitor que luego se manda a los distintos visitadores
+	 */
 	@Override
 	public void accept(Visitor v) {
 		v.serAfectadoPor(this);
 	}
 
+	/**
+	 * Este metodo aumenta la velociadad del jugador
+	 */
 	@Override
 	public void activarEfecto() {
 		int duracion = Integer.parseInt(Main.personajesConfig.getProperty("duracionSP"));

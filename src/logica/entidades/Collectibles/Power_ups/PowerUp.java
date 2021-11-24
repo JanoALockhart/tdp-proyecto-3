@@ -10,6 +10,9 @@ public abstract class PowerUp extends Collectible {
 		super(ent, map);
 	}
 
+	/**
+	 * Este activa el efecto de cada colleccionable
+	 */
 	public void activarEfecto(){		
 	}
 }

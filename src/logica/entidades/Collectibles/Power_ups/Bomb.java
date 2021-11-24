@@ -13,7 +13,9 @@ public class Bomb extends PowerUp {
 		super(ent, map);
 	}
 
-
+	/**Es el que se encarga de activar el metodo activarEfecto();
+	 * @param v recibe un visitor que luego se manda a los distintos visitadores
+	 */
 	public void accept(Visitor v) {
 		v.serAfectadoPor(this);
 	}

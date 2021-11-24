@@ -209,6 +209,11 @@ public class Partida {
 		nivelActual.crearExplosivo(x, y);
 	}
 
+	/**
+	 * Método que indica a la pantalla de nivel que se reproduzca un sonido un sonido
+	 * @param source Fuente del sonido
+	 * @param volume Número real que modifica al volumen en que el sonido se reproducira
+	 */
 	public void reproducirSonido(String string, float volume) {
 		pantalla.reproducirSonido(string, volume);
 	}

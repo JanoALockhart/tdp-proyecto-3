@@ -150,17 +150,30 @@ public class PantallaNivel extends JPanel implements State {
 	public void seApretoEspacio() {
 		miPartida.seApretoEspacio();
 	}
-
+	
+	/**
+	 * Refresca las labels que aparecen en el HUD que le respectan a la vida 
+	 * @param bombas cantidad de vidas actuales
+	 */
 	public void refrescarLabelsVida(int vidas) {
 		for(int i=2; vidas<=i && vidas>=0; i--) {
 			lblsVida[i].setForeground(Color.BLACK);
 		}	
 	}
 	
+	/**
+	 * Refresca las labels que aparecen en el HUD que le respectan a bomba 
+	 * @param bombas cantidad de bombas actuales
+	 */
 	public void refrescarLabelsBomba(int bombas) {
 		lblBomba.setText("X"+bombas);
 	}
 	
+	/**
+	 * Imprime el mapa indicado con sus respectivas entidades
+	 * @param it Iterable de entidades gráficas que vienen con el mapa
+	 * @param mapa Source del mapa
+	 */
 	public void imprimirMapa(Iterable<EntidadGrafica> it, String mapa) {		
 		if(lblMapa!=null) panelMapa.remove(lblMapa);
 		
@@ -182,6 +195,10 @@ public class PantallaNivel extends JPanel implements State {
 		lblFrutaNumber.setText("x1");
 	}
 	
+	/** 
+	 * Método que remueve toda label de la coleccion de entidades gráficas pasadas
+	 * @param it iterable de entidades gráficas
+	 */
 	public void removerBasura(Iterable<EntidadGrafica> it) {
 		for(EntidadGrafica e:it) { 
 			panelMapa.remove(e.getLbl());
@@ -196,6 +213,10 @@ public class PantallaNivel extends JPanel implements State {
 		return stateName;
 	}
 	
+	/**
+	 * Método que remueve una label de la pantalla
+	 * @param label label a ser removida
+	 */
 	public void eliminarLabel(JLabel label) {
 		label.setVisible(false);
 		panelMapa.remove(panelMapa.getIndexOf(label));
@@ -209,12 +230,21 @@ public class PantallaNivel extends JPanel implements State {
 		puntaje.setText(Integer.toString(puntuacion));
 	}
 	
+	/**
+	 * Método que desencadena que la UI ponga la pantalla final
+	 * @param text Texto a escribirse en rojo en la pantalla final
+	 * @param points Puntos logrados por el jugador
+	 */
 	public void pantallaFinal(String text, int points) {
 		State estadoNuevo=new PantallaFinal(miUI, mainFont, text, points);
 		miUI.setSize(600, 600);
 		miUI.cambiarEstado(estadoNuevo, estadoNuevo.getName());
 	}
-
+	
+	/**
+	 * Se agrega entidad al panel del mapa
+	 * @param entidad Entidad a agregar
+	 */
 	public void seAgregoEntidad(EntidadGrafica entidad) {
 		panelMapa.add(entidad.getLbl(), entidad.getPriority());
 		panelMapa.setLayer(entidad.getLbl(), entidad.getPriority());
@@ -224,12 +254,24 @@ public class PantallaNivel extends JPanel implements State {
 		
 	}
 	
+	/**
+	 * Método que reescala una imagen
+	 * @param dirImg source de la imagen
+	 * @param x ancho que tendra la imagen
+	 * @param y alto que tendra la imagen
+	 * @return Un obj. de tipo ImageIcon de la imagen módificada
+	 */
 	private ImageIcon reEscalar(String dirImg, int x, int y) {
         ImageIcon img = new ImageIcon(dirImg);
         Image imgResized = img.getImage().getScaledInstance(x, y, Image.SCALE_SMOOTH);
         return new ImageIcon(imgResized);
     }
 
+	/**
+	 * Método que indica a la User Interface que se reproduzca un sonido un sonido
+	 * @param source Fuente del sonido
+	 * @param volume Número real que modifica al volumen en que el sonido se reproducira
+	 */
 	public void reproducirSonido(String string, float volume) {
 		miUI.reproducirSonido(string, volume);
 	}

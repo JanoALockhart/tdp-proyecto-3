@@ -15,6 +15,10 @@ public class HiloMusica extends Thread {
 	
 	private Clip clip;
 	
+	/**
+	 * Implementación de la música y sonidos
+	 * @param fuente Source de la música principal
+	 */
 	public HiloMusica(String fuente) {
 		this.fuente=fuente;
 		musical = new Thread(new Runnable() {
@@ -26,6 +30,9 @@ public class HiloMusica extends Thread {
 		pause=false;
 	}
 	
+	/**
+	 * Método que activara la música
+	 */
 	public void audioOn() {
 		File file=new File(fuente);
 		AudioInputStream music;
@@ -45,20 +52,36 @@ public class HiloMusica extends Thread {
 		}
 	}
 	
+	/**
+	 * Método que resumira la música en caso de pausada y pausará si esta reproduciendose
+	 */
 	public void audioPause() {
 		if(pause)clip.start();
 		else clip.stop();
 		pause=!pause;
 	}
 	
+	/**
+	 * Método que revisa si la música está pausada
+	 * @return pause True si esta pausada
+	 * 				 False si no esta pausada
+	 */
 	public boolean getPause() {
 		return pause;
 	}
 	
-	public void onGameClosed() {
+	/**
+	 * Método que cierra el hilo de la música
+	 */
+	public void closeMusicTread() {
 		clip.close();
 	}
 	
+	/**
+	 * Método que reproduce un sonido
+	 * @param source Fuente del sonido
+	 * @param volume Número real que modifica al volumen en que el sonido se reproducira
+	 */
 	public void reproducirSonido(String source, float volume) {
 		try {
 			Clip cli = AudioSystem.getClip();

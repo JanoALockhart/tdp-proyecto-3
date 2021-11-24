@@ -99,7 +99,7 @@ public class UserInterface extends JFrame {
 		    @Override
 		    public void run()
 		    {
-		        musica.onGameClosed();
+		        musica.closeMusicTread();
 		        musica=null;
 		    }
 		});
@@ -140,7 +140,12 @@ public class UserInterface extends JFrame {
 	public void setFabrica(FabricaElementos fabricaNueva) {
 		fabrica=fabricaNueva;
 	}
-
+	
+	/**
+	 * Método que indica al hilo música que se reproduzca un sonido un sonido
+	 * @param source Fuente del sonido
+	 * @param volume Número real que modifica al volumen en que el sonido se reproducira
+	 */
 	public void reproducirSonido(String string, float volume) {
 		musica.reproducirSonido(string, volume);
 	}

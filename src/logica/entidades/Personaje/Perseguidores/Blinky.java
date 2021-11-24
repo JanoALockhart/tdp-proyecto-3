@@ -12,7 +12,6 @@ public class Blinky extends Perseguidor {
 		super(skin,vel,map);	
 		state = new BlinkyPersiguiendo(this);    
 		visi = new VisitadorPerseguidor();
-		//pixelObjetivo = state.calcularObj();
 	}
 	
 

@@ -139,5 +139,4 @@ public abstract class Perseguidor extends Personaje<PerseguidorGrafico> implemen
 		}
 	}
 	
-	public StatePerseguidor getState() {return state;}
 }

@@ -37,18 +37,8 @@ public class SpeedPotion extends PowerUp {
 		miMapa.eliminarDeCeldasQueTocaba(this, getHitbox());//Se lo elimina
 		Partida.getInstance().elimnarEntidadGrafica(this.miObjetoGrafico);
 		
-		try {
-			Clip cli = AudioSystem.getClip();
-			cli.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/logica/entidades/Collectibles/Power_ups/SpeedPotion.wav")));
-			
-			FloatControl gainControl = 
-				    (FloatControl) cli.getControl(FloatControl.Type.MASTER_GAIN);
-				gainControl.setValue(-15.0f);
-			
-			cli.start();
-		} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
-			e.printStackTrace();
-		}
+		Partida.getInstance().reproducirSonido("../recursos/sonidos/SpeedPotion.wav", -15.0f);
+		
 	}
 
 

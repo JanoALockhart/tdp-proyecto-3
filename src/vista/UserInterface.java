@@ -141,4 +141,8 @@ public class UserInterface extends JFrame {
 		fabrica=fabricaNueva;
 	}
 
+	public void reproducirSonido(String string, float volume) {
+		musica.reproducirSonido(string, volume);
+	}
+
 }

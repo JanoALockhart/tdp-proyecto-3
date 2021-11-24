@@ -29,18 +29,9 @@ public class Fruta extends Punto {
 		miMapa.eliminarDeCeldasQueTocaba(this, getHitbox());//Se lo elimina
 		Partida.getInstance().elimnarEntidadGrafica(this.miObjetoGrafico);
 		
-		try {
-			Clip cli = AudioSystem.getClip();
-			cli.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/logica/entidades/Collectibles/Puntos/Fruta-Sound.wav")));
-			
-			FloatControl gainControl = 
-				    (FloatControl) cli.getControl(FloatControl.Type.MASTER_GAIN);
-				gainControl.setValue(-10.0f);
-			
-			cli.start();
-		} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
-			e.printStackTrace();
-		}
+		Partida.getInstance().reproducirSonido("../recursos/sonidos/Fruta-Sound.wav", -10.0f);
+		
+		
 	}
 
 	

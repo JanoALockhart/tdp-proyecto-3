@@ -47,6 +47,7 @@ public class FabricaOverworld implements FabricaElementos{
 		int prio = Integer.parseInt(Main.personajesConfig.getProperty("prioJugador"));
 		JugadorGrafico jugGraf = new JugadorGrafico(dirSkins, dirImg, cel.getX(), cel.getY(), cel.getAncho(), cel.getAlto(),prio);
 		Jugador.getInstance(jugGraf, vel, map); 
+		Jugador.getInstance().setEntidadGrafica(jugGraf);
 		return Jugador.getInstance();
 	}
 

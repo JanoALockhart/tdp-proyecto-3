@@ -3,7 +3,6 @@ package logica.partida;
 import java.util.LinkedList;
 
 import logica.entidades.Personaje.Perseguidores.Perseguidor;
-import logica.entidades.Personaje.Perseguidores.Estados_De_Perseguidores.TimerAsustado;
 import main.Main;
 
 public class ControladorPerseguidores {
@@ -59,11 +58,11 @@ public class ControladorPerseguidores {
 	public void iniciarTimer() {
 		int velEnemigos = Integer.parseInt(Main.personajesConfig.getProperty("velEnemigos"));
 		timerMov = new TimerMovimiento(this,velEnemigos);
-		Thread hilo = new Thread(timerMov);
-		hilo.start();
+		timerMov.start();
 	}
 	
 	public void detenerPerseguidores() {
+		System.out.println("se detiene");
 		timerMov.detener();
 	}
 }

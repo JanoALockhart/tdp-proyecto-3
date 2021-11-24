@@ -134,13 +134,13 @@ public abstract class Perseguidor extends Personaje<PerseguidorGrafico> implemen
 	 * 
 	 */
 	public void morir() {
-		Partida.getInstance().addPuntaje(Integer.parseInt(Main.personajesConfig.getProperty("puntajeAlMorir")));
-		
-		miTimerAsustado.seMurio();
-		state = new Muerto(this);
-		miObjetoGrafico.setMuerto(direccion);
+		if(state.puedeMorir()) {
+			Partida.getInstance().addPuntaje(Integer.parseInt(Main.personajesConfig.getProperty("puntajeAlMorir")));		
+			miTimerAsustado.seMurio();
+			state = new Muerto(this);
+			miObjetoGrafico.setMuerto(direccion);
+		}
 	}
-	
 	
 	public StatePerseguidor getState() {return state;}
 }

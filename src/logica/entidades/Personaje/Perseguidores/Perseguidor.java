@@ -23,10 +23,7 @@ public abstract class Perseguidor extends Personaje<PerseguidorGrafico> implemen
 		miObjetoGrafico = pg;
 	}
 	
-	public void chequearDireccion() {
-		
-	}
-	
+
 	public void accept(Visitor v) {
 		v.serAfectadoPor(this);
 	}

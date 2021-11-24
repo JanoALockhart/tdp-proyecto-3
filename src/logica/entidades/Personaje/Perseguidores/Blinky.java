@@ -18,15 +18,10 @@ public class Blinky extends Perseguidor {
 		//pixelObjetivo = state.calcularObj();
 	}
 	
-	@Override
-	public void chequearDireccion() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void accept(Visitor v) {
-		v.serAfectadoPor(this);//TODO Esto va o lo borramos???
+		v.serAfectadoPor(this);
 	}
 
 
